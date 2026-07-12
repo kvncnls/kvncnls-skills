@@ -18,6 +18,15 @@ These first two skills put that discipline back in the loop, on demand:
 
 More will follow, each targeting a craft that speed tends to leave behind.
 
+## One skill, one job
+
+Each skill is deliberately narrow. It addresses one defined design problem, follows one focused workflow, and has a clear boundary.
+
+Focal handles the structure of a screen. Compass handles the structure of a journey. Neither tries to become an all-purpose product design system.
+
+This keeps each skill simple to understand, invoke, test, and improve. It also makes the collection composable: use one skill when that is all the problem requires, or combine several without turning any individual skill into a sprawling set of instructions.
+
+
 ## Skills
 
 | Skill | What it does |
