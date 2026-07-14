@@ -1,6 +1,6 @@
 # kvncnls-skills
 
-A collection of [Claude Code](https://claude.com/claude-code) skills for product design, by Kevin Canlas. Each skill is a self-contained folder of Markdown—no build step, no dependencies.
+A collection of [Claude Code](https://claude.com/claude-code) skills for product design and ui/ux design, by Kevin Canlas. Each skill is a self-contained folder of Markdown—no build step, no dependencies. The intent behind each Skill is to complete one job instead of turning them into "everything Skills". This makes it clearer and simpler to use.
 
 ## Why these exist
 
