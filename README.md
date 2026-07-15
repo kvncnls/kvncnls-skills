@@ -34,7 +34,7 @@ This keeps each skill simple to understand, invoke, test, and improve. It also m
 | [**focal**](./focal) | One screen, one purpose. Declutters and structures app/dashboard screens through three disciplines—Information Architecture, Progressive Disclosure, and Visual Hierarchy. Build new screens or review existing ones. |
 | [**compass**](./compass) | Never lost. Guides multi-screen flows and navigation through three disciplines—Orientation, Path Economy, and Continuity. Build new flows or review existing ones. Pairs with Focal (single screens). |
 
-## Install a skill
+## Install (Claude Code)
 
 Clone the collection, then point Claude Code at the skill you want (here, `focal`):
 
@@ -52,6 +52,16 @@ cp -R kvncnls-skills/focal <project>/.claude/skills/  # one project only
 ```
 
 Restart Claude Code, then the skill's slash command (e.g. `/focal`) is available. Each skill's own `README.md` has its full usage.
+
+## Using these outside Claude Code
+
+The skills are plain Markdown, so they work in any AI coding agent, not only Claude Code. Each skill has a single-file **bundle** in [`bundles/`](./bundles)—the spine plus every reference in one document—for tools that can't load a multi-file skill folder.
+
+- **Codex (CLI)**—append a bundle to your project's `AGENTS.md`, which Codex loads automatically: `cat bundles/focal.md >> AGENTS.md`.
+- **ChatGPT**—create a Custom GPT and paste a bundle into *Instructions*, or upload it as a *Knowledge* file. A ChatGPT Project works the same way (add it to the project's files).
+- **Cursor / Windsurf / Cline**—drop a bundle in as a rules file, e.g. `cp bundles/focal.md .cursor/rules/focal.md`.
+
+The bundle is self-contained—no folder structure or slash command needed. On Claude Code, ignore the bundle and install the skill folder above for on-demand loading and `/focal`.
 
 ## License
 
