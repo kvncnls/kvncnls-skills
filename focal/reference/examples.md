@@ -42,6 +42,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 ## Next
 - **Structural** (do first): split the two composers onto their own task screens, convert the field block to read-only + inline autosave, re-triage the ten regions, cut the similar-contacts rail, cap and filter the timeline.
 - **Executional** (after): the section spacing scale, the muted header treatment, the single accent reserved for the one primary, and the destructive-action confirmation styling.
+- **Hand off**: None—every issue here is within this screen.
 ```
 
 ---
@@ -95,7 +96,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 - [x] Exactly one primary action
 - [x] Grouped + labeled; no orphans; no memory bridge
 - [x] ≤4 chunks at any decision point; nothing essential deferred
-- [x] Squint test passes
+- [x] One element is materially heaviest, and it is the primary
 - [x] All four states above designed
 ```
 

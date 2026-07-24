@@ -23,12 +23,13 @@ Then frame, in one or two sentences each:
 
 Read the gates through the register you classified in Step 0. The disciplines still apply; their targets move. Scoring a hub or feed by task-screen rules produces false failures.
 
-- **Task** (default): score exactly as the gates describe.
-- **Hub** (home, profile, settings index, app root, dashboard overview, admin index): the purpose is *routing*. Do **not** penalize many destinations under Gate 2—the ≤4 limit binds *per group and per row*, not on the total. Score IA on whether destinations are grouped and labeled, VH on whether the most-likely next step wins. A hub flattened to one action scores *worse*, not better.
-- **Exploration** (feeds, browse/discover, search results, grids, data tables, log viewers): abundance is the point. Do **not** penalize many items under Gate 2—the ≤4 limit binds *per item* (each row's or card's facts), not on the item count. Score VH on whether one content type dominates and chrome recedes; a single "primary action" is not expected.
+- **Task**: score exactly as the gates describe.
+- **Hub**: the purpose is *routing*. Do **not** penalize many destinations under Gate 2—the ≤4 limit binds *per group and per row*, not on the total. Score IA on whether destinations are grouped and labeled, VH on whether the most-likely next step wins. A hub flattened to one action scores *worse*, not better.
+- **Exploration**: abundance is the point. Do **not** penalize many items under Gate 2—the ≤4 limit binds *per item* (each row's or card's facts), not on the item count. Score VH on whether one content type dominates and chrome recedes; a single "primary action" is not expected.
+- **Task-overloaded**: score by task rules and flag the overload as the leading Gate 1 issue.
 - **Audience:** weigh expertise. The working-memory budget is ~4 *chunks*, and experts read dense displays as a few learned groups. Don't score a pro tool's dense panel as overload if its users chunk it; do score a novice or first-run screen strictly. Density is a function of who's reading it.
 
-The relocation still bites: a settings *row* or feed *card* that crams 8+ unfamiliar facts fails Gate 2 even though the screen's total item count is fine. And a screen you can't classify is usually a task screen overloaded into a hub—score it as a task screen and flag the overload under Gate 1.
+**A region can carry its own register.** A data table or log inside a task screen is an exploration *region*: score the screen by its own register, and apply the relocated per-row budget to that region rather than counting its rows against the screen's decision point. Say which region you scored separately. The relocation still bites either way—a settings *row* or feed *card* cramming 8+ unfamiliar facts fails Gate 2 even when the screen's total item count is fine.
 
 ## The three gates
 
@@ -112,7 +113,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 ```
 **Verdict:** <single purpose—yes or no> · <the one biggest problem, one phrase> · **<total>/12**
 
-**Screen:** <what it is> · register: <task | hub | exploration> · audience: <novice | mixed | expert>
+**Screen:** <what it is> · register: <task | hub | exploration | task-overloaded> · audience: <novice | mixed | expert>
 **Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
 
 ## Scorecard
@@ -135,6 +136,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 ## Next
 - **Structural** (do first): <what changes what the screen *is*—split or merge, regroup, relabel, re-triage>
 - **Executional** (after): <what changes how it *looks*—weight, color, type, spacing, motion>
+- **Hand off**: <anything that is not this screen's problem—cross-screen path issues go to Compass; "None" if all of it is Focal's>
 ```
 
 Filling it:

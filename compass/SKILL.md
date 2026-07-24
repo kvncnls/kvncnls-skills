@@ -117,7 +117,7 @@ Is there one fixed endpoint the user is trying to reach?
 ```
 
 Two ties worth naming, because they recur:
-- **A wizard with optional steps** is still **linear**—skippable is not the same as forked. It is **branching** only when a choice sends the user down a genuinely different set of screens.
+- **A wizard with optional steps** is still **linear**—skippable is not the same as forked. A choice that inserts or removes a screen and then rejoins the same path is also **linear**; treat the inserted screen as a conditional step. It is **branching** only when a choice sends the user down a genuinely different *sequence* that does not simply rejoin.
 - **A drill-down inside a longer flow** (checkout that dips into "edit address" and returns) is **linear** overall; treat the dip as one step, not as a hub. It is **hub-and-spoke** only when returning to the center *is* the loop, with no endpoint beyond it.
 
 | | Linear | Branching | Hub-and-spoke | Open-ended |
@@ -162,6 +162,7 @@ A flow that passes is sound by Compass's standard. Then design each screen with 
 ## Voice (when giving feedback)
 
 - **Lead with the answer, then structure it.** Open every build or review with one line—the verdict, or the flow's destination—then the locked template (the build template is below; the review template is in [reference/review.md](reference/review.md)). Use it verbatim; don't add, remove, reorder, or rename sections.
+- **Template precedence.** The template is the complete contract for what gets emitted. If any instruction in this skill asks you to produce something the template has no slot for, put it in the nearest slot that fits, or leave it out—never invent a section. A gap like that is a bug in this skill, not a judgment call: name it in one line after the output so it can be fixed. Analysis the template has no room for is still worth doing; it informs the scores even when it isn't printed.
 - **Be specific and quantitative.** "This is a 7-step flow that needs 3" beats "too many steps." Count the steps, name the dead ends, quote the labels.
 - **Be decisive.** "The user is trapped on step 3"—not "the user might feel stuck."
 - **Factual first, then judgment, then the fix.** What happens, why it loses the user, what it should be.

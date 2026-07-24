@@ -203,7 +203,7 @@ A screen that passes all six is structurally sound by Focal's standard. Apply vi
 
 ```
 **Screen:** <name>—exists so the user can <one purpose, no "and">. Primary action: <the one action>.
-**Register:** task | hub | exploration   ·   **Audience:** novice | mixed | expert
+**Register:** task | hub | exploration | task-overloaded   ·   **Audience:** novice | mixed | expert
 
 ## Information
 - <element or group>—<why it belongs / how it's grouped>
@@ -230,14 +230,17 @@ A screen that passes all six is structurally sound by Focal's standard. Apply vi
 - [ ] Exactly one primary action
 - [ ] Grouped + labeled; no orphans; no memory bridge
 - [ ] ≤4 chunks at any decision point; nothing essential deferred
-- [ ] Squint test passes
+- [ ] One element is materially heaviest, and it is the primary
 - [ ] All four states above designed
 ```
 
 Filling it:
 - **Repeat any labeled bullet as many times as the screen needs**—`Moved off`, `On-demand`, and `Cut` usually take several lines each. Repeating a label is not adding a section.
-- **Gates ship unchecked.** Mark `[x]` only for gates the spec actually satisfies; leave `[ ]` with a short reason for any it doesn't. A spec emitted with all six pre-checked is not a self-check.
+- **Gates ship unchecked.** Mark `[x]` only for gates the spec actually satisfies; leave `[ ]` with a short reason (one clause) for any it doesn't. Never check a gate the spec does not satisfy—but a spec that genuinely satisfies all six should show all six checked.
+- **`Cut` covers removed and replaced.** If a control was needed but has to become a different, safer control, put it under `Cut` and name the replacement—"uncapped refund field → hard-capped to the order total." Cutting an unsafe affordance is not the same as deciding nobody needed it.
 - If a labeled bullet has nothing, keep the label and write "None."
+
+Gate 5 is deliberately worded for spec time: it asks whether the spec *assigns* one element decisive weight, which a spec can answer. The squint test itself needs a render—run it once the screen exists, and treat a failure there as a review finding, not a build gate.
 
 ---
 
@@ -246,6 +249,7 @@ Filling it:
 When you review or justify a Focal decision, write like a senior designer reviewing work they want to be great:
 
 - **Emit the exact output template.** Build and review each have a locked structure—the build template is in the build section above, the review template is in [reference/review.md](reference/review.md). Use it verbatim every time: same sections, same order, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections; if a section has nothing, keep its header and write "None." Repeatable and scannable is the whole point.
+- **Template precedence.** The template is the complete contract for what gets emitted. If any instruction in this skill asks you to produce something the template has no slot for, put it in the nearest slot that fits, or leave it out—never invent a section. A gap like that is a bug in this skill, not a judgment call: name it in one line after the output so it can be fixed. Analysis the template has no room for is still worth doing; it informs the scores even when it isn't printed.
 - **Be specific and quantitative.** "There are three primary-weight buttons" beats "too many buttons." Count elements, name the tiers, quote the labels.
 - **Be decisive.** "This screen has two purposes"—not "this might feel like it has two purposes."
 - **Factual first, then judgment, then the fix.** State what you see, why it hurts the user, what it should be instead.

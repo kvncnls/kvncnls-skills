@@ -4,7 +4,7 @@ Evaluate a flow (or a set of screens) against the three disciplines and the over
 
 ## Input modes
 
-- **A described flow**—the user narrates the steps ("they sign up, pick a plan, then…"). Map it as a sequence, name the destination, and audit the path you reconstruct. State the steps back so the user can correct your mental model before you score it.
+- **A described flow**—the user narrates the steps ("they sign up, pick a plan, then…"). Map it as a sequence, name the destination, and audit the path you reconstruct. If the narration is ambiguous, restate the sequence and ask before scoring—that is a clarifying exchange, not part of the emitted review.
 - **A set of screens or screenshots**—read them in order, infer the transitions between them, and critique the joins. You're judging the *seams*, not each screen—a beautiful screen in the wrong order, or one that drops state on the way in, still fails. Per individual screen layout, defer to [Focal](../../focal).
 - **A clickable prototype / live URL**—if browser automation is available, walk the flow: click through, hit Back, refresh mid-flow, follow a deep link cold. Otherwise audit the described or captured steps. Always test the transitions, not just the destinations—the failures live between screens.
 
@@ -14,7 +14,7 @@ Before judging, *walk it*. Most people glance at one screen; a reviewer traces t
 
 Then frame, in one or two sentences each:
 - **What is this journey?** Product type, what the flow is for, where it starts and ends.
-- **Name the destination.** State it as *"This flow gets the user from ___ to ___."* One outcome. If it needs an "and," it's two flows wearing one coat—flag the split now; the gates will show why.
+- **Name the destination.** Settle it as *"This flow gets the user from ___ to ___."* One outcome; it lands in the review template as the **Flow** name plus the biggest-break phrase, and in a build as the Flow line's from-to. If it needs an "and," it's two flows wearing one coat—flag the split now; the gates will show why.
 - **What's the user's state?** Anxious, rushed, first-time, returning, interrupted, one-handed? A checkout under time pressure tolerates fewer steps than a leisurely setup. A flow resumed after a phone call must survive the interruption. Name it; the critique must respect it.
 - **What's the bar?** Every flow category has an invisible standard set by its best-in-class journey. A checkout is judged against the cleanest checkouts; an onboarding against the clearest onboardings; a multi-step setup against the cleanest wizard in the category. Ask: *what would the best-in-class flow do at this seam?*
 - **The flow type.** Classify it by walking the decision tree in **Registers** in [SKILL.md](../SKILL.md)—take the first match, and don't re-derive the categories here. This sets how the gates should be read; see *Adjust for flow type* below. If the tree lands on linear but an unmanaged fork is bolted on, score it linear and flag the rogue fork under Gate 1.
@@ -48,7 +48,7 @@ Run each gate in turn. Orientation leads—it's the load-bearing promise. Each p
 | Score | Criteria |
 |-------|----------|
 | 0 | No recovery exists—a true dead end, or a flow the user cannot leave from any screen |
-| 1 | A way out exists but is hidden, unlabeled, or destructive (browser Back only, a Back that wipes work, an unmarked Close); or progress is hidden and the drop test fails on a key screen |
+| 1 | A way out exists but is hidden or unlabeled (browser Back only, an unmarked Close); or progress is hidden and the drop test fails on a key screen. A Back that *wipes work* is Gate 3's, not this gate's |
 | 2 | Orientable, but one of where-am-I / how-far / how-to-get-back is weak or absent at a step |
 | 3 | Clear position, Back, and exit throughout; minor signposting gaps |
 | 4 | At every step the user knows where they are, what's left, and how to retreat or escape—the drop test passes everywhere |
@@ -96,7 +96,8 @@ Score each discipline 0–4 using its gate rubric above. Be honest—a 4 means g
 
 - **Bands** (the only band list in this skill; look the string up from here): **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** broken.
 - **The Total must equal the three scores summed**, and its band string must be one of the four above, verbatim.
-- **Score 0 vs 1.** Score **0** when the flow strands the user with no recovery at all—a true dead end, or a flow with no exit anywhere. Score **1** when a way out exists but is hidden, unlabeled, or destructive (browser Back only, a Back that wipes work, an unmarked Close). If more than one independent failure sits in a discipline, score the *worst* one, then list the others as separate issues.
+- **Score 0 vs 1 (Orientation only).** Score **0** when the flow strands the user with no recovery at all—a true dead end, or a flow with no exit anywhere. Score **1** when a way out exists but is hidden or unlabeled (browser Back only, an unmarked Close). Each gate's own rubric governs its 0 and 1; this clause does not carry across disciplines. A Back that *wipes work* is a Continuity failure, scored by Gate 3, not by this clause.
+- If more than one independent failure sits in a discipline, score the *worst* one, then list the others as separate issues.
 - **The verdict—Never Lost.** Yes or no: at every step, does the user know where they are, what's left, and how to get back or out? The total measures how close the flow gets; the verdict states whether it arrives. **A failed drop test or a dead end is blocking regardless of total.**
 - **A doubled destination** (the flow needs an "and") is a P0 Orientation issue: the user cannot know what they are finishing. Flag it as the split it implies.
 
@@ -141,6 +142,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 ## Next
 - **Structural** (do first): <what changes what the journey *is*—steps to cut or merge, a branch to manage, a dead end to close, state to carry, an entry point to re-route>
 - **Executional** (after): <what changes how a step *looks or reads*—indicator weight, Back label wording, transition motion>
+- **Hand off**: <anything that is not this flow's problem—single-screen layout or hierarchy goes to Focal; "None" if all of it is Compass's>
 ```
 
 Filling it:

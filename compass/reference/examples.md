@@ -41,6 +41,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 ## Next
 - **Structural** (do first): close the verification dead end, add an exit to every step, cut 5 of the 7 steps into in-product prompts, persist pending-signup state across Back and refresh, and re-point both email links at the step the user left.
 - **Executional** (after): the stepper's visual weight, the resend countdown's copy, the free-tier's equal visual treatment on the plan disclosure, and the transition between the two gated steps.
+- **Hand off**: the plan-disclosure screen's internal layout and the free-vs-paid visual ranking are single-screen problems—Focal's, once the path is cut.
 ```
 
 ---
