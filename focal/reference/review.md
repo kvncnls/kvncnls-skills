@@ -86,24 +86,15 @@ Because this discipline is load-bearing, treat a score of ≤1 caused by **buryi
 | 3 | Clear hierarchy, weight mostly matches importance |
 | 4 | Effortless ranking; the heaviest thing is the most important thing |
 
-## The scorecard
+## Scoring rules
 
-Present scores as a table. Be honest—a 4 means genuinely excellent, not "fine."
+Score each discipline 0–4 using its gate rubric above. Be honest—a 4 means genuinely excellent, not "fine."
 
-| Discipline | Score | Key finding |
-|------------|-------|-------------|
-| 1—Information Architecture | ?/4 | [specific finding] |
-| 2—Progressive Disclosure | ?/4 | [specific finding] |
-| 3—Visual Hierarchy | ?/4 | [specific finding] |
-| **Total** | **?/12** | **[band]** |
+- **Bands** (the only band list in this skill; look the string up from here): **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** doesn't work yet.
+- **The Total must equal the three scores summed**, and its band string must be one of the four above, verbatim.
+- **The verdict—One Screen, One Purpose.** Yes or no: does this screen serve a single primary purpose? The total measures how close it gets; the verdict states whether it arrives. A screen can score moderately and still fail the verdict if IA put two jobs on it.
 
-**Bands:** 11–12 ship it · 8–10 solid, fix the weak discipline · 5–7 significant rework before users are happy · 0–4 the screen does not work yet.
-
-**The verdict—One Screen, One Purpose.** This becomes the **Verdict** line at the very top of the output (see Output format): does this screen serve a single primary purpose, yes or no? The total measures how close it gets; the verdict states whether it arrives. A screen can score moderately and still fail the verdict if IA put two jobs on it.
-
-## Issues and severity
-
-List the issues found, ordered by severity, not by discipline. Tag each:
+## Issue severity
 
 | Priority | Meaning |
 |----------|---------|
@@ -112,19 +103,17 @@ List the issues found, ordered by severity, not by discipline. Tag each:
 | **P2** | Annoyance with a workaround—next pass |
 | **P3** | Polish—if time permits |
 
-Order issues by *type* of harm, most severe first: **structural** (IA—wrong job or mental model) → **behavioral** (PD—flow, disclosure, overload) → **visual** (VH—weight, spacing, type). A structural flaw outranks a visual one.
-
-For each issue:
-> **[P?] [Discipline] Name**—what you see (factual, specific, counted). Why it hurts *this* user in *this* state, and how it costs the screen its single purpose. The concrete fix.
+**Ordering (one rule):** sort by priority, P0 first. Within the same priority, break ties by type of harm—**structural** (IA: wrong job or mental model) outranks **behavioral** (PD: disclosure, overload) outranks **visual** (VH: weight, spacing, type). Never reorder across priorities; a P0 Hierarchy issue outranks a P1 IA issue.
 
 ## Output format—use this exact structure
 
-Every review returns this template verbatim, in this order. Same sections, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections. Fill the `<…>` slots; keep each fixed label.
+Every review returns this template verbatim, in this order. Don't add, remove, reorder, or rename sections. Fill the `<…>` slots; keep every fixed label. This block is the single source of truth for the emitted shape—the issue line, the table columns, and the section list exist only here.
 
 ```
 **Verdict:** <single purpose—yes or no> · <the one biggest problem, one phrase> · **<total>/12**
 
 **Screen:** <what it is> · register: <task | hub | exploration> · audience: <novice | mixed | expert>
+**Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
 
 ## Scorecard
 | Discipline | Score | Key finding |
@@ -137,21 +126,18 @@ Every review returns this template verbatim, in this order. Same sections, same 
 ## Issues (most severe first)
 - **[P0 · IA]** <Name>—<observation>. <impact>. **Fix:** <fix>.
 - **[P1 · Disclosure]** <Name>—<observation>. <impact>. **Fix:** <fix>.
-(if nothing above P3, write "None above P3." and keep this header)
 
 ## Top 3 moves
 1. <highest-leverage change>
 2. <next>
 3. <next>
+
+## Next
+- **Structural** (do first): <what changes what the screen *is*—split or merge, regroup, relabel, re-triage>
+- **Executional** (after): <what changes how it *looks*—weight, color, type, spacing, motion>
 ```
 
-Bands: **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** doesn't work yet. Tag issues with the abbreviations **IA / Disclosure / Hierarchy**.
-
-## Next steps
-
-Close by sorting the fixes into two buckets and ordering the work:
-
-- **Structural**—wrong job, screens to split or merge, content to regroup or relabel, disclosure to re-triage. These change what the screen *is*. Resolve them first with the five-move build workflow in [SKILL.md](../SKILL.md).
-- **Executional**—visual weight, color, type, spacing, motion, transitions. These change how the screen *looks*. Apply them in your own design system once the structure is sound.
-
-Always fix structural before executional: polishing a screen with the wrong purpose only organizes the clutter. Re-run the audit after fixes to watch the score climb.
+Filling it:
+- **Issues**—repeat the issue line once per issue, tagged **IA / Disclosure / Hierarchy**. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Next**—structural before executional, always: polishing a screen with the wrong purpose only organizes the clutter. Resolve structural items with the five-move build workflow in [SKILL.md](../SKILL.md). Single-screen work is Focal's; if the real problem is the path between screens, say so and hand off to Compass.
+- Re-run the audit after fixes to watch the score climb.

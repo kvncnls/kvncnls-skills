@@ -47,8 +47,8 @@ Run each gate in turn. Orientation leads—it's the load-bearing promise. Each p
 
 | Score | Criteria |
 |-------|----------|
-| 0 | User is lost or trapped—a dead end, a no-Back screen, or a flow with no exit |
-| 1 | Hidden progress, missing Back, or a modal with no escape; the drop test fails on a key screen |
+| 0 | No recovery exists—a true dead end, or a flow the user cannot leave from any screen |
+| 1 | A way out exists but is hidden, unlabeled, or destructive (browser Back only, a Back that wipes work, an unmarked Close); or progress is hidden and the drop test fails on a key screen |
 | 2 | Orientable, but one of where-am-I / how-far / how-to-get-back is weak or absent at a step |
 | 3 | Clear position, Back, and exit throughout; minor signposting gaps |
 | 4 | At every step the user knows where they are, what's left, and how to retreat or escape—the drop test passes everywhere |
@@ -67,8 +67,8 @@ Because this discipline is load-bearing, treat a **failed drop test** or a **dea
 
 | Score | Criteria |
 |-------|----------|
-| 0 | A maze—far more steps than the task needs, or branches that dead-end |
-| 1 | Bloated path; a setup wall before first value; or a "shortcut" that hides cost or skips protection |
+| 0 | The path cannot be completed as designed—branches that dead-end, or a required step the user cannot satisfy |
+| 1 | Completable but badly bloated (roughly double the honest step count), a setup wall before first value, or a "shortcut" that hides cost or skips protection |
 | 2 | Some waste—one or two redundant steps, or a round-trip that should be one screen |
 | 3 | Lean path; a default or two could still be inferred |
 | 4 | The fewest honest steps; every screen earns its place; nothing protective was cut |
@@ -90,24 +90,17 @@ Because this discipline is load-bearing, treat a **failed drop test** or a **dea
 | 3 | Context and state carry well; one rough seam or jarring jump |
 | 4 | Nothing the user gave or knew is lost across any seam; every entry point lands in context; the journey feels like one continuous task |
 
-## The scorecard
+## Scoring rules
 
-Present scores as a table. Be honest—a 4 means genuinely seamless, not "fine."
+Score each discipline 0–4 using its gate rubric above. Be honest—a 4 means genuinely seamless, not "fine."
 
-| Discipline | Score | Key finding |
-|------------|-------|-------------|
-| Orientation | ?/4 | [specific finding] |
-| Path Economy | ?/4 | [specific finding] |
-| Continuity | ?/4 | [specific finding] |
-| **Total** | **?/12** | **[band]** |
+- **Bands** (the only band list in this skill; look the string up from here): **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** broken.
+- **The Total must equal the three scores summed**, and its band string must be one of the four above, verbatim.
+- **Score 0 vs 1.** Score **0** when the flow strands the user with no recovery at all—a true dead end, or a flow with no exit anywhere. Score **1** when a way out exists but is hidden, unlabeled, or destructive (browser Back only, a Back that wipes work, an unmarked Close). If more than one independent failure sits in a discipline, score the *worst* one, then list the others as separate issues.
+- **The verdict—Never Lost.** Yes or no: at every step, does the user know where they are, what's left, and how to get back or out? The total measures how close the flow gets; the verdict states whether it arrives. **A failed drop test or a dead end is blocking regardless of total.**
+- **A doubled destination** (the flow needs an "and") is a P0 Orientation issue: the user cannot know what they are finishing. Flag it as the split it implies.
 
-**Bands:** 11–12 ship it · 8–10 solid, fix the weak discipline · 5–7 significant rework · 0–4 broken.
-
-**The verdict—Never Lost.** This becomes the **Verdict** line at the very top of the output (see Output format): at every step, does the user know where they are, what's left, and how to get back or out—yes or no? The total measures how close the flow gets; the verdict states whether it arrives. **A failed drop test or a dead end is blocking regardless of total**—a flow can score moderately and still fail the verdict if it strands the user at one step.
-
-## Issues and severity
-
-List the issues found, ordered by severity, not by discipline. Tag each:
+## Issue severity
 
 | Priority | Meaning |
 |----------|---------|
@@ -116,19 +109,17 @@ List the issues found, ordered by severity, not by discipline. Tag each:
 | **P2** | Annoyance with a workaround—next pass |
 | **P3** | Polish—if time permits |
 
-Order issues by *type* of harm, most severe first: **Orientation** (the user is lost or trapped) → **Path Economy** (the path is longer or less honest than it should be) → **Continuity** (a seam drops context or state). A user who is lost outranks a path that is merely long.
-
-For each issue:
-> **[P? · Discipline] Name**—what happens (factual, specific, counted; quote the labels). Why it loses *this* user in *this* state, and how it costs the flow its promise. The concrete fix.
+**Ordering (one rule):** sort by priority, P0 first. Within the same priority, break ties by type of harm—**Orientation** (the user is lost or trapped) outranks **Path Economy** (the path is longer or less honest than it should be) outranks **Continuity** (a seam drops context or state). Never reorder across priorities; a P0 Continuity issue outranks a P1 Orientation issue.
 
 ## Output format—use this exact structure
 
-Every review returns this template verbatim, in this order. Same sections, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections. Fill the `<…>` slots; keep each fixed label.
+Every review returns this template verbatim, in this order. Don't add, remove, reorder, or rename sections. Fill the `<…>` slots; keep every fixed label. This block is the single source of truth for the emitted shape—the issue line, the table columns, and the section list exist only here.
 
 ```
-**Verdict:** <never lost—yes or no> · <the single biggest break, one phrase> · **<total>/12**
+**Verdict:** <No | Yes> · <the single biggest break, one phrase> · **<total>/12**
 
 **Flow:** <name> · type: <linear | branching | hub-and-spoke | open-ended> · audience: <novice | mixed | expert>
+**Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
 
 ## Scorecard
 | Discipline | Score | Key finding |
@@ -141,21 +132,19 @@ Every review returns this template verbatim, in this order. Same sections, same 
 ## Issues (most severe first)
 - **[P0 · Orientation]** <Name>—<observation>. <impact>. **Fix:** <fix>.
 - **[P1 · Path Economy]** <Name>—<observation>. <impact>. **Fix:** <fix>.
-(if nothing above P3, write "None above P3." and keep this header)
 
 ## Top 3 moves
 1. <highest-leverage change>
 2. <next>
 3. <next>
+
+## Next
+- **Structural** (do first): <what changes what the journey *is*—steps to cut or merge, a branch to manage, a dead end to close, state to carry, an entry point to re-route>
+- **Executional** (after): <what changes how a step *looks or reads*—indicator weight, Back label wording, transition motion>
 ```
 
-Bands: **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** broken. **A failed drop test or a dead end is blocking regardless of total.** Tag issues with the discipline names **Orientation / Path Economy / Continuity**.
-
-## Next steps
-
-Close by sorting the fixes into two buckets and ordering the work:
-
-- **Structural**—the destination is unclear or doubled, steps to cut or merge, a branch to manage, a dead end to close, state to carry across a seam, an entry point to re-route. These change what the *journey is*. Resolve them first with the four-move build workflow in [SKILL.md](../SKILL.md), and pull techniques from [patterns.md](patterns.md).
-- **Executional**—the visual weight of a progress indicator, the wording of a Back label, the motion of a transition, the styling of a screen. These change how a step *looks or reads*. Apply them in your own design system once the path is sound.
-
-Always fix structural before executional: signposting a maze only labels the dead ends. **Single-screen problems are out of scope—route them to [Focal](../../focal).** If an individual screen in the flow is overloaded, mis-ranked, or has no clear primary action, that's a within-screen failure for Focal, not a seam for Compass; note it and hand it off. Re-run the audit after fixes to watch the score climb.
+Filling it:
+- **Issues**—repeat the issue line once per issue, tagged **Orientation / Path Economy / Continuity**. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Next**—structural before executional, always: signposting a maze only labels the dead ends. Resolve structural items with the four-move build workflow in [SKILL.md](../SKILL.md) and the techniques in [patterns.md](patterns.md).
+- **Single-screen problems are out of scope—route them to [Focal](../../focal).** If an individual screen is overloaded, mis-ranked, or has no clear primary action, that is a within-screen failure for Focal, not a seam for Compass; name it in **Next** and hand it off.
+- Re-run the audit after fixes to watch the score climb.

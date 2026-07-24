@@ -1,7 +1,7 @@
 ---
 name: focal
-description: Use when reviewing, designing, or decluttering the UX of any functional product, app, dashboard, or tool screen—any platform, any user (novice or expert). Focal is the structure-and-attention lens—it decides what belongs on a screen, what to cut, and how to rank it, across three disciplines—Information Architecture (what's on the screen, how it's organized), Progressive Disclosure (limit what competes at a decision point; reveal complexity only when needed), and Visual Hierarchy (weight matches importance)—culminating in one methodology, One Screen, One (Primary) Purpose. Adapts to the screen's register (task, hub, exploration) and the user's expertise. Triggers on cluttered, overwhelming, "too much on screen", "simplify this screen", "what's the primary action", one screen one purpose, IA, dashboard, admin, onboarding, settings. Not for visual styling (color, type, spacing), motion, design research, code generation, marketing/landing pages, backend, or non-UI work.
-argument-hint: "[build | review] <screen, flow, file, or description>"
+description: Use when reviewing, designing, or decluttering the UX of any functional product, app, dashboard, or tool screen—any platform, any user (novice or expert). Focal is the structure-and-attention lens—it decides what belongs on a screen, what to cut, and how to rank it, across three disciplines—Information Architecture (what belongs, how it's grouped), Progressive Disclosure (limit what competes at a decision point; reveal complexity only when needed), and Visual Hierarchy (weight matches importance)—culminating in one methodology, One Screen, One (Primary) Purpose. Adapts to the screen's register (task, hub, exploration) and the user's expertise. Triggers on cluttered, overwhelming, "too much on screen", "simplify this screen", "what's the primary action", one screen one purpose, IA, dashboard, admin, onboarding, settings. Not for multi-screen flows or navigation (use Compass), visual styling (color, type, spacing), motion, research, code, marketing/landing pages, backend, or non-UI work.
+argument-hint: "[build | review] <screen, file, or description>"
 ---
 
 # Focal
@@ -144,18 +144,27 @@ This order holds for every register; only the *targets* shift—in a hub, step 4
 
 ---
 
-## Flows (screen-local)
+## Flows—hand off to Compass
 
-Focal is screen-local on purpose—but navigation and step-count are clutter surfaces too: a five-step flow that should be two, a sidebar of fourteen destinations, a "back" that drops you somewhere unexpected. Audit a flow as a **sequence of single-purpose screens**—apply the methodology to each screen, and to the seams between them: no memory bridge, no redundant steps, one job per step, an obvious path back. That's the boundary. Focal sharpens each screen and the joins between them; it is **not** a whole-app IA or sitemap tool. If the question is "how should the entire product be organized," that is a larger exercise—return to Focal screen by screen once that map exists.
+Focal is screen-local on purpose. A flow is a *sequence* of single-purpose screens, so apply Focal to each screen in one—but the path *between* them belongs to **Compass**, the sibling skill for cross-screen flows. Focal is *within* a screen; Compass is *between* them.
+
+Route it:
+- **Focal's**—a screen that does too much, buries what matters, has no clear primary action, or ranks the wrong thing loudest.
+- **Compass's**—too many steps, a dead end, a trapped modal, a Back that wipes work, a deep link that dumps the user at step one, or a user who can't tell where they are in the journey.
+
+Neither is a whole-app IA or sitemap tool. If the question is "how should the entire product be organized," that is a larger exercise—return to Focal screen by screen, and Compass flow by flow, once that map exists.
 
 ---
 
 ## Routing
 
 - **No argument** → explain the methodology and three disciplines briefly, then ask: building a new screen, or reviewing an existing one?
-- **`build` (or a description of a screen/flow to design)** → follow **The five moves** below. Pull techniques from [reference/patterns.md](reference/patterns.md).
+- **`build` (or a description of a screen to design)** → follow **The five moves** below. Pull techniques from [reference/patterns.md](reference/patterns.md).
+- **A multi-screen flow, journey, or navigation question** → that is Compass's, not Focal's. Say so and hand off (see **Flows**, above).
 - **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow [reference/review.md](reference/review.md). It runs the three-discipline audit and produces a scorecard.
 - **A question about a specific technique or anti-pattern** → consult [reference/patterns.md](reference/patterns.md).
+
+Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
 
 ---
 
@@ -167,13 +176,7 @@ For each screen, in order. Write the answers down—they are the spec.
 2. **Architect the information.** List what belongs on the screen. Group related items; label them in the user's words; co-locate each decision with its inputs. Anything serving a different intent moves to another screen.
 3. **Triage disclosure.** Sort every element into Now / On-demand / Never. Cut the Nevers. Defer the On-demands behind a reveal. Keep the Nows.
 4. **Rank what stays.** Assign each surviving element a tier: primary (one), secondary (2–3), ambient (the rest). Spend visual weight accordingly, climbing the hierarchy ladder only as far as needed.
-5. **Run the gates.** Before you ship the screen, self-check:
-   - [ ] One-sentence purpose, no "and"?
-   - [ ] Exactly one primary action?
-   - [ ] Content grouped and labeled in the user's words; nothing orphaned; no memory bridge?
-   - [ ] ≤4 things to hold at any decision point, and nothing the user needs *now* is hidden behind a reveal?
-   - [ ] Passes the squint test (clear #1, #2, grouping)?
-   - [ ] Empty / loading / error / full (worst-case) states designed, not afterthoughts?
+5. **Run the gates.** Self-check against the six gates in the **`## Gates`** block of the Screen Spec template below. That block is the single canonical list—read them there, and emit them there. Never restate them in your own words.
 
 A screen that passes all six is structurally sound by Focal's standard. Apply visual styling and motion on top of that foundation—it lands far better on a screen that already earns its hierarchy.
 
@@ -193,20 +196,29 @@ A screen that passes all six is structurally sound by Focal's standard. Apply vi
 - Cut: <removed; nobody needed it>
 
 ## Hierarchy
-- Primary: <the one>
+- Primary: <the one element that is the visual entry point—usually the primary action, but on a read-first screen it can be the content>
 - Secondary: <2–3>
 - Ambient: <the muted rest>
 
+## States
+- Empty: <what the screen says and offers with no data>
+- Loading: <skeleton or optimistic; never a blank>
+- Error: <plain-language message, at the source, work preserved>
+- Full (worst case): <how it holds at max realistic data—longest label, most rows>
+
 ## Gates
-- [x] One-sentence purpose, no "and"
-- [x] Exactly one primary action
-- [x] Grouped + labeled; no orphans; no memory bridge
-- [x] ≤4 chunks at any decision point; nothing essential deferred
-- [x] Squint test passes
-- [x] Empty / loading / error / full (worst-case) states designed
+- [ ] One-sentence purpose, no "and"
+- [ ] Exactly one primary action
+- [ ] Grouped + labeled; no orphans; no memory bridge
+- [ ] ≤4 chunks at any decision point; nothing essential deferred
+- [ ] Squint test passes
+- [ ] All four states above designed
 ```
 
-Mark each gate `[x]` if it passes, or `[ ]` with a short note if it doesn't.
+Filling it:
+- **Repeat any labeled bullet as many times as the screen needs**—`Moved off`, `On-demand`, and `Cut` usually take several lines each. Repeating a label is not adding a section.
+- **Gates ship unchecked.** Mark `[x]` only for gates the spec actually satisfies; leave `[ ]` with a short reason for any it doesn't. A spec emitted with all six pre-checked is not a self-check.
+- If a labeled bullet has nothing, keep the label and write "None."
 
 ---
 
@@ -214,7 +226,7 @@ Mark each gate `[x]` if it passes, or `[ ]` with a short note if it doesn't.
 
 When you review or justify a Focal decision, write like a senior designer reviewing work they want to be great:
 
-- **Emit the exact output template.** Build and review each have a locked structure—the build template is in the build section below, the review template is in [reference/review.md](reference/review.md). Use it verbatim every time: same sections, same order, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections; if a section has nothing, keep its header and write "None." Repeatable and scannable is the whole point.
+- **Emit the exact output template.** Build and review each have a locked structure—the build template is in the build section above, the review template is in [reference/review.md](reference/review.md). Use it verbatim every time: same sections, same order, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections; if a section has nothing, keep its header and write "None." Repeatable and scannable is the whole point.
 - **Be specific and quantitative.** "There are three primary-weight buttons" beats "too many buttons." Count elements, name the tiers, quote the labels.
 - **Be decisive.** "This screen has two purposes"—not "this might feel like it has two purposes."
 - **Factual first, then judgment, then the fix.** State what you see, why it hurts the user, what it should be instead.

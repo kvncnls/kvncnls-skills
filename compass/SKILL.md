@@ -123,6 +123,8 @@ The disciplines assume a **linear** flow by default. Three other shapes are legi
 - **`review` / `audit` (a flow, a set of screens, a prototype, or a description)** → load and follow [reference/review.md](reference/review.md). It runs the three-discipline audit and produces a scorecard.
 - **A question about a specific technique or anti-pattern** → consult [reference/patterns.md](reference/patterns.md).
 
+Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
+
 ---
 
 ## Build: the four moves
@@ -134,12 +136,7 @@ For each flow, in order. Write the answers down—they are the spec.
 3. **Signpost every step.** For each screen: position/progress, a real Back, and an escape hatch. No dead ends.
 4. **Join the seams.** For each transition: what context carries forward, what state must survive Back/refresh, and where entry points (deep links) land.
 
-Then run the gates:
-- [ ] One destination, no "and"?
-- [ ] Every step earns its place (no waste), and nothing protective was cut?
-- [ ] Every screen shows where-you-are and offers back + exit?
-- [ ] No memory bridge; state survives Back and resume; deep links land in context?
-- [ ] Drop test passes on every screen?
+Then run the gates: self-check against the five gates in the **`## Gates`** block of the Flow Spec template below. That block is the single canonical list—read them there, and emit them there. Never restate them in your own words.
 
 A flow that passes is sound by Compass's standard. Then design each screen with [Focal](../focal), and apply visual styling and motion on top.
 
@@ -159,14 +156,20 @@ A flow that passes is sound by Compass's standard. Then design each screen with 
 
 Every build returns this template verbatim, in this order. Fill the `<…>` slots; keep every fixed label.
 
+Filling it: number **only the steps the user passes through**, including the one where the destination is reached—so "7 steps down to 3" counts the same way both times. Repeat any labeled bullet as many times as the flow needs; repeating a label is not adding a section. **Gates ship unchecked**—mark `[x]` only for gates the spec actually satisfies, and leave `[ ]` with a short reason for any it doesn't. If a labeled bullet has nothing, keep the label and write "None."
+
 ```
 **Flow:** <name>—gets the user from <entry> to <destination>.
 **Type:** linear | branching | hub-and-spoke | open-ended   ·   **Audience:** novice | mixed | expert
 
 ## Steps
-1. <screen>—<its job> [+ default/skip that removes a step, if any]
+1. <screen>—<its job> [skip: <the default that removes this step, if any>]
 2. <screen>—<its job>
-(fewest honest steps; note any you merged or cut)
+
+## Cut
+- Merged: <the steps you collapsed> → <the one step they became>
+- Removed: <steps cut as waste>—<why they were not protection>
+- Kept as protection: <any step that looks like waste but stays, and why>
 
 ## Orientation
 - Position/progress: <how each step shows where-you-are and how far is left>
@@ -178,11 +181,11 @@ Every build returns this template verbatim, in this order. Fill the `<…>` slot
 - Entry points: <where deep links / notifications land>
 
 ## Gates
-- [x] One destination, no "and"
-- [x] Every step earns its place; nothing protective cut
-- [x] Where-am-I + back + exit on every step
-- [x] No memory bridge; state survives; deep links land in context
-- [x] Drop test passes on every screen
+- [ ] One destination, no "and"
+- [ ] Every step earns its place; nothing protective cut
+- [ ] Where-am-I + back + exit on every step
+- [ ] No memory bridge; state survives; deep links land in context
+- [ ] Drop test passes on every screen
 ```
 
 ---
