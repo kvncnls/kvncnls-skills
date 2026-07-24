@@ -17,7 +17,7 @@ Then frame, in one or two sentences each:
 - **Name the destination.** State it as *"This flow gets the user from ___ to ___."* One outcome. If it needs an "and," it's two flows wearing one coat—flag the split now; the gates will show why.
 - **What's the user's state?** Anxious, rushed, first-time, returning, interrupted, one-handed? A checkout under time pressure tolerates fewer steps than a leisurely setup. A flow resumed after a phone call must survive the interruption. Name it; the critique must respect it.
 - **What's the bar?** Every flow category has an invisible standard set by its best-in-class journey. A checkout is judged against the cleanest checkouts; an onboarding against the clearest onboardings; a multi-step setup against the cleanest wizard in the category. Ask: *what would the best-in-class flow do at this seam?*
-- **The flow type.** Classify it: **linear** (one path, start to end), **branching** (path forks on a user choice), **hub-and-spoke** (a center the user leaves and returns to), or **open-ended** (wander a space, no fixed end). This sets how the gates should be read—see *Adjust for flow type* below. If you can't tell, it's usually a linear flow with an unmanaged branch bolted on—score it linear and flag the rogue fork under Gate 1.
+- **The flow type.** Classify it by walking the decision tree in **Registers** in [SKILL.md](../SKILL.md)—take the first match, and don't re-derive the categories here. This sets how the gates should be read; see *Adjust for flow type* below. If the tree lands on linear but an unmanaged fork is bolted on, score it linear and flag the rogue fork under Gate 1.
 
 ## Adjust for flow type
 

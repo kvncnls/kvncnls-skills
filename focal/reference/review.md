@@ -16,7 +16,7 @@ Then frame, in one or two sentences each:
 - **What is this?** App type, screen purpose, target user.
 - **What's the user's state?** Anxious, rushed, casual, distracted, one-handed? A checkout under time pressure demands different care than a Sunday-morning feed scroll. Name it; the critique must respect it.
 - **What's the bar?** Every product category has an invisible standard set by its best-in-class tool. A notes screen is judged against Apple Notes and Bear; a dashboard against Linear, Stripe, and Vercel; a checkout against Stripe and Shop Pay. Ask: *what would the best-in-class product in this category do here?*
-- **The register.** Classify it: **task** (completing one job), **hub** (choosing where to go), or **exploration** (browsing for its own sake). This sets how the gates should be read—see *Adjust for register* below. If you can't tell, it's likely a task screen overloaded into a hub.
+- **The register.** Classify it by walking the decision tree in **Registers** in [SKILL.md](../SKILL.md)—take the first match, and don't re-derive the categories here. This sets how the gates should be read; see *Adjust for register* below.
 - **The methodology lens.** State the screen's *apparent* single purpose in one sentence (for a hub, that purpose is *routing*; for exploration, *browsing a kind of content*), and name what *appears* to be the primary action. On a task screen, if the sentence needs an "and," or you can't find one primary action, the screen has already failed its overarching purpose, and the gates below will show why.
 
 ## Adjust for register

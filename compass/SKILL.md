@@ -103,6 +103,23 @@ You can't signpost or join a path you haven't mapped, and you can't map a path w
 
 The disciplines assume a **linear** flow by default. Three other shapes are legitimate, and the rules bend for them.
 
+**Classify with this tree.** Walk it top to bottom and take the first match. Answer about the journey the user is actually on, not about how the screens are built.
+
+```
+Is there one fixed endpoint the user is trying to reach?
+├── No → OPEN-ENDED
+└── Yes
+    ├── Does the user leave a center and come back to it, repeatedly?
+    │   └── Yes → HUB-AND-SPOKE
+    └── Does the path fork on a choice the user makes?
+        ├── Yes → BRANCHING
+        └── No → LINEAR
+```
+
+Two ties worth naming, because they recur:
+- **A wizard with optional steps** is still **linear**—skippable is not the same as forked. It is **branching** only when a choice sends the user down a genuinely different set of screens.
+- **A drill-down inside a longer flow** (checkout that dips into "edit address" and returns) is **linear** overall; treat the dip as one step, not as a hub. It is **hub-and-spoke** only when returning to the center *is* the loop, with no endpoint beyond it.
+
 | | Linear | Branching | Hub-and-spoke | Open-ended |
 |---|---|---|---|---|
 | **Shape** | one path, start to end | path forks on user choice | center → detail → back to center | wander a space, no fixed end |

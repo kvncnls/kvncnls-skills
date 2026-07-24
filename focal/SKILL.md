@@ -110,6 +110,25 @@ Once the right things are on the screen and the rest deferred, rank what remains
 
 The disciplines above assume the **task screen**: the default, and the most common. Two other screen types are legitimate, and applying task rules to them is a mistake—it flattens screens that are *supposed* to hold many things. Identify the register first; it changes what "one purpose" means and how the disciplines bind.
 
+**Classify with this tree.** Walk it top to bottom and take the first match. Answer about what the user came to *do*, not about how the screen currently looks—a cluttered screen is not automatically a hub.
+
+```
+Did the user come here to complete one specific job?
+├── Yes → TASK
+└── No
+    ├── Is this screen's own job to send them somewhere else?
+    │   └── Yes → HUB
+    └── Did they come to browse content, with no particular endpoint?
+        ├── Yes → EXPLORATION
+        └── Neither is clearly true
+            └── TASK, overloaded into a hub. Score it as a task screen
+                and flag the overload under Information Architecture.
+```
+
+Two ties worth naming, because they recur:
+- **A record or detail screen** (a contact, an issue, an order) is a **hub** when its job is to show state and route you onward, and a **task** screen when it exists to be edited. If it tries to be both at once, that is the overloaded case—the tree's last branch.
+- **Search results** are **exploration** when the user is scanning to discover, and a **task** screen when they are finding one known item to act on.
+
 - **Task**—the user is completing a single job. *Default; everything above applies as written.* One purpose, one primary action, ≤4 at a decision point. (Checkout, compose, a signup step, a settings detail, any form.)
 - **Hub**—the user is choosing where to go. The single purpose *is routing*; many destinations is correct, not clutter. (Home screen, profile, settings index, account screen, app root.)
 - **Exploration**—the user is browsing for its own sake. Abundance is the point; the goal is dwell and discovery, not a fast exit. (Feeds, discover/browse tabs, search results, a photo or product grid.)
