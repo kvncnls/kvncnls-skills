@@ -87,9 +87,10 @@ Reveal complexity only when the user needs it. Working memory is the hard constr
   - *On-demand*—needed by some users sometimes. Defer it behind a reveal (see [reference/patterns.md](reference/patterns.md)).
   - *Never*—nobody needed it; you assumed they would. Cut it.
 - **Defer the rare, surface the common.** Smart defaults plus an "Advanced" reveal beats a wall of equal options. Ten settings shown at once is a wall; three with "More options" is a path.
+- **No disclosure without a signifier.** Every deferred thing needs a perceptible cue that it exists—a chevron, a labeled "More options," a tab, a count. Deferral hides *complexity*; it must never hide *existence*. Name the cue when you defer, not just the fact of deferring: "advanced filters, behind an 'Advanced' toggle," not "advanced filters, deferred." Content behind a cue nobody perceives is content you cut—and you cut it without deciding to, which is the one form of cutting this skill does not allow. **A cue qualifies only if it is present in the screen's default state, without hover or gesture.** A function reachable only by swipe or long-press is the named worst case: if the only way to discover it is to be told about it, it is hidden, not deferred.
 - **The disclosure trap (read this).** Progressive disclosure is *deferral, not burial*. Hiding the primary action, the price, a required field, or a consequence behind a tap is a dark pattern, not disclosure. Never defer what the user needs *now* to act or to trust the screen. Disclosure reduces *choice overload*, never *honesty*.
 
-> **Fails:** the wall of options; an onboarding form that asks everything up front; settings exposed before they're relevant; the primary action or price buried behind a reveal.
+> **Fails:** the wall of options; an onboarding form that asks everything up front; settings exposed before they're relevant; the primary action or price buried behind a reveal; a reveal with no cue that anything is behind it.
 
 ### 3. Visual Hierarchy—what wins attention
 
@@ -99,10 +100,12 @@ Once the right things are on the screen and the rest deferred, rank what remains
 - **The 3-second test.** A first-time user should be able to name the most important thing on screen within ~3 seconds.
 - **Weight must match importance.** The most common hierarchy bug: decoration (a hero image, an illustration, a giant logo) outweighs the primary action. Visual weight is a budget—spend it on what the user came to do.
 - **The focusing mechanism.** One element must be the visual entry point that says *start here*. If the eye bounces between equally-weighted regions, the single purpose isn't being expressed.
+- **Weight ranks; it does not permit.** Hierarchy answers *what should I do*; it does not answer *what can I do*. A heading can be the heaviest thing on screen and still be inert. So where the primary is an action, it has to carry a signifier that reads as actionable inside the same ~3 seconds: a traced boundary (fill, border, or elevation), a platform-native control convention (an iOS bar button), or an icon plus label inside a tap target. Bare text at any weight, with no convention behind it, ranks without permitting—say which of these the primary is using. A screen can pass the squint test and still leave the user unsure they are allowed to touch anything.
+- **No false signifiers.** A shadowed card that doesn't open, underlined text that isn't a link, a chevron that leads nowhere—these spend attention the screen budgeted for real actions, because the eye reads them exactly like real controls. They also cost trust the first time someone taps one and nothing happens. Count them as clutter, not decoration.
 - **The hierarchy ladder.** Use the *fewest* dimensions that achieve clear ranking, in this order: **space → weight → size → color.** Reach for color last; it is the loudest and easiest to overuse.
 - **The shape of a good screen:** one primary element, two to three secondary, everything else ambient. When every element is loud, none is.
 
-> **Fails:** hierarchy carried by color alone; the "visual noise floor" where everything has equal weight; decoration outweighing function; six type sizes that read as one.
+> **Fails:** hierarchy carried by color alone; the "visual noise floor" where everything has equal weight; decoration outweighing function; six type sizes that read as one; a primary action that ranks first but doesn't read as actionable; inert elements dressed as controls.
 
 ---
 
@@ -215,7 +218,7 @@ A screen that passes all six is structurally sound by Focal's standard. Apply vi
 - Cut: <removed; nobody needed it>
 
 ## Hierarchy
-- Primary: <the one element that is the visual entry point—usually the primary action, but on a read-first screen it can be the content>
+- Primary: <the one element that is the visual entry point—usually the primary action, but on a read-first screen it can be the content; when it is an action, name what makes it read as actionable>
 - Secondary: <2–3>
 - Ambient: <the muted rest>
 
@@ -230,17 +233,18 @@ A screen that passes all six is structurally sound by Focal's standard. Apply vi
 - [ ] Exactly one primary action
 - [ ] Grouped + labeled; no orphans; no memory bridge
 - [ ] ≤4 chunks at any decision point; nothing essential deferred
-- [ ] One element is materially heaviest, and it is the primary
+- [ ] One element is materially heaviest and it is the primary; where the primary is an action, the spec names what makes it read as actionable
 - [ ] All four states above designed
 ```
 
 Filling it:
 - **Repeat any labeled bullet as many times as the screen needs**—`Moved off`, `On-demand`, and `Cut` usually take several lines each. Repeating a label is not adding a section.
+- **`<reveal>` means the perceptible cue, not the mechanism.** "Behind an 'Advanced' toggle" and "behind a chevron on the row" are answers; "behind a modal" and "deferred" are not, because neither tells the reader what the user would see that says anything is there.
 - **Gates ship unchecked.** Mark `[x]` only for gates the spec actually satisfies; leave `[ ]` with a short reason (one clause) for any it doesn't. Never check a gate the spec does not satisfy—but a spec that genuinely satisfies all six should show all six checked.
 - **`Cut` covers removed and replaced.** If a control was needed but has to become a different, safer control, put it under `Cut` and name the replacement—"uncapped refund field → hard-capped to the order total." Cutting an unsafe affordance is not the same as deciding nobody needed it.
 - If a labeled bullet has nothing, keep the label and write "None."
 
-Gate 5 is deliberately worded for spec time: it asks whether the spec *assigns* one element decisive weight, which a spec can answer. The squint test itself needs a render—run it once the screen exists, and treat a failure there as a review finding, not a build gate.
+Gate 5 is deliberately worded for spec time: it asks whether the spec *assigns* one element decisive weight and *names* what makes the primary read as actionable—both of which a spec can answer. The squint test itself needs a render—run it once the screen exists, and treat a failure there as a review finding, not a build gate.
 
 ---
 
@@ -268,9 +272,11 @@ Match-and-refuse. If you're about to do one of these, you've broken a discipline
 - **The wall of options.** (PD) Defaults plus a reveal, never N equal choices at once.
 - **Burying what the user needs now.** (PD) Price, required fields, consequences, and the primary action are never hidden behind disclosure.
 - **Two primary actions on a task screen.** (Methodology / VH) Demote one—unless it's a genuine binary-choice or dual-mode screen, or a hub/exploration surface (see Registers).
+- **A reveal with no cue.** (PD) If nothing on screen says something is there, it isn't deferred—it's cut by accident. Gesture-only functions are the worst case.
+- **False signifiers.** (VH) Inert things dressed as controls. A shadowed card that doesn't open, underlined text that isn't a link. They spend the attention budget and cost trust on the first tap.
 - **Hierarchy by color alone.** (VH) Climb the ladder: space and weight first.
 - **Decoration outweighing the primary action.** (VH) The hero image must not beat the button.
-- **Modal as first thought.** A modal interrupts the screen's one purpose. Exhaust inline and progressive alternatives first.
+- **Modal as first thought.** (VH) A modal interrupts the screen's one purpose. Exhaust inline and progressive alternatives first.
 
 ---
 

@@ -59,13 +59,13 @@ Run each gate in turn, in the order the disciplines apply. Each produces a 0–4
 
 - At the busiest decision point, **count items in working memory**. ≤4 good, 5–7 borderline, 8+ overload.
 - Check the **disclosure triage**: is anything shown that should be deferred (rare options, advanced settings)? Is anything deferred that should be shown *now* (price, required fields, consequences, the primary action)?
-- Check that deferral signals **what's hidden** (a count, a clear "More") rather than reading as absence.
+- Check that deferral signals **what's hidden** (a count, a clear "More") rather than reading as absence. Name the cue for each deferred thing; if you cannot find one, the content is hidden rather than deferred. A function reachable only by an uncued gesture is the worst case.
 
 | Score | Criteria |
 |-------|----------|
 | 0 | Everything dumped at once (severe overload), or essential info buried |
 | 1 | Wall of options; or a dark-pattern reveal hiding price / required field / consequence |
-| 2 | Some layering, but a key decision point exceeds working memory |
+| 2 | Some layering, but a key decision point exceeds working memory; or content deferred behind no perceptible cue |
 | 3 | Mostly well-layered; one or two things shown or deferred wrongly |
 | 4 | Each step holds ≤4; complexity revealed exactly when needed; nothing essential hidden |
 
@@ -78,12 +78,13 @@ Because this discipline is load-bearing, treat a score of ≤1 caused by **buryi
 - Run the **squint test** on the screenshot (or describe the weight order from the code). Name #1, #2, and the groupings.
 - Run the **3-second test**: would a first-timer name the most important element in 3 seconds?
 - Check **weight vs. importance**: does anything decorative outweigh the primary action? Is there a single visual entry point (the focusing mechanism)? Count distinct type sizes/weights—deliberate scale, or noise?
+- Check **rank vs. actionability** separately. Ranking first is not the same as reading as actionable: name what tells the user the primary action can be acted on. Then count **false signifiers** (patterns.md, The false signifier).
 
 | Score | Criteria |
 |-------|----------|
 | 0 | Flat—everything equal weight, no ranking survives a squint |
-| 1 | Weak or inverted hierarchy; decoration beats function; no entry point |
-| 2 | Hierarchy present but muddy; some elements miscalibrated |
+| 1 | Weak or inverted hierarchy; decoration beats function; no entry point; false signifiers competing with real controls |
+| 2 | Hierarchy present but muddy; some elements miscalibrated; or the primary action ranks first but carries nothing that reads as actionable |
 | 3 | Clear hierarchy, weight mostly matches importance |
 | 4 | Effortless ranking; the heaviest thing is the most important thing |
 

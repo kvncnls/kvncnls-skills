@@ -96,7 +96,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 - [x] Exactly one primary action
 - [x] Grouped + labeled; no orphans; no memory bridge
 - [x] ≤4 chunks at any decision point; nothing essential deferred
-- [x] One element is materially heaviest, and it is the primary
+- [x] One element is materially heaviest and it is the primary; where the primary is an action, the spec names what makes it read as actionable
 - [x] All four states above designed
 ```
 

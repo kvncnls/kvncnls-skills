@@ -39,7 +39,7 @@ Match the technique to *why* the content is deferred.
 
 **Choosing well:**
 - Defer the *rare*, surface the *common*. The split is by frequency of need, never by your convenience.
-- Show the **count** when you hide things ("12 more"), so deferral doesn't read as absence.
+- **Every deferral needs a signifier**—the perceptible cue that says something is there, present in the screen's default state without hover or gesture. The table above pairs each technique with its cue: an accordion has its chevron, an overflow menu its "⋯", a peek its "Show more", a stepper its position marker. Choosing a technique means committing to its cue; a technique whose cue you cannot name is not deferral, it is disappearance. When the deferred thing is a countable set, make the cue a count ("12 more") rather than a bare "More", so deferral reads as depth and not absence. Gestures (swipe, long-press) carry no inherent cue, so they need a visible partner control on the screen itself—never use one as the only path to a function.
 - One layer of disclosure is a path; three nested layers is a maze. If users must expand to expand to expand, the screen has the wrong architecture (Discipline 1).
 - A stepper must show **where the user is and how far is left**—but frame it as achievable milestones ("Step 1 of 3"), not a demoralizing tally ("3 of 47 done").
 
@@ -104,6 +104,9 @@ Each entry: the tell, the discipline it breaks, the fix.
 - **The hero that eats the button**—a giant image/illustration outweighs the primary action. *(VH, P2)* Cut the decoration's weight; the action wins.
 - **The rainbow screen**—color used decoratively everywhere, so it can't signal hierarchy. *(VH, P2)* Reserve one accent for the primary action; mute the rest.
 - **The flat list pretending to be a hierarchy**—every row identical weight. *(VH, P2)* Differentiate the lead item, or add grouping by space.
+- **The invisible reveal**—content deferred behind nothing the user can perceive. *(PD, P1)* Name the cue, or bring the content back. A gesture-only function is this at its worst.
+- **The false signifier**—an element that looks interactive and isn't: a shadowed card that doesn't open, underlined text that isn't a link, a chevron that leads nowhere. *(VH, P2)* Give it a control's shape or take the shape away; the ambiguous middle costs a tap and some trust.
+- **Nothing reads as actionable**—the primary action carries no control signifier at all, regardless of where it ranks, so the user can see what matters and still not know they may act on it. *(VH, P1)* Give it a traced boundary, a platform-native control convention, or an icon-plus-label tap target.
 - **The modal reflex**—interrupting the screen's purpose with a dialog for something that could be inline. *(VH, P2)* Exhaust inline and progressive alternatives first.
 - **The icon-only mystery nav**—unlabeled icons forcing recall. *(IA, P2)* Add labels; recognition beats recall.
 
@@ -116,6 +119,7 @@ PURPOSE    "This screen exists so the user can ___."   (no "and")
 ACTION     one primary action, period
 IA         everything on screen serves that one job · group related · label plainly
 DISCLOSE   every element → Now / On-demand / Never · ≤4 at any decision point
+           name the signifier for each deferral
 HIERARCHY  1 primary · 2–3 secondary · rest ambient · space → weight → size → color
 NEVER      hide price, required fields, consequences, or the primary action
 ```
