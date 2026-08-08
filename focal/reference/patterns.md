@@ -90,25 +90,25 @@ Products live or die on the states most teams treat as afterthoughts. Each is a 
 
 ## Anti-pattern library
 
-Each entry: the tell, the discipline it breaks, the fix.
+Each entry: the tell, the discipline it breaks, the fix. Severity is assigned in [review.md](review.md), not here—one authority, so a finding can't carry two priorities.
 
-- **The kitchen-sink screen**—one screen tries to do three jobs. *(IA, P1)* Split by intent, or keep one purpose and route the others to secondary paths.
-- **The data-model screen**—structure mirrors the database, not the user's goal. *(IA, P1)* Reorganize around intent; group what's used together.
-- **The jargon label**—sections and actions named in system terms. *(IA, P2)* Rename in the user's words; test labels blind.
-- **The memory bridge**—step 3 needs a fact only shown on step 1. *(IA, PD, P1)* Carry the context forward, or co-locate the decision with its inputs.
-- **The wall of options**—8+ equal choices at one decision point. *(PD, P2)* Defaults + reveal; recommend one; group the rest.
-- **The everything-up-front form**—onboarding asks for all data immediately. *(PD, P2)* Ask only what's needed for the first success; defer the rest to when it's relevant.
-- **The premature settings dump**—advanced options shown before anyone needs them. *(PD, P3)* Collapse behind "Advanced"; smart-default the common case.
-- **The buried essential**—price, required field, or consequence hidden behind a tap. *(PD, P0)* Surface it. This is a dark pattern, not disclosure.
-- **Dual primary CTAs**—two equally-weighted buttons competing. *(VH, P1)* One primary, the other demoted to secondary or a link.
-- **The hero that eats the button**—a giant image/illustration outweighs the primary action. *(VH, P2)* Cut the decoration's weight; the action wins.
-- **The rainbow screen**—color used decoratively everywhere, so it can't signal hierarchy. *(VH, P2)* Reserve one accent for the primary action; mute the rest.
-- **The flat list pretending to be a hierarchy**—every row identical weight. *(VH, P2)* Differentiate the lead item, or add grouping by space.
-- **The invisible reveal**—content deferred behind nothing the user can perceive. *(PD, P1)* Name the cue, or bring the content back. A gesture-only function is this at its worst.
-- **The false signifier**—an element that looks interactive and isn't: a shadowed card that doesn't open, underlined text that isn't a link, a chevron that leads nowhere. *(VH, P2)* Give it a control's shape or take the shape away; the ambiguous middle costs a tap and some trust.
-- **Nothing reads as actionable**—the primary action carries no control signifier at all, regardless of where it ranks, so the user can see what matters and still not know they may act on it. *(VH, P1)* Give it a traced boundary, a platform-native control convention, or an icon-plus-label tap target.
-- **The modal reflex**—interrupting the screen's purpose with a dialog for something that could be inline. *(VH, P2)* Exhaust inline and progressive alternatives first.
-- **The icon-only mystery nav**—unlabeled icons forcing recall. *(IA, P2)* Add labels; recognition beats recall.
+- **The kitchen-sink screen**—one screen tries to do three jobs. *(IA)* Split by intent, or keep one purpose and route the others to secondary paths.
+- **The data-model screen**—structure mirrors the database, not the user's goal. *(IA)* Reorganize around intent; group what's used together.
+- **The jargon label**—sections and actions named in system terms. *(IA)* Rename in the user's words; test labels blind.
+- **The memory bridge**—step 3 needs a fact only shown on step 1. *(IA, PD)* Carry the context forward, or co-locate the decision with its inputs.
+- **The wall of options**—8+ equal choices at one decision point. *(PD)* Defaults + reveal; recommend one; group the rest.
+- **The everything-up-front form**—onboarding asks for all data immediately. *(PD)* Ask only what's needed for the first success; defer the rest to when it's relevant.
+- **The premature settings dump**—advanced options shown before anyone needs them. *(PD)* Collapse behind "Advanced"; smart-default the common case.
+- **The buried essential**—price, required field, or consequence hidden behind a tap. *(PD)* Surface it. This is a dark pattern, not disclosure.
+- **Dual primary CTAs**—two equally-weighted buttons competing. *(VH)* One primary, the other demoted to secondary or a link.
+- **The hero that eats the button**—a giant image/illustration outweighs the primary action. *(VH)* Cut the decoration's weight; the action wins.
+- **The rainbow screen**—color used decoratively everywhere, so it can't signal hierarchy. *(VH)* Reserve one accent for the primary action; mute the rest.
+- **The flat list pretending to be a hierarchy**—every row identical weight. *(VH)* Differentiate the lead item, or add grouping by space.
+- **The invisible reveal**—content deferred behind nothing the user can perceive. *(PD)* Name the cue, or bring the content back. A gesture-only function is this at its worst.
+- **The false signifier**—an element that looks interactive and isn't: a shadowed card that doesn't open, underlined text that isn't a link, a chevron that leads nowhere. *(VH)* Give it a control's shape or take the shape away; the ambiguous middle costs a tap and some trust.
+- **Nothing reads as actionable**—the primary action carries no control signifier at all, regardless of where it ranks, so the user can see what matters and still not know they may act on it. *(VH)* Give it a traced boundary, a platform-native control convention, or an icon-plus-label tap target.
+- **The modal reflex**—interrupting the screen's purpose with a dialog for something that could be inline. *(VH)* Exhaust inline and progressive alternatives first.
+- **The icon-only mystery nav**—unlabeled icons forcing recall. *(IA)* Add labels; recognition beats recall.
 
 ---
 

@@ -1,12 +1,12 @@
 # Focal Review—the three-discipline audit
 
-Evaluate a screen (or flow) against the three disciplines and the overarching methodology, then return a scorecard with prioritized, concrete fixes. Use when the user asks to review, critique, audit, or "what's wrong with" any functional product, app, or tool screen.
+Evaluate a screen against the three disciplines and the overarching methodology, then return a scorecard with prioritized, concrete fixes. Use when the user asks to review, critique, audit, or "what's wrong with" any functional product, app, or tool screen.
 
 ## Input modes
 
 - **Screenshot / image**—read it, critique what you see. The common mode for design review.
 - **File path (JSX/TSX/HTML/Vue/Svelte)**—read it, mentally render the layout, critique structure and prescribed styles. You can't see pixels, so qualify visual claims.
-- **Live URL**—if browser automation is available, open the page; otherwise fetch markup. Per-flow review: audit 3–5 representative screens.
+- **Live URL**—if browser automation is available, open the page; otherwise fetch markup. If the request names several screens, return one complete scorecard per screen, and say plainly that the path between them is Compass's.
 
 ## Step 0—Notice, frame, and name the purpose
 
