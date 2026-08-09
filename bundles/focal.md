@@ -2,13 +2,15 @@
 
 This is the complete **Focal** skill as one self-contained document—the spine plus every reference—so you can use it in any AI coding agent, not only Claude Code.
 
+*Generated from `focal/` at commit `5880a45`. If the repo has moved on, regenerate rather than edit this file: it is a build artifact, not the source.*
+
 **How to use it**
 - **Claude Code**—you don't need this file; install the `focal/` folder from the repo for `/focal` and on-demand loading. This bundle is for everything else.
 - **Codex (CLI)**—append it to your project's `AGENTS.md`, which Codex loads automatically: `cat focal.md >> AGENTS.md`.
 - **ChatGPT**—create a Custom GPT and paste this into *Instructions*, or upload it as a *Knowledge* file. A Project works the same way.
 - **Cursor / Windsurf / Cline**—add it as a rules file, e.g. `.cursor/rules/focal.md`.
 
-Everything below is the skill.
+Everything below is the skill, including the full 0–4 / 12 scoring rubrics.
 
 ---
 
@@ -96,9 +98,10 @@ Reveal complexity only when the user needs it. Working memory is the hard constr
   - *On-demand*—needed by some users sometimes. Defer it behind a reveal (see reference/patterns.md).
   - *Never*—nobody needed it; you assumed they would. Cut it.
 - **Defer the rare, surface the common.** Smart defaults plus an "Advanced" reveal beats a wall of equal options. Ten settings shown at once is a wall; three with "More options" is a path.
+- **No disclosure without a signifier.** Every deferred thing needs a perceptible cue that it exists—a chevron, a labeled "More options," a tab, a count. Deferral hides *complexity*; it must never hide *existence*. Name the cue when you defer, not just the fact of deferring: "advanced filters, behind an 'Advanced' toggle," not "advanced filters, deferred." Content behind a cue nobody perceives is content you cut—and you cut it without deciding to, which is the one form of cutting this skill does not allow. **A cue qualifies only if it is present in the screen's default state, without hover or gesture.** A function reachable only by swipe or long-press is the named worst case: if the only way to discover it is to be told about it, it is hidden, not deferred.
 - **The disclosure trap (read this).** Progressive disclosure is *deferral, not burial*. Hiding the primary action, the price, a required field, or a consequence behind a tap is a dark pattern, not disclosure. Never defer what the user needs *now* to act or to trust the screen. Disclosure reduces *choice overload*, never *honesty*.
 
-> **Fails:** the wall of options; an onboarding form that asks everything up front; settings exposed before they're relevant; the primary action or price buried behind a reveal.
+> **Fails:** the wall of options; an onboarding form that asks everything up front; settings exposed before they're relevant; the primary action or price buried behind a reveal; a reveal with no cue that anything is behind it.
 
 ### 3. Visual Hierarchy—what wins attention
 
@@ -108,16 +111,37 @@ Once the right things are on the screen and the rest deferred, rank what remains
 - **The 3-second test.** A first-time user should be able to name the most important thing on screen within ~3 seconds.
 - **Weight must match importance.** The most common hierarchy bug: decoration (a hero image, an illustration, a giant logo) outweighs the primary action. Visual weight is a budget—spend it on what the user came to do.
 - **The focusing mechanism.** One element must be the visual entry point that says *start here*. If the eye bounces between equally-weighted regions, the single purpose isn't being expressed.
+- **Weight ranks; it does not permit.** Hierarchy answers *what should I do*; it does not answer *what can I do*. A heading can be the heaviest thing on screen and still be inert. So where the primary is an action, it has to carry a signifier that reads as actionable inside the same ~3 seconds: a traced boundary (fill, border, or elevation), a platform-native control convention (an iOS bar button), or an icon plus label inside a tap target. Bare text at any weight, with no convention behind it, ranks without permitting—say which of these the primary is using. A screen can pass the squint test and still leave the user unsure they are allowed to touch anything.
+- **No false signifiers.** A shadowed card that doesn't open, underlined text that isn't a link, a chevron that leads nowhere—these spend attention the screen budgeted for real actions, because the eye reads them exactly like real controls. They also cost trust the first time someone taps one and nothing happens. Count them as clutter, not decoration.
 - **The hierarchy ladder.** Use the *fewest* dimensions that achieve clear ranking, in this order: **space → weight → size → color.** Reach for color last; it is the loudest and easiest to overuse.
 - **The shape of a good screen:** one primary element, two to three secondary, everything else ambient. When every element is loud, none is.
 
-> **Fails:** hierarchy carried by color alone; the "visual noise floor" where everything has equal weight; decoration outweighing function; six type sizes that read as one.
+> **Fails:** hierarchy carried by color alone; the "visual noise floor" where everything has equal weight; decoration outweighing function; six type sizes that read as one; a primary action that ranks first but doesn't read as actionable; inert elements dressed as controls.
 
 ---
 
 ## Registers—when the rules shift
 
 The disciplines above assume the **task screen**: the default, and the most common. Two other screen types are legitimate, and applying task rules to them is a mistake—it flattens screens that are *supposed* to hold many things. Identify the register first; it changes what "one purpose" means and how the disciplines bind.
+
+**Classify with this tree.** Walk it top to bottom and take the first match. Answer about what the user came to *do*, not about how the screen currently looks—a cluttered screen is not automatically a hub.
+
+```
+Did the user come here to complete one specific job?
+├── Yes → TASK
+└── No
+    ├── Is this screen's own job to send them somewhere else?
+    │   └── Yes → HUB
+    └── Did they come to browse content, with no particular endpoint?
+        ├── Yes → EXPLORATION
+        └── Neither is clearly true
+            └── TASK, overloaded into a hub. Score it as a task screen
+                and flag the overload under Information Architecture.
+```
+
+Two ties worth naming, because they recur:
+- **A record or detail screen** (a contact, an issue, an order) is a **hub** when its job is to show state and route you onward, and a **task** screen when it exists to be edited. If it tries to be both at once, that is the overloaded case—the tree's last branch.
+- **Search results** are **exploration** when the user is scanning to discover, and a **task** screen when they are finding one known item to act on.
 
 - **Task**—the user is completing a single job. *Default; everything above applies as written.* One purpose, one primary action, ≤4 at a decision point. (Checkout, compose, a signup step, a settings detail, any form.)
 - **Hub**—the user is choosing where to go. The single purpose *is routing*; many destinations is correct, not clutter. (Home screen, profile, settings index, account screen, app root.)
@@ -153,18 +177,27 @@ This order holds for every register; only the *targets* shift—in a hub, step 4
 
 ---
 
-## Flows (screen-local)
+## Flows—hand off to Compass
 
-Focal is screen-local on purpose—but navigation and step-count are clutter surfaces too: a five-step flow that should be two, a sidebar of fourteen destinations, a "back" that drops you somewhere unexpected. Audit a flow as a **sequence of single-purpose screens**—apply the methodology to each screen, and to the seams between them: no memory bridge, no redundant steps, one job per step, an obvious path back. That's the boundary. Focal sharpens each screen and the joins between them; it is **not** a whole-app IA or sitemap tool. If the question is "how should the entire product be organized," that is a larger exercise—return to Focal screen by screen once that map exists.
+Focal is screen-local on purpose. A flow is a *sequence* of single-purpose screens, so apply Focal to each screen in one—but the path *between* them belongs to **Compass**, the sibling skill for cross-screen flows. Focal is *within* a screen; Compass is *between* them.
+
+Route it:
+- **Focal's**—a screen that does too much, buries what matters, has no clear primary action, or ranks the wrong thing loudest.
+- **Compass's**—too many steps, a dead end, a trapped modal, a Back that wipes work, a deep link that dumps the user at step one, or a user who can't tell where they are in the journey.
+
+Neither is a whole-app IA or sitemap tool. If the question is "how should the entire product be organized," that is a larger exercise—return to Focal screen by screen, and Compass flow by flow, once that map exists.
 
 ---
 
 ## Routing
 
 - **No argument** → explain the methodology and three disciplines briefly, then ask: building a new screen, or reviewing an existing one?
-- **`build` (or a description of a screen/flow to design)** → follow **The five moves** below. Pull techniques from reference/patterns.md.
-- **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow reference/review.md. It runs the three-discipline audit and produces a scorecard.
+- **`build` (or a description of a screen to design)** → follow **The five moves** below. Pull techniques from reference/patterns.md.
+- **A multi-screen flow, journey, or navigation question** → that is Compass's, not Focal's. Say so and hand off (see **Flows**, above).
+- **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow reference/review.md. It scores each discipline 0–4 against a written rubric, totals to /12 with a band, tags issues P0–P3, and closes on a One-Purpose verdict. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
 - **A question about a specific technique or anti-pattern** → consult reference/patterns.md.
+
+Before emitting either output, read reference/examples.md. It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
 
 ---
 
@@ -176,13 +209,7 @@ For each screen, in order. Write the answers down—they are the spec.
 2. **Architect the information.** List what belongs on the screen. Group related items; label them in the user's words; co-locate each decision with its inputs. Anything serving a different intent moves to another screen.
 3. **Triage disclosure.** Sort every element into Now / On-demand / Never. Cut the Nevers. Defer the On-demands behind a reveal. Keep the Nows.
 4. **Rank what stays.** Assign each surviving element a tier: primary (one), secondary (2–3), ambient (the rest). Spend visual weight accordingly, climbing the hierarchy ladder only as far as needed.
-5. **Run the gates.** Before you ship the screen, self-check:
-   - [ ] One-sentence purpose, no "and"?
-   - [ ] Exactly one primary action?
-   - [ ] Content grouped and labeled in the user's words; nothing orphaned; no memory bridge?
-   - [ ] ≤4 things to hold at any decision point, and nothing the user needs *now* is hidden behind a reveal?
-   - [ ] Passes the squint test (clear #1, #2, grouping)?
-   - [ ] Empty / loading / error / full (worst-case) states designed, not afterthoughts?
+5. **Run the gates.** Self-check against the six gates in the **`## Gates`** block of the Screen Spec template below. That block is the single canonical list—read them there, and emit them there. Never restate them in your own words.
 
 A screen that passes all six is structurally sound by Focal's standard. Apply visual styling and motion on top of that foundation—it lands far better on a screen that already earns its hierarchy.
 
@@ -190,7 +217,7 @@ A screen that passes all six is structurally sound by Focal's standard. Apply vi
 
 ```
 **Screen:** <name>—exists so the user can <one purpose, no "and">. Primary action: <the one action>.
-**Register:** task | hub | exploration   ·   **Audience:** novice | mixed | expert
+**Register:** task | hub | exploration | task-overloaded   ·   **Audience:** novice | mixed | expert
 
 ## Information
 - <element or group>—<why it belongs / how it's grouped>
@@ -202,20 +229,33 @@ A screen that passes all six is structurally sound by Focal's standard. Apply vi
 - Cut: <removed; nobody needed it>
 
 ## Hierarchy
-- Primary: <the one>
+- Primary: <the one element that is the visual entry point—usually the primary action, but on a read-first screen it can be the content; when it is an action, name what makes it read as actionable>
 - Secondary: <2–3>
 - Ambient: <the muted rest>
 
+## States
+- Empty: <what the screen says and offers with no data>
+- Loading: <skeleton or optimistic; never a blank>
+- Error: <plain-language message, at the source, work preserved>
+- Full (worst case): <how it holds at max realistic data—longest label, most rows>
+
 ## Gates
-- [x] One-sentence purpose, no "and"
-- [x] Exactly one primary action
-- [x] Grouped + labeled; no orphans; no memory bridge
-- [x] ≤4 chunks at any decision point; nothing essential deferred
-- [x] Squint test passes
-- [x] Empty / loading / error / full (worst-case) states designed
+- [ ] One-sentence purpose, no "and"
+- [ ] Exactly one primary action
+- [ ] Grouped + labeled; no orphans; no memory bridge
+- [ ] ≤4 chunks at any decision point; nothing essential deferred
+- [ ] One element is materially heaviest and it is the primary; where the primary is an action, the spec names what makes it read as actionable
+- [ ] All four states above designed
 ```
 
-Mark each gate `[x]` if it passes, or `[ ]` with a short note if it doesn't.
+Filling it:
+- **Repeat any labeled bullet as many times as the screen needs**—`Moved off`, `On-demand`, and `Cut` usually take several lines each. Repeating a label is not adding a section.
+- **`<reveal>` means the perceptible cue, not the mechanism.** "Behind an 'Advanced' toggle" and "behind a chevron on the row" are answers; "behind a modal" and "deferred" are not, because neither tells the reader what the user would see that says anything is there.
+- **Gates ship unchecked.** Mark `[x]` only for gates the spec actually satisfies; leave `[ ]` with a short reason (one clause) for any it doesn't. Never check a gate the spec does not satisfy—but a spec that genuinely satisfies all six should show all six checked.
+- **`Cut` covers removed and replaced.** If a control was needed but has to become a different, safer control, put it under `Cut` and name the replacement—"uncapped refund field → hard-capped to the order total." Cutting an unsafe affordance is not the same as deciding nobody needed it.
+- If a labeled bullet has nothing, keep the label and write "None."
+
+Gate 5 is deliberately worded for spec time: it asks whether the spec *assigns* one element decisive weight and *names* what makes the primary read as actionable—both of which a spec can answer. The squint test itself needs a render—run it once the screen exists, and treat a failure there as a review finding, not a build gate.
 
 ---
 
@@ -223,7 +263,8 @@ Mark each gate `[x]` if it passes, or `[ ]` with a short note if it doesn't.
 
 When you review or justify a Focal decision, write like a senior designer reviewing work they want to be great:
 
-- **Emit the exact output template.** Build and review each have a locked structure—the build template is in the build section below, the review template is in reference/review.md. Use it verbatim every time: same sections, same order, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections; if a section has nothing, keep its header and write "None." Repeatable and scannable is the whole point.
+- **Emit the exact output template.** Build and review each have a locked structure—the build template is in the build section above, the review template is in reference/review.md. Use it verbatim every time: same sections, same order, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections; if a section has nothing, keep its header and write "None." Repeatable and scannable is the whole point.
+- **Template precedence.** The template is the complete contract for what gets emitted. If any instruction in this skill asks you to produce something the template has no slot for, put it in the nearest slot that fits, or leave it out—never invent a section. A gap like that is a bug in this skill, not a judgment call: name it in one line after the output so it can be fixed. Analysis the template has no room for is still worth doing; it informs the scores even when it isn't printed.
 - **Be specific and quantitative.** "There are three primary-weight buttons" beats "too many buttons." Count elements, name the tiers, quote the labels.
 - **Be decisive.** "This screen has two purposes"—not "this might feel like it has two purposes."
 - **Factual first, then judgment, then the fix.** State what you see, why it hurts the user, what it should be instead.
@@ -242,9 +283,11 @@ Match-and-refuse. If you're about to do one of these, you've broken a discipline
 - **The wall of options.** (PD) Defaults plus a reveal, never N equal choices at once.
 - **Burying what the user needs now.** (PD) Price, required fields, consequences, and the primary action are never hidden behind disclosure.
 - **Two primary actions on a task screen.** (Methodology / VH) Demote one—unless it's a genuine binary-choice or dual-mode screen, or a hub/exploration surface (see Registers).
+- **A reveal with no cue.** (PD) If nothing on screen says something is there, it isn't deferred—it's cut by accident. Gesture-only functions are the worst case.
+- **False signifiers.** (VH) Inert things dressed as controls. A shadowed card that doesn't open, underlined text that isn't a link. They spend the attention budget and cost trust on the first tap.
 - **Hierarchy by color alone.** (VH) Climb the ladder: space and weight first.
 - **Decoration outweighing the primary action.** (VH) The hero image must not beat the button.
-- **Modal as first thought.** A modal interrupts the screen's one purpose. Exhaust inline and progressive alternatives first.
+- **Modal as first thought.** (VH) A modal interrupts the screen's one purpose. Exhaust inline and progressive alternatives first.
 
 ---
 
@@ -259,13 +302,13 @@ Match-and-refuse. If you're about to do one of these, you've broken a discipline
 
 # Focal Review—the three-discipline audit
 
-Evaluate a screen (or flow) against the three disciplines and the overarching methodology, then return a scorecard with prioritized, concrete fixes. Use when the user asks to review, critique, audit, or "what's wrong with" any functional product, app, or tool screen.
+Evaluate a screen against the three disciplines and the overarching methodology, then return a scorecard with prioritized, concrete fixes. Use when the user asks to review, critique, audit, or "what's wrong with" any functional product, app, or tool screen.
 
 ## Input modes
 
 - **Screenshot / image**—read it, critique what you see. The common mode for design review.
 - **File path (JSX/TSX/HTML/Vue/Svelte)**—read it, mentally render the layout, critique structure and prescribed styles. You can't see pixels, so qualify visual claims.
-- **Live URL**—if browser automation is available, open the page; otherwise fetch markup. Per-flow review: audit 3–5 representative screens.
+- **Live URL**—if browser automation is available, open the page; otherwise fetch markup. If the request names several screens, return one complete scorecard per screen, and say plainly that the path between them is Compass's.
 
 ## Step 0—Notice, frame, and name the purpose
 
@@ -275,19 +318,20 @@ Then frame, in one or two sentences each:
 - **What is this?** App type, screen purpose, target user.
 - **What's the user's state?** Anxious, rushed, casual, distracted, one-handed? A checkout under time pressure demands different care than a Sunday-morning feed scroll. Name it; the critique must respect it.
 - **What's the bar?** Every product category has an invisible standard set by its best-in-class tool. A notes screen is judged against Apple Notes and Bear; a dashboard against Linear, Stripe, and Vercel; a checkout against Stripe and Shop Pay. Ask: *what would the best-in-class product in this category do here?*
-- **The register.** Classify it: **task** (completing one job), **hub** (choosing where to go), or **exploration** (browsing for its own sake). This sets how the gates should be read—see *Adjust for register* below. If you can't tell, it's likely a task screen overloaded into a hub.
+- **The register.** Classify it by walking the decision tree in **Registers** in SKILL.md—take the first match, and don't re-derive the categories here. This sets how the gates should be read; see *Adjust for register* below.
 - **The methodology lens.** State the screen's *apparent* single purpose in one sentence (for a hub, that purpose is *routing*; for exploration, *browsing a kind of content*), and name what *appears* to be the primary action. On a task screen, if the sentence needs an "and," or you can't find one primary action, the screen has already failed its overarching purpose, and the gates below will show why.
 
 ## Adjust for register
 
 Read the gates through the register you classified in Step 0. The disciplines still apply; their targets move. Scoring a hub or feed by task-screen rules produces false failures.
 
-- **Task** (default): score exactly as the gates describe.
-- **Hub** (home, profile, settings index, app root, dashboard overview, admin index): the purpose is *routing*. Do **not** penalize many destinations under Gate 2—the ≤4 limit binds *per group and per row*, not on the total. Score IA on whether destinations are grouped and labeled, VH on whether the most-likely next step wins. A hub flattened to one action scores *worse*, not better.
-- **Exploration** (feeds, browse/discover, search results, grids, data tables, log viewers): abundance is the point. Do **not** penalize many items under Gate 2—the ≤4 limit binds *per item* (each row's or card's facts), not on the item count. Score VH on whether one content type dominates and chrome recedes; a single "primary action" is not expected.
+- **Task**: score exactly as the gates describe.
+- **Hub**: the purpose is *routing*. Do **not** penalize many destinations under Gate 2—the ≤4 limit binds *per group and per row*, not on the total. Score IA on whether destinations are grouped and labeled, VH on whether the most-likely next step wins. A hub flattened to one action scores *worse*, not better.
+- **Exploration**: abundance is the point. Do **not** penalize many items under Gate 2—the ≤4 limit binds *per item* (each row's or card's facts), not on the item count. Score VH on whether one content type dominates and chrome recedes; a single "primary action" is not expected.
+- **Task-overloaded**: score by task rules and flag the overload as the leading Gate 1 issue.
 - **Audience:** weigh expertise. The working-memory budget is ~4 *chunks*, and experts read dense displays as a few learned groups. Don't score a pro tool's dense panel as overload if its users chunk it; do score a novice or first-run screen strictly. Density is a function of who's reading it.
 
-The relocation still bites: a settings *row* or feed *card* that crams 8+ unfamiliar facts fails Gate 2 even though the screen's total item count is fine. And a screen you can't classify is usually a task screen overloaded into a hub—score it as a task screen and flag the overload under Gate 1.
+**A region can carry its own register.** A data table or log inside a task screen is an exploration *region*: score the screen by its own register, and apply the relocated per-row budget to that region rather than counting its rows against the screen's decision point. Say which region you scored separately. The relocation still bites either way—a settings *row* or feed *card* cramming 8+ unfamiliar facts fails Gate 2 even when the screen's total item count is fine.
 
 ## The three gates
 
@@ -317,13 +361,13 @@ Run each gate in turn, in the order the disciplines apply. Each produces a 0–4
 
 - At the busiest decision point, **count items in working memory**. ≤4 good, 5–7 borderline, 8+ overload.
 - Check the **disclosure triage**: is anything shown that should be deferred (rare options, advanced settings)? Is anything deferred that should be shown *now* (price, required fields, consequences, the primary action)?
-- Check that deferral signals **what's hidden** (a count, a clear "More") rather than reading as absence.
+- Check that deferral signals **what's hidden** (a count, a clear "More") rather than reading as absence. Name the cue for each deferred thing; if you cannot find one, the content is hidden rather than deferred. A function reachable only by an uncued gesture is the worst case.
 
 | Score | Criteria |
 |-------|----------|
 | 0 | Everything dumped at once (severe overload), or essential info buried |
 | 1 | Wall of options; or a dark-pattern reveal hiding price / required field / consequence |
-| 2 | Some layering, but a key decision point exceeds working memory |
+| 2 | Some layering, but a key decision point exceeds working memory; or content deferred behind no perceptible cue |
 | 3 | Mostly well-layered; one or two things shown or deferred wrongly |
 | 4 | Each step holds ≤4; complexity revealed exactly when needed; nothing essential hidden |
 
@@ -336,33 +380,25 @@ Because this discipline is load-bearing, treat a score of ≤1 caused by **buryi
 - Run the **squint test** on the screenshot (or describe the weight order from the code). Name #1, #2, and the groupings.
 - Run the **3-second test**: would a first-timer name the most important element in 3 seconds?
 - Check **weight vs. importance**: does anything decorative outweigh the primary action? Is there a single visual entry point (the focusing mechanism)? Count distinct type sizes/weights—deliberate scale, or noise?
+- Check **rank vs. actionability** separately. Ranking first is not the same as reading as actionable: name what tells the user the primary action can be acted on. Then count **false signifiers** (patterns.md, The false signifier).
 
 | Score | Criteria |
 |-------|----------|
 | 0 | Flat—everything equal weight, no ranking survives a squint |
-| 1 | Weak or inverted hierarchy; decoration beats function; no entry point |
-| 2 | Hierarchy present but muddy; some elements miscalibrated |
+| 1 | Weak or inverted hierarchy; decoration beats function; no entry point; false signifiers competing with real controls |
+| 2 | Hierarchy present but muddy; some elements miscalibrated; or the primary action ranks first but carries nothing that reads as actionable |
 | 3 | Clear hierarchy, weight mostly matches importance |
 | 4 | Effortless ranking; the heaviest thing is the most important thing |
 
-## The scorecard
+## Scoring rules
 
-Present scores as a table. Be honest—a 4 means genuinely excellent, not "fine."
+Score each discipline 0–4 using its gate rubric above. Be honest—a 4 means genuinely excellent, not "fine."
 
-| Discipline | Score | Key finding |
-|------------|-------|-------------|
-| 1—Information Architecture | ?/4 | [specific finding] |
-| 2—Progressive Disclosure | ?/4 | [specific finding] |
-| 3—Visual Hierarchy | ?/4 | [specific finding] |
-| **Total** | **?/12** | **[band]** |
+- **Bands** (the only band list in this skill; look the string up from here): **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** doesn't work yet.
+- **The Total must equal the three scores summed**, and its band string must be one of the four above, verbatim.
+- **The verdict—One Screen, One Purpose.** Yes or no: does this screen serve a single primary purpose? The total measures how close it gets; the verdict states whether it arrives. A screen can score moderately and still fail the verdict if IA put two jobs on it.
 
-**Bands:** 11–12 ship it · 8–10 solid, fix the weak discipline · 5–7 significant rework before users are happy · 0–4 the screen does not work yet.
-
-**The verdict—One Screen, One Purpose.** This becomes the **Verdict** line at the very top of the output (see Output format): does this screen serve a single primary purpose, yes or no? The total measures how close it gets; the verdict states whether it arrives. A screen can score moderately and still fail the verdict if IA put two jobs on it.
-
-## Issues and severity
-
-List the issues found, ordered by severity, not by discipline. Tag each:
+## Issue severity
 
 | Priority | Meaning |
 |----------|---------|
@@ -371,19 +407,17 @@ List the issues found, ordered by severity, not by discipline. Tag each:
 | **P2** | Annoyance with a workaround—next pass |
 | **P3** | Polish—if time permits |
 
-Order issues by *type* of harm, most severe first: **structural** (IA—wrong job or mental model) → **behavioral** (PD—flow, disclosure, overload) → **visual** (VH—weight, spacing, type). A structural flaw outranks a visual one.
-
-For each issue:
-> **[P?] [Discipline] Name**—what you see (factual, specific, counted). Why it hurts *this* user in *this* state, and how it costs the screen its single purpose. The concrete fix.
+**Ordering (one rule):** sort by priority, P0 first. Within the same priority, break ties by type of harm—**structural** (IA: wrong job or mental model) outranks **behavioral** (PD: disclosure, overload) outranks **visual** (VH: weight, spacing, type). Never reorder across priorities; a P0 Hierarchy issue outranks a P1 IA issue.
 
 ## Output format—use this exact structure
 
-Every review returns this template verbatim, in this order. Same sections, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections. Fill the `<…>` slots; keep each fixed label.
+Every review returns this template verbatim, in this order. Don't add, remove, reorder, or rename sections. Fill the `<…>` slots; keep every fixed label. This block is the single source of truth for the emitted shape—the issue line, the table columns, and the section list exist only here.
 
 ```
 **Verdict:** <single purpose—yes or no> · <the one biggest problem, one phrase> · **<total>/12**
 
-**Screen:** <what it is> · register: <task | hub | exploration> · audience: <novice | mixed | expert>
+**Screen:** <what it is> · register: <task | hub | exploration | task-overloaded> · audience: <novice | mixed | expert>
+**Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
 
 ## Scorecard
 | Discipline | Score | Key finding |
@@ -396,24 +430,22 @@ Every review returns this template verbatim, in this order. Same sections, same 
 ## Issues (most severe first)
 - **[P0 · IA]** <Name>—<observation>. <impact>. **Fix:** <fix>.
 - **[P1 · Disclosure]** <Name>—<observation>. <impact>. **Fix:** <fix>.
-(if nothing above P3, write "None above P3." and keep this header)
 
 ## Top 3 moves
 1. <highest-leverage change>
 2. <next>
 3. <next>
+
+## Next
+- **Structural** (do first): <what changes what the screen *is*—split or merge, regroup, relabel, re-triage>
+- **Executional** (after): <what changes how it *looks*—weight, color, type, spacing, motion>
+- **Hand off**: <anything that is not this screen's problem—cross-screen path issues go to Compass; "None" if all of it is Focal's>
 ```
 
-Bands: **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** doesn't work yet. Tag issues with the abbreviations **IA / Disclosure / Hierarchy**.
-
-## Next steps
-
-Close by sorting the fixes into two buckets and ordering the work:
-
-- **Structural**—wrong job, screens to split or merge, content to regroup or relabel, disclosure to re-triage. These change what the screen *is*. Resolve them first with the five-move build workflow in SKILL.md.
-- **Executional**—visual weight, color, type, spacing, motion, transitions. These change how the screen *looks*. Apply them in your own design system once the structure is sound.
-
-Always fix structural before executional: polishing a screen with the wrong purpose only organizes the clutter. Re-run the audit after fixes to watch the score climb.
+Filling it:
+- **Issues**—repeat the issue line once per issue, tagged **IA / Disclosure / Hierarchy**. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Next**—structural before executional, always: polishing a screen with the wrong purpose only organizes the clutter. Resolve structural items with the five-move build workflow in SKILL.md. Single-screen work is Focal's; if the real problem is the path between screens, say so and hand off to Compass.
+- Re-run the audit after fixes to watch the score climb.
 
 
 ---
@@ -459,7 +491,7 @@ Match the technique to *why* the content is deferred.
 
 **Choosing well:**
 - Defer the *rare*, surface the *common*. The split is by frequency of need, never by your convenience.
-- Show the **count** when you hide things ("12 more"), so deferral doesn't read as absence.
+- **Every deferral needs a signifier**—the perceptible cue that says something is there, present in the screen's default state without hover or gesture. The table above pairs each technique with its cue: an accordion has its chevron, an overflow menu its "⋯", a peek its "Show more", a stepper its position marker. Choosing a technique means committing to its cue; a technique whose cue you cannot name is not deferral, it is disappearance. When the deferred thing is a countable set, make the cue a count ("12 more") rather than a bare "More", so deferral reads as depth and not absence. Gestures (swipe, long-press) carry no inherent cue, so they need a visible partner control on the screen itself—never use one as the only path to a function.
 - One layer of disclosure is a path; three nested layers is a maze. If users must expand to expand to expand, the screen has the wrong architecture (Discipline 1).
 - A stepper must show **where the user is and how far is left**—but frame it as achievable milestones ("Step 1 of 3"), not a demoralizing tally ("3 of 47 done").
 
@@ -510,22 +542,25 @@ Products live or die on the states most teams treat as afterthoughts. Each is a 
 
 ## Anti-pattern library
 
-Each entry: the tell, the discipline it breaks, the fix.
+Each entry: the tell, the discipline it breaks, the fix. Severity is assigned in review.md, not here—one authority, so a finding can't carry two priorities.
 
-- **The kitchen-sink screen**—one screen tries to do three jobs. *(IA, P1)* Split by intent, or keep one purpose and route the others to secondary paths.
-- **The data-model screen**—structure mirrors the database, not the user's goal. *(IA, P1)* Reorganize around intent; group what's used together.
-- **The jargon label**—sections and actions named in system terms. *(IA, P2)* Rename in the user's words; test labels blind.
-- **The memory bridge**—step 3 needs a fact only shown on step 1. *(IA, PD, P1)* Carry the context forward, or co-locate the decision with its inputs.
-- **The wall of options**—8+ equal choices at one decision point. *(PD, P2)* Defaults + reveal; recommend one; group the rest.
-- **The everything-up-front form**—onboarding asks for all data immediately. *(PD, P2)* Ask only what's needed for the first success; defer the rest to when it's relevant.
-- **The premature settings dump**—advanced options shown before anyone needs them. *(PD, P3)* Collapse behind "Advanced"; smart-default the common case.
-- **The buried essential**—price, required field, or consequence hidden behind a tap. *(PD, P0)* Surface it. This is a dark pattern, not disclosure.
-- **Dual primary CTAs**—two equally-weighted buttons competing. *(VH, P1)* One primary, the other demoted to secondary or a link.
-- **The hero that eats the button**—a giant image/illustration outweighs the primary action. *(VH, P2)* Cut the decoration's weight; the action wins.
-- **The rainbow screen**—color used decoratively everywhere, so it can't signal hierarchy. *(VH, P2)* Reserve one accent for the primary action; mute the rest.
-- **The flat list pretending to be a hierarchy**—every row identical weight. *(VH, P2)* Differentiate the lead item, or add grouping by space.
-- **The modal reflex**—interrupting the screen's purpose with a dialog for something that could be inline. *(VH, P2)* Exhaust inline and progressive alternatives first.
-- **The icon-only mystery nav**—unlabeled icons forcing recall. *(IA, P2)* Add labels; recognition beats recall.
+- **The kitchen-sink screen**—one screen tries to do three jobs. *(IA)* Split by intent, or keep one purpose and route the others to secondary paths.
+- **The data-model screen**—structure mirrors the database, not the user's goal. *(IA)* Reorganize around intent; group what's used together.
+- **The jargon label**—sections and actions named in system terms. *(IA)* Rename in the user's words; test labels blind.
+- **The memory bridge**—step 3 needs a fact only shown on step 1. *(IA, PD)* Carry the context forward, or co-locate the decision with its inputs.
+- **The wall of options**—8+ equal choices at one decision point. *(PD)* Defaults + reveal; recommend one; group the rest.
+- **The everything-up-front form**—onboarding asks for all data immediately. *(PD)* Ask only what's needed for the first success; defer the rest to when it's relevant.
+- **The premature settings dump**—advanced options shown before anyone needs them. *(PD)* Collapse behind "Advanced"; smart-default the common case.
+- **The buried essential**—price, required field, or consequence hidden behind a tap. *(PD)* Surface it. This is a dark pattern, not disclosure.
+- **Dual primary CTAs**—two equally-weighted buttons competing. *(VH)* One primary, the other demoted to secondary or a link.
+- **The hero that eats the button**—a giant image/illustration outweighs the primary action. *(VH)* Cut the decoration's weight; the action wins.
+- **The rainbow screen**—color used decoratively everywhere, so it can't signal hierarchy. *(VH)* Reserve one accent for the primary action; mute the rest.
+- **The flat list pretending to be a hierarchy**—every row identical weight. *(VH)* Differentiate the lead item, or add grouping by space.
+- **The invisible reveal**—content deferred behind nothing the user can perceive. *(PD)* Name the cue, or bring the content back. A gesture-only function is this at its worst.
+- **The false signifier**—an element that looks interactive and isn't: a shadowed card that doesn't open, underlined text that isn't a link, a chevron that leads nowhere. *(VH)* Give it a control's shape or take the shape away; the ambiguous middle costs a tap and some trust.
+- **Nothing reads as actionable**—the primary action carries no control signifier at all, regardless of where it ranks, so the user can see what matters and still not know they may act on it. *(VH)* Give it a traced boundary, a platform-native control convention, or an icon-plus-label tap target.
+- **The modal reflex**—interrupting the screen's purpose with a dialog for something that could be inline. *(VH)* Exhaust inline and progressive alternatives first.
+- **The icon-only mystery nav**—unlabeled icons forcing recall. *(IA)* Add labels; recognition beats recall.
 
 ---
 
@@ -536,6 +571,7 @@ PURPOSE    "This screen exists so the user can ___."   (no "and")
 ACTION     one primary action, period
 IA         everything on screen serves that one job · group related · label plainly
 DISCLOSE   every element → Now / On-demand / Never · ≤4 at any decision point
+           name the signifier for each deferral
 HIERARCHY  1 primary · 2–3 secondary · rest ambient · space → weight → size → color
 NEVER      hide price, required fields, consequences, or the primary action
 ```
@@ -547,80 +583,108 @@ NEVER      hide price, required fields, consequences, or the primary action
 
 # Focal Examples
 
-Two worked examples showing the quality bar and the locked output templates in use—one **review**, one **build**. They share a narrative: the review flags a cluttered dashboard that's doing three jobs, and the build designs one of the screens it recommends splitting out. Illustrative, not a real product.
+Two worked examples, captured from real runs of this skill and shown in the locked output templates—one **review**, one **build**. They share a narrative: the review finds a CRM contact screen carrying four jobs, and the build designs one of the task screens it recommends splitting out. These set the bar for length, specificity, and tone; the templates set the shape.
 
 ---
 
-## Example 1—Review: a cluttered analytics dashboard
+## Example 1—Review: a CRM contact detail screen
 
-**Input (what was handed in):** the "Home" screen of an analytics product. 8 same-size KPI cards, a 14-item ungrouped sidebar, two equally-weighted buttons ("Create report" and "Upgrade"), 6 always-visible filters, a recent-activity feed, a chart, and a "tips" banner.
+**Input:** the "Contact detail" screen of a CRM. On it: the contact's name/photo/title; 6 editable fields (email, phone, company, owner, lifecycle stage, lead source); a full activity timeline of 40+ entries; an inline "Log a call" composer; an inline "Send email" composer; a Deals panel with 3 deals; Notes and Files panels; a right rail of 8 "similar contacts"; and 3 top-right buttons all styled identically as filled primary buttons ("Save", "Convert to Deal", "Delete"). Every panel header is the same size and weight.
 
 **Focal's output:**
 
 ```
-**Verdict:** No—three jobs on one screen (monitor, build a report, upsell). No visual entry point. · 5/12
+**Verdict:** No · four jobs stacked on one surface, with Delete dressed as a primary button · **3/12**
 
-**Screen:** Analytics product home/overview · register: hub · audience: mixed
+**Screen:** CRM contact detail—a record home carrying ten co-equal regions and three identical filled primary buttons · register: task-overloaded · audience: mixed
+**Context:** a rep mid-call or between calls, scanning fast · bar: Linear's issue detail, Stripe's customer record
 
 ## Scorecard
 | Discipline | Score | Key finding |
 |---|---|---|
-| Information Architecture | 1/4 | Monitoring, report-building, and an upsell share one screen—three intents |
-| Progressive Disclosure | 2/4 | 8 equal KPIs and 6 filters shown at once; no defaults, nothing deferred |
-| Visual Hierarchy | 2/4 | 8 same-size cards + two primary buttons—nothing wins the eye |
-| **Total** | **5/12** | **significant rework** |
+| Information Architecture | 1/4 | Four jobs on one screen: view the record, edit six fields, log a call, send an email—plus three related-record panels and a prospecting rail that serve a different intent entirely. |
+| Progressive Disclosure | 1/4 | Zero deferral anywhere: ten top-level regions at landing, both composers open before the rep has chosen to compose, 40+ timeline entries unfiltered. |
+| Visual Hierarchy | 1/4 | Below the identity header the screen is flat—every panel header identical in size and weight—and the ranking that does exist is inverted: Delete carries the same primary weight as Save. |
+| **Total** | **3/12** | **doesn't work yet** |
 
 ## Issues (most severe first)
-- **[P0 · IA]** Three competing jobs—monitor metrics, build a report, upgrade the plan—collapsed onto one screen. Users scan instead of acting. **Fix:** make this a monitoring hub; route "Create report" to its own screen and move "Upgrade" into the account menu.
-- **[P1 · Hierarchy]** Dual primary buttons ("Create report" + "Upgrade") compete at equal weight. **Fix:** a hub needs at most one primary; here, let the most-watched metric be the focal point and demote both buttons.
-- **[P1 · Disclosure]** 8 KPI cards at identical weight blow past the ~4-chunk glance budget. **Fix:** surface the 3–4 metrics this audience checks daily; move the rest behind "More metrics."
-- **[P2 · Disclosure]** 6 filters always visible. **Fix:** default to the common view (last 7 days); collapse the rest under "Filters."
-- **[P2 · IA]** 14-item sidebar, ungrouped. **Fix:** group into 4–5 labeled sections—recognition over scanning.
+- **[P0 · IA]** Four jobs, one screen—the one-sentence test returns "This screen exists so the user can view a contact *and* edit six fields *and* log a call *and* send an email *and* manage deals, notes, and files." Two of those are full composers sitting open on a record surface, and the six fields render as live inputs with a global Save, which means the screen is permanently in edit mode. A rep who opened it to read a phone number lands inside a form they can dirty by accident, one button-width from Delete. **Fix:** make Contact detail a hub whose single purpose is *route to the right next action*. Fields become read-only text with per-field inline edit and autosave (no global Save); "Log a call" and "Send email" become their own focused task screens launched from the header.
+- **[P0 · Hierarchy]** Three filled primaries, one destructive—Save, Convert to Deal, and Delete are styled identically. Three primaries means no primary: nothing says where to start, and an irreversible action wears the exact affordance of the safest one, sitting adjacent to it. This is the one issue on the screen that can destroy a customer record on a mis-click. **Fix:** with autosave, Save disappears. Keep "Convert to Deal" as the single filled primary; "Log a call" and "Send email" become secondary; Delete moves into an overflow "⋯" menu behind a typed confirmation.
+- **[P1 · IA]** The panels mirror the data model—Deals, Notes, Files, and Activity are four peer panels, one per related table, ranked equally because the schema ranks them equally. A rep's actual intent is overwhelmingly "what happened last, and what's the open deal"; Notes and Files are archive lookups. Organizing by table forces the user to re-sort the screen by eye on every visit. **Fix:** reorder by intent—Activity dominant, Deals second in the same column, Notes and Files collapsed into one "Attachments & notes" section.
+- **[P1 · Disclosure]** Nothing is deferred—ten top-level regions compete at landing, and scored by task rules that is straightforward overload: three *task* surfaces sit resident on the same screen and no element anywhere sits behind a reveal. Every element is "Now" because nobody ran the triage. **Fix:** Now—identity, read-only fields, recent activity, Deals. On-demand—composers behind their header buttons, Notes, Files. Cut—the similar-contacts rail.
+- **[P1 · Disclosure]** The timeline has no ceiling—40+ entries render in full, undifferentiated, with no type filter and no collapse. At the worst realistic case (a two-year customer, 400 entries) this panel is the entire screen and Deals is off-screen. **Fix:** show the 5 most recent grouped by day, with a type filter and "Show 37 more"—the count, so the deferral reads as depth rather than absence.
+- **[P1 · Hierarchy]** No visual entry point—every panel header is the same size and weight. Squint at this and you get a list, not a hierarchy: nine equal grey blocks. A first-timer cannot name the most important thing in three seconds because nothing is the most important thing. **Fix:** climb the ladder with space and weight before color—48–96px between sections against 8–12px within them, one heavier header on Activity, all other headers dropped to a muted label size.
+- **[P2 · IA]** The similar-contacts rail is orphan content—eight contacts occupying a full rail, serving prospecting, an intent nobody arrived on this screen holding. It is here because the data was available, not because a job needed it. **Fix:** cut it; surface similar contacts in search and list views, where the user is actually comparing people.
+- **[P2 · Disclosure]** Empty panels hold full weight—Deals, Notes, and Files each render a full-weight header whether they hold three items or zero, so a brand-new contact shows three headers announcing nothing. **Fix:** collapse empty sections to one quiet line with the add action ("No notes yet · Add note").
 
 ## Top 3 moves
-1. Cut the screen to one job—monitoring—and route report-building and upgrade elsewhere.
-2. Promote 3–4 daily metrics to a clear visual lead; defer the rest.
-3. Default the filters and group the sidebar into labeled sections.
+1. Split the screen: Contact detail becomes a record hub; "Log a call" and "Send email" become their own single-purpose task screens; the six fields become read-only text with per-field inline edit and autosave, retiring the global Save.
+2. Rebuild the action bar to one primary: "Convert to Deal" filled, "Log a call" / "Send email" secondary, Delete in an overflow menu behind typed confirmation.
+3. Rank what remains with space and weight: Activity dominant and capped at 5 with a filter and a "Show N more" count, Deals second, Notes and Files collapsed, similar-contacts rail cut.
+
+## Next
+- **Structural** (do first): split the two composers onto their own task screens, convert the field block to read-only + inline autosave, re-triage the ten regions, cut the similar-contacts rail, cap and filter the timeline.
+- **Executional** (after): the section spacing scale, the muted header treatment, the single accent reserved for the one primary, and the destructive-action confirmation styling.
+- **Hand off**: None—every issue here is within this screen.
 ```
 
 ---
 
-## Example 2—Build: the "Create report" screen
+## Example 2—Build: the "Log a call" screen
 
-**Input:** "Design the Create report screen we just split out of the dashboard."
+**Input:** "Build the Log a call screen we just split out of the contact record."
 
 **Focal's output:**
 
 ```
-**Screen:** Create report—exists so the user can generate one report from a chosen dataset and date range. Primary action: Generate report.
+**Screen:** Log a call—exists so the user can record what happened on a call they just made. Primary action: Log call.
 **Register:** task   ·   **Audience:** mixed
 
 ## Information
-- Dataset—single select (the one required choice)
-- Date range—preset picker, default "Last 30 days"
-- Report name—text field, optional, default "Untitled report"
-- Generate report—primary button
-- Moved off: scheduling, sharing, export format → these belong to a report that already exists (the result screen), not its creation
+- Call context strip (contact name, photo, number dialed, timestamp, prefilled)—co-locates the decision with its inputs so the rep never has to remember who they called or when; read-only, no fields to re-enter.
+- Outcome selector: Connected / Voicemail / No answer / Wrong number—the one fact every logged call must carry. Four options, inside the working-memory budget, so it needs no grouping.
+- Duration—prefilled from the dialer, editable. Sits beside Outcome because the two are read together as one "what happened" chunk.
+- Notes—the reason the rep is on this screen thirty seconds after hanging up. Given the most vertical space of anything on the screen.
+- "Schedule follow-up" toggle—the most common next step after a connected call, and the thing the rep will otherwise forget by end of day, so it lives here rather than on a separate task screen.
+- "Add to deal (3)"—one quiet control, with the count, because a call that moves a deal must be attributable to it.
+- Last call line ("Last call: Jul 2, voicemail")—one ambient line, so the rep knows whether this is a first attempt or a fifth without leaving for the timeline.
+- Moved off: the six editable contact fields → Contact detail hub, edited in place per field with autosave.
+- Moved off: the full 40+ activity timeline → Contact detail hub, capped and filtered; only the single last-call line survives here.
+- Moved off: Send email composer → its own compose screen, launched from the Contact detail header.
+- Moved off: Deals, Notes, and Files panels → Contact detail hub; this screen reaches Deals only through "Add to deal (3)".
+- Moved off: the 8 similar contacts → search and list views, where comparing people is the actual job.
 
 ## Disclosure
-- Now: dataset, date range, Generate
-- On-demand: advanced filters + grouping → behind "Advanced options" (collapsed)
-- Cut: format / recipients / schedule—not needed to create the report
+- Now: call context strip, Outcome (4 options), Duration, Notes, last-call line, "Log call". Busiest decision point holds 4 chunks—context, outcome, duration, notes.
+- On-demand: follow-up date and task title → behind the "Schedule follow-up" toggle (contextual reveal—the fields only matter after the rep says yes).
+- On-demand: deal association picker → behind "Add to deal (3)", with the count shown so the deferral reads as depth, not absence.
+- On-demand: call recording and transcript → behind a "Recording" link in the context strip, present for the rare dispute, absent from the fast path.
+- Cut: lifecycle stage and lead source editors—a call log is not where a rep re-classifies a contact, and offering it invites a wrong edit under time pressure.
+- Cut: the similar-contacts rail. Nobody logging a call needs eight other people.
+- Cut: a cancel-confirmation dialog. Nothing here is destructive; discard is a link.
 
 ## Hierarchy
-- Primary: Generate report
-- Secondary: dataset + date range (the two real inputs)
-- Ambient: report-name field, "Advanced options" link
+- Primary: "Log call"—the only filled button on the screen, bottom-right in the form's resolution zone, isolated by more whitespace than anything else.
+- Secondary: the Outcome selector (four large segmented targets, autofocused on load so the eye starts there), the Notes field (largest area, quiet-bordered), Duration.
+- Ambient: the call context strip and last-call line (muted, read-only), "Schedule follow-up", "Add to deal (3)", "Recording", and "Discard" as a plain text link. Space and weight carry the whole ranking; the single accent color is spent only on "Log call".
+
+## States
+- Empty: a first-ever call shows "First call with Ana" in place of the last-call line.
+- Loading: context strip skeletons while the dialer record resolves; the form is interactive immediately.
+- Error: a save failure keeps every keystroke and names the cause inline at the source—"Couldn't reach the server—your notes are saved locally, retry."
+- Full (worst case): 900-character notes scroll inside the field without pushing "Log call" off-screen; a 40-character company name truncates in the strip rather than wrapping to three lines.
 
 ## Gates
 - [x] One-sentence purpose, no "and"
-- [x] Exactly one primary action (Generate)
-- [x] Grouped + labeled; no orphans; no memory bridge (dataset chosen where it's used)
-- [x] ≤4 chunks at any decision point (name, dataset, range, generate)
-- [x] Squint test passes—Generate + the two inputs dominate
-- [x] Empty / loading / error / full (worst-case) states designed (no datasets → "Connect a source"; generating → progress; error → inputs preserved; 500-column dataset → range still scannable)
+- [x] Exactly one primary action
+- [x] Grouped + labeled; no orphans; no memory bridge
+- [x] ≤4 chunks at any decision point; nothing essential deferred
+- [x] One element is materially heaviest and it is the primary; where the primary is an action, the spec names what makes it read as actionable
+- [x] All four states above designed
 ```
 
 ---
 
-**Why these two:** the review never just lists problems—it ends on three ranked moves. The build never returns prose—it returns the same Screen Spec every time. And the second example resolves the first: "split Create report onto its own screen" becomes an actual single-purpose screen. That is the whole method in motion—one screen, one purpose, both directions.
+**Why these two:** the review never just lists problems—it ties every issue to a discipline, ends on three ranked moves, and sorts the work structural-before-executional. The build never returns prose—it returns the same Screen Spec every time. And the second resolves the first: "split the composers onto their own task screens" becomes an actual single-purpose screen whose one job you can say in a sentence. That is the method in motion, in both directions.
+
+Note the disclosure discipline doing the real work in the build: seven things were cut or deferred, and the busiest decision point holds four chunks. Note also what was *not* deferred—nothing the rep needs in order to log the call sits behind a reveal. Deferral is not burial.

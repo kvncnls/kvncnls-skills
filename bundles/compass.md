@@ -2,13 +2,15 @@
 
 This is the complete **Compass** skill as one self-contained document—the spine plus every reference—so you can use it in any AI coding agent, not only Claude Code.
 
+*Generated from `compass/` at commit `5880a45`. If the repo has moved on, regenerate rather than edit this file: it is a build artifact, not the source.*
+
 **How to use it**
 - **Claude Code**—you don't need this file; install the `compass/` folder from the repo for `/compass` and on-demand loading. This bundle is for everything else.
 - **Codex (CLI)**—append it to your project's `AGENTS.md`, which Codex loads automatically: `cat compass.md >> AGENTS.md`.
 - **ChatGPT**—create a Custom GPT and paste this into *Instructions*, or upload it as a *Knowledge* file. A Project works the same way.
 - **Cursor / Windsurf / Cline**—add it as a rules file, e.g. `.cursor/rules/compass.md`.
 
-Everything below is the skill.
+Everything below is the skill, including the full 0–4 / 12 scoring rubrics.
 
 ---
 
@@ -112,6 +114,23 @@ You can't signpost or join a path you haven't mapped, and you can't map a path w
 
 The disciplines assume a **linear** flow by default. Three other shapes are legitimate, and the rules bend for them.
 
+**Classify with this tree.** Walk it top to bottom and take the first match. Answer about the journey the user is actually on, not about how the screens are built.
+
+```
+Is there one fixed endpoint the user is trying to reach?
+├── No → OPEN-ENDED
+└── Yes
+    ├── Does the user leave a center and come back to it, repeatedly?
+    │   └── Yes → HUB-AND-SPOKE
+    └── Does the path fork on a choice the user makes?
+        ├── Yes → BRANCHING
+        └── No → LINEAR
+```
+
+Two ties worth naming, because they recur:
+- **A wizard with optional steps** is still **linear**—skippable is not the same as forked. A choice that inserts or removes a screen and then rejoins the same path is also **linear**; treat the inserted screen as a conditional step. It is **branching** only when a choice sends the user down a genuinely different *sequence* that does not simply rejoin.
+- **A drill-down inside a longer flow** (checkout that dips into "edit address" and returns) is **linear** overall; treat the dip as one step, not as a hub. It is **hub-and-spoke** only when returning to the center *is* the loop, with no endpoint beyond it.
+
 | | Linear | Branching | Hub-and-spoke | Open-ended |
 |---|---|---|---|---|
 | **Shape** | one path, start to end | path forks on user choice | center → detail → back to center | wander a space, no fixed end |
@@ -129,8 +148,10 @@ The disciplines assume a **linear** flow by default. Three other shapes are legi
 
 - **No argument** → explain Never Lost and the three disciplines briefly, then ask: building a new flow, or reviewing an existing one?
 - **`build` (or a description of a flow to design)** → follow **The four moves** below. Pull techniques from reference/patterns.md.
-- **`review` / `audit` (a flow, a set of screens, a prototype, or a description)** → load and follow reference/review.md. It runs the three-discipline audit and produces a scorecard.
+- **`review` / `audit` (a flow, a set of screens, a prototype, or a description)** → load and follow reference/review.md. It scores each discipline 0–4 against a written rubric, totals to /12 with a band, tags issues P0–P3, and closes on a Never-Lost verdict. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
 - **A question about a specific technique or anti-pattern** → consult reference/patterns.md.
+
+Before emitting either output, read reference/examples.md. It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
 
 ---
 
@@ -143,12 +164,7 @@ For each flow, in order. Write the answers down—they are the spec.
 3. **Signpost every step.** For each screen: position/progress, a real Back, and an escape hatch. No dead ends.
 4. **Join the seams.** For each transition: what context carries forward, what state must survive Back/refresh, and where entry points (deep links) land.
 
-Then run the gates:
-- [ ] One destination, no "and"?
-- [ ] Every step earns its place (no waste), and nothing protective was cut?
-- [ ] Every screen shows where-you-are and offers back + exit?
-- [ ] No memory bridge; state survives Back and resume; deep links land in context?
-- [ ] Drop test passes on every screen?
+Then run the gates: self-check against the five gates in the **`## Gates`** block of the Flow Spec template below. That block is the single canonical list—read them there, and emit them there. Never restate them in your own words.
 
 A flow that passes is sound by Compass's standard. Then design each screen with Focal, and apply visual styling and motion on top.
 
@@ -157,6 +173,7 @@ A flow that passes is sound by Compass's standard. Then design each screen with 
 ## Voice (when giving feedback)
 
 - **Lead with the answer, then structure it.** Open every build or review with one line—the verdict, or the flow's destination—then the locked template (the build template is below; the review template is in reference/review.md). Use it verbatim; don't add, remove, reorder, or rename sections.
+- **Template precedence.** The template is the complete contract for what gets emitted. If any instruction in this skill asks you to produce something the template has no slot for, put it in the nearest slot that fits, or leave it out—never invent a section. A gap like that is a bug in this skill, not a judgment call: name it in one line after the output so it can be fixed. Analysis the template has no room for is still worth doing; it informs the scores even when it isn't printed.
 - **Be specific and quantitative.** "This is a 7-step flow that needs 3" beats "too many steps." Count the steps, name the dead ends, quote the labels.
 - **Be decisive.** "The user is trapped on step 3"—not "the user might feel stuck."
 - **Factual first, then judgment, then the fix.** What happens, why it loses the user, what it should be.
@@ -168,14 +185,20 @@ A flow that passes is sound by Compass's standard. Then design each screen with 
 
 Every build returns this template verbatim, in this order. Fill the `<…>` slots; keep every fixed label.
 
+Filling it: number **only the steps the user passes through**, including the one where the destination is reached—so "7 steps down to 3" counts the same way both times. Repeat any labeled bullet as many times as the flow needs; repeating a label is not adding a section. **Gates ship unchecked**—mark `[x]` only for gates the spec actually satisfies, and leave `[ ]` with a short reason for any it doesn't. If a labeled bullet has nothing, keep the label and write "None."
+
 ```
 **Flow:** <name>—gets the user from <entry> to <destination>.
 **Type:** linear | branching | hub-and-spoke | open-ended   ·   **Audience:** novice | mixed | expert
 
 ## Steps
-1. <screen>—<its job> [+ default/skip that removes a step, if any]
+1. <screen>—<its job> [skip: <the default that removes this step, if any>]
 2. <screen>—<its job>
-(fewest honest steps; note any you merged or cut)
+
+## Cut
+- Merged: <the steps you collapsed> → <the one step they became>
+- Removed: <steps cut as waste>—<why they were not protection>
+- Kept as protection: <any step that looks like waste but stays, and why>
 
 ## Orientation
 - Position/progress: <how each step shows where-you-are and how far is left>
@@ -187,11 +210,11 @@ Every build returns this template verbatim, in this order. Fill the `<…>` slot
 - Entry points: <where deep links / notifications land>
 
 ## Gates
-- [x] One destination, no "and"
-- [x] Every step earns its place; nothing protective cut
-- [x] Where-am-I + back + exit on every step
-- [x] No memory bridge; state survives; deep links land in context
-- [x] Drop test passes on every screen
+- [ ] One destination, no "and"
+- [ ] Every step earns its place; nothing protective cut
+- [ ] Where-am-I + back + exit on every step
+- [ ] No memory bridge; state survives; deep links land in context
+- [ ] Drop test passes on every screen
 ```
 
 ---
@@ -224,7 +247,7 @@ Evaluate a flow (or a set of screens) against the three disciplines and the over
 
 ## Input modes
 
-- **A described flow**—the user narrates the steps ("they sign up, pick a plan, then…"). Map it as a sequence, name the destination, and audit the path you reconstruct. State the steps back so the user can correct your mental model before you score it.
+- **A described flow**—the user narrates the steps ("they sign up, pick a plan, then…"). Map it as a sequence, name the destination, and audit the path you reconstruct. If the narration is ambiguous, restate the sequence and ask before scoring—that is a clarifying exchange, not part of the emitted review.
 - **A set of screens or screenshots**—read them in order, infer the transitions between them, and critique the joins. You're judging the *seams*, not each screen—a beautiful screen in the wrong order, or one that drops state on the way in, still fails. Per individual screen layout, defer to Focal.
 - **A clickable prototype / live URL**—if browser automation is available, walk the flow: click through, hit Back, refresh mid-flow, follow a deep link cold. Otherwise audit the described or captured steps. Always test the transitions, not just the destinations—the failures live between screens.
 
@@ -234,10 +257,10 @@ Before judging, *walk it*. Most people glance at one screen; a reviewer traces t
 
 Then frame, in one or two sentences each:
 - **What is this journey?** Product type, what the flow is for, where it starts and ends.
-- **Name the destination.** State it as *"This flow gets the user from ___ to ___."* One outcome. If it needs an "and," it's two flows wearing one coat—flag the split now; the gates will show why.
+- **Name the destination.** Settle it as *"This flow gets the user from ___ to ___."* One outcome; it lands in the review template as the **Flow** name plus the biggest-break phrase, and in a build as the Flow line's from-to. If it needs an "and," it's two flows wearing one coat—flag the split now; the gates will show why.
 - **What's the user's state?** Anxious, rushed, first-time, returning, interrupted, one-handed? A checkout under time pressure tolerates fewer steps than a leisurely setup. A flow resumed after a phone call must survive the interruption. Name it; the critique must respect it.
 - **What's the bar?** Every flow category has an invisible standard set by its best-in-class journey. A checkout is judged against the cleanest checkouts; an onboarding against the clearest onboardings; a multi-step setup against the cleanest wizard in the category. Ask: *what would the best-in-class flow do at this seam?*
-- **The flow type.** Classify it: **linear** (one path, start to end), **branching** (path forks on a user choice), **hub-and-spoke** (a center the user leaves and returns to), or **open-ended** (wander a space, no fixed end). This sets how the gates should be read—see *Adjust for flow type* below. If you can't tell, it's usually a linear flow with an unmanaged branch bolted on—score it linear and flag the rogue fork under Gate 1.
+- **The flow type.** Classify it by walking the decision tree in **Registers** in SKILL.md—take the first match, and don't re-derive the categories here. This sets how the gates should be read; see *Adjust for flow type* below. If the tree lands on linear but an unmanaged fork is bolted on, score it linear and flag the rogue fork under Gate 1.
 
 ## Adjust for flow type
 
@@ -267,8 +290,8 @@ Run each gate in turn. Orientation leads—it's the load-bearing promise. Each p
 
 | Score | Criteria |
 |-------|----------|
-| 0 | User is lost or trapped—a dead end, a no-Back screen, or a flow with no exit |
-| 1 | Hidden progress, missing Back, or a modal with no escape; the drop test fails on a key screen |
+| 0 | No recovery exists—a true dead end, or a flow the user cannot leave from any screen |
+| 1 | A way out exists but is hidden or unlabeled (browser Back only, an unmarked Close); or progress is hidden and the drop test fails on a key screen. A Back that *wipes work* is Gate 3's, not this gate's |
 | 2 | Orientable, but one of where-am-I / how-far / how-to-get-back is weak or absent at a step |
 | 3 | Clear position, Back, and exit throughout; minor signposting gaps |
 | 4 | At every step the user knows where they are, what's left, and how to retreat or escape—the drop test passes everywhere |
@@ -287,8 +310,8 @@ Because this discipline is load-bearing, treat a **failed drop test** or a **dea
 
 | Score | Criteria |
 |-------|----------|
-| 0 | A maze—far more steps than the task needs, or branches that dead-end |
-| 1 | Bloated path; a setup wall before first value; or a "shortcut" that hides cost or skips protection |
+| 0 | The path cannot be completed as designed—branches that dead-end, or a required step the user cannot satisfy |
+| 1 | Completable but badly bloated (roughly double the honest step count), a setup wall before first value, or a "shortcut" that hides cost or skips protection |
 | 2 | Some waste—one or two redundant steps, or a round-trip that should be one screen |
 | 3 | Lean path; a default or two could still be inferred |
 | 4 | The fewest honest steps; every screen earns its place; nothing protective was cut |
@@ -310,24 +333,18 @@ Because this discipline is load-bearing, treat a **failed drop test** or a **dea
 | 3 | Context and state carry well; one rough seam or jarring jump |
 | 4 | Nothing the user gave or knew is lost across any seam; every entry point lands in context; the journey feels like one continuous task |
 
-## The scorecard
+## Scoring rules
 
-Present scores as a table. Be honest—a 4 means genuinely seamless, not "fine."
+Score each discipline 0–4 using its gate rubric above. Be honest—a 4 means genuinely seamless, not "fine."
 
-| Discipline | Score | Key finding |
-|------------|-------|-------------|
-| Orientation | ?/4 | [specific finding] |
-| Path Economy | ?/4 | [specific finding] |
-| Continuity | ?/4 | [specific finding] |
-| **Total** | **?/12** | **[band]** |
+- **Bands** (the only band list in this skill; look the string up from here): **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** broken.
+- **The Total must equal the three scores summed**, and its band string must be one of the four above, verbatim.
+- **Score 0 vs 1 (Orientation only).** Score **0** when the flow strands the user with no recovery at all—a true dead end, or a flow with no exit anywhere. Score **1** when a way out exists but is hidden or unlabeled (browser Back only, an unmarked Close). Each gate's own rubric governs its 0 and 1; this clause does not carry across disciplines. A Back that *wipes work* is a Continuity failure, scored by Gate 3, not by this clause.
+- If more than one independent failure sits in a discipline, score the *worst* one, then list the others as separate issues.
+- **The verdict—Never Lost.** Yes or no: at every step, does the user know where they are, what's left, and how to get back or out? The total measures how close the flow gets; the verdict states whether it arrives. **A failed drop test or a dead end is blocking regardless of total.**
+- **A doubled destination** (the flow needs an "and") is a P0 Orientation issue: the user cannot know what they are finishing. Flag it as the split it implies.
 
-**Bands:** 11–12 ship it · 8–10 solid, fix the weak discipline · 5–7 significant rework · 0–4 broken.
-
-**The verdict—Never Lost.** This becomes the **Verdict** line at the very top of the output (see Output format): at every step, does the user know where they are, what's left, and how to get back or out—yes or no? The total measures how close the flow gets; the verdict states whether it arrives. **A failed drop test or a dead end is blocking regardless of total**—a flow can score moderately and still fail the verdict if it strands the user at one step.
-
-## Issues and severity
-
-List the issues found, ordered by severity, not by discipline. Tag each:
+## Issue severity
 
 | Priority | Meaning |
 |----------|---------|
@@ -336,19 +353,17 @@ List the issues found, ordered by severity, not by discipline. Tag each:
 | **P2** | Annoyance with a workaround—next pass |
 | **P3** | Polish—if time permits |
 
-Order issues by *type* of harm, most severe first: **Orientation** (the user is lost or trapped) → **Path Economy** (the path is longer or less honest than it should be) → **Continuity** (a seam drops context or state). A user who is lost outranks a path that is merely long.
-
-For each issue:
-> **[P? · Discipline] Name**—what happens (factual, specific, counted; quote the labels). Why it loses *this* user in *this* state, and how it costs the flow its promise. The concrete fix.
+**Ordering (one rule):** sort by priority, P0 first. Within the same priority, break ties by type of harm—**Orientation** (the user is lost or trapped) outranks **Path Economy** (the path is longer or less honest than it should be) outranks **Continuity** (a seam drops context or state). Never reorder across priorities; a P0 Continuity issue outranks a P1 Orientation issue.
 
 ## Output format—use this exact structure
 
-Every review returns this template verbatim, in this order. Same sections, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections. Fill the `<…>` slots; keep each fixed label.
+Every review returns this template verbatim, in this order. Don't add, remove, reorder, or rename sections. Fill the `<…>` slots; keep every fixed label. This block is the single source of truth for the emitted shape—the issue line, the table columns, and the section list exist only here.
 
 ```
-**Verdict:** <never lost—yes or no> · <the single biggest break, one phrase> · **<total>/12**
+**Verdict:** <No | Yes> · <the single biggest break, one phrase> · **<total>/12**
 
 **Flow:** <name> · type: <linear | branching | hub-and-spoke | open-ended> · audience: <novice | mixed | expert>
+**Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
 
 ## Scorecard
 | Discipline | Score | Key finding |
@@ -361,24 +376,23 @@ Every review returns this template verbatim, in this order. Same sections, same 
 ## Issues (most severe first)
 - **[P0 · Orientation]** <Name>—<observation>. <impact>. **Fix:** <fix>.
 - **[P1 · Path Economy]** <Name>—<observation>. <impact>. **Fix:** <fix>.
-(if nothing above P3, write "None above P3." and keep this header)
 
 ## Top 3 moves
 1. <highest-leverage change>
 2. <next>
 3. <next>
+
+## Next
+- **Structural** (do first): <what changes what the journey *is*—steps to cut or merge, a branch to manage, a dead end to close, state to carry, an entry point to re-route>
+- **Executional** (after): <what changes how a step *looks or reads*—indicator weight, Back label wording, transition motion>
+- **Hand off**: <anything that is not this flow's problem—single-screen layout or hierarchy goes to Focal; "None" if all of it is Compass's>
 ```
 
-Bands: **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** broken. **A failed drop test or a dead end is blocking regardless of total.** Tag issues with the discipline names **Orientation / Path Economy / Continuity**.
-
-## Next steps
-
-Close by sorting the fixes into two buckets and ordering the work:
-
-- **Structural**—the destination is unclear or doubled, steps to cut or merge, a branch to manage, a dead end to close, state to carry across a seam, an entry point to re-route. These change what the *journey is*. Resolve them first with the four-move build workflow in SKILL.md, and pull techniques from patterns.md.
-- **Executional**—the visual weight of a progress indicator, the wording of a Back label, the motion of a transition, the styling of a screen. These change how a step *looks or reads*. Apply them in your own design system once the path is sound.
-
-Always fix structural before executional: signposting a maze only labels the dead ends. **Single-screen problems are out of scope—route them to Focal.** If an individual screen in the flow is overloaded, mis-ranked, or has no clear primary action, that's a within-screen failure for Focal, not a seam for Compass; note it and hand it off. Re-run the audit after fixes to watch the score climb.
+Filling it:
+- **Issues**—repeat the issue line once per issue, tagged **Orientation / Path Economy / Continuity**. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Next**—structural before executional, always: signposting a maze only labels the dead ends. Resolve structural items with the four-move build workflow in SKILL.md and the techniques in patterns.md.
+- **Single-screen problems are out of scope—route them to Focal.** If an individual screen is overloaded, mis-ranked, or has no clear primary action, that is a within-screen failure for Focal, not a seam for Compass; name it in **Next** and hand it off.
+- Re-run the audit after fixes to watch the score climb.
 
 ---
 
@@ -512,70 +526,83 @@ See ../SKILL.md for the disciplines and the Flow Spec, and review.md for the thr
 
 # Compass Examples
 
-Two worked examples showing the quality bar and the locked output templates in use—one **review**, one **build**. They share a narrative: the review flags a maze-like checkout that traps the user, loses their data, and strands returning shoppers; the build redesigns that same flow so the user is never lost. Illustrative, not a real product.
+Two worked examples, captured from real runs of this skill and shown in the locked output templates—one **review**, one **build**. They share a narrative: the review finds a 7-step onboarding wall that traps the user twice over, and the build redesigns that same flow so the user is never lost. These set the bar for length, specificity, and tone; the templates set the shape.
 
 ---
 
-## Example 1—Review: a maze-like checkout
+## Example 1—Review: a 7-step onboarding wall
 
-**Input (what was handed in):** the checkout flow of a storefront. A 6-step wizard (Cart → Account → Shipping → Billing → Review → Confirm) that opens inside a full-screen modal with no Close. Each step replaces the last; the only Back is the browser's, which wipes everything entered. Shipping cost and taxes appear for the first time on step 5. A "Sign in to continue" wall blocks step 2 for everyone. Returning users who tap the emailed "Resume your order" link land on step 1 with an empty cart. There is no step indicator anywhere.
+**Input:** a team-collaboration app's new-user onboarding, 7 steps: (1) Create account, (2) Verify email—shows "check your email" and dead-ends with no resend and no way back, (3) Choose a plan (free tier present but visually buried, prices shown here for the first time), (4) Invite teammates (required, minimum one), (5) Pick integrations from a grid of 24, (6) Name your first project, (7) a 4-slide feature tour. Only then does the user see the product. No progress indicator. Browser Back restarts at step 1 with all fields empty. The onboarding email's "Continue setup" link always opens step 1.
 
 **Compass's output:**
 
 ```
-**Verdict:** No · the user is trapped in a modal, loses data on Back, and returning links dump them at step one · **3/12**
+**Verdict:** No · the email-verification screen is a dead end with no resend, no Back, and no way forward · **1/12**
 
-**Flow:** Storefront checkout · type: linear · audience: mixed
+**Flow:** Team-collaboration app new-user onboarding · type: linear · audience: novice
+**Context:** a first-timer evaluating the product, patience near zero · bar: Linear's and Notion's first-run
 
 ## Scorecard
 | Discipline | Score | Key finding |
 |---|---|---|
-| Orientation | 1/4 | No step indicator, no in-flow Back, no Close—the modal traps the user |
-| Path Economy | 1/4 | 6 steps for a 3-step job; a sign-in wall gates checkout; cost hidden until step 5 |
-| Continuity | 1/4 | Back wipes entered data; the "Resume" deep link lands at step 1 with an empty cart |
-| **Total** | **3/12** | **broken** |
+| Orientation | 0/4 | Step 2 is a dead end ("check your email", no resend, no back), and none of the 7 steps has a Cancel or skip—the flow traps the user twice over. |
+| Path Economy | 1/4 | 7 steps where 2 are honest, all of them before first value, with prices first shown at step 3 and the free tier visually buried. |
+| Continuity | 0/4 | Browser Back restarts at step 1 with every field empty, and the "Continue setup" email link always reopens step 1. |
+| **Total** | **1/12** | **broken** |
 
 ## Issues (most severe first)
-- **[P0 · Orientation]** Trapped modal—the flow opens in a full-screen modal with no Close and no in-flow Back; only the browser Back, which exits the whole modal. The user is trapped: no way out that isn't "lose everything." **Fix:** a real Back on every step and a persistent "Save & exit"—nothing should trap the user in a modal.
-- **[P0 · Continuity]** Back wipes data—browser Back wipes every field entered so far; the user re-types shipping and billing from scratch. **Fix:** persist step state so Back returns to the previous step with its data intact. Back is not a reset.
-- **[P0 · Continuity]** Resume lands empty—the emailed "Resume your order" link deep-links returning users to step 1 with an empty cart; the order they were resuming is gone. **Fix:** the deep link lands them on the step they left, cart and entered data restored. Honor the entry point.
-- **[P1 · Path Economy]** Sign-in wall—a "Sign in to continue" wall blocks step 2 for everyone, including first-time buyers who don't have an account. **Fix:** offer guest checkout; collect the email at shipping and invite account creation *after* the purchase, not as a gate before it.
-- **[P1 · Path Economy]** Six steps for three—a job that's honestly three (identify, pay, confirm) is spread across six screens. Account and Billing are separable steps that each demand a full round-trip. **Fix:** merge Account into Shipping (one contact-and-address screen) and Billing into Review (pay where you confirm)—three steps, not six.
-- **[P1 · Path Economy]** Cost hidden until step 5—shipping cost and taxes appear for the first time on step 5 (Review), after the user has invested five screens. **Fix:** show the running total from the first step it can be estimated. Surfacing cost early is honest economy; hiding it to shorten the felt path is the dark pattern—the honest-path caveat, not friction reduction.
-- **[P2 · Orientation]** No step indicator—nothing tells the user where they are or how far is left. The drop test fails on every screen. **Fix:** a "Step 2 of 3" marker or labeled progress on every step.
+- **[P0 · Orientation]** The verification dead end—step 2 shows "check your email" and stops: no resend, no "change email", no Back, no way forward inside the app. A first-timer whose mail is slow, spam-filtered, or mistyped by one character has exactly one move left, which is closing the tab; the screen can be reached and not left, so it fails the drop test outright and breaks the promise at the earliest possible moment. **Fix:** make step 2 a live screen—a 6-digit code field that auto-advances on paste, "Resend code" on a 30-second countdown, "Change email", a real Back to step 1 with the address intact, and "Finish later" that saves the pending account and mails a resume link.
+- **[P0 · Orientation]** No exit from a 7-step wall—there is no Cancel, Close, "Skip for now", or "Save & exit" on any step, and step 4 cannot be skipped and demands a minimum of one teammate invite. A user who wants to see the product before handing over a colleague's email address has no legal move; a wizard with no Cancel is a trap with a polite face, and a required invite makes the trap cost someone else's data. **Fix:** put an escape hatch on every step ("Skip" / "Finish later"), and delete the invite gate—invites become an in-product action prompted when sharing actually matters.
+- **[P0 · Path Economy]** The buried price—prices appear for the first time at step 3, after the user has already created an account and verified an email, and the free tier is visually de-emphasized against the paid options. Cost disclosed only after sunk investment, with the free option down-weighted, is a trust break dressed as a conversion tactic; this is a dark pattern, not economy. **Fix:** disclose pricing before or at account creation, with the free tier as a visually equal, pre-selected default and no card required.
+- **[P0 · Continuity]** The state-eating Back—pressing browser Back at any step restarts at step 1 with all fields empty. Up to six screens of work vanish on one keystroke, and after it happens once the user distrusts the only retreat they had; a Back that resets is the anti-pattern the safety net is supposed to prevent. **Fix:** make each step a real history entry, persist entered values server-side against the pending signup, and restore every field on Back and on forward.
+- **[P0 · Continuity]** The deep link to step one—the onboarding email's "Continue setup" link always opens step 1, so the one channel built to recover an interrupted user resets them instead. A "continue" that starts over is worse than no link, because it promised; every interrupted signup becomes a re-signup. **Fix:** sign a resume token into the link and land the user on the step they left with prior input intact, and make the verification link complete verification and land them in the workspace.
+- **[P1 · Orientation]** Hidden progress across all 7 steps—no stepper, no named stages, no count; standing on step 4 the user cannot tell whether one screen is left or six. An unbounded flow reads as endless, and endless is where people quit; combined with the missing signage, the drop test fails on every screen. **Fix:** once the path is cut, carry a milestone stepper with named stages on every remaining gated step ("Step 1 of 2 · Create account"), and never a tally.
+- **[P1 · Path Economy]** The setup wall—all 7 steps sit before the user ever sees the product: a plan choice, a forced invite, a 24-tile integration grid, a project name, and a 4-slide tour. Only two are load-bearing (create account, verify email)—this is a 7-step flow that needs 2. Every configuration screen before the first win asks a question the user has no context to answer. **Fix:** cut to account + verify, land the user in a pre-seeded workspace, and move plan, invites, integrations, project naming, and the tour into the product as contextual, dismissible prompts—offer 3 relevant integrations with "Browse all", not a grid of 24.
 
 ## Top 3 moves
-1. Free the user—add a real Back and a "Save & exit" to every step, and persist state so Back and resume never lose data.
-2. Cut six steps to three honest ones, drop the sign-in wall for guest checkout, and surface the total from the start.
-3. Fix the "Resume" deep link to land returning users on the step they left, cart restored—and add a "Step X of 3" indicator throughout.
+1. Cut the wall to 2 gated steps—create account, verify email—then put the user in a live, pre-seeded workspace; plan, invites, integrations, project name, and tour all become in-product prompts they can dismiss and return to.
+2. Make every step recoverable: a persistent 2-stage stepper, a real Back that preserves state, "Finish later" on both steps, and a verification screen with a code field, resend countdown, and change-email—so no screen can be reached and not left.
+3. Fix the seams: persist the pending signup so refresh and return-tomorrow resume in place, and re-point the "Continue setup" and verify links at the step the user actually left instead of step 1.
+
+## Next
+- **Structural** (do first): close the verification dead end, add an exit to every step, cut 5 of the 7 steps into in-product prompts, persist pending-signup state across Back and refresh, and re-point both email links at the step the user left.
+- **Executional** (after): the stepper's visual weight, the resend countdown's copy, the free-tier's equal visual treatment on the plan disclosure, and the transition between the two gated steps.
+- **Hand off**: the plan-disclosure screen's internal layout and the free-vs-paid visual ranking are single-screen problems—Focal's, once the path is cut.
 ```
 
 ---
 
-## Example 2—Build: the redesigned checkout
+## Example 2—Build: the redesigned first run
 
-**Input:** "Redesign the checkout flow we just reviewed—fewer steps, full orientation, nothing lost."
+**Input:** "Redesign the onboarding flow we just reviewed—fewest honest steps, nothing lost, no dead ends."
 
 **Compass's output:**
 
 ```
-**Flow:** Storefront checkout—gets the user from a full cart to a confirmed order.
-**Type:** linear   ·   **Audience:** mixed
+**Flow:** Team-collaboration app first run—gets the user from a signup click to their first real action inside a live workspace.
+**Type:** linear   ·   **Audience:** novice
 
 ## Steps
-1. Cart—review items and see the running total (subtotal + estimated shipping/tax) before committing [default: skip if entered from a "Buy now" deep link with one item]
-2. Details—contact email + shipping address on one screen; guest by default, "create an account" offered, not required [merged the old Account + Shipping steps]
-3. Pay & confirm—payment, final total, and the confirm action on one screen [merged the old Billing + Review steps; order placed here]
-(six steps cut to three honest ones; sign-in wall removed—account creation moved to after purchase)
+1. Create account—email + password or SSO, with plan tiers stated in plain view ("Free forever · Pro $X/user/month—start free, switch anytime"), free pre-selected, no card. [skip: none—this is the entry]
+2. Verify email—a 6-digit code field that auto-advances on paste, plus a magic link in the same mail; "Resend code" on a 30s countdown, "Change email", Back to step 1, "Finish later". [skip: the magic link completes this step from the inbox, so a user who clicks it never types anything]
+3. Workspace—the product itself, live: a workspace named from the email domain, one pre-seeded project, and the first real action (post, task, doc) available immediately. [skip: workspace and project names are inferred and renamed inline, which removes the old naming step]
+
+## Cut
+- Merged: the plan step (old 3) → folded into step 1 as plain-view disclosure, so price is stated before any investment rather than after two screens.
+- Merged: the project-name step (old 6) → inference from the email domain plus inline rename inside step 3.
+- Removed: the required teammate invite (old 4)—a gate that cost a third party's data to pass; it becomes an in-product prompt at the moment sharing matters.
+- Removed: the 24-tile integration grid (old 5)—replaced by a contextual "3 suggested · Browse all" prompt inside the workspace, asked when the user has context to answer.
+- Removed: the 4-slide feature tour (old 7)—replaced by a dismissible 3-item checklist that survives dismissal and stays reachable.
+- Kept as protection: email verification—it protects the account and the address is needed for recovery, so it is not waste. Price disclosure moved *earlier*, never hidden to shorten the felt path.
 
 ## Orientation
-- Position/progress: a "Step 1/2/3 of 3" marker labeled Cart · Details · Pay on every screen; the running total is visible from step 1 forward
-- Back + exit: a real Back on steps 2 and 3 that returns to the prior step intact; a persistent "Save & exit" on every step that preserves the cart and drops the user back on the storefront—no trapping modal
+- Position/progress: both gated steps carry a two-stage milestone stepper with named stages—"Step 1 of 2 · Create account", "Step 2 of 2 · Verify email"—so the end is visible from the first screen. On arrival, the product's own nav is the position signal: workspace name as the active anchor, plus a "Get started" card reading "1 of 3 done" that honors progress rather than gating it.
+- Back + exit: step 1 has "Back to site"; step 2 has a real Back to step 1 with the email still filled, plus "Finish later" which saves the pending account and mails a resume link. Step 2 can never dead-end—resend, change email, paste code, Back, and exit are all live on it. Inside the workspace every deferred prompt is dismissible and permanently reachable: Invite in the header, Integrations in the sidebar, and the checklist collapses rather than disappearing.
 
 ## Continuity
-- Carries forward: cart contents and running total carry from step 1; email and shipping address carry from step 2 into the step-3 total and confirmation
-- Survives: Back returns to the previous step with its fields intact; a refresh or a return tomorrow resumes on the last step reached with the cart and entered data restored—never a reset
-- Entry points: the emailed "Resume your order" link lands on the exact step the user left, cart and details restored; a "Buy now" deep link enters at step 2 with the single item already in the cart
+- Carries forward: the address typed on step 1 is shown verbatim on step 2 ("We sent a code to kevin@acme.com") with a change link, so no code or address is carried in the user's head; the email domain becomes the suggested workspace name on step 3; the plan chosen on step 1 carries to billing and is never re-asked.
+- Survives: Back restores every field on both steps; a refresh, a closed tab, or a return tomorrow resumes on the last step reached with prior input intact, because the pending signup is persisted server-side rather than held in the page; the workspace checklist state persists per user, so a dismissed prompt stays dismissed and a half-done item stays half-done.
+- Entry points: the "Continue setup" email link carries a signed resume token and opens the exact step the user left, never step 1; the verification magic link completes verification and lands the user in the workspace; a teammate's invite link lands the invitee on that workspace's join screen and, after account creation, inside that workspace rather than a fresh empty one.
 
 ## Gates
 - [x] One destination, no "and"
@@ -587,8 +614,6 @@ Two worked examples showing the quality bar and the locked output templates in u
 
 ---
 
-**Why these two:** the review never just lists problems—it ties every issue to a discipline and ends on three ranked moves. The build never returns prose—it returns the same Flow Spec every time. And the second example resolves the first: "cut six steps to three, free the user, restore the resume link" becomes an actual three-step flow where the user always knows where they are, what's left, and how to get back or out. That is the whole method in motion—never lost, in both directions.
+**Why these two:** the review never just lists problems—it ties every issue to a discipline, ends on three ranked moves, and sorts the work structural-before-executional. The build never returns prose—it returns the same Flow Spec every time. And the second resolves the first: "cut the wall to 2 gated steps and make every one recoverable" becomes an actual three-screen flow where the user always knows where they are, what's left, and how to get back or out.
 
-Note the honest-path line running through both: the review's fix for hidden cost is to *surface* the total earlier, and the build shows it from step 1. Shortening the felt path by hiding the price or dropping the sign-in protection would be a dark pattern, not Path Economy. The cuts here remove waste (redundant round-trips, a needless gate), never protection.
-
-Once the path is sound by Compass's standard, design each screen with Focal—see review.md for the full scorecard method and patterns.md for the step-reduction and continuity patterns behind these fixes. The spine is in ../SKILL.md.
+Note the honest-path line running through both: the review's fix for the buried price is to disclose it *earlier*, and the build states it on step 1. Shortening the felt path by hiding cost, or dropping verification to save a screen, would be a dark pattern rather than Path Economy—which is why `## Cut` names what was kept as protection alongside what was removed as waste.
