@@ -1,6 +1,6 @@
 # Flywheel
 
-> **Growth is how hard you push. Retention is how heavy the wheel is.**
+> **Earn the second visit.**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 

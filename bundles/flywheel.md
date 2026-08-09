@@ -16,7 +16,7 @@ Everything below is the skill, including the full 0–4 / 16 scoring rubrics.
 
 # Flywheel
 
-**Growth is how hard you push. Retention is how heavy the wheel is.**
+**Earn the second visit.**
 
 A product's journey is usually drawn as a funnel—attention narrowing to trust, to activation, to value, to payment. But look at the last stage. People who return and bring others feed the top again. The chain closes. It is not a funnel, it is a wheel.
 
