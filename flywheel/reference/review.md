@@ -13,7 +13,7 @@ Find where a product loses the people it already earned, score each play, and na
 Before scoring, establish in one or two sentences each:
 
 - **What is this product, and who is it for?** A growth judgment with no audience is a guess.
-- **What is first value?** Name the event that changes the user's situation. If the team has not defined it, say so—that absence is itself a finding, and it caps Friction at 2.
+- **What is first value?** Name the event that changes the user's situation. If the team has not defined it, define it yourself by the rule in **[SKILL.md](../SKILL.md)**—the tree below cannot be walked without it. Then do both: print your definition in the Product line, and report the team's absence of one as its own finding. It caps Friction at 2.
 - **What are the stakes?** Low, medium, or high. In finance, health, children's products, employment, housing, education, identity, and safety, protective friction is a foundation and its removal is a defect, not an optimization.
 - **Where is the leak?** Walk the diagnosis tree in **[SKILL.md](../SKILL.md)**—take the first match, and don't re-derive the categories here. If two stages leak, take the earliest; loss compounds downstream.
 - **Measured or diagnosed?** State which. Findings from data and findings from reading an artifact carry different weight, and blending them silently is how a heuristic becomes a false certainty.
@@ -98,7 +98,7 @@ Score each play 0–4 using its gate rubric above. Be honest—a 4 means genuine
 | Priority | Meaning |
 |----------|---------|
 | **P0** | Hides consequence, weaponizes emotion, or removes informed choice—fix now, regardless of metrics |
-| **P1** | Costs a large share of people at the leaking stage—fix before spending more on attention |
+| **P1** | Costs a large share of people at the leaking stage (a setup wall, an invisible win, a broken message match, an ask before value)—fix before spending more on attention |
 | **P2** | Real loss with a workaround, or a win left invisible—next pass |
 | **P3** | Polish—if time permits |
 

@@ -64,6 +64,8 @@ Where does the product lose people?
       the wheel has no mass
 ```
 
+**Name first value before you walk the tree.** Branches 2 and 3 are separated by exactly that line, and nothing else—so an undefined first value makes the tree unwalkable, and undefined is the common case. If the team has not named it, name it yourself as the strictest outcome you can defend: the moment the user's situation changes, not the moment setup ends. Say which definition you used, because a looser one moves the whole diagnosis from Friction to Wins and changes every fix that follows. The absence of a team definition is itself a finding—report it.
+
 **If two stages both leak, take the earliest.** Loss compounds downstream: a fix at Wins is wasted on people who never got past Friction. This is the same reason the plays are ordered.
 
 ### Diagnosing with data, and without it
@@ -71,6 +73,8 @@ Where does the product lose people?
 **With funnel data**, the leak is where the drop-off is. Compare stage-to-stage conversion, and prefer cohorts with a shared start point over aggregate averages. Read distributions, not means—a median time-to-value can hide a long tail of people who are stuck.
 
 **Without data**, which is the common case, diagnose from the artifact using the play's own audit checks, and say plainly which measurement would confirm it. Never stall for want of numbers, and never present a heuristic finding as a measured one—say the finding was diagnosed from the artifact, and name the metric that would confirm it. Both output templates have a slot for exactly that.
+
+**Pick the confirming metric by what would change the verdict.** Each play's *What to measure* section is a menu; this rule picks from it, and it picks **one**. State it as a comparison, never a level: the completion rate of the exact step you blamed, and the return or conversion rate of the people who clear that step against those who do not. A level only tells you the stage is low. The comparison tells you whether the step you blamed is the reason—which is the claim you actually made.
 
 ### Two modifiers
 
@@ -118,7 +122,7 @@ Retention depends less on novelty than on respectful continuity: restore context
 
 - **No argument** → explain the wheel and the four plays briefly, then ask: diagnosing an existing product, or building a stage?
 - **`diagnose` / `audit` / `review` (a product, a stage, a screenshot, or a symptom like "nobody comes back")** → load and follow [reference/review.md](reference/review.md). It scores each play 0–4 against a written rubric, totals to /16 with a band, tags issues P0–P3, and names the leaking stage. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
-- **`build` (a stage to design)** → run the diagnosis tree to confirm which stage, read that play's reference, then follow **Build** below.
+- **`build` (a stage to design)** → name first value, walk the diagnosis tree to confirm which stage, read that play's reference, then follow **Build** below. That order is fixed: the tree cannot be walked before first value is named.
 - **A question about one play** → read that play's reference file.
 
 Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well.
@@ -129,7 +133,7 @@ Before emitting either output, read [reference/examples.md](reference/examples.m
 
 Building a stage needs one input Focal and Compass do not: you cannot design trust or activation in the abstract. Establish the frame first.
 
-1. **Frame it.** What is the product, who is this stage for, and—if the stage is anywhere before value—**what is the first-value event?** Name it as something that changes the user's situation, not as setup completed. "Created an account" is not first value; "imported data and got an actionable insight" is.
+1. **Frame it.** What is the product, who is this stage for, and **what is the first-value event?** Name it as something that changes the user's situation, not as setup completed. "Created an account" is not first value; "imported data and got an actionable insight" is. Name it even when the stage sits after value—the Stage Spec has a slot for it either way, and a stage designed without knowing what value it follows is a stage designed blind.
 2. **Name the stage and its leak.** Which of the four is this, and what is being lost there today (or what would be, if this ships wrong).
 3. **Run the play.** Read that reference and apply it. One play, not four.
 4. **Place the ask.** If this stage contains a commercial or social ask—upgrade, invite, share, rate, connect—state what value lands before it and why accepting extends that value. If no value lands first, move the ask or cut it.
