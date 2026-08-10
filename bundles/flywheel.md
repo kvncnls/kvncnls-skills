@@ -44,12 +44,12 @@ The order is not a preference. Emotional polish cannot rescue a product that fee
 
 ## When to use
 
-Flywheel is for **the yield on attention you already have**—turning visits into trust, trust into activation, activation into value, and value into return. Onboarding, first-run, activation paths, empty states, success states, upgrade and referral moments, re-entry, win visibility.
+Flywheel is for **what attention becomes**—turning arrival into trust, trust into activation, activation into value, value into return, and return into new arrivals. That last clause is not a flourish: the wheel closes, so the moments that earn word of mouth are in scope alongside the ones that earn a second visit. Onboarding, first-run, activation paths, empty states, success states, upgrade and referral moments, re-entry, win visibility.
 
 It is **not** for:
 - Single-screen structure, hierarchy, or clutter—that is Focal.
 - Getting the user through a multi-screen path without getting lost—that is Compass.
-- Paid acquisition, channel strategy, marketing copy, or SEO. Flywheel improves what happens *after* attention arrives; it does not generate attention.
+- **Buying** attention—paid channels, budget allocation, bidding, SEO, campaign copy. Flywheel designs what attention meets when it arrives, and what makes people bring more of it. It does not buy it. Earned acquisition is in scope; paid acquisition is not.
 - Analytics instrumentation, event schemas, research protocols, or experiment statistics. It tells you which measurement would settle a question; it does not build the measurement.
 
 **Scope.** Flywheel is a *lens* for the transitions between stages of a relationship—where value is lost and how a stage earns the next one. It decides which stage is leaking, why, and what to change. The execution of color, typography, spacing, and motion is left to your own design system.

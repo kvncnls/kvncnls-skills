@@ -35,7 +35,7 @@ This keeps each skill simple to understand, invoke, test, and improve. It also m
 |-------|--------------|
 | [**focal**](./focal) | One screen, one purpose. Declutters and structures app/dashboard screens through three disciplines—Information Architecture, Progressive Disclosure, and Visual Hierarchy. Build new screens or review existing ones. |
 | [**compass**](./compass) | Never lost. Guides multi-screen flows and navigation through three disciplines—Orientation, Path Economy, and Continuity. Build new flows or review existing ones. Pairs with Focal (single screens). |
-| [**flywheel**](./flywheel) | Earn the second visit. Finds where a product loses the people it already earned, across four ordered plays—Trust, Friction, Wins, and Emotion. Diagnose a leak or build a stage. |
+| [**flywheel**](./flywheel) | Earn the second visit. Growth and retention: finds where a product loses the users it already earned, across four ordered plays—Trust, Friction, Wins, and Emotion. Diagnose a leak or build a stage. |
 
 ## Install (Claude Code)
 

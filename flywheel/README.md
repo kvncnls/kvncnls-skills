@@ -78,12 +78,12 @@ flywheel/
 
 ## Scope
 
-**Use it for** the yield on attention you already have: onboarding, activation, empty states, success states, upgrade and referral moments, re-entry, win visibility.
+**Use it for** what attention becomes: onboarding, activation, empty states, success states, upgrade and referral moments, re-entry, win visibility. The wheel closes, so the moments that earn word of mouth count too.
 
 **Not for:**
 - Single-screen structure—that's [Focal](../focal).
 - Multi-screen paths and getting lost—that's [Compass](../compass).
-- Paid acquisition, channels, or marketing copy. Flywheel improves what happens *after* attention arrives.
+- **Buying** attention: paid channels, budget, bidding, SEO, campaign copy. Flywheel designs what attention meets when it arrives, and what makes people bring more of it. Earned acquisition is in scope; paid is not.
 - Analytics instrumentation, research protocols, or experiment statistics.
 
 Flywheel cannot manufacture product-market fit. It stops a valuable product from hiding its value behind uncertainty, effort, silence, or forgettability.
