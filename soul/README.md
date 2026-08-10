@@ -51,7 +51,16 @@ Prefer a copy, or one project only? `cp -R kvncnls-skills/soul ~/.claude/skills/
 /soul search     ← a product, a flow, screens, or "it feels like every other app"
 ```
 
-Returns a fixed template: the beat-by-beat path map with a tier per beat, a 0–4 score per gate (/16 with a normalized /4 average and common quality band), the 2–3 Net-New moments ranked, the small things worth elevating, issues tagged P0–P3, and the receipt—which beats stay Expected, and why.
+Returns a fixed **happy-path sweep**:
+
+- **Verdict, Product, Path, and ending feeling**—the authored state, largest missed or misplaced moment, and native `/16` total.
+- **Basis and Blocker**—the evidence available, confirming check, and any critical condition.
+- **The path**—every beat, touchpoint, frequency, and Expected/Elevated/Net-New assignment.
+- **Scorecard**—Baseline, Placement, Proportion, and Signature scored `0–4`, followed by the normalized average and final common band.
+- **The moments and small things**—the 2–3 Net-New moments ranked by reach × memory, plus Elevated craft opportunities.
+- **Issues, Kept Expected, and Next**—P0–P3 findings, the restraint receipt, sequencing, and any Focal, Compass, or Flywheel handoff.
+
+See the [locked search template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).
 
 **Build**—design one moment at full depth.
 
@@ -59,7 +68,16 @@ Returns a fixed template: the beat-by-beat path map with a tier per beat, a 0–
 /soul build the payment-landed moment
 ```
 
-Returns a fixed **Moment Spec**: the named feeling, frequency, stakes, and target tier; why this beat earns the budget; all three rungs from floor to target; what every rung holds constant; and a gate check. The pick between rungs stays with you.
+Returns a fixed **Moment Spec**:
+
+- **Moment**—the beat, audience, named feeling, frequency, stakes, and target tier.
+- **Why this moment**—its position on the path and why it earns the craft budget.
+- **The rungs**—Expected, Elevated, and Net-New treatments from floor to target.
+- **Held constant**—speed, comprehension, convention, and any other invariant.
+- **Constraints for the pick**—brand, technical, accessibility, and contextual limits.
+- **Gates**—a binary, unscored check of the proposed design.
+
+The pick between rungs stays with you. See the [locked Moment Spec template](./SKILL.md#build-the-five-moves).
 
 ---
 

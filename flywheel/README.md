@@ -48,7 +48,15 @@ Prefer a copy, or one project only? `cp -R kvncnls-skills/flywheel ~/.claude/ski
 /flywheel diagnose     ← a product, a stage, or a symptom like "nobody comes back"
 ```
 
-Returns a fixed template: the leaking stage, a 0–4 score per play (/16 with a normalized /4 average and common quality band), P0–P3 issues, the one stage to fix first, and what becomes worth doing after it moves.
+Returns a fixed **diagnosis**:
+
+- **Verdict**—the earliest leaking stage, largest loss, and native `/16` total.
+- **Product, first value, stakes, Basis, and Blocker**—the frame, evidence available, confirming check, and any critical condition.
+- **Scorecard**—Trust, Friction, Wins, and Emotion scored `0–4`, followed by the normalized average and final common band.
+- **Issues**—P0–P3 findings ordered from the earliest stage downstream, each with a concrete fix.
+- **Fix this first and Next**—exactly one stage to address now, what becomes worthwhile afterward, and any Focal or Compass handoff.
+
+See the [locked diagnosis template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).
 
 **Build**—design one stage with its play.
 
@@ -56,7 +64,16 @@ Returns a fixed template: the leaking stage, a 0–4 score per play (/16 with a 
 /flywheel build the first-run experience for a budgeting app
 ```
 
-Returns a fixed **Stage Spec**: first value, the leak, the design, the friction deliberately kept, where any ask lands, and a gate check.
+Returns a fixed **Stage Spec**:
+
+- **Stage**—one Trust, Friction, Wins, or Emotion play, its audience, first value, and stakes.
+- **The leak**—what is being lost today and the fastest confirming metric.
+- **The design**—the proposed intervention at that stage.
+- **Friction kept**—productive or protective effort retained deliberately.
+- **The ask**—what value precedes any commercial or social request, and what declining costs.
+- **Gates**—a binary, unscored check of the proposed design.
+
+See the [locked Stage Spec template](./SKILL.md#build-the-five-moves).
 
 ---
 
