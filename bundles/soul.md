@@ -20,21 +20,21 @@ Everything below is the skill, including the full 0–4 / 16 scoring rubrics.
 
 Most products work and feel like nothing. Every screen functional, every flow passable, nothing anyone would describe to a friend. The word people reach for is *soulless*, and the word is a diagnosis: nothing here was authored. The product is the average of its competitors.
 
-**Soul is not a spec—it is what accumulates when specific moments are placed well.** So this skill does not sprinkle. It maps the default path, finds the 2–3 moments worth more than functional treatment, designs each at three grades, and keeps everything else deliberately standard.
+**Soul is not a spec—it is what accumulates when specific moments are placed well.** So this skill does not sprinkle. It maps the default path and sorts every beat into one of three tiers—what stays functional, what gets more craft, and the 2–3 moments that get rebuilt entirely.
 
 Three facts decide every placement:
 
-- **People remember the peak and the ending, not the average.** A product with two authored moments and ten standard beats is remembered. A product with twelve decorated beats is exhausting, and nothing in it reads as significant.
+- **People remember the peak and the ending, not the average.** A product with two entirely new moments and quiet craft on everything else is remembered. A product with twelve novelties is exhausting, and nothing in it reads as significant.
 - **Reach beats risk.** Delight traditionally goes where failing is cheap—the 404 page, the easter egg—which is exactly where nobody walks. Placement here is chosen by reach × memory: the default path, because that is where everyone is.
 - **Repetition kills novelty.** The 50th confetti is noise. A treatment that plays every session must survive its 50th viewing; a treatment that plays once may spend everything.
 
-**The three rungs**, applied to each chosen moment:
+**The three tiers.** Every beat on the path gets exactly one:
 
-| Rung | What it is | The test |
-|---|---|---|
-| **Expected** | the obvious version, fully functional | nothing missing, nothing added—the floor, and for most beats the correct final answer |
-| **Elevated** | the same moment executed at a higher grade | nothing new is introduced; the existing thing, done with visible care |
-| **Net-New** | the version nobody expects | a screenshot of it could not be mistaken for a competitor |
+| Tier | What it is | Where it goes | The test |
+|---|---|---|---|
+| **Expected** | the obvious version, fully functional | beats that must simply work | nothing missing, nothing added |
+| **Elevated** | the same moment, executed with more craft | the small things, spread wide—this is how a product stops being boring | nothing new is introduced |
+| **Net-New** | an entirely new experience in place of the old one | the 2–3 biggest moments—this is the core work | it could not be mistaken for a competitor, or for the moment it replaced |
 
 ---
 
@@ -69,25 +69,30 @@ Every job starts with the happy path: the default flow the primary user actually
 - **Beat 7 is a design input, not decoration.** If nobody can say what the user is meant to feel at the end, that absence is the first finding.
 - First-run empty states and waits are beats on this path—they are in scope. Error branches are not on this path—see the dumping-grounds rule below.
 
-## Choose the moments
+## Sort every beat
 
-**2–3 moments, never more.** Peak-end is the reason: memory keeps the peak and the ending and discards the average, so a fourth treated moment does not add memory, it subtracts significance from the first three. Every other beat gets the verdict **Expected—and Expected is a verdict, not a failure.** The output says which beats stay standard and why; that receipt is half the deliverable.
+The tiers have owners:
 
-Walk this for every candidate beat, top to bottom, first match wins:
+- **Expected** owns the beats that must simply work—load-bearing convention, high stakes, anywhere addition would tax the task. **Expected is a verdict, not a failure**, and the receipt of Expected beats is half the deliverable.
+- **Elevated** owns the small things, and it spreads as wide as the ceilings allow. This is the anti-boring tier: the same moments with more craft—copy in the user's words, feedback that names what changed, response that feels instant. Craft survives repetition; novelty does not, which is why Elevated can be distributed and Net-New cannot.
+- **Net-New** owns the 2–3 biggest moments, **never more**, and it is the core work: not the old moment done better but an entirely new experience in its place. Peak-end is the reason for the cap—memory keeps peaks and endings and discards the average, so a fourth Net-New does not add memory, it subtracts significance from the first three.
+
+Walk this for every beat, top to bottom, first match wins:
 
 ```
-Is this beat eligible for treatment?
-├── Off the default path ................. no—dumping ground; relocate the budget
-├── The floor fails here ................. no—hand off first (leak → Flywheel,
+Which tier may this beat take?
+├── Off the default path ................. none—dumping ground; relocate the budget
+├── The floor fails here ................. none yet—hand off first (leak → Flywheel,
 │                                          screen → Focal, maze → Compass)
-├── Load-bearing convention .............. no—Expected; muscle memory is the feature
-└── Otherwise ............................ eligible. Frequency and stakes set the ceiling:
-      every-run .......................... repetition-proof levers only
-      high stakes ........................ reassurance before feeling; celebration never
-      once ............................... may spend everything
+├── Load-bearing convention .............. Expected—muscle memory is the feature
+├── High stakes .......................... Expected, or Elevated in a calm register—
+│                                          reassurance before feeling; celebration never
+├── Every-run ............................ Elevated at most—repetition-proof craft only
+└── Otherwise ............................ Elevated; promote to Net-New only if it ranks
+                                           in the 2–3 biggest moments (reach × memory)
 ```
 
-**The frequency split governs what a moment may take:**
+**The frequency split sets each beat's ceiling:**
 
 - `every-run` beats take only repetition-proof treatment—speed, feel, anticipation, useful variation. Jokes, celebration, and novelty decay with repetition; speed does not.
 - `once` beats may take one-shot expressive treatment—this is where storytelling spends well.
@@ -102,7 +107,7 @@ Selection heuristics, archetypes, and the full dumping-grounds list live in refe
 ## Routing
 
 - **No argument** → explain the placement idea in three sentences, then ask: search an existing product, or build one moment?
-- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow reference/review.md. It maps the path, scores four gates 0–4 against written rubrics, totals to /16 with a band, tags issues P0–P3, and returns the ranked moments. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
+- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow reference/review.md. It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, totals to /16 with a band, tags issues P0–P3, and returns the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
 - **`build` / `design` / `treat` (one moment)** → confirm the moment sits on the path and is worth the budget (reference/moments.md), read reference/treatments.md, then follow **Build** below.
 - **A question about a moment type or a treatment lever** → reference/moments.md or reference/treatments.md.
 
@@ -114,7 +119,7 @@ Before emitting either output, read reference/examples.md. It calibrates length,
 
 1. **Frame it.** The product, the user, the beat, its frequency class, the stakes, and the one feeling this moment should produce—named, not "delight." If you cannot name the feeling, the screen, and the second it happens, you have a brand adjective, not a design target. Stakes are what the user can lose at this beat—money, work, standing, safety. Anything real to lose is high, and high puts reassurance before feeling.
 2. **Place it.** Confirm the beat is on the default path and passes the selection bar in reference/moments.md. If the request points at a dumping ground, say so and redirect the budget to the nearest on-path beat.
-3. **Ladder it.** Design all three rungs—Expected, Elevated, Net-New—from reference/treatments.md. The Expected rung is real work, not a strawman: it must be shippable, because for most beats it ships.
+3. **Ladder it.** The path sort names the target tier; the spec still designs the full range from reference/treatments.md—Expected as the floor, then Elevated, then Net-New—because rungs below the target are the interim ships and the caller may land there. A rung above the beat's ceiling is written as unavailable, with the reason. The Expected rung is real work, not a strawman: it must be shippable.
 4. **Guard it.** No rung may tax speed, comprehension, or the primary action. High-stakes moments get reassurance before feeling. Every-run moments get only what survives repetition.
 5. **Run the gates.** Self-check against the **`## Gates`** block of the Moment Spec below—that block is the canonical list. Mark `[x]` only what the spec satisfies; leave `[ ]` with a one-line reason for any it does not.
 
@@ -122,7 +127,7 @@ Before emitting either output, read reference/examples.md. It calibrates length,
 
 ```
 **Moment:** <the beat>—for <who>, on the <first | every | nth> pass.
-**Feeling:** <one named emotion> · **Frequency:** <once | recurring | every-run> · **Stakes:** <low | medium | high>
+**Feeling:** <one named emotion> · **Frequency:** <once | recurring | every-run> · **Stakes:** <low | medium | high> · **Target:** <Elevated | Net-New>
 
 ## Why this moment
 - On the path: <where it sits, and who reaches it>
@@ -130,9 +135,9 @@ Before emitting either output, read reference/examples.md. It calibrates length,
 - Today: <what the moment does now—observed from the artifact, or assumed>
 
 ## The rungs
-- **Expected:** <the obvious version, fully functional—shippable as-is>
-- **Elevated:** <the same moment at a higher grade—nothing new introduced>
-- **Net-New:** <the version nobody expects—different, not merely more>
+- **Expected:** <the floor—the obvious version, fully functional, shippable as-is>
+- **Elevated:** <the same moment with more craft—nothing new introduced; the interim ship when the target is Net-New>
+- **Net-New:** <an entirely new experience in place of the old one—or "unavailable at this beat's ceiling," with the reason>
 
 ## Held constant
 - <what no rung may damage—speed, comprehension, the primary action, reversibility>
@@ -150,7 +155,7 @@ Before emitting either output, read reference/examples.md. It calibrates length,
 - [ ] Honest without motion and without sound
 ```
 
-**The pick between rungs is the caller's.** Soul defines the opportunity and builds the ladder; choosing a rung is a product decision that belongs to the human. Recommend only when asked.
+**The pick between rungs is the caller's.** The target names the tier the sort assigned; rungs below it are interim ships, and landing on one is a product decision that belongs to the human. Recommend only when asked.
 
 ---
 
@@ -239,8 +244,8 @@ Score all four, even when one is obviously the problem—the reader needs to see
 | 0 | Backwards—expressiveness lives in dumping grounds while the path is sterile |
 | 1 | Sterile—no deliberately designed moment anywhere on the path |
 | 2 | Scattered—touches exist on-path, but nobody chose them; density without placement |
-| 3 | Placed—2–3 chosen moments on the path, the rest deliberately standard |
-| 4 | Placed and ranked—the chosen moments are the highest reach × memory beats available, and the receipt shows what was refused |
+| 3 | Placed—Net-New concentrated on 2–3 chosen moments, craft on the small things, the rest deliberately standard |
+| 4 | Placed and ranked—the Net-New moments are the highest reach × memory beats available, and the receipt shows what was refused |
 
 ### Gate 3—Proportion *(does intensity fit frequency and magnitude?)*
 
@@ -307,7 +312,7 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 ## The path
 | # | Beat | Touchpoint | Frequency | Verdict |
 |---|---|---|---|---|
-| 1 | <enters from…> | <surface> | <once | recurring | every-run> | <Expected | Moment 1 | Moment 2 | Moment 3> |
+| 1 | <enters from…> | <surface> | <once | recurring | every-run> | <Expected | Elevated | Net-New (Moment 1)> |
 
 ## Scorecard
 | Gate | Score | Key finding |
@@ -318,11 +323,14 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 | Signature | _/4 | <one line> |
 | **Total** | **_/16** | **<band>** |
 
-## The moments (ranked by reach × memory)
+## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—<beat>, <the named feeling>
 - Why here: <reach × memory, one line>
 - Expected: <one line> · Elevated: <one line> · Net-New: <one line>
 - Constraints: <one line>
+
+## The small things (Elevated)
+- Beat <n>—<the craft touch, one line>
 
 ## Issues (most severe first)
 - **[P0 · beat <n>]** <Name>—<observation>. <what it costs>. **Fix:** <fix>.
@@ -338,7 +346,8 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 
 Filling it:
 - **The path**—one row per beat, every beat, including the sterile ones. The Verdict column is where restraint becomes visible: most rows read Expected. A beat whose first pass differs from its steady state carries both tags—`every-run (first run: once)`—and the `once` tag is the one a Moment may spend.
-- **The moments**—repeat the Moment block for each of the 2–3, ranked. The rung lines are one line each here; a full ladder for the top moment belongs in a follow-up `build`.
+- **The moments**—repeat the Moment block for each of the 2–3 Net-New moments, ranked. The rung lines show the floor-to-target range in one line each; a full ladder belongs in a follow-up `build`.
+- **The small things**—one line per Elevated touch, only craft the beat's ceiling allows: on every-run beats that is speed, feel, anticipation, or useful variation. Write "None." if the ceilings leave nothing.
 - **Issues**—repeat the line once per issue, tagged with the beat number (or `off-path` for dumping-ground finds). If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Basis**—never claim observation you do not have. "Walked from a description" with the assumed beats named is a stronger answer than borrowed confidence.
 
@@ -346,7 +355,7 @@ Filling it:
 
 # Moments—where the budget goes
 
-A moment is a beat on the happy path that deserves more than functional treatment. This file is how you find them, rank them, and refuse the rest.
+A moment is a beat on the happy path that earns the Net-New tier—an entirely new experience, not a better version of the old one. This file is how you find the 2–3, rank them, and sort everything else into Elevated or Expected.
 
 ## The frequency classes
 
@@ -389,13 +398,13 @@ Then interrogate the shortlist:
 4. Which beat carries the product's one distinctive claim? That beat is where Net-New belongs, if anywhere.
 5. What would marketing show? If nothing on the path is showable, that is the finding.
 
-**Take the top 2–3. Never more.** The fourth treated moment does not add memory; it subtracts significance from the first three. Everything below the line gets the verdict **Expected**, recorded with its reason—the receipt is what separates restraint from neglect.
+**Take the top 2–3 as Net-New. Never more.** The fourth rebuilt moment does not add memory; it subtracts significance from the first three. Everything below the line takes **Elevated** where its ceiling allows craft that pays, and **Expected** otherwise—recorded either way, because the receipt is what separates restraint from neglect.
 
 **Reasons a beat stays Expected** (any one suffices):
 - **Load-bearing convention**—checkout, save, undo, back. Muscle memory is the feature; novelty there costs comprehension and pays nothing.
 - **Every-run frequency with no repetition-proof lever available**—if speed and feel are already at ceiling, standard is correct.
 - **High stakes, calm already present**—money movement, health data, and irreversible actions want reassurance and records before anything else. Where the calm, clear version already exists, standard is the treatment; where it does not, calm *is* the treatment (see proportionality in treatments.md). Trustworthy restraint is an emotional choice, not the absence of one.
-- **Below the line**—a fine candidate that lost to a better one. Two is a budget, not a quota.
+- **Below the line**—a fine Net-New candidate that lost to a better one; it takes Elevated craft instead, and loses nothing but the rebuild. Two is a budget, not a quota.
 
 ## The dumping grounds
 
@@ -417,13 +426,13 @@ One honest edge: a 404 that carries real traffic—dead links shared socially, a
 
 # Treatments—the three rungs
 
-Every chosen moment gets designed at three grades. The ladder is the deliverable: it separates what the moment needs from what it could carry, and it gives the caller a real choice instead of a single take-it-or-leave-it design.
+The path sort assigns every beat a **tier**—its verdict. A build designs the **rungs**—the full range for one beat, floor to target—so the caller can land anywhere on it without re-briefing. Same three names, two uses: the tier is where a beat ends up; the rungs are the steps a build lays out getting there.
 
 ## Expected—the obvious version
 
 The fully functional execution a competent team ships without thinking hard. Standard pattern, standard copy, standard feedback.
 
-**Expected is real work, not a strawman.** It must be shippable, because for most beats it ships—9 or 10 of 12 beats on a well-run path end here, on purpose. Getting Expected right is also the precondition for the other rungs: an Elevated treatment of a broken interaction is polish on a defect.
+**Expected is real work, not a strawman.** It must be shippable, because the beats that must simply work—load-bearing convention, high stakes, anywhere addition taxes the task—end here as the final answer, on purpose. Getting Expected right is also the precondition for the other tiers: an Elevated treatment of a broken interaction is polish on a defect.
 
 **The test:** nothing missing, nothing added. A user relies on it without noticing it.
 
@@ -433,21 +442,23 @@ Examples of the register: a standard signup form, a clear confirmation toast, a 
 
 Nothing new is introduced. The existing thing, done at a grade users can feel even when they cannot say why: hierarchy sharpened, copy in the user's words, motion that explains, feedback that names what changed, an empty state that starts the work, a wait that shows the work.
 
+**Elevated is the anti-boring tier.** It spreads to every beat whose ceiling allows it—craft survives repetition, so distributing it raises the whole path without exhausting anyone. Concentration is for Net-New; distribution is for craft.
+
 **The test:** describe the treatment in one sentence—if the sentence needs a new noun (a new feature, a new surface, a new mechanic), it is not Elevated, it is Net-New wearing modest clothes.
 
 Examples of the register: the confirmation that states the amount and the running total instead of "Done"; the upload that shows filenames processing instead of a spinner; the form whose labels anticipate the next question; the settle animation that gives a completed payment weight.
 
-**Elevated is the default recommendation register for `every-run` and high-stakes beats**—it raises quality without spending novelty, so it survives repetition and never competes with reassurance.
+**On `every-run` and high-stakes beats, Elevated is also the ceiling**—it raises quality without spending novelty, so it survives repetition and never competes with reassurance.
 
 ## Net-New—the version nobody expects
 
-Meaningfully different, not merely more. A new mechanic, surface, or artifact that makes the moment itself a reason to talk about the product.
+An entirely new experience in place of the old one—not the same moment executed better. Elevated asks how well the moment can be executed; Net-New asks what the moment could be instead. A new mechanic, surface, or artifact that makes the moment itself a reason to talk about the product.
 
-**The test:** a screenshot of it could not be mistaken for a competitor.
+**The test:** it could not be mistaken for a competitor—or for the moment it replaced.
 
 Examples of the register: a live visualization where a table was assumed; a personalized artifact worth keeping (a year-in-review, a printable record, a shareable result card); an interactive demo where static onboarding was assumed; a progress mechanic that accumulates something users check voluntarily.
 
-**Every moment gets a Net-New rung on its ladder—ideation is free. Shipping is rationed:** at most one Net-New treatment per path, placed on the beat that carries the product's distinctive claim, because Net-New spends surprise and surprise does not split. Two rules keep the rung honest:
+**Net-New ships only on the 2–3 chosen moments, never more.** It spends surprise, and surprise concentrates—spread thinner, none of it clears the threshold of memorable. (In a build, the Net-New rung still gets designed for any beat whose ceiling allows it—ideation is free; the ration is on shipping.) Two rules keep the tier honest:
 - **It must survive its frequency.** A Net-New mechanic on an every-run beat must be useful on the 50th run, not clever on the first. If it is only clever, move it to a `once` or `recurring` beat.
 - **It must be worth keeping, not just worth noticing.** The strongest Net-New treatments produce an artifact or capability the user returns to; the weakest produce a reaction and then a chore.
 
@@ -518,12 +529,12 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 | # | Beat | Touchpoint | Frequency | Verdict |
 |---|---|---|---|---|
 | 1 | Enters from bookmark | web app | every-run | Expected |
-| 2 | Sees dashboard—outstanding and recent | screen | every-run (first run: once) | Moment 3 (first run) |
-| 3 | Understands who owes what | screen | every-run | Expected |
+| 2 | Sees dashboard—outstanding and recent | screen | every-run (first run: once) | Net-New (Moment 3, first run) |
+| 3 | Understands who owes what | screen | every-run | Elevated |
 | 4 | Composes invoice—client, items, due date | screen | recurring | Expected |
-| 5 | Sends—confirmation appears | screen | recurring | Moment 2 |
-| 6 | Payment lands—notification | push/email | recurring | Moment 1 |
-| 7 | Sees dashboard updated—paid, month total | screen | recurring | Expected |
+| 5 | Sends—confirmation appears | screen | recurring | Net-New (Moment 2) |
+| 6 | Payment lands—notification | push/email | recurring | Net-New (Moment 1) |
+| 7 | Sees dashboard updated—paid, month total | screen | recurring | Elevated |
 
 ## Scorecard
 | Gate | Score | Key finding |
@@ -534,7 +545,7 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 | Signature | 1/4 | Swap the logo and nobody notices. The mascot is a stock personality, and the ending feeling is unchosen. |
 | **Total** | **7/16** | **functional but forgettable** |
 
-## The moments (ranked by reach × memory)
+## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—Payment lands (beat 6), relief
 - Why here: the entire point of invoicing, reached by every paying client, and it is the peak and near-ending of the path—currently rendered as "Invoice #1042 was paid."
 - Expected: notification names client, invoice, and amount · Elevated: amount-first copy, a paid-receipt block, the outstanding total visibly settling to its new value · Net-New: a Paid ledger—a year-view that fills with each payment and exports clean at tax time
@@ -550,6 +561,10 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 - Expected: "No invoices yet" plus a button · Elevated: an empty state that starts the work—a sample invoice and "your first takes 2 minutes" · Net-New: composing the first invoice is the onboarding; the form is the tour
 - Constraints: one primary action; the sample must be deletable in one tap.
 
+## The small things (Elevated)
+- Beat 3—say it in the freelancer's words: "Who owes you: $4,200 across 3 invoices" instead of "Outstanding: $4,200."
+- Beat 7—paid rows settle to the bottom with a quiet check; the outstanding total counts down to its new value, and reduced motion gets the delta in text.
+
 ## Issues (most severe first)
 - **[P0 · off-path]** Wit at failure—the mascot grins through a failed send with "Whoops! Gremlins!" A freelancer whose invoice did not reach a client is losing money while the product jokes. **Fix:** plain error—what happened, whether the invoice is safe, what to do next. If failed sends are frequent, that is a leak for Flywheel, not copy for Soul.
 - **[P1 · beat 6]** The silent payoff—the product's peak moment is an OS-default notification, indistinguishable from a calendar reminder. **Fix:** treat as Moment 1; the Elevated rung alone changes what users remember this product doing.
@@ -557,11 +572,11 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 - **[P2 · beat 5]** Decayed repetition—confetti on every send was charming once and is wallpaper by week two, and it spends celebration the payoff never gets. **Fix:** replace with a sent-state that survives repetition—preview, delivered check, done.
 
 ## Kept Expected, on purpose
-Beats 1, 3, 4, and 7 stay standard. Beat 4 is load-bearing convention—a weekly form freelancers fill from muscle memory, where novelty costs speed. Beats 1, 3, and 7 are every-run beats whose only honest lever is pace, and pace is already at ceiling (Baseline 3).
+Beats 1 and 4 stay standard. Beat 4 is load-bearing convention—a weekly form freelancers fill from muscle memory, where novelty costs speed. Beat 1 is an every-run entry whose only honest lever is pace, and pace is already at ceiling (Baseline 3).
 
 ## Next
-- **Now**: Moment 1, Elevated rung—amount-first notification, receipt block, the settling total.
-- **After it lands**: Moment 3—the first-run empty state, since it is the only `once` beat on the path and currently spends nothing.
+- **Now**: the small things and Moment 1's Elevated interim—amount-first notification, receipt block, the settling total—ship while the Net-New ledger is scoped.
+- **After it lands**: Moment 1's Net-New ledger, then Moment 3—the only `once` beat on the path, currently spending nothing.
 - **Hand off**: None. (If failed sends turn out to be frequent, route the error branch to Flywheel as a leak.)
 ```
 
@@ -575,7 +590,7 @@ Beats 1, 3, 4, and 7 stay standard. Beat 4 is load-bearing convention—a weekly
 
 ```
 **Moment:** Payment lands—for a freelancer, on every pass.
-**Feeling:** relief · **Frequency:** recurring · **Stakes:** medium
+**Feeling:** relief · **Frequency:** recurring · **Stakes:** medium · **Target:** Net-New
 
 ## Why this moment
 - On the path: beat 6, reached by every client who pays—which is every successful use of the product.
@@ -584,7 +599,7 @@ Beats 1, 3, 4, and 7 stay standard. Beat 4 is load-bearing convention—a weekly
 
 ## The rungs
 - **Expected:** notification carries client, invoice number, and amount; the dashboard row flips to Paid on next load. Shippable as-is.
-- **Elevated:** the notification leads with what matters—"$1,850 from Meridian Co · Invoice #1042 paid." Opening it lands on the invoice with a paid-receipt block: date, method, a record that exists somewhere. The outstanding total settles to its new value with one 400ms count-down; reduced motion gets the delta in text—"Outstanding: $4,200 → $2,350."
+- **Elevated:** the interim ship—the notification leads with what matters: "$1,850 from Meridian Co · Invoice #1042 paid." Opening it lands on the invoice with a paid-receipt block: date, method, a record that exists somewhere. The outstanding total settles to its new value with one 400ms count-down; reduced motion gets the delta in text—"Outstanding: $4,200 → $2,350."
 - **Net-New:** the Paid ledger—every payment lands as a row in a year-view that visibly fills, month totals accumulate, and at tax time it exports clean. Relief gains a place to compound into evidence of a working business. Useful on the 400th payment, not merely clever on the first.
 
 ## Held constant
@@ -607,6 +622,6 @@ Beats 1, 3, 4, and 7 stay standard. Beat 4 is load-bearing convention—a weekly
 
 ---
 
-**Why these two:** the search refuses the question as asked. The user said "make it more delightful" and the answer is that delight is already there—in a 404 game and a failure mascot—and the job is relocation, not addition. The verdict names a misplacement, not an absence. Note the P0 is copy, not structure: the cheapest fix in the report is also the most urgent, which is common. The build then shows proportionality at a money moment: relief is built from records, amounts, and one restrained settle—celebration never appears, because the frequency is recurring and the subject is money, and either alone would rule it out.
+**Why these two:** the search refuses the question as asked. The user said "make it more delightful" and the answer is that delight is already there—in a 404 game and a failure mascot—and the job is relocation, not addition. The verdict names a misplacement, not an absence. Note the tiers doing the restraint: three Net-New moments concentrated where reach × memory peaks, two small things elevated because their ceilings allow only craft, and two beats standard with reasons on record. The build then shows the full range on one moment—Expected floor, Elevated interim, Net-New target—so the caller can land anywhere on the ladder, and proportionality at a money moment: relief is built from records, amounts, and one restrained settle. Celebration never appears, because the frequency is recurring and the subject is money, and either alone would rule it out.
 
-Note the receipt doing its work: four of seven beats stay Expected with reasons on record, the Net-New rung appears exactly once across all three moments at full depth (the ledger—the one beat carrying the product's distinctive claim), and the first-run empty state is the only place one-shot expressive treatment is even considered, because it is the only `once` beat on the path.
+Note what never appears: confetti at any tier, the mascot polished rather than cut, or a fourth Net-New. And the first-run empty state is the only place one-shot expressive treatment is even considered, because it is the only `once` beat on the path.

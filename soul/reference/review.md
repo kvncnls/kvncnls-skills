@@ -46,8 +46,8 @@ Score all four, even when one is obviously the problem—the reader needs to see
 | 0 | Backwards—expressiveness lives in dumping grounds while the path is sterile |
 | 1 | Sterile—no deliberately designed moment anywhere on the path |
 | 2 | Scattered—touches exist on-path, but nobody chose them; density without placement |
-| 3 | Placed—2–3 chosen moments on the path, the rest deliberately standard |
-| 4 | Placed and ranked—the chosen moments are the highest reach × memory beats available, and the receipt shows what was refused |
+| 3 | Placed—Net-New concentrated on 2–3 chosen moments, craft on the small things, the rest deliberately standard |
+| 4 | Placed and ranked—the Net-New moments are the highest reach × memory beats available, and the receipt shows what was refused |
 
 ### Gate 3—Proportion *(does intensity fit frequency and magnitude?)*
 
@@ -114,7 +114,7 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 ## The path
 | # | Beat | Touchpoint | Frequency | Verdict |
 |---|---|---|---|---|
-| 1 | <enters from…> | <surface> | <once | recurring | every-run> | <Expected | Moment 1 | Moment 2 | Moment 3> |
+| 1 | <enters from…> | <surface> | <once | recurring | every-run> | <Expected | Elevated | Net-New (Moment 1)> |
 
 ## Scorecard
 | Gate | Score | Key finding |
@@ -125,11 +125,14 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 | Signature | _/4 | <one line> |
 | **Total** | **_/16** | **<band>** |
 
-## The moments (ranked by reach × memory)
+## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—<beat>, <the named feeling>
 - Why here: <reach × memory, one line>
 - Expected: <one line> · Elevated: <one line> · Net-New: <one line>
 - Constraints: <one line>
+
+## The small things (Elevated)
+- Beat <n>—<the craft touch, one line>
 
 ## Issues (most severe first)
 - **[P0 · beat <n>]** <Name>—<observation>. <what it costs>. **Fix:** <fix>.
@@ -145,6 +148,7 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 
 Filling it:
 - **The path**—one row per beat, every beat, including the sterile ones. The Verdict column is where restraint becomes visible: most rows read Expected. A beat whose first pass differs from its steady state carries both tags—`every-run (first run: once)`—and the `once` tag is the one a Moment may spend.
-- **The moments**—repeat the Moment block for each of the 2–3, ranked. The rung lines are one line each here; a full ladder for the top moment belongs in a follow-up `build`.
+- **The moments**—repeat the Moment block for each of the 2–3 Net-New moments, ranked. The rung lines show the floor-to-target range in one line each; a full ladder belongs in a follow-up `build`.
+- **The small things**—one line per Elevated touch, only craft the beat's ceiling allows: on every-run beats that is speed, feel, anticipation, or useful variation. Write "None." if the ceilings leave nothing.
 - **Issues**—repeat the line once per issue, tagged with the beat number (or `off-path` for dumping-ground finds). If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Basis**—never claim observation you do not have. "Walked from a description" with the assumed beats named is a stronger answer than borrowed confidence.

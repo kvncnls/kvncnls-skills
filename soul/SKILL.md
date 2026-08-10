@@ -1,6 +1,6 @@
 ---
 name: soul
-description: Use when a product works but feels like nothing—generic, forgettable, indistinguishable from its competitors. Soul maps the happy path, finds the 2–3 moments worth more than functional treatment, and designs each three ways—Expected (the obvious version), Elevated (the same moment executed with visible care), and Net-New (the version nobody expects). Places by reach and memory, keeps most beats deliberately standard, splits treatments by frequency so repetition never turns delight into noise, and refuses the traditional dumping grounds (404 pages, easter eggs, error mascots) where delight goes to be unseen. Triggers on boring, bland, generic, soulless, forgettable, delight, personality, charm, whimsy, juice, microinteractions, wow moment, celebration, empty state, success state, first impression, "make it memorable", "feels generic". Not for screen structure (use Focal), flows and navigation (use Compass), retention and activation leaks (use Flywheel), brand identity systems, or marketing pages.
+description: Use when a product works but feels like nothing—generic, forgettable, indistinguishable from its competitors. Soul maps the happy path and sorts every beat into three tiers—Expected (stays functional), Elevated (the same moment with more craft—the small delights), and Net-New (an entirely new experience, reserved for the 2–3 biggest moments). Places by reach and memory, splits treatments by frequency so repetition never turns delight into noise, and refuses the traditional dumping grounds (404 pages, easter eggs, error mascots) where delight goes to be unseen. Triggers on boring, bland, generic, soulless, forgettable, delight, personality, charm, whimsy, juice, microinteractions, wow moment, celebration, empty state, success state, first impression, "make it memorable", "feels generic". Not for screen structure (use Focal), flows and navigation (use Compass), retention and activation leaks (use Flywheel), brand identity systems, or marketing pages.
 argument-hint: "[build | search] <product, flow, or moment>"
 ---
 
@@ -10,21 +10,21 @@ argument-hint: "[build | search] <product, flow, or moment>"
 
 Most products work and feel like nothing. Every screen functional, every flow passable, nothing anyone would describe to a friend. The word people reach for is *soulless*, and the word is a diagnosis: nothing here was authored. The product is the average of its competitors.
 
-**Soul is not a spec—it is what accumulates when specific moments are placed well.** So this skill does not sprinkle. It maps the default path, finds the 2–3 moments worth more than functional treatment, designs each at three grades, and keeps everything else deliberately standard.
+**Soul is not a spec—it is what accumulates when specific moments are placed well.** So this skill does not sprinkle. It maps the default path and sorts every beat into one of three tiers—what stays functional, what gets more craft, and the 2–3 moments that get rebuilt entirely.
 
 Three facts decide every placement:
 
-- **People remember the peak and the ending, not the average.** A product with two authored moments and ten standard beats is remembered. A product with twelve decorated beats is exhausting, and nothing in it reads as significant.
+- **People remember the peak and the ending, not the average.** A product with two entirely new moments and quiet craft on everything else is remembered. A product with twelve novelties is exhausting, and nothing in it reads as significant.
 - **Reach beats risk.** Delight traditionally goes where failing is cheap—the 404 page, the easter egg—which is exactly where nobody walks. Placement here is chosen by reach × memory: the default path, because that is where everyone is.
 - **Repetition kills novelty.** The 50th confetti is noise. A treatment that plays every session must survive its 50th viewing; a treatment that plays once may spend everything.
 
-**The three rungs**, applied to each chosen moment:
+**The three tiers.** Every beat on the path gets exactly one:
 
-| Rung | What it is | The test |
-|---|---|---|
-| **Expected** | the obvious version, fully functional | nothing missing, nothing added—the floor, and for most beats the correct final answer |
-| **Elevated** | the same moment executed at a higher grade | nothing new is introduced; the existing thing, done with visible care |
-| **Net-New** | the version nobody expects | a screenshot of it could not be mistaken for a competitor |
+| Tier | What it is | Where it goes | The test |
+|---|---|---|---|
+| **Expected** | the obvious version, fully functional | beats that must simply work | nothing missing, nothing added |
+| **Elevated** | the same moment, executed with more craft | the small things, spread wide—this is how a product stops being boring | nothing new is introduced |
+| **Net-New** | an entirely new experience in place of the old one | the 2–3 biggest moments—this is the core work | it could not be mistaken for a competitor, or for the moment it replaced |
 
 ---
 
@@ -59,25 +59,30 @@ Every job starts with the happy path: the default flow the primary user actually
 - **Beat 7 is a design input, not decoration.** If nobody can say what the user is meant to feel at the end, that absence is the first finding.
 - First-run empty states and waits are beats on this path—they are in scope. Error branches are not on this path—see the dumping-grounds rule below.
 
-## Choose the moments
+## Sort every beat
 
-**2–3 moments, never more.** Peak-end is the reason: memory keeps the peak and the ending and discards the average, so a fourth treated moment does not add memory, it subtracts significance from the first three. Every other beat gets the verdict **Expected—and Expected is a verdict, not a failure.** The output says which beats stay standard and why; that receipt is half the deliverable.
+The tiers have owners:
 
-Walk this for every candidate beat, top to bottom, first match wins:
+- **Expected** owns the beats that must simply work—load-bearing convention, high stakes, anywhere addition would tax the task. **Expected is a verdict, not a failure**, and the receipt of Expected beats is half the deliverable.
+- **Elevated** owns the small things, and it spreads as wide as the ceilings allow. This is the anti-boring tier: the same moments with more craft—copy in the user's words, feedback that names what changed, response that feels instant. Craft survives repetition; novelty does not, which is why Elevated can be distributed and Net-New cannot.
+- **Net-New** owns the 2–3 biggest moments, **never more**, and it is the core work: not the old moment done better but an entirely new experience in its place. Peak-end is the reason for the cap—memory keeps peaks and endings and discards the average, so a fourth Net-New does not add memory, it subtracts significance from the first three.
+
+Walk this for every beat, top to bottom, first match wins:
 
 ```
-Is this beat eligible for treatment?
-├── Off the default path ................. no—dumping ground; relocate the budget
-├── The floor fails here ................. no—hand off first (leak → Flywheel,
+Which tier may this beat take?
+├── Off the default path ................. none—dumping ground; relocate the budget
+├── The floor fails here ................. none yet—hand off first (leak → Flywheel,
 │                                          screen → Focal, maze → Compass)
-├── Load-bearing convention .............. no—Expected; muscle memory is the feature
-└── Otherwise ............................ eligible. Frequency and stakes set the ceiling:
-      every-run .......................... repetition-proof levers only
-      high stakes ........................ reassurance before feeling; celebration never
-      once ............................... may spend everything
+├── Load-bearing convention .............. Expected—muscle memory is the feature
+├── High stakes .......................... Expected, or Elevated in a calm register—
+│                                          reassurance before feeling; celebration never
+├── Every-run ............................ Elevated at most—repetition-proof craft only
+└── Otherwise ............................ Elevated; promote to Net-New only if it ranks
+                                           in the 2–3 biggest moments (reach × memory)
 ```
 
-**The frequency split governs what a moment may take:**
+**The frequency split sets each beat's ceiling:**
 
 - `every-run` beats take only repetition-proof treatment—speed, feel, anticipation, useful variation. Jokes, celebration, and novelty decay with repetition; speed does not.
 - `once` beats may take one-shot expressive treatment—this is where storytelling spends well.
@@ -92,7 +97,7 @@ Selection heuristics, archetypes, and the full dumping-grounds list live in [ref
 ## Routing
 
 - **No argument** → explain the placement idea in three sentences, then ask: search an existing product, or build one moment?
-- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow [reference/review.md](reference/review.md). It maps the path, scores four gates 0–4 against written rubrics, totals to /16 with a band, tags issues P0–P3, and returns the ranked moments. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
+- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow [reference/review.md](reference/review.md). It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, totals to /16 with a band, tags issues P0–P3, and returns the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
 - **`build` / `design` / `treat` (one moment)** → confirm the moment sits on the path and is worth the budget ([reference/moments.md](reference/moments.md)), read [reference/treatments.md](reference/treatments.md), then follow **Build** below.
 - **A question about a moment type or a treatment lever** → [reference/moments.md](reference/moments.md) or [reference/treatments.md](reference/treatments.md).
 
@@ -104,7 +109,7 @@ Before emitting either output, read [reference/examples.md](reference/examples.m
 
 1. **Frame it.** The product, the user, the beat, its frequency class, the stakes, and the one feeling this moment should produce—named, not "delight." If you cannot name the feeling, the screen, and the second it happens, you have a brand adjective, not a design target. Stakes are what the user can lose at this beat—money, work, standing, safety. Anything real to lose is high, and high puts reassurance before feeling.
 2. **Place it.** Confirm the beat is on the default path and passes the selection bar in [reference/moments.md](reference/moments.md). If the request points at a dumping ground, say so and redirect the budget to the nearest on-path beat.
-3. **Ladder it.** Design all three rungs—Expected, Elevated, Net-New—from [reference/treatments.md](reference/treatments.md). The Expected rung is real work, not a strawman: it must be shippable, because for most beats it ships.
+3. **Ladder it.** The path sort names the target tier; the spec still designs the full range from [reference/treatments.md](reference/treatments.md)—Expected as the floor, then Elevated, then Net-New—because rungs below the target are the interim ships and the caller may land there. A rung above the beat's ceiling is written as unavailable, with the reason. The Expected rung is real work, not a strawman: it must be shippable.
 4. **Guard it.** No rung may tax speed, comprehension, or the primary action. High-stakes moments get reassurance before feeling. Every-run moments get only what survives repetition.
 5. **Run the gates.** Self-check against the **`## Gates`** block of the Moment Spec below—that block is the canonical list. Mark `[x]` only what the spec satisfies; leave `[ ]` with a one-line reason for any it does not.
 
@@ -112,7 +117,7 @@ Before emitting either output, read [reference/examples.md](reference/examples.m
 
 ```
 **Moment:** <the beat>—for <who>, on the <first | every | nth> pass.
-**Feeling:** <one named emotion> · **Frequency:** <once | recurring | every-run> · **Stakes:** <low | medium | high>
+**Feeling:** <one named emotion> · **Frequency:** <once | recurring | every-run> · **Stakes:** <low | medium | high> · **Target:** <Elevated | Net-New>
 
 ## Why this moment
 - On the path: <where it sits, and who reaches it>
@@ -120,9 +125,9 @@ Before emitting either output, read [reference/examples.md](reference/examples.m
 - Today: <what the moment does now—observed from the artifact, or assumed>
 
 ## The rungs
-- **Expected:** <the obvious version, fully functional—shippable as-is>
-- **Elevated:** <the same moment at a higher grade—nothing new introduced>
-- **Net-New:** <the version nobody expects—different, not merely more>
+- **Expected:** <the floor—the obvious version, fully functional, shippable as-is>
+- **Elevated:** <the same moment with more craft—nothing new introduced; the interim ship when the target is Net-New>
+- **Net-New:** <an entirely new experience in place of the old one—or "unavailable at this beat's ceiling," with the reason>
 
 ## Held constant
 - <what no rung may damage—speed, comprehension, the primary action, reversibility>
@@ -140,7 +145,7 @@ Before emitting either output, read [reference/examples.md](reference/examples.m
 - [ ] Honest without motion and without sound
 ```
 
-**The pick between rungs is the caller's.** Soul defines the opportunity and builds the ladder; choosing a rung is a product decision that belongs to the human. Recommend only when asked.
+**The pick between rungs is the caller's.** The target names the tier the sort assigned; rungs below it are interim ships, and landing on one is a product decision that belongs to the human. Recommend only when asked.
 
 ---
 

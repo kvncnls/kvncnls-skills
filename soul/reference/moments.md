@@ -1,6 +1,6 @@
 # Moments—where the budget goes
 
-A moment is a beat on the happy path that deserves more than functional treatment. This file is how you find them, rank them, and refuse the rest.
+A moment is a beat on the happy path that earns the Net-New tier—an entirely new experience, not a better version of the old one. This file is how you find the 2–3, rank them, and sort everything else into Elevated or Expected.
 
 ## The frequency classes
 
@@ -43,13 +43,13 @@ Then interrogate the shortlist:
 4. Which beat carries the product's one distinctive claim? That beat is where Net-New belongs, if anywhere.
 5. What would marketing show? If nothing on the path is showable, that is the finding.
 
-**Take the top 2–3. Never more.** The fourth treated moment does not add memory; it subtracts significance from the first three. Everything below the line gets the verdict **Expected**, recorded with its reason—the receipt is what separates restraint from neglect.
+**Take the top 2–3 as Net-New. Never more.** The fourth rebuilt moment does not add memory; it subtracts significance from the first three. Everything below the line takes **Elevated** where its ceiling allows craft that pays, and **Expected** otherwise—recorded either way, because the receipt is what separates restraint from neglect.
 
 **Reasons a beat stays Expected** (any one suffices):
 - **Load-bearing convention**—checkout, save, undo, back. Muscle memory is the feature; novelty there costs comprehension and pays nothing.
 - **Every-run frequency with no repetition-proof lever available**—if speed and feel are already at ceiling, standard is correct.
 - **High stakes, calm already present**—money movement, health data, and irreversible actions want reassurance and records before anything else. Where the calm, clear version already exists, standard is the treatment; where it does not, calm *is* the treatment (see proportionality in [treatments.md](treatments.md)). Trustworthy restraint is an emotional choice, not the absence of one.
-- **Below the line**—a fine candidate that lost to a better one. Two is a budget, not a quota.
+- **Below the line**—a fine Net-New candidate that lost to a better one; it takes Elevated craft instead, and loses nothing but the rebuild. Two is a budget, not a quota.
 
 ## The dumping grounds
 
