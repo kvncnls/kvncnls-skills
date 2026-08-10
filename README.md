@@ -6,17 +6,19 @@ A collection of [Claude Code](https://claude.com/claude-code) skills for product
 
 Vibe coding made building software fast and easy—describe a feature, watch it appear. But building fast and designing well are different skills, and the second hasn't kept up. I keep seeing the same thing: features stacked on features, screens accumulating widgets, flows sprouting steps, with no one asking whether the app still hangs together.
 
-The first casualties are the quiet disciplines that make software feel effortless—information architecture, visual hierarchy, progressive disclosure, navigation, spatial awareness. They rarely block a release, so they get skipped, and the app ends up technically working but overwhelming to use. It usually breaks in one of three ways:
+The first casualties are the quiet disciplines that make software feel effortless—information architecture, visual hierarchy, progressive disclosure, navigation, spatial awareness. They rarely block a release, so they get skipped, and the app ends up technically working but overwhelming to use. It usually breaks in one of four ways:
 
 - **Within a screen**—it does too much. Widgets compete, nothing is clearly primary, everything shows at once.
 - **Between screens**—the journey becomes a maze. Too many steps, no sense of where you are, no clean way back.
 - **Across the whole visit**—it works, and they still don't come back. Nothing is broken exactly, the product just never made the case for a second visit. The instinct is to go get more people, when the ones you already had were right there.
+- **Or nothing breaks at all**—it works, and nobody remembers it. Every screen functional, every flow passable, nothing anyone would describe to a friend.
 
 These skills put that discipline back in the loop, on demand:
 
 - **Focal** keeps a single screen focused—*one screen, one purpose.*
 - **Compass** keeps a journey navigable—*never lost.*
 - **Flywheel** keeps the value you earned from leaking away—*earn the second visit.*
+- **Soul** gives the happy path moments worth remembering—*never boring.*
 
 More will follow, each targeting a craft that speed tends to leave behind.
 
@@ -24,7 +26,7 @@ More will follow, each targeting a craft that speed tends to leave behind.
 
 Each skill is deliberately narrow. It addresses one defined design problem, follows one focused workflow, and has a clear boundary.
 
-Focal handles the structure of a screen. Compass handles the structure of a journey. Flywheel handles what happens across the whole relationship. None of them tries to become an all-purpose product design system.
+Focal handles the structure of a screen. Compass handles the structure of a journey. Flywheel handles what happens across the whole relationship. Soul handles the moments that make it memorable. None of them tries to become an all-purpose product design system.
 
 This keeps each skill simple to understand, invoke, test, and improve. It also makes the collection composable: use one skill when that is all the problem requires, or combine several without turning any individual skill into a sprawling set of instructions.
 
@@ -36,6 +38,7 @@ This keeps each skill simple to understand, invoke, test, and improve. It also m
 | [**focal**](./focal) | One screen, one purpose. Declutters and structures app/dashboard screens through three disciplines—Information Architecture, Progressive Disclosure, and Visual Hierarchy. Build new screens or review existing ones. |
 | [**compass**](./compass) | Never lost. Guides multi-screen flows and navigation through three disciplines—Orientation, Path Economy, and Continuity. Build new flows or review existing ones. Pairs with Focal (single screens). |
 | [**flywheel**](./flywheel) | Earn the second visit. Growth and retention: finds where a product loses the users it already earned, across four ordered plays—Trust, Friction, Wins, and Emotion. Diagnose a leak or build a stage. |
+| [**soul**](./soul) | Never boring. Delight, placed: finds the 2–3 moments on the happy path worth more than functional treatment, designs each at three grades—Expected, Elevated, Net-New—and keeps the rest deliberately standard. Search a product or build a moment. |
 
 ## Install (Claude Code)
 
