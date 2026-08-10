@@ -2,18 +2,24 @@
 
 A collection of Skills for product design and UI/UX design, by Kevin Canlas. Each one is a self-contained folder of Markdown—no build step, no dependencies—and each also ships as a single file, so they work in Claude Code, Codex, ChatGPT, Cursor, and anything else that reads Markdown.
 
+**A system for product judgment across four scales of experience: the screen, the journey, the relationship, and the memory.**
+
+The umbrella is **coherence**: focused within a screen, navigable across a journey, valuable across the relationship, memorable after the experience, and trustworthy throughout.
+
 ## Why these exist
 
 Vibe coding made building software fast and easy—describe a feature, watch it appear. But building fast and designing well are different skills, and the second hasn't kept up. I keep seeing the same pattern: features stacked on features, screens accumulating widgets, flows sprouting steps, value buried behind setup, and meaningful moments flattened into generic UI. No one stops to ask whether the app still hangs together, earns a second visit, or gives anyone something worth remembering.
 
-The first casualties are the quiet disciplines that make software feel effortless—information architecture, visual hierarchy, progressive disclosure, navigation, spatial awareness. They rarely block a release, so they get skipped, and the app ends up technically working but overwhelming to use. It usually breaks in one of four ways:
+The first casualties are the quiet judgments that make software feel coherent: what belongs, what waits, what deserves attention, how state survives, whether value becomes visible, and where craft earns its place. They rarely block a release, so they get skipped. The product still works, but it breaks at one of four scales:
 
-- **Within a screen**—it does too much. Widgets compete, nothing is clearly primary, everything shows at once.
-- **Between screens**—the journey becomes a maze. Too many steps, no sense of where you are, no clean way back.
-- **Across the whole visit**—it works, and they still don't come back. Nothing is broken exactly, the product just never made the case for a second visit. The instinct is to go get more people, when the ones you already had were right there.
-- **Or nothing breaks at all**—it works, and nobody remembers it. Every screen functional, every flow passable, nothing anyone would describe to a friend.
+- **The screen**—it does too much. Widgets compete, nothing is clearly primary, everything shows at once.
+- **The journey**—the path becomes a maze. Too many steps, no sense of where you are, no clean way back.
+- **The relationship**—people arrive, but value is buried, delayed, or delivered silently, so the product never earns a second visit.
+- **The memory**—everything works and nothing stays with you. Every screen functional, every flow passable, nothing anyone would describe to a friend.
 
-These skills put that discipline back in the loop, on demand:
+Across all four, trust is the floor: no coherent experience hides material consequence, destroys work, removes informed choice, or uses craft to cover a broken path.
+
+These Skills put that judgment back in the loop, on demand:
 
 - **Focal** keeps a single screen focused—*one screen, one purpose.*
 - **Compass** keeps a journey navigable—*never lost.*
@@ -30,6 +36,13 @@ Focal decides what belongs on one screen and what wins attention. Compass design
 
 Their boundaries are working boundaries, not walls. This keeps the collection composable: use one lens when it is enough, combine several when the problem crosses scales, and never turn any one Skill into an all-purpose product design system.
 
+## Product judgment, encoded
+
+These Skills encode product-design judgment: principles, decision trees, failure modes, review rubrics, exceptions, and fixed outputs for recurring UX problems. Their purpose is to help an AI reason about the experience as a connected system instead of generating one plausible screen at a time.
+
+They operate on actual UX decisions: what belongs on a screen, what should wait, which action deserves attention, how a user knows where they are, whether state survives between steps, where a product loses people, whether users recognize that value happened, and which moments deserve deeper authorship.
+
+They complement rather than replace conventional design systems. Traditional systems help teams render decisions consistently through components, tokens, patterns, and documentation. AI-native design systems also need a judgment layer that governs which decisions should be made: what belongs, what waits, what protects the user, which stage is leaking, and where expressive treatment earns its place. That is the layer this collection explores.
 
 ## Skills
 
