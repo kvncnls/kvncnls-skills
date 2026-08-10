@@ -58,7 +58,18 @@ Invoke it explicitly with `/focal`, or just describe a screen and let it trigger
 /focal build a checkout screen for a food-delivery app
 ```
 
-Focal walks the five moves: name the purpose and single primary action → architect the information → triage disclosure (Now / On-demand / Never) → rank what stays → run the gates. It returns a **fixed Screen Spec**—the same template every time: a one-line screen summary, then Information, Disclosure, Hierarchy, and a six-gate check.
+Focal walks the five moves: name the purpose and single primary action → architect the information → triage disclosure (Now / On-demand / Never) → rank what stays → run the gates.
+
+It returns a fixed **Screen Spec**:
+
+- **Screen**—one purpose and one primary action.
+- **Information**—what stays, moves, merges, or leaves.
+- **Disclosure**—what appears Now, On-demand, or Never.
+- **Hierarchy**—the intended attention order and focusing mechanism.
+- **States**—empty, loading, error, full, and first-run behavior.
+- **Gates**—a binary, unscored check of the proposed design.
+
+See the [locked Screen Spec template](./SKILL.md#build-the-five-moves).
 
 **Review an existing screen**
 
@@ -66,7 +77,15 @@ Focal walks the five moves: name the purpose and single primary action → archi
 /focal review     ← then paste a screenshot, point at a component file, or give a URL
 ```
 
-Focal returns the same fixed template every time: a one-line verdict, a 0–4 scorecard (/12 total with a normalized /4 average and common quality band), prioritized P0–P3 issues (each tied to the discipline it breaks, with the fix), and the top 3 moves.
+It returns a fixed **screen review**:
+
+- **Verdict**—Yes or No for One Screen, One Purpose, plus the largest problem and native `/12` total.
+- **Screen, Context, Basis, and Blocker**—what was reviewed, the evidence available, the confirming check, and any critical condition.
+- **Scorecard**—Information Architecture, Progressive Disclosure, and Visual Hierarchy scored `0–4`, followed by the normalized average and final common band.
+- **Issues**—P0–P3 findings tagged to the discipline they break, each with a concrete fix.
+- **Top 3 moves and Next**—the highest-leverage changes, structural-before-executional sequencing, and any Compass handoff.
+
+See the [locked review template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).
 
 ---
 

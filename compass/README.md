@@ -54,7 +54,18 @@ Invoke it with `/compass`, or just describe a flow and let it trigger.
 /compass build the onboarding flow for a budgeting app
 ```
 
-Compass walks four moves—name the destination → map the fewest honest steps → signpost every step → join the seams—and returns a **fixed Flow Spec** (the same template every time): the destination, the steps, the orientation, the continuity, and a gate check.
+Compass walks four moves—name the destination → map the fewest honest steps → signpost every step → join the seams.
+
+It returns a fixed **Flow Spec**:
+
+- **Flow**—one entry-to-destination journey, its type, and audience.
+- **Steps**—the ordered path and what can be skipped.
+- **Cut**—what was removed or merged, plus protection deliberately retained.
+- **Orientation**—position, progress, Back, and exit behavior.
+- **Continuity**—what carries forward and survives interruption, plus how entry points land.
+- **Gates**—a binary, unscored check of the proposed design.
+
+See the [locked Flow Spec template](./SKILL.md#build-outputthe-flow-spec-use-this-exact-structure).
 
 **Review an existing flow**
 
@@ -62,7 +73,15 @@ Compass walks four moves—name the destination → map the fewest honest steps 
 /compass review     ← describe the flow, or give a set of screens / a prototype
 ```
 
-Compass returns the same fixed template every time: a one-line **Never-Lost verdict**, a 0–4 scorecard (/12 total with a normalized /4 average and common quality band) across the three disciplines, prioritized P0–P3 issues (each tied to the discipline it breaks, with the fix), and the top 3 moves.
+It returns a fixed **flow review**:
+
+- **Verdict**—Yes or No for Never Lost, plus the largest break and native `/12` total.
+- **Flow, Context, Basis, and Blocker**—what was reviewed, the evidence available, the confirming check, and any critical condition.
+- **Scorecard**—Orientation, Path Economy, and Continuity scored `0–4`, followed by the normalized average and final common band.
+- **Issues**—P0–P3 findings tagged to the discipline they break, each with a concrete fix.
+- **Top 3 moves and Next**—the highest-leverage changes, structural-before-executional sequencing, and any Focal handoff.
+
+See the [locked review template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).
 
 ---
 
