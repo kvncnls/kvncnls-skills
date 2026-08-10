@@ -4,9 +4,11 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-Flywheel is an open-source [Claude Code](https://claude.com/claude-code) skill for the **growth and retention** side of design. It finds where a product loses the people it already earned, then applies the play that fixes that stage.
+Flywheel finds **where a product loses people who already showed up**, and tells you the one thing to fix.
 
-Where [**Focal**](../focal) sharpens one screen and [**Compass**](../compass) guides one journey, Flywheel works across the whole relationship—first encounter, activation, value, return.
+Not "how do we get more users." You already got them. Where did they go?
+
+It's an open-source [Claude Code](https://claude.com/claude-code) skill for the **growth and retention** side of design. Where [**Focal**](../focal) sharpens one screen and [**Compass**](../compass) guides one journey, Flywheel works across the whole relationship—first encounter, activation, value, return.
 
 ---
 
@@ -16,14 +18,14 @@ A product's journey is usually drawn as a funnel. But the last stage—people wh
 
 Four properties of a real flywheel decide everything: it is hardest to start, every push adds to what is stored, its mass keeps it turning between pushes, and friction steals what is stored.
 
-| Play | The part of the wheel | The question |
-|---|---|---|
-| **1. Trust** | the first push | Is this relevant, credible, worth continuing? |
-| **2. Friction** | drag on the bearing | Can I reach value without getting lost or exposed? |
-| **3. Wins** | the power stroke | Did this improve my situation, and what now? |
-| **4. Emotion** | the mass | How did that feel, and do I prefer it? |
+| Play | The part of the wheel | What you're checking | What the user is asking |
+|---|---|---|---|
+| **1. Trust** | the first push | Do they believe this is worth a minute? | *Is this relevant, credible, worth continuing?* |
+| **2. Friction** | drag on the bearing | Can they get to the good part? | *Can I reach value without getting lost or exposed?* |
+| **3. Wins** | the power stroke | Do they notice the good part happened? | *Did this improve my situation, and what now?* |
+| **4. Emotion** | the mass | Do they want to come back? | *How did that feel, and do I prefer it?* |
 
-The order is not a preference. **You cannot add mass to a wheel that never started turning.**
+The order is not a preference. If people don't trust you, nothing downstream matters. If they can't reach the good part, it doesn't matter how good it is. **You cannot add mass to a wheel that never started turning.**
 
 ---
 
