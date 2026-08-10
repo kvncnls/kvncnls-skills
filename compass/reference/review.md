@@ -16,8 +16,19 @@ Then frame, in one or two sentences each:
 - **What is this journey?** Product type, what the flow is for, where it starts and ends.
 - **Name the destination.** Settle it as *"This flow gets the user from ___ to ___."* One outcome; it lands in the review template as the **Flow** name plus the biggest-break phrase, and in a build as the Flow line's from-to. If it needs an "and," it's two flows wearing one coat—flag the split now; the gates will show why.
 - **What's the user's state?** Anxious, rushed, first-time, returning, interrupted, one-handed? A checkout under time pressure tolerates fewer steps than a leisurely setup. A flow resumed after a phone call must survive the interruption. Name it; the critique must respect it.
+- **Which journey states and lifecycle paths are covered?** Inventory the exact conditions walked: first run, returning, Back, refresh, validation error, retry, interruption/resume, deep link, branch change, or recovery. Mark important paths `not shown` when the artifact does not expose them.
 - **What's the bar?** Every flow category has an invisible standard set by its best-in-class journey. A checkout is judged against the cleanest checkouts; an onboarding against the clearest onboardings; a multi-step setup against the cleanest wizard in the category. Ask: *what would the best-in-class flow do at this seam?*
 - **The flow type.** Classify it by walking the decision tree in **Registers** in [SKILL.md](../SKILL.md)—take the first match, and don't re-derive the categories here. This sets how the gates should be read; see *Adjust for flow type* below. If the tree lands on linear but an unmanaged fork is bolted on, score it linear and flag the rogue fork under Gate 1.
+
+## Locate every finding
+
+Every issue must carry an implementation locator that answers **where**, **in what state**, and **when**:
+
+- **Surface**—the exact step, screen, entry point, or transition seam.
+- **State**—the interaction or system condition: waiting, validation error, retry, Back, refresh, deep-linked, resumed, and so on.
+- **Lifecycle**—the journey moment: first-run activation, returning completion, interruption/resume, recovery, or another specific path.
+
+Use concrete transitions. `Email verification → workspace · code-expired error · first-run activation before entry` is actionable; `onboarding` is not. List only walked conditions under **Coverage**. Put material untested paths under `gaps`, and name the fastest validating walk in **Basis** instead of guessing.
 
 ## Adjust for flow type
 
@@ -144,6 +155,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 
 **Flow:** <name> · type: <linear | branching | hub-and-spoke | open-ended> · audience: <novice | mixed | expert>
 **Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
+**Coverage:** <journey states and lifecycle paths actually reviewed> · gaps: <material paths not shown or tested, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
 **Blocker:** <None. | concise blocker reason>
 
@@ -156,8 +168,8 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 | **Total** | **_/12 · _._/4** | **<band>** |
 
 ## Issues (most severe first)
-- **[P0 · Orientation]** <Name>—<observation>. <impact>. **Fix:** <fix>.
-- **[P1 · Path Economy]** <Name>—<observation>. <impact>. **Fix:** <fix>.
+- **[P0 · Orientation]** **At:** <step or seam> · state: <exact state> · lifecycle: <exact journey moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
+- **[P1 · Path Economy]** **At:** <step or seam> · state: <exact state> · lifecycle: <exact journey moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
 
 ## Top 3 moves
 1. <highest-leverage change>
@@ -171,7 +183,8 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 ```
 
 Filling it:
-- **Issues**—repeat the issue line once per issue, tagged **Orientation / Path Economy / Continuity**. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Coverage**—name only conditions actually walked or evidenced. Use `gaps` for consequential paths such as Back, refresh, retry, interruption/resume, deep link, or returning-user bypass that were not shown or tested.
+- **Issues**—repeat the issue line once per issue, tagged **Orientation / Path Economy / Continuity**. Keep the `At` locator precise enough to replay the failing transition directly. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Next**—structural before executional, always: signposting a maze only labels the dead ends. Resolve structural items with the four-move build workflow in [SKILL.md](../SKILL.md) and the techniques in [patterns.md](patterns.md).
 - **Single-screen problems are out of scope—route them to [Focal](../../focal).** If an individual screen is overloaded, mis-ranked, or has no clear primary action, that is a within-screen failure for Focal, not a seam for Compass; name it in **Next** and hand it off.
 - Re-run the audit after fixes to watch the score climb.

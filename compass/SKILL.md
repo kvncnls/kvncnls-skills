@@ -137,7 +137,7 @@ Two ties worth naming, because they recur:
 
 - **No argument** → explain Never Lost and the three disciplines briefly, then ask: building a new flow, or reviewing an existing one?
 - **`build` (or a description of a flow to design)** → follow **The four moves** below. Pull techniques from [reference/patterns.md](reference/patterns.md).
-- **`review` / `audit` (a flow, a set of screens, a prototype, or a description)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, and closes on a Never-Lost verdict. That file defines the rubrics, scoring contract, bands, and severities—all of them, and nowhere else.
+- **`review` / `audit` (a flow, a set of screens, a prototype, or a description)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, anchors every issue to the exact step or seam, interaction state, and journey lifecycle moment, and closes on a Never-Lost verdict. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
 - **A question about a specific technique or anti-pattern** → consult [reference/patterns.md](reference/patterns.md).
 
 Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
@@ -167,6 +167,7 @@ A flow that passes is sound by Compass's standard. Then design each screen with 
 - **Be decisive.** "The user is trapped on step 3"—not "the user might feel stuck."
 - **Factual first, then judgment, then the fix.** What happens, why it loses the user, what it should be.
 - **Tie every issue to a discipline,** and to how it costs the user their bearings.
+- **Locate every issue.** Name the exact step, entry point, or transition; the interaction state; and the journey lifecycle moment where the change belongs.
 
 ---
 

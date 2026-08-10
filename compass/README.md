@@ -76,9 +76,9 @@ See the [locked Flow Spec template](./SKILL.md#build-outputthe-flow-spec-use-thi
 It returns a fixed **flow review**:
 
 - **Verdict**—Yes or No for Never Lost, plus the largest break and native `/12` total.
-- **Flow, Context, Basis, and Blocker**—what was reviewed, the evidence available, the confirming check, and any critical condition.
+- **Flow, Context, Coverage, Basis, and Blocker**—what was reviewed, the user's situation, which journey states and lifecycle paths were walked, material gaps, the confirming check, and any critical condition.
 - **Scorecard**—Orientation, Path Economy, and Continuity scored `0–4`, followed by the normalized average and final common band.
-- **Issues**—P0–P3 findings tagged to the discipline they break, each with a concrete fix.
+- **Issues**—P0–P3 findings tagged to the discipline they break, each anchored to the exact step or seam, interaction state, and journey lifecycle moment with a concrete fix.
 - **Top 3 moves and Next**—the highest-leverage changes, structural-before-executional sequencing, and any Focal handoff.
 
 See the [locked review template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).

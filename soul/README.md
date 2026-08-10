@@ -54,11 +54,11 @@ Prefer a copy, or one project only? `cp -R kvncnls-skills/soul ~/.claude/skills/
 Returns a fixed **happy-path sweep**:
 
 - **Verdict, Product, Path, and ending feeling**—the authored state, largest missed or misplaced moment, and native `/16` total.
-- **Basis and Blocker**—the evidence available, confirming check, and any critical condition.
+- **Coverage, Basis, and Blocker**—the app states and lifecycle occurrences reviewed, material gaps, evidence available, confirming check, and any critical condition.
 - **The path**—every beat, touchpoint, frequency, and Expected/Elevated/Net-New assignment.
 - **Scorecard**—Baseline, Placement, Proportion, and Signature scored `0–4`, followed by the normalized average and final common band.
 - **The moments and small things**—the 2–3 Net-New moments ranked by reach × memory, plus Elevated craft opportunities.
-- **Issues, Kept Expected, and Next**—P0–P3 findings, the restraint receipt, sequencing, and any Focal, Compass, or Flywheel handoff.
+- **Issues, Kept Expected, and Next**—P0–P3 findings anchored to the exact beat, app state, and lifecycle occurrence, plus the restraint receipt, sequencing, and any Focal, Compass, or Flywheel handoff.
 
 See the [locked search template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).
 
