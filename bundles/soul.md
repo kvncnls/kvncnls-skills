@@ -108,7 +108,7 @@ Selection heuristics, archetypes, and the full dumping-grounds list live in refe
 
 - **No argument** → explain the placement idea in three sentences, then ask: search an existing product, or build one moment?
 - **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow reference/review.md. It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, totals to /16 with a band, tags issues P0–P3, and returns the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
-- **`build` / `design` / `treat` (one moment)** → confirm the moment sits on the path and is worth the budget (reference/moments.md), read reference/treatments.md, then follow **Build** below.
+- **`build` / `design` / `treat` (one beat)** → run the beat through the sort tree above; its tier is the build's **Target**. Read reference/treatments.md—plus reference/moments.md when the target is Net-New, to confirm it clears the selection bar—then follow **Build** below.
 - **A question about a moment type or a treatment lever** → reference/moments.md or reference/treatments.md.
 
 Before emitting either output, read reference/examples.md. It calibrates length, tone, and what the locked templates look like filled well.
@@ -118,7 +118,7 @@ Before emitting either output, read reference/examples.md. It calibrates length,
 ## Build: the five moves
 
 1. **Frame it.** The product, the user, the beat, its frequency class, the stakes, and the one feeling this moment should produce—named, not "delight." If you cannot name the feeling, the screen, and the second it happens, you have a brand adjective, not a design target. Stakes are what the user can lose at this beat—money, work, standing, safety. Anything real to lose is high, and high puts reassurance before feeling.
-2. **Place it.** Confirm the beat is on the default path and passes the selection bar in reference/moments.md. If the request points at a dumping ground, say so and redirect the budget to the nearest on-path beat.
+2. **Place it.** Run the beat through the sort tree—its tier is the spec's **Target**. A Net-New target must also clear the selection bar in reference/moments.md; an Elevated target has no bar to clear, only its ceiling to respect. If the request points at a dumping ground, say so and redirect the budget to the nearest on-path beat.
 3. **Ladder it.** The path sort names the target tier; the spec still designs the full range from reference/treatments.md—Expected as the floor, then Elevated, then Net-New—because rungs below the target are the interim ships and the caller may land there. A rung above the beat's ceiling is written as unavailable, with the reason. The Expected rung is real work, not a strawman: it must be shippable.
 4. **Guard it.** No rung may tax speed, comprehension, or the primary action. High-stakes moments get reassurance before feeling. Every-run moments get only what survives repetition.
 5. **Run the gates.** Self-check against the **`## Gates`** block of the Moment Spec below—that block is the canonical list. Mark `[x]` only what the spec satisfies; leave `[ ]` with a one-line reason for any it does not.
@@ -126,7 +126,7 @@ Before emitting either output, read reference/examples.md. It calibrates length,
 **Output—the Moment Spec (use this exact structure).** Every build returns this template verbatim, in this order. Fill the `<…>` slots; keep every fixed label.
 
 ```
-**Moment:** <the beat>—for <who>, on the <first | every | nth> pass.
+**Moment:** <the beat>—for <who>, on <the first pass | every pass | the nth pass>.
 **Feeling:** <one named emotion> · **Frequency:** <once | recurring | every-run> · **Stakes:** <low | medium | high> · **Target:** <Elevated | Net-New>
 
 ## Why this moment
@@ -191,14 +191,14 @@ Match-and-refuse. Each of these is expressiveness spending trust it did not earn
 
 - reference/review.md—the search mode: the four-gate audit (Baseline, Placement, Proportion, Signature), 0–4 rubrics, /16 bands, severity, and the locked Moment Map template.
 - reference/moments.md—moment archetypes, frequency classes, selection heuristics, the 2–3 rule, and the dumping grounds.
-- reference/treatments.md—the three rungs in depth, the craft levers, repetition-proof design, and proportionality.
+- reference/treatments.md—the three tiers in depth, the rungs a build lays out, the craft levers, repetition-proof design, and proportionality.
 - reference/examples.md—a worked search and a worked build, in the locked templates.
 
 ---
 
 # Soul Search—the happy-path sweep
 
-Map the default path, judge where the product's expressiveness lives, and return the 2–3 moments worth treating. Use when the user asks to search, sweep, audit, review, or find—or hands over a product with "it feels generic," "it's boring," "make it memorable."
+Map the default path, sort every beat into a tier, and return the 2–3 Net-New moments plus the small things worth elevating. Use when the user asks to search, sweep, audit, review, or find—or hands over a product with "it feels generic," "it's boring," "make it memorable."
 
 ## Input modes
 
@@ -395,7 +395,7 @@ Then interrogate the shortlist:
 1. Where would a generic execution actively hurt—cost trust, cost the story users tell?
 2. What is public-facing—screenshotted, demoed, shared, judged by people who are not users yet?
 3. Where does the user's effort peak? High effort is high emotional energy; treatment there converts strain into momentum.
-4. Which beat carries the product's one distinctive claim? That beat is where Net-New belongs, if anywhere.
+4. Which beats carry the product's distinctive claims? Those are the strongest Net-New candidates.
 5. What would marketing show? If nothing on the path is showable, that is the finding.
 
 **Take the top 2–3 as Net-New. Never more.** The fourth rebuilt moment does not add memory; it subtracts significance from the first three. Everything below the line takes **Elevated** where its ceiling allows craft that pays, and **Expected** otherwise—recorded either way, because the receipt is what separates restraint from neglect.
@@ -424,7 +424,7 @@ One honest edge: a 404 that carries real traffic—dead links shared socially, a
 
 ---
 
-# Treatments—the three rungs
+# Treatments—the three tiers
 
 The path sort assigns every beat a **tier**—its verdict. A build designs the **rungs**—the full range for one beat, floor to target—so the caller can land anywhere on it without re-briefing. Same three names, two uses: the tier is where a beat ends up; the rungs are the steps a build lays out getting there.
 
@@ -450,7 +450,7 @@ Examples of the register: the confirmation that states the amount and the runnin
 
 **On `every-run` and high-stakes beats, Elevated is also the ceiling**—it raises quality without spending novelty, so it survives repetition and never competes with reassurance.
 
-## Net-New—the version nobody expects
+## Net-New—an entirely new experience
 
 An entirely new experience in place of the old one—not the same moment executed better. Elevated asks how well the moment can be executed; Net-New asks what the moment could be instead. A new mechanic, surface, or artifact that makes the moment itself a reason to talk about the product.
 

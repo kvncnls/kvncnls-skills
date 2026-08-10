@@ -71,7 +71,7 @@ soul/
 ├── reference/
 │   ├── review.md         the four-gate search (Baseline, Placement, Proportion, Signature) + scorecard
 │   ├── moments.md        eight moment archetypes, frequency classes, selection, the dumping grounds
-│   ├── treatments.md     the three rungs in depth, the craft levers, repetition-proof design
+│   ├── treatments.md     the three tiers in depth, the craft levers, repetition-proof design
 │   └── examples.md       a worked search + a worked build
 ├── README.md
 └── LICENSE

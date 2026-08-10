@@ -1,6 +1,6 @@
 # Soul Search—the happy-path sweep
 
-Map the default path, judge where the product's expressiveness lives, and return the 2–3 moments worth treating. Use when the user asks to search, sweep, audit, review, or find—or hands over a product with "it feels generic," "it's boring," "make it memorable."
+Map the default path, sort every beat into a tier, and return the 2–3 Net-New moments plus the small things worth elevating. Use when the user asks to search, sweep, audit, review, or find—or hands over a product with "it feels generic," "it's boring," "make it memorable."
 
 ## Input modes
 

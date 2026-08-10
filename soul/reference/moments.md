@@ -40,7 +40,7 @@ Then interrogate the shortlist:
 1. Where would a generic execution actively hurt—cost trust, cost the story users tell?
 2. What is public-facing—screenshotted, demoed, shared, judged by people who are not users yet?
 3. Where does the user's effort peak? High effort is high emotional energy; treatment there converts strain into momentum.
-4. Which beat carries the product's one distinctive claim? That beat is where Net-New belongs, if anywhere.
+4. Which beats carry the product's distinctive claims? Those are the strongest Net-New candidates.
 5. What would marketing show? If nothing on the path is showable, that is the finding.
 
 **Take the top 2–3 as Net-New. Never more.** The fourth rebuilt moment does not add memory; it subtracts significance from the first three. Everything below the line takes **Elevated** where its ceiling allows craft that pays, and **Expected** otherwise—recorded either way, because the receipt is what separates restraint from neglect.

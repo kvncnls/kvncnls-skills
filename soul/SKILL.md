@@ -98,7 +98,7 @@ Selection heuristics, archetypes, and the full dumping-grounds list live in [ref
 
 - **No argument** → explain the placement idea in three sentences, then ask: search an existing product, or build one moment?
 - **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow [reference/review.md](reference/review.md). It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, totals to /16 with a band, tags issues P0–P3, and returns the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
-- **`build` / `design` / `treat` (one moment)** → confirm the moment sits on the path and is worth the budget ([reference/moments.md](reference/moments.md)), read [reference/treatments.md](reference/treatments.md), then follow **Build** below.
+- **`build` / `design` / `treat` (one beat)** → run the beat through the sort tree above; its tier is the build's **Target**. Read [reference/treatments.md](reference/treatments.md)—plus [reference/moments.md](reference/moments.md) when the target is Net-New, to confirm it clears the selection bar—then follow **Build** below.
 - **A question about a moment type or a treatment lever** → [reference/moments.md](reference/moments.md) or [reference/treatments.md](reference/treatments.md).
 
 Before emitting either output, read [reference/examples.md](reference/examples.md). It calibrates length, tone, and what the locked templates look like filled well.
@@ -108,7 +108,7 @@ Before emitting either output, read [reference/examples.md](reference/examples.m
 ## Build: the five moves
 
 1. **Frame it.** The product, the user, the beat, its frequency class, the stakes, and the one feeling this moment should produce—named, not "delight." If you cannot name the feeling, the screen, and the second it happens, you have a brand adjective, not a design target. Stakes are what the user can lose at this beat—money, work, standing, safety. Anything real to lose is high, and high puts reassurance before feeling.
-2. **Place it.** Confirm the beat is on the default path and passes the selection bar in [reference/moments.md](reference/moments.md). If the request points at a dumping ground, say so and redirect the budget to the nearest on-path beat.
+2. **Place it.** Run the beat through the sort tree—its tier is the spec's **Target**. A Net-New target must also clear the selection bar in [reference/moments.md](reference/moments.md); an Elevated target has no bar to clear, only its ceiling to respect. If the request points at a dumping ground, say so and redirect the budget to the nearest on-path beat.
 3. **Ladder it.** The path sort names the target tier; the spec still designs the full range from [reference/treatments.md](reference/treatments.md)—Expected as the floor, then Elevated, then Net-New—because rungs below the target are the interim ships and the caller may land there. A rung above the beat's ceiling is written as unavailable, with the reason. The Expected rung is real work, not a strawman: it must be shippable.
 4. **Guard it.** No rung may tax speed, comprehension, or the primary action. High-stakes moments get reassurance before feeling. Every-run moments get only what survives repetition.
 5. **Run the gates.** Self-check against the **`## Gates`** block of the Moment Spec below—that block is the canonical list. Mark `[x]` only what the spec satisfies; leave `[ ]` with a one-line reason for any it does not.
@@ -116,7 +116,7 @@ Before emitting either output, read [reference/examples.md](reference/examples.m
 **Output—the Moment Spec (use this exact structure).** Every build returns this template verbatim, in this order. Fill the `<…>` slots; keep every fixed label.
 
 ```
-**Moment:** <the beat>—for <who>, on the <first | every | nth> pass.
+**Moment:** <the beat>—for <who>, on <the first pass | every pass | the nth pass>.
 **Feeling:** <one named emotion> · **Frequency:** <once | recurring | every-run> · **Stakes:** <low | medium | high> · **Target:** <Elevated | Net-New>
 
 ## Why this moment
@@ -181,5 +181,5 @@ Match-and-refuse. Each of these is expressiveness spending trust it did not earn
 
 - [reference/review.md](reference/review.md)—the search mode: the four-gate audit (Baseline, Placement, Proportion, Signature), 0–4 rubrics, /16 bands, severity, and the locked Moment Map template.
 - [reference/moments.md](reference/moments.md)—moment archetypes, frequency classes, selection heuristics, the 2–3 rule, and the dumping grounds.
-- [reference/treatments.md](reference/treatments.md)—the three rungs in depth, the craft levers, repetition-proof design, and proportionality.
+- [reference/treatments.md](reference/treatments.md)—the three tiers in depth, the rungs a build lays out, the craft levers, repetition-proof design, and proportionality.
 - [reference/examples.md](reference/examples.md)—a worked search and a worked build, in the locked templates.

@@ -1,4 +1,4 @@
-# Treatments—the three rungs
+# Treatments—the three tiers
 
 The path sort assigns every beat a **tier**—its verdict. A build designs the **rungs**—the full range for one beat, floor to target—so the caller can land anywhere on it without re-briefing. Same three names, two uses: the tier is where a beat ends up; the rungs are the steps a build lays out getting there.
 
@@ -24,7 +24,7 @@ Examples of the register: the confirmation that states the amount and the runnin
 
 **On `every-run` and high-stakes beats, Elevated is also the ceiling**—it raises quality without spending novelty, so it survives repetition and never competes with reassurance.
 
-## Net-New—the version nobody expects
+## Net-New—an entirely new experience
 
 An entirely new experience in place of the old one—not the same moment executed better. Elevated asks how well the moment can be executed; Net-New asks what the moment could be instead. A new mechanic, surface, or artifact that makes the moment itself a reason to talk about the product.
 
