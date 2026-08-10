@@ -24,11 +24,11 @@ More will follow, each targeting a craft that speed tends to leave behind.
 
 ## One skill, one job
 
-Each skill is deliberately narrow. It addresses one defined design problem, follows one focused workflow, and has a clear boundary.
+Each Skill is deliberately scoped around one design lens and a north-star outcome. Each supports a focused build workflow and a separate audit-style workflow, with handoffs for adjacent problems.
 
-Focal handles the structure of a screen. Compass handles the structure of a journey. Flywheel handles what happens across the whole relationship. Soul handles the moments that make it memorable. None of them tries to become an all-purpose product design system.
+Focal decides what belongs on one screen and what wins attention. Compass designs the path between screens so users stay oriented and state survives the seams. Flywheel finds the earliest leak that keeps arrival from becoming value—or value from earning a second visit. Soul decides where a working happy path should stay conventional, gain craft, or become memorable.
 
-This keeps each skill simple to understand, invoke, test, and improve. It also makes the collection composable: use one skill when that is all the problem requires, or combine several without turning any individual skill into a sprawling set of instructions.
+Their boundaries are working boundaries, not walls. This keeps the collection composable: use one lens when it is enough, combine several when the problem crosses scales, and never turn any one Skill into an all-purpose product design system.
 
 
 ## Skills
