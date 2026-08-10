@@ -1,6 +1,6 @@
 # kvncnls-skills
 
-A collection of [Claude Code](https://claude.com/claude-code) skills for product design and ui/ux design, by Kevin Canlas. Each skill is a self-contained folder of Markdown—no build step, no dependencies. The intent behind each Skill is to complete one job instead of turning them into "everything Skills". This makes it clearer and simpler to use.
+A collection of Skills for product design and UI/UX design, by Kevin Canlas. Each one is a self-contained folder of Markdown—no build step, no dependencies—and each also ships as a single file, so they work in Claude Code, Codex, ChatGPT, Cursor, and anything else that reads Markdown.
 
 ## Why these exist
 
@@ -40,13 +40,17 @@ This keeps each skill simple to understand, invoke, test, and improve. It also m
 | [**flywheel**](./flywheel) | Earn the second visit. Growth and retention: finds where a product loses the users it already earned, across four ordered plays—Trust, Friction, Wins, and Emotion. Diagnose a leak or build a stage. |
 | [**soul**](./soul) | Never boring. Delight, placed: sorts every beat of the happy path into three tiers—Expected stays functional, Elevated adds craft to the small things, Net-New rebuilds the 2–3 biggest moments entirely. Search a product or build a moment. |
 
-## Install (Claude Code)
+## Install
 
-Clone the collection, then point Claude Code at the skill you want (here, `focal`):
+Each skill comes in two shapes. The **folder** (`focal/`) loads its references on demand and gives you a slash command. The **bundle** ([`bundles/focal.md`](./bundles)) is the same skill flattened into one file—spine, references, rubrics, and templates—for tools that can't load a multi-file folder. Start by cloning:
 
 ```bash
 git clone https://github.com/kvncnls/kvncnls-skills.git
-# Symlink so it's available in every session and edits stay in sync:
+```
+
+**Claude Code**—install the folder. Symlink to keep edits in sync:
+
+```bash
 ln -s "$(pwd)/kvncnls-skills/focal" ~/.claude/skills/focal
 ```
 
@@ -57,17 +61,23 @@ cp -R kvncnls-skills/focal ~/.claude/skills/focal     # independent copy, all pr
 cp -R kvncnls-skills/focal <project>/.claude/skills/  # one project only
 ```
 
-Restart Claude Code, then the skill's slash command (e.g. `/focal`) is available. Each skill's own `README.md` has its full usage.
+Restart Claude Code and `/focal` is available.
 
-## Using these outside Claude Code
+**Codex**—append a bundle to your project's `AGENTS.md`, which Codex loads automatically:
 
-The skills are plain Markdown, so they work in any AI coding agent, not only Claude Code. Each skill has a single-file **bundle** in [`bundles/`](./bundles)—the spine plus every reference in one document—for tools that can't load a multi-file skill folder.
+```bash
+cat kvncnls-skills/bundles/focal.md >> AGENTS.md
+```
 
-- **Codex (CLI)**—append a bundle to your project's `AGENTS.md`, which Codex loads automatically: `cat bundles/focal.md >> AGENTS.md`.
-- **ChatGPT**—create a Custom GPT and paste a bundle into *Instructions*, or upload it as a *Knowledge* file. A ChatGPT Project works the same way (add it to the project's files).
-- **Cursor / Windsurf / Cline**—drop a bundle in as a rules file, e.g. `cp bundles/focal.md .cursor/rules/focal.md`.
+**ChatGPT**—create a Custom GPT and paste a bundle into *Instructions*, or upload it as a *Knowledge* file. A Project works the same way: add it to the project's files.
 
-The bundle is self-contained—no folder structure or slash command needed. On Claude Code, ignore the bundle and install the skill folder above for on-demand loading and `/focal`.
+**Cursor / Windsurf / Cline**—drop a bundle in as a rules file:
+
+```bash
+cp kvncnls-skills/bundles/focal.md .cursor/rules/focal.md
+```
+
+Swap `focal` for whichever skill you want. Each skill's own `README.md` has its full usage, and the bundles are build artifacts—regenerate rather than edit them.
 
 ## License
 
