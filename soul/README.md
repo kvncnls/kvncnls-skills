@@ -45,7 +45,7 @@ Prefer a copy, or one project only? `cp -R kvncnls-skills/soul ~/.claude/skills/
 
 ## Use
 
-**Search**—soul-searching, mechanized. Point it at a product and it maps the happy path, judges where the expressiveness lives, and returns the moments worth treating.
+**Search**—soul-searching, mechanized. Point it at a product and it maps the happy path, sorts every beat into a tier, and returns the Net-New moments plus the small things worth elevating.
 
 ```
 /soul search     ← a product, a flow, screens, or "it feels like every other app"
