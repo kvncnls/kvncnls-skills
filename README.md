@@ -4,7 +4,7 @@ A collection of Skills for product design and UI/UX design, by Kevin Canlas. Eac
 
 ## Why these exist
 
-Vibe coding made building software fast and easy—describe a feature, watch it appear. But building fast and designing well are different skills, and the second hasn't kept up. I keep seeing the same thing: features stacked on features, screens accumulating widgets, flows sprouting steps, with no one asking whether the app still hangs together.
+Vibe coding made building software fast and easy—describe a feature, watch it appear. But building fast and designing well are different skills, and the second hasn't kept up. I keep seeing the same pattern: features stacked on features, screens accumulating widgets, flows sprouting steps, value buried behind setup, and meaningful moments flattened into generic UI. No one stops to ask whether the app still hangs together, earns a second visit, or gives anyone something worth remembering.
 
 The first casualties are the quiet disciplines that make software feel effortless—information architecture, visual hierarchy, progressive disclosure, navigation, spatial awareness. They rarely block a release, so they get skipped, and the app ends up technically working but overwhelming to use. It usually breaks in one of four ways:
 
