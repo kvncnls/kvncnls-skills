@@ -14,7 +14,8 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 **Verdict:** functional but forgettable · the product's biggest moment—getting paid—is a system-default notification · **7/16**
 
 **Product:** invoicing for freelancers · **Path:** 7 beats, bookmark → payment landed · **Ends feeling:** unnamed—relief is the obvious candidate, and nobody has chosen it
-**Basis:** observed from the artifact · confirm with: trigger a real payment and read the actual notification—the claim the verdict rests on
+**Basis:** observed from a screenshot or artifact · confirm with: trigger a real payment and read the actual notification—the claim the verdict rests on
+**Blocker:** The mascot jokes through a failed send, risking trust and material financial harm while the invoice's delivery state is uncertain.
 
 ## The path
 | # | Beat | Touchpoint | Frequency | Verdict |
@@ -34,7 +35,7 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 | Placement | 2/4 | Touches exist on-path (send confetti) but nobody chose them, and the best-crafted work in the product is a 404 minigame. |
 | Proportion | 1/4 | Intensity is decided by habit—confetti on the routine send, silence at the payoff. Nothing tracks magnitude. |
 | Signature | 1/4 | Swap the logo and nobody notices. The mascot is a stock personality, and the ending feeling is unchosen. |
-| **Total** | **7/16** | **functional but forgettable** |
+| **Total** | **7/16 · 1.8/4** | **Significant rework** |
 
 ## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—Payment lands (beat 6), relief

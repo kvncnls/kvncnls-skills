@@ -7,6 +7,7 @@ Evaluate a screen against the three disciplines and the overarching methodology,
 - **Screenshot / image**—read it, critique what you see. The common mode for design review.
 - **File path (JSX/TSX/HTML/Vue/Svelte)**—read it, mentally render the layout, critique structure and prescribed styles. You can't see pixels, so qualify visual claims.
 - **Live URL**—if browser automation is available, open the page; otherwise fetch markup. If the request names several screens, return one complete scorecard per screen, and say plainly that the path between them is Compass's.
+- **A description**—walk the stated screen and its states, label findings as walked from a description, and name the fastest interaction or artifact check that would confirm the consequential claims.
 
 ## Step 0—Notice, frame, and name the purpose
 
@@ -63,13 +64,13 @@ Run each gate in turn, in the order the disciplines apply. Each produces a 0–4
 
 | Score | Criteria |
 |-------|----------|
-| 0 | Everything dumped at once (severe overload), or essential info buried |
-| 1 | Wall of options; or a dark-pattern reveal hiding price / required field / consequence |
+| 0 | Fundamentally broken—severe overload blocks the core task, or essential information is concealed in a way that removes informed choice or creates material harm |
+| 1 | Major failure—a wall of options or a dark-pattern reveal hides price, a required field, or a consequence, but the core task remains technically possible |
 | 2 | Some layering, but a key decision point exceeds working memory; or content deferred behind no perceptible cue |
 | 3 | Mostly well-layered; one or two things shown or deferred wrongly |
 | 4 | Each step holds ≤4; complexity revealed exactly when needed; nothing essential hidden |
 
-Because this discipline is load-bearing, treat a score of ≤1 caused by **burying an essential** as a blocking issue regardless of the total.
+Because this discipline is load-bearing, record a score of ≤1 caused by **burying an essential** as a blocker regardless of the total. Severity still follows consequence, reach, and recoverability; do not force the dimension to 0 unless its rubric supports 0.
 
 ### Gate 3—Visual Hierarchy
 
@@ -90,20 +91,41 @@ Because this discipline is load-bearing, treat a score of ≤1 caused by **buryi
 
 ## Scoring rules
 
-Score each discipline 0–4 using its gate rubric above. Be honest—a 4 means genuinely excellent, not "fine."
+Every discipline uses the same integer anchors:
 
-- **Bands** (the only band list in this skill; look the string up from here): **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** doesn't work yet.
-- **The Total must equal the three scores summed**, and its band string must be one of the four above, verbatim.
-- **The verdict—One Screen, One Purpose.** Yes or no: does this screen serve a single primary purpose? The total measures how close it gets; the verdict states whether it arrives. A screen can score moderately and still fail the verdict if IA put two jobs on it.
+| Score | Canonical label | Shared meaning |
+|---:|---|---|
+| **0** | **Broken or harmful** | The dimension fails outright, blocks its core outcome, actively inverts the intended behavior, or creates material harm. |
+| **1** | **Major failure** | The outcome may remain technically possible, but the dimension is seriously compromised, unreliable, or largely absent. Substantial correction is required. |
+| **2** | **Partial or inconsistent** | The basic function exists, with a material weakness, missing decision, or inconsistency that prevents dependable quality. |
+| **3** | **Strong** | Deliberate, dependable, context-appropriate professional work with only minor gaps. This is the normal target for good execution. |
+| **4** | **Exemplary** | Fully realized and unusually strong for the relevant context, including realistic states and constraints, with no material gaps. |
+
+Score each discipline holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the dimension overall, apply explicit local caps or prerequisites, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the dimension being scored; it does not universally require novelty.
+
+Keep the native total: `total = Information Architecture + Progressive Disclosure + Visual Hierarchy`. Calculate `average = total / 3`, display it rounded to one decimal place, and apply this shared algorithm:
+
+| Band | Average rule | Native total |
+|---|---:|---:|
+| **Broken** | `average <= 1.5` | `0–4 / 12` |
+| **Significant rework** | `1.5 < average < 2.5` | `5–7 / 12` |
+| **Solid** | `2.5 <= average < 3.5` | `8–10 / 12` |
+| **Excellent** | `average >= 3.5` | `11–12 / 12` |
+
+Then cap the band by the weakest discipline: a minimum of `0` allows only **Broken**, `1` allows at most **Significant rework**, `2` allows at most **Solid**, and `3–4` adds no ceiling. Use the lower-quality result of the average band and this ceiling. The total must equal the exact sum of the three scores.
+
+Dimension score, overall quality band, issue severity, critical blocker, and the **One Screen, One Purpose** verdict are separate. The verdict remains Yes or No: a screen can be Solid and still receive No if its primary purpose is structurally unresolved. Every P0 is a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. Non-P0 methodology blockers remain in local caps, sequencing, and handoffs.
 
 ## Issue severity
 
 | Priority | Meaning |
 |----------|---------|
-| **P0** | Blocks the task or breaks trust (essential info hidden, no primary action, two purposes)—fix now |
-| **P1** | Causes real confusion or overload—fix before release |
-| **P2** | Annoyance with a workaround—next pass |
-| **P3** | Polish—if time permits |
+| **P0 — Critical** | Blocks the core outcome; traps the user; destroys work or state; causes or risks material harm; hides material cost, consequence, permission, or risk; removes informed choice; or uses coercive manipulation. Fix before release. |
+| **P1 — Major** | Materially damages comprehension, completion, orientation, trust, value realization, or return for a meaningful share of users. Fix before release. |
+| **P2 — Moderate** | Creates real friction, confusion, dilution, or missed value with a viable recovery, workaround, or limited scope. Fix in the next planned pass. |
+| **P3 — Minor** | Low-impact craft, consistency, or polish. Fix when time permits. |
+
+Assign severity from consequence, reach, and recoverability. A methodology rule violation is not automatically P0.
 
 **Ordering (one rule):** sort by priority, P0 first. Within the same priority, break ties by type of harm—**structural** (IA: wrong job or mental model) outranks **behavioral** (PD: disclosure, overload) outranks **visual** (VH: weight, spacing, type). Never reorder across priorities; a P0 Hierarchy issue outranks a P1 IA issue.
 
@@ -116,6 +138,8 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 
 **Screen:** <what it is> · register: <task | hub | exploration | task-overloaded> · audience: <novice | mixed | expert>
 **Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
+**Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
+**Blocker:** <None. | concise blocker reason>
 
 ## Scorecard
 | Discipline | Score | Key finding |
@@ -123,7 +147,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 | Information Architecture | _/4 | <one line> |
 | Progressive Disclosure | _/4 | <one line> |
 | Visual Hierarchy | _/4 | <one line> |
-| **Total** | **_/12** | **<band>** |
+| **Total** | **_/12 · _._/4** | **<band>** |
 
 ## Issues (most severe first)
 - **[P0 · IA]** <Name>—<observation>. <impact>. **Fix:** <fix>.

@@ -2,7 +2,7 @@
 
 This is the complete **Soul** skill as one self-contained document—the spine plus every reference—so you can use it in any AI coding agent, not only Claude Code.
 
-*Generated from `soul/` at commit `0da7302`. If the repo has moved on, regenerate rather than edit this file: it is a build artifact, not the source.*
+*Synchronized manually from `soul/` source files on the working tree; no commit hash is asserted until commit.*
 
 **How to use it**
 - **Claude Code**—you don't need this file; install the `soul/` folder from the repo for `/soul` and on-demand loading. This bundle is for everything else.
@@ -12,6 +12,12 @@ This is the complete **Soul** skill as one self-contained document—the spine p
 
 Everything below is the skill, including the full 0–4 / 16 scoring rubrics.
 
+---
+
+---
+name: soul
+description: Use when a product works but feels like nothing—generic, forgettable, indistinguishable from its competitors. Soul maps the happy path and sorts every beat into three tiers—Expected (stays functional), Elevated (the same moment with more craft—the small delights), and Net-New (an entirely new experience, reserved for the 2–3 biggest moments). Places by reach and memory, splits treatments by frequency so repetition never turns delight into noise, and refuses the traditional dumping grounds (404 pages, easter eggs, error mascots) where delight goes to be unseen. Triggers on boring, bland, generic, soulless, forgettable, delight, personality, charm, whimsy, juice, microinteractions, wow moment, celebration, empty state, success state, first impression, "make it memorable", "feels generic". Not for screen structure (use Focal), flows and navigation (use Compass), retention and activation leaks (use Flywheel), brand identity systems, or marketing pages.
+argument-hint: "[build | search] <product, flow, or moment>"
 ---
 
 # Soul
@@ -43,9 +49,9 @@ Three facts decide every placement:
 Soul is for a product that already works but reads as anonymous: a functional-but-flat happy path, a success state that stops instead of lands, an ending nobody designed, a personality budget with nowhere to go. Give it a product, a flow, screens, code, or a description.
 
 It is **not** for:
-- Single-screen structure, hierarchy, or clutter—that is Focal.
-- Multi-screen paths and navigation—that is Compass.
-- Losing users before they reach value—that is Flywheel. Soul makes a working path memorable; it cannot make a broken path work, and treatments on a broken path read as cosmetic.
+- Single-screen structure, hierarchy, or clutter—that is [Focal](../focal).
+- Multi-screen paths and navigation—that is [Compass](../compass).
+- Losing users before they reach value—that is [Flywheel](../flywheel). Soul makes a working path memorable; it cannot make a broken path work, and treatments on a broken path read as cosmetic.
 - Brand identity systems, logo, illustration style, or marketing pages. Soul places moments inside the product's default path; it does not define the visual language they are executed in.
 
 ---
@@ -98,28 +104,28 @@ Which tier may this beat take?
 - `once` beats may take one-shot expressive treatment—this is where storytelling spends well.
 - `recurring` beats sit between: intensity below first-run, variation so the 30th arrival still reads as alive.
 
-**The dumping grounds are refused.** 404 pages, error mascots, easter eggs, release-note bits—the traditional homes of product delight, chosen because failing there is cheap. Cheap failure means no reach: the work is unseen, or seen by a frustrated user at the worst moment. When the sweep finds existing delight in a dumping ground, it relocates the effort to a chosen beat. And an error state frequent enough to be worth delighting is a bug to fix, not a moment to elevate—route it to Flywheel or Focal. One honest edge: a 404 that carries real traffic is not a dumping ground, it is an entry beat—treat it as recovery, one clear path back, no jokes.
+**The dumping grounds are refused.** 404 pages, error mascots, easter eggs, release-note bits—the traditional homes of product delight, chosen because failing there is cheap. Cheap failure means no reach: the work is unseen, or seen by a frustrated user at the worst moment. When the sweep finds existing delight in a dumping ground, it relocates the effort to a chosen beat. And an error state frequent enough to be worth delighting is a bug to fix, not a moment to elevate—route it to [Flywheel](../flywheel) or [Focal](../focal). One honest edge: a 404 that carries real traffic is not a dumping ground, it is an entry beat—treat it as recovery, one clear path back, no jokes.
 
-Selection heuristics, archetypes, and the full dumping-grounds list live in reference/moments.md.
+Selection heuristics, archetypes, and the full dumping-grounds list live in [reference/moments.md](reference/moments.md).
 
 ---
 
 ## Routing
 
 - **No argument** → explain the placement idea in three sentences, then ask: search an existing product, or build one moment?
-- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow reference/review.md. It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, totals to /16 with a band, tags issues P0–P3, and returns the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
-- **`build` / `design` / `treat` (one beat)** → run the beat through the sort tree above; its tier is the build's **Target**. Read reference/treatments.md—plus reference/moments.md when the target is Net-New, to confirm it clears the selection bar—then follow **Build** below.
-- **A question about a moment type or a treatment lever** → reference/moments.md or reference/treatments.md.
+- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow [reference/review.md](reference/review.md). It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, totals to /16, displays a normalized /4 average and common quality band with a weakest-gate ceiling, tags issues P0–P3, and returns the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, scoring contract, bands, and severities—all of them, and nowhere else.
+- **`build` / `design` / `treat` (one beat)** → run the beat through the sort tree above; its tier is the build's **Target**. Read [reference/treatments.md](reference/treatments.md)—plus [reference/moments.md](reference/moments.md) when the target is Net-New, to confirm it clears the selection bar—then follow **Build** below.
+- **A question about a moment type or a treatment lever** → [reference/moments.md](reference/moments.md) or [reference/treatments.md](reference/treatments.md).
 
-Before emitting either output, read reference/examples.md. It calibrates length, tone, and what the locked templates look like filled well.
+Before emitting either output, read [reference/examples.md](reference/examples.md). It calibrates length, tone, and what the locked templates look like filled well.
 
 ---
 
 ## Build: the five moves
 
 1. **Frame it.** The product, the user, the beat, its frequency class, the stakes, and the one feeling this moment should produce—named, not "delight." If you cannot name the feeling, the screen, and the second it happens, you have a brand adjective, not a design target. Stakes are what the user can lose at this beat—money, work, standing, safety. Anything real to lose is high, and high puts reassurance before feeling.
-2. **Place it.** Run the beat through the sort tree—its tier is the spec's **Target**. A Net-New target must also clear the selection bar in reference/moments.md; an Elevated target has no bar to clear, only its ceiling to respect. If the request points at a dumping ground, say so and redirect the budget to the nearest on-path beat.
-3. **Ladder it.** The path sort names the target tier; the spec still designs the full range from reference/treatments.md—Expected as the floor, then Elevated, then Net-New—because rungs below the target are the interim ships and the caller may land there. A rung above the beat's ceiling is written as unavailable, with the reason. The Expected rung is real work, not a strawman: it must be shippable.
+2. **Place it.** Run the beat through the sort tree—its tier is the spec's **Target**. A Net-New target must also clear the selection bar in [reference/moments.md](reference/moments.md); an Elevated target has no bar to clear, only its ceiling to respect. If the request points at a dumping ground, say so and redirect the budget to the nearest on-path beat.
+3. **Ladder it.** The path sort names the target tier; the spec still designs the full range from [reference/treatments.md](reference/treatments.md)—Expected as the floor, then Elevated, then Net-New—because rungs below the target are the interim ships and the caller may land there. A rung above the beat's ceiling is written as unavailable, with the reason. The Expected rung is real work, not a strawman: it must be shippable.
 4. **Guard it.** No rung may tax speed, comprehension, or the primary action. High-stakes moments get reassurance before feeling. Every-run moments get only what survives repetition.
 5. **Run the gates.** Self-check against the **`## Gates`** block of the Moment Spec below—that block is the canonical list. Mark `[x]` only what the spec satisfies; leave `[ ]` with a one-line reason for any it does not.
 
@@ -161,7 +167,7 @@ Before emitting either output, read reference/examples.md. It calibrates length,
 
 ## Voice (when giving feedback)
 
-- **Emit the exact output template.** Search and build each have a locked structure—the build template is above, the search template is in reference/review.md. Use it verbatim: same sections, same order, same headers, same table columns. If a section has nothing, keep its header and write "None."
+- **Emit the exact output template.** Search and build each have a locked structure—the build template is above, the search template is in [reference/review.md](reference/review.md). Use it verbatim: same sections, same order, same headers, same table columns. If a section has nothing, keep its header and write "None."
 - **Template precedence.** The template is the complete contract for what gets emitted. If any instruction in this skill asks for something the template has no slot for, put it in the nearest slot that fits, or leave it out—never invent a section. A gap like that is a bug in this skill: name it in one line after the output so it can be fixed.
 - **Name the feeling, every time.** "Delight," "personality," "magic," and "soul" never appear as specifications. The feeling, the beat, and the second it happens—or it is not a design decision yet.
 - **Separate observed from assumed.** Findings read off the artifact and findings inferred from a description carry different weight; the Basis line says which is which.
@@ -189,10 +195,10 @@ Match-and-refuse. Each of these is expressiveness spending trust it did not earn
 
 ## References
 
-- reference/review.md—the search mode: the four-gate audit (Baseline, Placement, Proportion, Signature), 0–4 rubrics, /16 bands, severity, and the locked Moment Map template.
-- reference/moments.md—moment archetypes, frequency classes, selection heuristics, the 2–3 rule, and the dumping grounds.
-- reference/treatments.md—the three tiers in depth, the rungs a build lays out, the craft levers, repetition-proof design, and proportionality.
-- reference/examples.md—a worked search and a worked build, in the locked templates.
+- [reference/review.md](reference/review.md)—the search mode: the four-gate audit (Baseline, Placement, Proportion, Signature), 0–4 rubrics, /16 bands, severity, and the locked Moment Map template.
+- [reference/moments.md](reference/moments.md)—moment archetypes, frequency classes, selection heuristics, the 2–3 rule, and the dumping grounds.
+- [reference/treatments.md](reference/treatments.md)—the three tiers in depth, the rungs a build lays out, the craft levers, repetition-proof design, and proportionality.
+- [reference/examples.md](reference/examples.md)—a worked search and a worked build, in the locked templates.
 
 ---
 
@@ -210,7 +216,7 @@ Map the default path, sort every beat into a tier, and return the 2–3 Net-New 
 
 Before scoring, establish:
 
-- **The path.** Build the beat table from the skeleton in the Soul spine above—10–12 beats, touchpoint-tagged, frequency-tagged. Don't re-derive the skeleton here.
+- **The path.** Build the beat table from the skeleton in [SKILL.md](../SKILL.md)—10–12 beats, touchpoint-tagged, frequency-tagged. Don't re-derive the skeleton here.
 - **The intended ending feeling.** If nobody can name what the user is meant to feel at beat 7, record "unnamed" in the header—that absence is a finding, and it caps Signature at 2, because a product that has not chosen a feeling cannot have authored one.
 - **The floor.** Does the path actually work—reachable outcome, no trust breaks, no maze? If not, the job is not Soul's yet: score Baseline 0–1, make the handoff the first item in **Next**, and keep the moment analysis as "after the path holds." Treatments on a broken path read as cosmetic, and users correctly discount them.
 - **Observed or walked?** State which, per the input modes above. Blending them silently turns a heuristic into a false certainty.
@@ -277,23 +283,46 @@ Score all four, even when one is obviously the problem—the reader needs to see
 
 ## Scoring rules
 
-Score each gate 0–4 using its rubric above. Be honest—a 4 is rare by definition.
+Every gate uses the same integer anchors:
 
-- **Bands** (the only band list in this skill; look the string up from here): **13–16** authored · **10–12** one moment from memorable · **7–9** functional but forgettable · **0–6** anonymous or exhausting.
-- **The Total must equal the four scores summed**, and its band string must be one of the four above, verbatim.
+| Score | Canonical label | Shared meaning |
+|---:|---|---|
+| **0** | **Broken or harmful** | The dimension fails outright, blocks its core outcome, actively inverts the intended behavior, or creates material harm. |
+| **1** | **Major failure** | The outcome may remain technically possible, but the dimension is seriously compromised, unreliable, or largely absent. Substantial correction is required. |
+| **2** | **Partial or inconsistent** | The basic function exists, with a material weakness, missing decision, or inconsistency that prevents dependable quality. |
+| **3** | **Strong** | Deliberate, dependable, context-appropriate professional work with only minor gaps. This is the normal target for good execution. |
+| **4** | **Exemplary** | Fully realized and unusually strong for the relevant context, including realistic states and constraints, with no material gaps. |
+
+Score each gate holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the gate overall, apply explicit prerequisite caps, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the gate being scored; Signature may legitimately require recognizable authorship because distinctiveness is what that gate measures.
+
+Keep the native total: `total = Baseline + Placement + Proportion + Signature`. Calculate `average = total / 4`, display it rounded to one decimal place, and apply this shared algorithm:
+
+| Band | Average rule | Native total |
+|---|---:|---:|
+| **Broken** | `average <= 1.5` | `0–6 / 16` |
+| **Significant rework** | `1.5 < average < 2.5` | `7–9 / 16` |
+| **Solid** | `2.5 <= average < 3.5` | `10–13 / 16` |
+| **Excellent** | `average >= 3.5` | `14–16 / 16` |
+
+Then cap the band by the weakest gate: a minimum of `0` allows only **Broken**, `1` allows at most **Significant rework**, `2` allows at most **Solid**, and `3–4` adds no ceiling. Use the lower-quality result of the average band and this ceiling. The total must equal the exact sum of the four scores.
+
 - **Baseline ≤1 makes the handoff the first move, always.** The moments section still gets filled—the analysis is real—but every treatment is sequenced after the path holds, and **Next** leads with the handoff.
 - **An unnamed ending feeling caps Signature at 2.** Authorship requires a choice; no choice, no author.
-- **A P0 is blocking regardless of total.** Remove it before any new treatment ships. The band still prints; P0 carries the urgency.
+- **A P0 is a critical blocker regardless of total.** Name it in **Blocker** and remove it before any new treatment ships. Do not mechanically force the affected gate to 0; score it using its rubric.
 - **Expected is a verdict, not a deduction.** A beat kept standard on purpose, with the reason on record, supports Placement 3–4. Sterility is only scored down when it is unchosen—the difference is the receipt.
+
+Dimension score, overall quality band, issue severity, critical blocker, and the authored-state verdict are separate. A score of 0 does not automatically imply P0, and a P0 does not automatically rewrite a score to 0. Baseline prerequisite behavior remains a local sequencing and handoff rule, not a universal severity label.
 
 ## Issue severity
 
 | Priority | Meaning |
 |----------|---------|
-| **P0** | Expressiveness that costs safety, trust, or comprehension (wit at failure, celebration before confirmation, motion blocking the action)—remove now |
-| **P1** | The highest reach × memory beat is silent, or the delight budget is spent where nobody walks—the opportunity cost keeping the product anonymous |
-| **P2** | Decayed repetition, disproportionate feedback, or inconsistency that dilutes the authored moments—next pass |
-| **P3** | Polish—if time permits |
+| **P0 — Critical** | Blocks the core outcome; traps the user; destroys work or state; causes or risks material harm; hides material cost, consequence, permission, or risk; removes informed choice; or uses coercive manipulation. Fix before release. |
+| **P1 — Major** | Materially damages comprehension, completion, orientation, trust, value realization, or return for a meaningful share of users. Fix before release. |
+| **P2 — Moderate** | Creates real friction, confusion, dilution, or missed value with a viable recovery, workaround, or limited scope. Fix in the next planned pass. |
+| **P3 — Minor** | Low-impact craft, consistency, or polish. Fix when time permits. |
+
+Assign severity from consequence, reach, and recoverability. A methodology rule violation is not automatically P0.
 
 **Ordering (one rule):** sort by priority, P0 first. Within the same priority, path order—earlier beats first, because more people reach them; off-path issues come after on-path issues of the same priority. Never reorder across priorities.
 
@@ -307,7 +336,8 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 **Verdict:** <the state, one phrase> · <the biggest missed or misplaced moment> · **<total>/16**
 
 **Product:** <what it is, for whom> · **Path:** <N> beats, <entry> → <outcome> · **Ends feeling:** <the intended emotion, or "unnamed">
-**Basis:** <observed from the artifact | walked from a description> · confirm with: <the fastest check that would settle the biggest claim>
+**Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
+**Blocker:** <None. | concise blocker reason>
 
 ## The path
 | # | Beat | Touchpoint | Frequency | Verdict |
@@ -321,7 +351,7 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 | Placement | _/4 | <one line> |
 | Proportion | _/4 | <one line> |
 | Signature | _/4 | <one line> |
-| **Total** | **_/16** | **<band>** |
+| **Total** | **_/16 · _._/4** | **<band>** |
 
 ## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—<beat>, <the named feeling>
@@ -371,7 +401,7 @@ Frequency is destiny for a treatment—it decides what a moment may carry before
 
 ## The archetypes
 
-Eight places soul is usually won or lost. Skeleton positions refer to the 7-beat map in the Soul spine above.
+Eight places soul is usually won or lost. Skeleton positions refer to the 7-beat map in [SKILL.md](../SKILL.md).
 
 | Archetype | Skeleton position | Frequency | Candidate feelings | What usually goes wrong |
 |---|---|---|---|---|
@@ -384,7 +414,7 @@ Eight places soul is usually won or lost. Skeleton positions refer to the 7-beat
 | **The handoff** | the artifact that leaves the product | recurring | pride to the sender, sense to the receiver | an export nobody would show anyone |
 | **The return** | re-entry after absence | recurring | continuity, being known | a cold start where a "welcome back" state should be |
 
-Three boundary notes. *The first success* is the beat where first value lands—Flywheel's term for the event that changes the user's situation; if the product loses people before this beat, that is a leak, and leaks go to Flywheel before treatments. *The return* is expressive treatment on re-entry—whether re-entry restores context at all is Flywheel's continuity question; Soul makes a working return felt, not a broken one work. *The ending* keeps its rank even when it is every-run—a session ending that merely stops is the most common miss on any path—but an every-run ending takes repetition-proof levers only; ceremony belongs to rare endings.
+Three boundary notes. *The first success* is the beat where first value lands—Flywheel's term for the event that changes the user's situation; if the product loses people before this beat, that is a leak, and leaks go to [Flywheel](../flywheel) before treatments. *The return* is expressive treatment on re-entry—whether re-entry restores context at all is Flywheel's continuity question; Soul makes a working return felt, not a broken one work. *The ending* keeps its rank even when it is every-run—a session ending that merely stops is the most common miss on any path—but an every-run ending takes repetition-proof levers only; ceremony belongs to rare endings.
 
 ## Selection—the bar a moment must clear
 
@@ -403,7 +433,7 @@ Then interrogate the shortlist:
 **Reasons a beat stays Expected** (any one suffices):
 - **Load-bearing convention**—checkout, save, undo, back. Muscle memory is the feature; novelty there costs comprehension and pays nothing.
 - **Every-run frequency with no repetition-proof lever available**—if speed and feel are already at ceiling, standard is correct.
-- **High stakes, calm already present**—money movement, health data, and irreversible actions want reassurance and records before anything else. Where the calm, clear version already exists, standard is the treatment; where it does not, calm *is* the treatment (see proportionality in treatments.md). Trustworthy restraint is an emotional choice, not the absence of one.
+- **High stakes, calm already present**—money movement, health data, and irreversible actions want reassurance and records before anything else. Where the calm, clear version already exists, standard is the treatment; where it does not, calm *is* the treatment (see proportionality in [treatments.md](treatments.md)). Trustworthy restraint is an emotional choice, not the absence of one.
 - **Below the line**—a fine Net-New candidate that lost to a better one; it takes Elevated craft instead, and loses nothing but the rebuild. Two is a budget, not a quota.
 
 ## The dumping grounds
@@ -418,7 +448,7 @@ The canonical list. These are where delight traditionally goes—chosen because 
 
 **The two moves when the sweep finds delight in a dumping ground:**
 1. **Relocate the effort.** The craft is real; the placement is wrong. Name the on-path beat that deserves it.
-2. **Fix the frequency, not the feeling.** An error state frequent enough to be worth delighting is a bug to fix, not a moment to elevate—route it to Flywheel (a leak) or Focal (a screen).
+2. **Fix the frequency, not the feeling.** An error state frequent enough to be worth delighting is a bug to fix, not a moment to elevate—route it to [Flywheel](../flywheel) (a leak) or [Focal](../focal) (a screen).
 
 One honest edge: a 404 that carries real traffic—dead links shared socially, a renamed content library—is not a dumping ground. It is an entry beat for those users. Treat it as recovery: state what happened, one clear path to the likely destination, zero jokes. The rule was never "404s don't matter"; it was "placement follows reach."
 
@@ -523,7 +553,8 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 **Verdict:** functional but forgettable · the product's biggest moment—getting paid—is a system-default notification · **7/16**
 
 **Product:** invoicing for freelancers · **Path:** 7 beats, bookmark → payment landed · **Ends feeling:** unnamed—relief is the obvious candidate, and nobody has chosen it
-**Basis:** observed from the artifact · confirm with: trigger a real payment and read the actual notification—the claim the verdict rests on
+**Basis:** observed from a screenshot or artifact · confirm with: trigger a real payment and read the actual notification—the claim the verdict rests on
+**Blocker:** The mascot jokes through a failed send, risking trust and material financial harm while the invoice's delivery state is uncertain.
 
 ## The path
 | # | Beat | Touchpoint | Frequency | Verdict |
@@ -543,7 +574,7 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 | Placement | 2/4 | Touches exist on-path (send confetti) but nobody chose them, and the best-crafted work in the product is a 404 minigame. |
 | Proportion | 1/4 | Intensity is decided by habit—confetti on the routine send, silence at the payoff. Nothing tracks magnitude. |
 | Signature | 1/4 | Swap the logo and nobody notices. The mascot is a stock personality, and the ending feeling is unchosen. |
-| **Total** | **7/16** | **functional but forgettable** |
+| **Total** | **7/16 · 1.8/4** | **Significant rework** |
 
 ## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—Payment lands (beat 6), relief

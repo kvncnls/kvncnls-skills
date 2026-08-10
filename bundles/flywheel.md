@@ -2,7 +2,7 @@
 
 This is the complete **Flywheel** skill as one self-contained document—the spine plus every reference—so you can use it in any AI coding agent, not only Claude Code.
 
-*Generated from `flywheel/` at commit `a99ffaf`. If the repo has moved on, regenerate rather than edit this file: it is a build artifact, not the source.*
+*Synchronized manually from `flywheel/` source files on the working tree; no commit hash is asserted until commit.*
 
 **How to use it**
 - **Claude Code**—you don't need this file; install the `flywheel/` folder from the repo for `/flywheel` and on-demand loading. This bundle is for everything else.
@@ -12,6 +12,12 @@ This is the complete **Flywheel** skill as one self-contained document—the spi
 
 Everything below is the skill, including the full 0–4 / 16 scoring rubrics.
 
+---
+
+---
+name: flywheel
+description: Use when improving how a product converts attention into durable value—the growth and retention side of design. Flywheel finds where a product loses the people it already earned, then applies the play that fixes that stage, across four ordered plays—Trust (the first push), Friction (drag on the bearing), Wins (the power stroke), and Emotion (the mass that keeps it turning). Builds a stage or audits an existing one, scoring each play 0–4. Triggers on growth, retention, activation, onboarding, conversion, churn, drop-off, first impression, time to value, empty state, upgrade prompt, referral, advocacy, "why do users leave", "nobody comes back", "they sign up but never return". Not for single-screen structure (use Focal), multi-screen flows (use Compass), paid channels, campaign copy, analytics instrumentation, or research protocols.
+argument-hint: "[build | diagnose] <product, stage, or symptom>"
 ---
 
 # Flywheel
@@ -47,8 +53,8 @@ The order is not a preference. Emotional polish cannot rescue a product that fee
 Flywheel is for **what attention becomes**—turning arrival into trust, trust into activation, activation into value, value into return, and return into new arrivals. That last clause is not a flourish: the wheel closes, so the moments that earn word of mouth are in scope alongside the ones that earn a second visit. Onboarding, first-run, activation paths, empty states, success states, upgrade and referral moments, re-entry, win visibility.
 
 It is **not** for:
-- Single-screen structure, hierarchy, or clutter—that is Focal.
-- Getting the user through a multi-screen path without getting lost—that is Compass.
+- Single-screen structure, hierarchy, or clutter—that is [Focal](../focal).
+- Getting the user through a multi-screen path without getting lost—that is [Compass](../compass).
 - **Buying** attention—paid channels, budget allocation, bidding, SEO, campaign copy. Flywheel designs what attention meets when it arrives, and what makes people bring more of it. It does not buy it. Earned acquisition is in scope; paid acquisition is not.
 - Analytics instrumentation, event schemas, research protocols, or experiment statistics. It tells you which measurement would settle a question; it does not build the measurement.
 
@@ -99,28 +105,28 @@ Where does the product lose people?
 Each play has its own reference file. Read the one the diagnosis selected; do not read all four.
 
 ### 1. Trust—the first push
-*Read reference/trust.md.*
+*Read [reference/trust.md](reference/trust.md).*
 
 The user is deciding whether this is relevant, credible, and worth another minute. Five layers, in order: **relevance** (I recognize the problem), **comprehension** (I understand the mechanism and the next step), **credibility** (the promise is supported), **craft** (this is coherent and maintained), **safety** (I know what will happen and keep control).
 
 Craft is not a substitute for truth. Its job is to make the product's real quality legible.
 
 ### 2. Friction—drag on the bearing
-*Read reference/friction.md.*
+*Read [reference/friction.md](reference/friction.md).*
 
 The goal is not zero friction. It is **useful momentum**. Six kinds of friction, and only two of them are waste: accidental and cognitive friction should go, procedural friction should be automated or explained, commitment friction should move after value, and **protective and productive friction should stay**. Removing a safeguard is not a speed improvement; it is the bearing coming out of the wheel.
 
 Define first value before redesigning onboarding. Activation is experiencing value, not completing setup.
 
 ### 3. Wins—the power stroke
-*Read reference/wins.md.*
+*Read [reference/wins.md](reference/wins.md).*
 
 Products deliver value silently and then wonder why nobody noticed. A win is a moment the user's situation measurably improves. Find them, make them visible, size the feedback to the magnitude, and place every ask *after* the value it relates to.
 
 An ask before value converts stored momentum into resistance. That is braking your own wheel.
 
 ### 4. Emotion—the mass
-*Read reference/emotion.md.*
+*Read [reference/emotion.md](reference/emotion.md).*
 
 What makes the wheel keep turning between pushes. Name the specific emotion the job calls for—"delight" is not an answer—then build a competent baseline, add reinforcement to ordinary actions, and concentrate peaks on moments that matter. If the baseline is weak, peaks read as cosmetic. If everything is a peak, the product is exhausting.
 
@@ -131,11 +137,11 @@ Retention depends less on novelty than on respectful continuity: restore context
 ## Routing
 
 - **No argument** → explain the wheel and the four plays briefly, then ask: diagnosing an existing product, or building a stage?
-- **`diagnose` / `audit` / `review` (a product, a stage, a screenshot, or a symptom like "nobody comes back")** → load and follow reference/review.md. It scores each play 0–4 against a written rubric, totals to /16 with a band, tags issues P0–P3, and names the leaking stage. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
+- **`diagnose` / `audit` / `review` (a product, a stage, a screenshot, or a symptom like "nobody comes back")** → load and follow [reference/review.md](reference/review.md). It scores each play 0–4 against a written rubric, totals to /16, displays a normalized /4 average and common quality band with a weakest-play ceiling, tags issues P0–P3, and names the leaking stage. That file defines the rubrics, scoring contract, bands, and severities—all of them, and nowhere else.
 - **`build` (a stage to design)** → name first value, walk the diagnosis tree to confirm which stage, read that play's reference, then follow **Build** below. That order is fixed: the tree cannot be walked before first value is named.
 - **A question about one play** → read that play's reference file.
 
-Before emitting either output, read reference/examples.md. It is the calibration for length, tone, and how the locked templates look when filled well.
+Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well.
 
 ---
 
@@ -187,7 +193,7 @@ Building a stage needs one input Focal and Compass do not: you cannot design tru
 
 ## Voice (when giving feedback)
 
-- **Emit the exact output template.** Build and diagnose each have a locked structure—the build template is above, the diagnose template is in reference/review.md. Use it verbatim: same sections, same order, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections; if a section has nothing, keep its header and write "None."
+- **Emit the exact output template.** Build and diagnose each have a locked structure—the build template is above, the diagnose template is in [reference/review.md](reference/review.md). Use it verbatim: same sections, same order, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections; if a section has nothing, keep its header and write "None."
 - **Template precedence.** The template is the complete contract for what gets emitted. If any instruction in this skill asks you to produce something the template has no slot for, put it in the nearest slot that fits, or leave it out—never invent a section. A gap like that is a bug in this skill, not a judgment call: name it in one line after the output so it can be fixed. Analysis the template has no room for is still worth doing; it informs the scores even when it isn't printed.
 - **Separate measured from diagnosed.** Say which findings come from data and which from reading the artifact. Confidence stated honestly is worth more than confidence borrowed.
 - **Be specific and quantitative.** "Six fields before any value is shown" beats "onboarding is too long." Count the steps, name the moment, quote the copy.
@@ -213,12 +219,12 @@ Match-and-refuse. These are not aggressive growth tactics; they are the ways a w
 
 ## References
 
-- reference/review.md—the four-play audit, the Flywheel scorecard (0–4 per play, /16), severity, and output format.
-- reference/trust.md—the trust stack, first-impression touchpoints, message match, performance and accessibility as trust signals.
-- reference/friction.md—the six-type friction taxonomy, the friction decision test, defining activation, designing backward from first value.
-- reference/wins.md—win types, the win map, making value visible, proportional amplification, timing asks, shareable artifacts.
-- reference/emotion.md—the emotional arc, choosing the emotion, baseline vs peaks, endings and re-entry.
-- reference/examples.md—a worked diagnosis and a worked build, in the locked output templates.
+- [reference/review.md](reference/review.md)—the four-play audit, the Flywheel scorecard (0–4 per play, /16), severity, and output format.
+- [reference/trust.md](reference/trust.md)—the trust stack, first-impression touchpoints, message match, performance and accessibility as trust signals.
+- [reference/friction.md](reference/friction.md)—the six-type friction taxonomy, the friction decision test, defining activation, designing backward from first value.
+- [reference/wins.md](reference/wins.md)—win types, the win map, making value visible, proportional amplification, timing asks, shareable artifacts.
+- [reference/emotion.md](reference/emotion.md)—the emotional arc, choosing the emotion, baseline vs peaks, endings and re-entry.
+- [reference/examples.md](reference/examples.md)—a worked diagnosis and a worked build, in the locked output templates.
 
 ---
 
@@ -228,7 +234,7 @@ Find where a product loses the people it already earned, score each play, and na
 
 ## Input modes
 
-- **A symptom** ("they sign up and never return")—map it to a stage with the diagnosis tree in the Flywheel spine above, then audit that stage hardest while still scoring all four.
+- **A symptom** ("they sign up and never return")—map it to a stage with the diagnosis tree in [SKILL.md](../SKILL.md), then audit that stage hardest while still scoring all four.
 - **Funnel data**—the leak is where the drop-off is. Use cohorts with a shared start point, and read distributions rather than averages.
 - **An artifact** (a screenshot, a page, a flow, a product)—diagnose heuristically from the play's own checks. This is the common case and it is legitimate; label it as diagnosed rather than measured.
 
@@ -237,9 +243,9 @@ Find where a product loses the people it already earned, score each play, and na
 Before scoring, establish in one or two sentences each:
 
 - **What is this product, and who is it for?** A growth judgment with no audience is a guess.
-- **What is first value?** Name the event that changes the user's situation. If the team has not defined it, define it yourself by the rule in **the Flywheel spine above**—the tree below cannot be walked without it. Then do both: print your definition in the Product line, and report the team's absence of one as its own finding. It caps Friction at 2.
+- **What is first value?** Name the event that changes the user's situation. If the team has not defined it, define it yourself by the rule in **[SKILL.md](../SKILL.md)**—the tree below cannot be walked without it. Then do both: print your definition in the Product line, and report the team's absence of one as its own finding. It caps Friction at 2.
 - **What are the stakes?** Low, medium, or high. In finance, health, children's products, employment, housing, education, identity, and safety, protective friction is a foundation and its removal is a defect, not an optimization.
-- **Where is the leak?** Walk the diagnosis tree in **the Flywheel spine above**—take the first match, and don't re-derive the categories here. If two stages leak, take the earliest; loss compounds downstream.
+- **Where is the leak?** Walk the diagnosis tree in **[SKILL.md](../SKILL.md)**—take the first match, and don't re-derive the categories here. If two stages leak, take the earliest; loss compounds downstream.
 - **Measured or diagnosed?** State which. Findings from data and findings from reading an artifact carry different weight, and blending them silently is how a heuristic becomes a false certainty.
 
 ## The four gates
@@ -260,7 +266,7 @@ Score every play, even when only one is leaking—a stage can be strong and stil
 | 1 | Missing—no recognizable audience, outcome, or reason to continue |
 | 2 | Functional—the category is clear but the outcome, evidence, or next step is not |
 | 3 | Strong—relevant, comprehensible, supported, coherent, and safe |
-| 4 | Distinctive—the first encounter itself demonstrates the product's point of view |
+| 4 | Exemplary—the first encounter itself demonstrates the product's point of view with unusual clarity for this context |
 
 ### Gate 2—Friction *(drag on the bearing)*
 
@@ -275,7 +281,7 @@ Score every play, even when only one is leaking—a stage can be strong and stil
 | 1 | A setup wall—value is gated behind configuration the user has no context to complete |
 | 2 | Reachable, but padded with accidental or cognitive friction, or first value is undefined |
 | 3 | Lean path, purposeful steps, progress preserved, recovery designed |
-| 4 | The fewest honest steps; safe inference and defaults do the work; protection intact and explained |
+| 4 | Exemplary—the fewest honest steps; safe inference and defaults do the work; protection intact and explained |
 
 ### Gate 3—Wins *(the power stroke)*
 
@@ -290,7 +296,7 @@ Score every play, even when only one is leaking—a stage can be strong and stil
 | 1 | Value is delivered silently—the user's situation improves and nothing says so |
 | 2 | Wins are acknowledged generically; endings stop rather than close |
 | 3 | The main win is visible and proportionate; asks are placed after value |
-| 4 | Value is made legible and accumulates; endings open the next action; asks read as continuation |
+| 4 | Exemplary—value is made legible and accumulates; endings open the next action; asks read as continuation |
 
 ### Gate 4—Emotion *(the mass)*
 
@@ -305,26 +311,49 @@ Score every play, even when only one is leaking—a stage can be strong and stil
 | 1 | Absent—functional, forgettable, and identical to its alternatives |
 | 2 | A consistent surface, but no designed peak and no continuity on return |
 | 3 | A named emotion, a competent baseline, peaks on moments that matter |
-| 4 | A coherent personality across success and failure; re-entry restores momentum; the experience is recognizable without the logo |
+| 4 | Exemplary—a coherent personality across success and failure; re-entry restores momentum; the experience is recognizable without the logo |
 
 ## Scoring rules
 
-Score each play 0–4 using its gate rubric above. Be honest—a 4 means genuinely distinctive, not "fine."
+Every play uses the same integer anchors:
 
-- **Bands** (the only band list in this skill; look the string up from here): **13–16** ship it · **10–12** solid, fix the weak play · **7–9** significant rework · **0–6** the wheel is not turning.
-- **The Total must equal the four scores summed**, and its band string must be one of the four above, verbatim.
-- **A dark pattern is blocking regardless of total.** Hiding cost, permission, risk, or reversibility to increase action; weaponizing emotion; removing informed choice. Score that gate 0, tag it P0, and name it in the Verdict phrase—a wheel spun by deception is not storing energy, it is borrowing against trust. The band still prints; P0 is what carries the urgency.
+| Score | Canonical label | Shared meaning |
+|---:|---|---|
+| **0** | **Broken or harmful** | The dimension fails outright, blocks its core outcome, actively inverts the intended behavior, or creates material harm. |
+| **1** | **Major failure** | The outcome may remain technically possible, but the dimension is seriously compromised, unreliable, or largely absent. Substantial correction is required. |
+| **2** | **Partial or inconsistent** | The basic function exists, with a material weakness, missing decision, or inconsistency that prevents dependable quality. |
+| **3** | **Strong** | Deliberate, dependable, context-appropriate professional work with only minor gaps. This is the normal target for good execution. |
+| **4** | **Exemplary** | Fully realized and unusually strong for the relevant context, including realistic states and constraints, with no material gaps. |
+
+Score each play holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the play overall, apply explicit prerequisite caps, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the play being scored; recognizability remains relevant where Emotion's local rubric requires it.
+
+Keep the native total: `total = Trust + Friction + Wins + Emotion`. Calculate `average = total / 4`, display it rounded to one decimal place, and apply this shared algorithm:
+
+| Band | Average rule | Native total |
+|---|---:|---:|
+| **Broken** | `average <= 1.5` | `0–6 / 16` |
+| **Significant rework** | `1.5 < average < 2.5` | `7–9 / 16` |
+| **Solid** | `2.5 <= average < 3.5` | `10–13 / 16` |
+| **Excellent** | `average >= 3.5` | `14–16 / 16` |
+
+Then cap the band by the weakest play: a minimum of `0` allows only **Broken**, `1` allows at most **Significant rework**, `2` allows at most **Solid**, and `3–4` adds no ceiling. Use the lower-quality result of the average band and this ceiling. The total must equal the exact sum of the four scores.
+
+- **A dark pattern is a critical blocker regardless of total.** Hiding cost, permission, risk, or reversibility to increase action; weaponizing emotion; or removing informed choice must be tagged P0 and named in **Blocker**. Do not mechanically force an unrelated play to 0; score the play using its rubric.
 - **The earliest leaking stage governs the recommendation.** A 1 at Trust and a 1 at Emotion is a Trust problem; fixing Emotion first spends effort on people who never arrive. A P0 at a later stage does not move **Fix this first**—every P0 is something to *stop doing*, and stopping is not where you invest.
-- **Do not average away a safety or accessibility failure.** Give it its own issue line rather than folding it into a gate score, where a strong play would hide it.
+- **Do not average away a safety or accessibility failure.** Give it its own issue line and blocker state when warranted rather than hiding it inside the total.
+
+Dimension score, overall quality band, issue severity, critical blocker, and the earliest leaking stage are separate. A P0 is always a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. The earliest leaking stage still governs **Fix this first**.
 
 ## Issue severity
 
 | Priority | Meaning |
 |----------|---------|
-| **P0** | Hides consequence, weaponizes emotion, or removes informed choice—fix now, regardless of metrics |
-| **P1** | Costs a large share of people at the leaking stage (a setup wall, an invisible win, a broken message match, an ask before value)—fix before spending more on attention |
-| **P2** | Real loss with a workaround, or a win left invisible—next pass |
-| **P3** | Polish—if time permits |
+| **P0 — Critical** | Blocks the core outcome; traps the user; destroys work or state; causes or risks material harm; hides material cost, consequence, permission, or risk; removes informed choice; or uses coercive manipulation. Fix before release. |
+| **P1 — Major** | Materially damages comprehension, completion, orientation, trust, value realization, or return for a meaningful share of users. Fix before release. |
+| **P2 — Moderate** | Creates real friction, confusion, dilution, or missed value with a viable recovery, workaround, or limited scope. Fix in the next planned pass. |
+| **P3 — Minor** | Low-impact craft, consistency, or polish. Fix when time permits. |
+
+Assign severity from consequence, reach, and recoverability. A methodology rule violation is not automatically P0.
 
 **Ordering (one rule):** sort by priority, P0 first. Within the same priority, break ties by stage order—Trust, then Friction, then Wins, then Emotion—because upstream fixes change the population that reaches everything downstream. Never reorder across priorities.
 
@@ -336,7 +365,8 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 **Verdict:** <the leaking stage> · <the one biggest loss, one phrase> · **<total>/16**
 
 **Product:** <what it is, for whom> · first value: <the event, or "undefined"> · stakes: <low | medium | high>
-**Basis:** <measured from data | diagnosed from the artifact> · confirm with: <the metric that would settle it>
+**Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
+**Blocker:** <None. | concise blocker reason>
 
 ## Scorecard
 | Play | Score | Key finding |
@@ -345,7 +375,7 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 | Friction | _/4 | <one line> |
 | Wins | _/4 | <one line> |
 | Emotion | _/4 | <one line> |
-| **Total** | **_/16** | **<band>** |
+| **Total** | **_/16 · _._/4** | **<band>** |
 
 ## Issues (most severe first)
 - **[P0 · Trust]** <Name>—<observation>. <what it costs>. **Fix:** <fix>.
@@ -363,7 +393,7 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 Filling it:
 - **Issues**—repeat the issue line once per issue, tagged **Trust / Friction / Wins / Emotion**. `<observation>` may run two or three sentences when being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Fix this first**—one stage, never a list. The whole point of the diagnosis is to refuse to work on four things at once.
-- **Basis**—never claim measurement you do not have. "Diagnosed from the artifact" with a named confirming metric is a stronger answer than a borrowed number.
+- **Basis**—never claim measurement you do not have. Use the controlled basis vocabulary in the template, and name the fastest confirming metric or behavior.
 
 ---
 
@@ -764,7 +794,8 @@ Two worked examples in the locked output templates—one **diagnosis**, one **bu
 **Verdict:** Friction · people never reach a first report, so there is nothing to come back to · **6/16**
 
 **Product:** support-ticket analytics for support and product teams · first value: undefined · stakes: low
-**Basis:** diagnosed from the artifact · confirm with: share of signups that generate a first report, and 4-week retention split by whether they did
+**Basis:** walked from a description · confirm with: share of signups that generate a first report, and 4-week retention split by whether they did
+**Blocker:** None.
 
 ## Scorecard
 | Play | Score | Key finding |
@@ -773,7 +804,7 @@ Two worked examples in the locked output templates—one **diagnosis**, one **bu
 | Friction | 1/4 | A setup wall—6 configuration fields and a required CSV upload stand between signup and any evidence the product works. |
 | Wins | 1/4 | A 4-minute generation ends in a "Done" toast; the report's actual value is never stated. |
 | Emotion | 1/4 | No emotional design at all, and with Friction at 1 the baseline could not carry one yet anyway. |
-| **Total** | **6/16** | **the wheel is not turning** |
+| **Total** | **6/16 · 1.5/4** | **Broken** |
 
 ## Issues (most severe first)
 - **[P1 · Friction]** The setup wall—6 workspace fields and a CSV upload sit before any output. None can be answered well by someone who has not seen a report, and the upload demands data they may not have exported yet. This is commitment friction placed before value. **Fix:** ship a sample dataset that generates a real report in one click; defer all 6 fields until after the first report exists, and infer the workspace name from the email domain.

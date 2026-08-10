@@ -92,23 +92,46 @@ Because this discipline is load-bearing, treat a **failed drop test** or a **dea
 
 ## Scoring rules
 
-Score each discipline 0–4 using its gate rubric above. Be honest—a 4 means genuinely seamless, not "fine."
+Every discipline uses the same integer anchors:
 
-- **Bands** (the only band list in this skill; look the string up from here): **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** broken.
-- **The Total must equal the three scores summed**, and its band string must be one of the four above, verbatim.
+| Score | Canonical label | Shared meaning |
+|---:|---|---|
+| **0** | **Broken or harmful** | The dimension fails outright, blocks its core outcome, actively inverts the intended behavior, or creates material harm. |
+| **1** | **Major failure** | The outcome may remain technically possible, but the dimension is seriously compromised, unreliable, or largely absent. Substantial correction is required. |
+| **2** | **Partial or inconsistent** | The basic function exists, with a material weakness, missing decision, or inconsistency that prevents dependable quality. |
+| **3** | **Strong** | Deliberate, dependable, context-appropriate professional work with only minor gaps. This is the normal target for good execution. |
+| **4** | **Exemplary** | Fully realized and unusually strong for the relevant context, including realistic states and constraints, with no material gaps. |
+
+Score each discipline holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the dimension overall, apply explicit local caps or prerequisites, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the dimension being scored; it does not universally require novelty.
+
+Keep the native total: `total = Orientation + Path Economy + Continuity`. Calculate `average = total / 3`, display it rounded to one decimal place, and apply this shared algorithm:
+
+| Band | Average rule | Native total |
+|---|---:|---:|
+| **Broken** | `average <= 1.5` | `0–4 / 12` |
+| **Significant rework** | `1.5 < average < 2.5` | `5–7 / 12` |
+| **Solid** | `2.5 <= average < 3.5` | `8–10 / 12` |
+| **Excellent** | `average >= 3.5` | `11–12 / 12` |
+
+Then cap the band by the weakest discipline: a minimum of `0` allows only **Broken**, `1` allows at most **Significant rework**, `2` allows at most **Solid**, and `3–4` adds no ceiling. Use the lower-quality result of the average band and this ceiling. The total must equal the exact sum of the three scores.
+
 - **Score 0 vs 1 (Orientation only).** Score **0** when the flow strands the user with no recovery at all—a true dead end, or a flow with no exit anywhere. Score **1** when a way out exists but is hidden or unlabeled (browser Back only, an unmarked Close). Each gate's own rubric governs its 0 and 1; this clause does not carry across disciplines. A Back that *wipes work* is a Continuity failure, scored by Gate 3, not by this clause.
 - If more than one independent failure sits in a discipline, score the *worst* one, then list the others as separate issues.
-- **The verdict—Never Lost.** Yes or no: at every step, does the user know where they are, what's left, and how to get back or out? The total measures how close the flow gets; the verdict states whether it arrives. **A failed drop test or a dead end is blocking regardless of total.**
-- **A doubled destination** (the flow needs an "and") is a P0 Orientation issue: the user cannot know what they are finishing. Flag it as the split it implies.
+- **The verdict—Never Lost.** Yes or no: at every step, does the user know where they are, what's left, and how to get back or out? The total measures how close the flow gets; the verdict states whether it arrives. A failed drop test or a dead end is a blocker regardless of total.
+- **A doubled destination** (the flow needs an "and") is an Orientation failure; assign P0 only when its consequence meets the shared critical definition, and flag it as the split it implies.
+
+Dimension score, overall quality band, issue severity, critical blocker, and the **Never Lost** verdict are separate. Every P0 is a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. Non-P0 methodology blockers remain in local caps, sequencing, and handoffs.
 
 ## Issue severity
 
 | Priority | Meaning |
 |----------|---------|
-| **P0** | Loses or traps the user, or breaks trust (dead end, no Back, lost state, hidden cost)—fix now |
-| **P1** | Causes real confusion or bloat (hidden progress, a setup wall, a memory bridge)—fix before release |
-| **P2** | Annoyance with a workaround—next pass |
-| **P3** | Polish—if time permits |
+| **P0 — Critical** | Blocks the core outcome; traps the user; destroys work or state; causes or risks material harm; hides material cost, consequence, permission, or risk; removes informed choice; or uses coercive manipulation. Fix before release. |
+| **P1 — Major** | Materially damages comprehension, completion, orientation, trust, value realization, or return for a meaningful share of users. Fix before release. |
+| **P2 — Moderate** | Creates real friction, confusion, dilution, or missed value with a viable recovery, workaround, or limited scope. Fix in the next planned pass. |
+| **P3 — Minor** | Low-impact craft, consistency, or polish. Fix when time permits. |
+
+Assign severity from consequence, reach, and recoverability. A methodology rule violation is not automatically P0.
 
 **Ordering (one rule):** sort by priority, P0 first. Within the same priority, break ties by type of harm—**Orientation** (the user is lost or trapped) outranks **Path Economy** (the path is longer or less honest than it should be) outranks **Continuity** (a seam drops context or state). Never reorder across priorities; a P0 Continuity issue outranks a P1 Orientation issue.
 
@@ -121,6 +144,8 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 
 **Flow:** <name> · type: <linear | branching | hub-and-spoke | open-ended> · audience: <novice | mixed | expert>
 **Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
+**Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
+**Blocker:** <None. | concise blocker reason>
 
 ## Scorecard
 | Discipline | Score | Key finding |
@@ -128,7 +153,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 | Orientation | _/4 | <one line> |
 | Path Economy | _/4 | <one line> |
 | Continuity | _/4 | <one line> |
-| **Total** | **_/12** | **<band>** |
+| **Total** | **_/12 · _._/4** | **<band>** |
 
 ## Issues (most severe first)
 - **[P0 · Orientation]** <Name>—<observation>. <impact>. **Fix:** <fix>.

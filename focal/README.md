@@ -66,7 +66,7 @@ Focal walks the five moves: name the purpose and single primary action → archi
 /focal review     ← then paste a screenshot, point at a component file, or give a URL
 ```
 
-Focal returns the same fixed template every time: a one-line verdict, a 0–4 scorecard (/12 total), prioritized P0–P3 issues (each tied to the discipline it breaks, with the fix), and the top 3 moves.
+Focal returns the same fixed template every time: a one-line verdict, a 0–4 scorecard (/12 total with a normalized /4 average and common quality band), prioritized P0–P3 issues (each tied to the discipline it breaks, with the fix), and the top 3 moves.
 
 ---
 

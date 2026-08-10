@@ -14,7 +14,8 @@ Two worked examples in the locked output templates—one **diagnosis**, one **bu
 **Verdict:** Friction · people never reach a first report, so there is nothing to come back to · **6/16**
 
 **Product:** support-ticket analytics for support and product teams · first value: undefined · stakes: low
-**Basis:** diagnosed from the artifact · confirm with: share of signups that generate a first report, and 4-week retention split by whether they did
+**Basis:** walked from a description · confirm with: share of signups that generate a first report, and 4-week retention split by whether they did
+**Blocker:** None.
 
 ## Scorecard
 | Play | Score | Key finding |
@@ -23,7 +24,7 @@ Two worked examples in the locked output templates—one **diagnosis**, one **bu
 | Friction | 1/4 | A setup wall—6 configuration fields and a required CSV upload stand between signup and any evidence the product works. |
 | Wins | 1/4 | A 4-minute generation ends in a "Done" toast; the report's actual value is never stated. |
 | Emotion | 1/4 | No emotional design at all, and with Friction at 1 the baseline could not carry one yet anyway. |
-| **Total** | **6/16** | **the wheel is not turning** |
+| **Total** | **6/16 · 1.5/4** | **Broken** |
 
 ## Issues (most severe first)
 - **[P1 · Friction]** The setup wall—6 workspace fields and a CSV upload sit before any output. None can be answered well by someone who has not seen a report, and the upload demands data they may not have exported yet. This is commitment friction placed before value. **Fix:** ship a sample dataset that generates a real report in one click; defer all 6 fields until after the first report exists, and infer the workspace name from the email domain.
