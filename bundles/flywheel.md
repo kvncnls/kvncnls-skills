@@ -2,7 +2,7 @@
 
 This is the complete **Flywheel** skill as one self-contained document—the spine plus every reference—so you can use it in any AI coding agent, not only Claude Code.
 
-*Generated from `flywheel/` at commit `318fb1b`. If the repo has moved on, regenerate rather than edit this file: it is a build artifact, not the source.*
+*Generated from `flywheel/` at commit `a99ffaf`. If the repo has moved on, regenerate rather than edit this file: it is a build artifact, not the source.*
 
 **How to use it**
 - **Claude Code**—you don't need this file; install the `flywheel/` folder from the repo for `/flywheel` and on-demand loading. This bundle is for everything else.

@@ -2,7 +2,7 @@
 
 This is the complete **Focal** skill as one self-contained document—the spine plus every reference—so you can use it in any AI coding agent, not only Claude Code.
 
-*Generated from `focal/` at commit `5880a45`. If the repo has moved on, regenerate rather than edit this file: it is a build artifact, not the source.*
+*Generated from `focal/` at commit `39691d9`. If the repo has moved on, regenerate rather than edit this file: it is a build artifact, not the source.*
 
 **How to use it**
 - **Claude Code**—you don't need this file; install the `focal/` folder from the repo for `/focal` and on-demand loading. This bundle is for everything else.

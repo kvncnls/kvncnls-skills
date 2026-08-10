@@ -2,7 +2,7 @@
 
 This is the complete **Soul** skill as one self-contained document—the spine plus every reference—so you can use it in any AI coding agent, not only Claude Code.
 
-*Generated from `soul/` at commit `105a068`. If the repo has moved on, regenerate rather than edit this file: it is a build artifact, not the source.*
+*Generated from `soul/` at commit `0da7302`. If the repo has moved on, regenerate rather than edit this file: it is a build artifact, not the source.*
 
 **How to use it**
 - **Claude Code**—you don't need this file; install the `soul/` folder from the repo for `/soul` and on-demand loading. This bundle is for everything else.
