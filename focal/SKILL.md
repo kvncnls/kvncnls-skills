@@ -183,7 +183,7 @@ Neither is a whole-app IA or sitemap tool. If the question is "how should the en
 - **No argument** → explain the methodology and three disciplines briefly, then ask: building a new screen, or reviewing an existing one?
 - **`build` (or a description of a screen to design)** → follow **The five moves** below. Pull techniques from [reference/patterns.md](reference/patterns.md).
 - **A multi-screen flow, journey, or navigation question** → that is Compass's, not Focal's. Say so and hand off (see **Flows**, above).
-- **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, and closes on a One-Purpose verdict. That file defines the rubrics, scoring contract, bands, and severities—all of them, and nowhere else.
+- **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, anchors every issue to the exact screen region, app state, and lifecycle moment, and closes on a One-Purpose verdict. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
 - **A question about a specific technique or anti-pattern** → consult [reference/patterns.md](reference/patterns.md).
 
 Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
@@ -259,6 +259,7 @@ When you review or justify a Focal decision, write like a senior designer review
 - **Factual first, then judgment, then the fix.** State what you see, why it hurts the user, what it should be instead.
 - **No hedging, no praise padding.** Don't sandwich criticism in empty compliments. If something works, say exactly why.
 - **Tie every issue to a discipline.** Each problem names which of the three it breaks, and how that costs the screen its single purpose. That is the whole point of the lens.
+- **Locate every issue.** Name the exact screen or region, rendered app state, and user lifecycle moment where the change belongs. Never make the implementer infer when the finding applies.
 
 ---
 

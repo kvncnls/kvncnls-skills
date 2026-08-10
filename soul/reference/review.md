@@ -15,7 +15,18 @@ Before scoring, establish:
 - **The path.** Build the beat table from the skeleton in [SKILL.md](../SKILL.md)—10–12 beats, touchpoint-tagged, frequency-tagged. Don't re-derive the skeleton here.
 - **The intended ending feeling.** If nobody can name what the user is meant to feel at beat 7, record "unnamed" in the header—that absence is a finding, and it caps Signature at 2, because a product that has not chosen a feeling cannot have authored one.
 - **The floor.** Does the path actually work—reachable outcome, no trust breaks, no maze? If not, the job is not Soul's yet: score Baseline 0–1, make the handoff the first item in **Next**, and keep the moment analysis as "after the path holds." Treatments on a broken path read as cosmetic, and users correctly discount them.
+- **The state and lifecycle coverage.** For each observed beat, distinguish the rendered state from its occurrence: first run, steady-state repeat, re-entry, milestone, failure, or recovery. Frequency is cadence, not lifecycle; `recurring` alone does not say whether this is the first success or the fiftieth.
 - **Observed or walked?** State which, per the input modes above. Blending them silently turns a heuristic into a false certainty.
+
+## Locate every finding
+
+Every issue must carry an implementation locator that answers **where**, **in what state**, and **when**:
+
+- **Surface**—the exact beat and touchpoint.
+- **State**—the rendered or system condition: default, empty, loading, error, success, notification, and so on.
+- **Lifecycle**—the occurrence in the experience: first run, first success, steady-state repeat, re-entry, milestone, failure, or recovery.
+
+Use concrete moments. `Payment landed · success notification · first payment received` is actionable; `the happy path` is not. List only observed or walked variants under **Coverage**. Put material unseen occurrences under `gaps`, and name the fastest validating trigger in **Basis** rather than inventing them.
 
 ## The four gates
 
@@ -132,6 +143,7 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 **Verdict:** <the state, one phrase> · <the biggest missed or misplaced moment> · **<total>/16**
 
 **Product:** <what it is, for whom> · **Path:** <N> beats, <entry> → <outcome> · **Ends feeling:** <the intended emotion, or "unnamed">
+**Coverage:** <app states and lifecycle occurrences actually reviewed> · gaps: <material states or occurrences not shown or triggered, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
 **Blocker:** <None. | concise blocker reason>
 
@@ -159,7 +171,7 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 - Beat <n>—<the craft touch, one line>
 
 ## Issues (most severe first)
-- **[P0 · beat <n>]** <Name>—<observation>. <what it costs>. **Fix:** <fix>.
+- **[P0 · beat <n>]** **At:** <beat/touchpoint> · state: <exact app state> · lifecycle: <exact occurrence>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
 
 ## Kept Expected, on purpose
 <the beats that stay standard, and the strongest reason—load-bearing convention, every-run frequency, high stakes>
@@ -174,5 +186,6 @@ Filling it:
 - **The path**—one row per beat, every beat, including the sterile ones. The Verdict column is where restraint becomes visible: most rows read Expected. A beat whose first pass differs from its steady state carries both tags—`every-run (first run: once)`—and the `once` tag is the one a Moment may spend.
 - **The moments**—repeat the Moment block for each of the 2–3 Net-New moments, ranked. The rung lines show the floor-to-target range in one line each; a full ladder belongs in a follow-up `build`.
 - **The small things**—one line per Elevated touch, only craft the beat's ceiling allows: on every-run beats that is speed, feel, anticipation, or useful variation. Write "None." if the ceilings leave nothing.
-- **Issues**—repeat the line once per issue, tagged with the beat number (or `off-path` for dumping-ground finds). If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Coverage**—name only states and lifecycle occurrences actually observed or walked. Use `gaps` for material variants such as first run, repeated use, re-entry, failure, recovery, or the real success trigger that were not shown.
+- **Issues**—repeat the line once per issue, tagged with the beat number (or `off-path` for dumping-ground finds). Keep the `At` locator precise enough to trigger the same moment and see the same state. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Basis**—never claim observation you do not have. "Walked from a description" with the assumed beats named is a stronger answer than borrowed confidence.

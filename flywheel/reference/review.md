@@ -16,7 +16,18 @@ Before scoring, establish in one or two sentences each:
 - **What is first value?** Name the event that changes the user's situation. If the team has not defined it, define it yourself by the rule in **[SKILL.md](../SKILL.md)**—the tree below cannot be walked without it. Then do both: print your definition in the Product line, and report the team's absence of one as its own finding. It caps Friction at 2.
 - **What are the stakes?** Low, medium, or high. In finance, health, children's products, employment, housing, education, identity, and safety, protective friction is a foundation and its removal is a defect, not an optimization.
 - **Where is the leak?** Walk the diagnosis tree in **[SKILL.md](../SKILL.md)**—take the first match, and don't re-derive the categories here. If two stages leak, take the earliest; loss compounds downstream.
+- **Which relationship and app states are covered?** Inventory the evidence across arrival, consideration, activation before value, first value, return, lapse, re-engagement, and advocacy—and the exact UI states exposed at those moments. Mark consequential stages or states `not shown` rather than filling them in from assumption.
 - **Measured or diagnosed?** State which. Findings from data and findings from reading an artifact carry different weight, and blending them silently is how a heuristic becomes a false certainty.
+
+## Locate every finding
+
+Every issue must carry an implementation locator that answers **where**, **in what state**, and **when**:
+
+- **Surface**—the exact touchpoint, screen, message, control, or transition.
+- **State**—the rendered or system condition: first encounter, empty, loading, error, success, ask, retry, and so on.
+- **Lifecycle**—the relationship stage: arrival, consideration, activation before value, first value, return, lapse, re-engagement, or advocacy.
+
+Use the narrowest defensible locator. `Report generation → result · success after processing · first value for a new signup` is actionable; `activation` is not. List only evidenced states under **Coverage**. Put material unknowns under `gaps`, and name the metric or behavior that would confirm them in **Basis**.
 
 ## The four gates
 
@@ -135,6 +146,7 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 **Verdict:** <the leaking stage> · <the one biggest loss, one phrase> · **<total>/16**
 
 **Product:** <what it is, for whom> · first value: <the event, or "undefined"> · stakes: <low | medium | high>
+**Coverage:** <relationship stages and app states actually reviewed> · gaps: <material stages or states not shown or measured, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
 **Blocker:** <None. | concise blocker reason>
 
@@ -148,8 +160,8 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 | **Total** | **_/16 · _._/4** | **<band>** |
 
 ## Issues (most severe first)
-- **[P0 · Trust]** <Name>—<observation>. <what it costs>. **Fix:** <fix>.
-- **[P1 · Friction]** <Name>—<observation>. <what it costs>. **Fix:** <fix>.
+- **[P0 · Trust]** **At:** <touchpoint> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
+- **[P1 · Friction]** **At:** <touchpoint> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
 
 ## Fix this first
 <the single leaking stage, and why fixing anything downstream is premature>
@@ -161,6 +173,7 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 ```
 
 Filling it:
-- **Issues**—repeat the issue line once per issue, tagged **Trust / Friction / Wins / Emotion**. `<observation>` may run two or three sentences when being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Coverage**—name only relationship stages and app states the evidence actually exposes. Use `gaps` for consequential stages such as first value, return, lapse, or re-engagement that were not shown or measured.
+- **Issues**—repeat the issue line once per issue, tagged **Trust / Friction / Wins / Emotion**. Keep the `At` locator precise enough to identify the exact touchpoint and cohort moment that must change. `<observation>` may run two or three sentences when being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Fix this first**—one stage, never a list. The whole point of the diagnosis is to refuse to work on four things at once.
 - **Basis**—never claim measurement you do not have. Use the controlled basis vocabulary in the template, and name the fastest confirming metric or behavior.

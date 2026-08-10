@@ -121,7 +121,7 @@ Retention depends less on novelty than on respectful continuity: restore context
 ## Routing
 
 - **No argument** → explain the wheel and the four plays briefly, then ask: diagnosing an existing product, or building a stage?
-- **`diagnose` / `audit` / `review` (a product, a stage, a screenshot, or a symptom like "nobody comes back")** → load and follow [reference/review.md](reference/review.md). It scores each play 0–4 against a written rubric, totals to /16, displays a normalized /4 average and common quality band with a weakest-play ceiling, tags issues P0–P3, and names the leaking stage. That file defines the rubrics, scoring contract, bands, and severities—all of them, and nowhere else.
+- **`diagnose` / `audit` / `review` (a product, a stage, a screenshot, or a symptom like "nobody comes back")** → load and follow [reference/review.md](reference/review.md). It scores each play 0–4 against a written rubric, totals to /16, displays a normalized /4 average and common quality band with a weakest-play ceiling, tags issues P0–P3, anchors every issue to the exact touchpoint, app state, and relationship lifecycle stage, and names the leaking stage. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
 - **`build` (a stage to design)** → name first value, walk the diagnosis tree to confirm which stage, read that play's reference, then follow **Build** below. That order is fixed: the tree cannot be walked before first value is named.
 - **A question about one play** → read that play's reference file.
 
@@ -183,6 +183,7 @@ Building a stage needs one input Focal and Compass do not: you cannot design tru
 - **Be specific and quantitative.** "Six fields before any value is shown" beats "onboarding is too long." Count the steps, name the moment, quote the copy.
 - **Name the mechanism, not the symptom.** "Conversion is low" is not a diagnosis. Trust, comprehension, effort, confidence, motivation, value recognition, timing, memory, attachment—pick the one that explains the loss, then fix that.
 - **No hedging when the finding is clear.** Severity does the hedging work.
+- **Locate every issue.** Name the exact touchpoint, rendered or system state, and relationship lifecycle stage where the loss occurs and the change belongs.
 
 ---
 

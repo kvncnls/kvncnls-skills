@@ -51,9 +51,9 @@ Prefer a copy, or one project only? `cp -R kvncnls-skills/flywheel ~/.claude/ski
 Returns a fixed **diagnosis**:
 
 - **Verdict**—the earliest leaking stage, largest loss, and native `/16` total.
-- **Product, first value, stakes, Basis, and Blocker**—the frame, evidence available, confirming check, and any critical condition.
+- **Product, first value, stakes, Coverage, Basis, and Blocker**—the frame, relationship stages and app states reviewed, material gaps, evidence available, confirming check, and any critical condition.
 - **Scorecard**—Trust, Friction, Wins, and Emotion scored `0–4`, followed by the normalized average and final common band.
-- **Issues**—P0–P3 findings ordered from the earliest stage downstream, each with a concrete fix.
+- **Issues**—P0–P3 findings ordered from the earliest stage downstream, each anchored to the exact touchpoint, app state, and relationship lifecycle stage with a concrete fix.
 - **Fix this first and Next**—exactly one stage to address now, what becomes worthwhile afterward, and any Focal or Compass handoff.
 
 See the [locked diagnosis template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).

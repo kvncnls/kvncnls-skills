@@ -95,6 +95,8 @@ Five concepts remain separate in every audit:
 - **Blocker**—an explicit release-critical condition; every P0 is a blocker, but a blocker does not automatically force a score to `0`.
 - **Local verdict**—the Skill's own north-star conclusion, evaluated independently from the common band.
 
+Every audit declares **Coverage**: the app states and lifecycle moments actually reviewed, plus material gaps. Every issue then carries an implementation locator—**surface or transition · state · lifecycle**—so the reader can open the right place and reproduce the condition directly. Here, lifecycle means the user's journey or relationship with the product (first run, pre-value activation, recurring use, interruption/resume, re-entry, lapse), not a software release phase. If the evidence does not expose a consequential state, the audit says `not shown` and names the validating check instead of inventing behavior.
+
 Every audit also states its evidence **Basis** and the fastest test, behavior, or metric that would confirm its most consequential uncertain claim.
 
 ## Install

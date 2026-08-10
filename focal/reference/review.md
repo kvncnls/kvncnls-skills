@@ -16,9 +16,20 @@ Before judging, *notice*. Most people glance; a reviewer sees. Count the element
 Then frame, in one or two sentences each:
 - **What is this?** App type, screen purpose, target user.
 - **What's the user's state?** Anxious, rushed, casual, distracted, one-handed? A checkout under time pressure demands different care than a Sunday-morning feed scroll. Name it; the critique must respect it.
+- **Which app state and lifecycle moment is this?** Name the rendered state—default/full, loading, empty, error, success, expanded, permission-denied—and when it occurs—first run, setup, recurring use, re-entry, or post-action. If the artifact shows several variants, inventory them. If it does not, mark material states `not shown` rather than assuming them.
 - **What's the bar?** Every product category has an invisible standard set by its best-in-class tool. A notes screen is judged against Apple Notes and Bear; a dashboard against Linear, Stripe, and Vercel; a checkout against Stripe and Shop Pay. Ask: *what would the best-in-class product in this category do here?*
 - **The register.** Classify it by walking the decision tree in **Registers** in [SKILL.md](../SKILL.md)—take the first match, and don't re-derive the categories here. This sets how the gates should be read; see *Adjust for register* below.
 - **The methodology lens.** State the screen's *apparent* single purpose in one sentence (for a hub, that purpose is *routing*; for exploration, *browsing a kind of content*), and name what *appears* to be the primary action. On a task screen, if the sentence needs an "and," or you can't find one primary action, the screen has already failed its overarching purpose, and the gates below will show why.
+
+## Locate every finding
+
+Every issue must carry an implementation locator that answers **where**, **in what state**, and **when**:
+
+- **Surface**—the exact screen plus region or control.
+- **State**—the rendered UI or system condition, not the user's emotion.
+- **Lifecycle**—the moment in use or relationship: first run, setup, recurring use, re-entry, post-action, or another specific moment.
+
+Use product labels and concrete conditions. `Contact detail · empty state · first visit after contact creation` is actionable; `CRM screen` is not. List only reviewed variants under **Coverage**. Put material unobserved variants under `gaps`, and name the fastest validating check in **Basis** instead of inventing behavior.
 
 ## Adjust for register
 
@@ -138,6 +149,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 
 **Screen:** <what it is> · register: <task | hub | exploration | task-overloaded> · audience: <novice | mixed | expert>
 **Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
+**Coverage:** <app states and lifecycle moments actually reviewed> · gaps: <material states not shown or tested, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
 **Blocker:** <None. | concise blocker reason>
 
@@ -150,8 +162,8 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 | **Total** | **_/12 · _._/4** | **<band>** |
 
 ## Issues (most severe first)
-- **[P0 · IA]** <Name>—<observation>. <impact>. **Fix:** <fix>.
-- **[P1 · Disclosure]** <Name>—<observation>. <impact>. **Fix:** <fix>.
+- **[P0 · IA]** **At:** <screen/region> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
+- **[P1 · Disclosure]** **At:** <screen/region> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
 
 ## Top 3 moves
 1. <highest-leverage change>
@@ -165,6 +177,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 ```
 
 Filling it:
-- **Issues**—repeat the issue line once per issue, tagged **IA / Disclosure / Hierarchy**. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Coverage**—name only states and lifecycle moments the evidence actually exposes. Use `gaps` for consequential variants such as loading, error, first-run, re-entry, or worst-case data that were not shown or tested.
+- **Issues**—repeat the issue line once per issue, tagged **IA / Disclosure / Hierarchy**. Keep the `At` locator specific enough that a designer or engineer can open the right surface and reproduce the state without rereading the diagnosis. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Next**—structural before executional, always: polishing a screen with the wrong purpose only organizes the clutter. Resolve structural items with the five-move build workflow in [SKILL.md](../SKILL.md). Single-screen work is Focal's; if the real problem is the path between screens, say so and hand off to Compass.
 - Re-run the audit after fixes to watch the score climb.
