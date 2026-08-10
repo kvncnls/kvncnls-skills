@@ -15,6 +15,8 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 
 **Flow:** Team-collaboration app new-user onboarding · type: linear · audience: novice
 **Context:** a first-timer evaluating the product, patience near zero · bar: Linear's and Notion's first-run
+**Basis:** walked from a description · confirm with: walk the prototype through Back, refresh, and the onboarding resume/deep links at every step
+**Blocker:** Verification dead end; no exit from the gated wall; buried pricing; Back and resume links reset entered state.
 
 ## Scorecard
 | Discipline | Score | Key finding |
@@ -22,7 +24,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 | Orientation | 0/4 | Step 2 is a dead end ("check your email", no resend, no back), and none of the 7 steps has a Cancel or skip—the flow traps the user twice over. |
 | Path Economy | 1/4 | 7 steps where 2 are honest, all of them before first value, with prices first shown at step 3 and the free tier visually buried. |
 | Continuity | 0/4 | Browser Back restarts at step 1 with every field empty, and the "Continue setup" email link always reopens step 1. |
-| **Total** | **1/12** | **broken** |
+| **Total** | **1/12 · 0.3/4** | **Broken** |
 
 ## Issues (most severe first)
 - **[P0 · Orientation]** The verification dead end—step 2 shows "check your email" and stops: no resend, no "change email", no Back, no way forward inside the app. A first-timer whose mail is slow, spam-filtered, or mistyped by one character has exactly one move left, which is closing the tab; the screen can be reached and not left, so it fails the drop test outright and breaks the promise at the earliest possible moment. **Fix:** make step 2 a live screen—a 6-digit code field that auto-advances on paste, "Resend code" on a 30-second countdown, "Change email", a real Back to step 1 with the address intact, and "Finish later" that saves the pending account and mails a resume link.

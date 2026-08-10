@@ -2,7 +2,7 @@
 
 This is the complete **Compass** skill as one self-contained document—the spine plus every reference—so you can use it in any AI coding agent, not only Claude Code.
 
-*Generated from `compass/` at commit `39691d9`. If the repo has moved on, regenerate rather than edit this file: it is a build artifact, not the source.*
+*Synchronized manually from `compass/` source files on the working tree; no commit hash is asserted until commit.*
 
 **How to use it**
 - **Claude Code**—you don't need this file; install the `compass/` folder from the repo for `/compass` and on-demand loading. This bundle is for everything else.
@@ -14,6 +14,11 @@ Everything below is the skill, including the full 0–4 / 12 scoring rubrics.
 
 ---
 
+---
+name: compass
+description: Use when designing, building, reviewing, or critiquing a multi-screen flow, journey, or navigation in any functional product, app, dashboard, or tool. Compass is the cross-screen lens—it owns the path between screens (navigation, step-count, routing, where "back" goes, state, entry points). Its promise is Never Lost—at every step the user knows where they are, what's left, and how to get back or out. Three disciplines—Orientation (load-bearing), Path Economy (fewest honest steps, no dead ends), and Continuity (context and state survive the seams). Adapts to the flow type (linear, branching, hub-and-spoke, open-ended) and the user's expertise. Pairs with Focal, which designs the individual screens. Triggers on flow, journey, navigation, onboarding, checkout, wizard, multi-step, "too many steps", "back button", "where am I", lost, dead end, routing, breadcrumb, progress. Not for single-screen layout (use Focal), visual styling, copy, code, marketing/landing pages, backend, or non-UI work.
+argument-hint: "[build | review] <flow, journey, or description>"
+---
 
 # Compass
 
@@ -21,7 +26,7 @@ Everything below is the skill, including the full 0–4 / 12 scoring rubrics.
 
 A flow is a sequence of screens with a destination. Good cross-screen UX means the user never has to wonder *Where am I? How far is left? How do I get back, or out?* The moment they can't answer one of those, the flow becomes a maze—and people abandon mazes.
 
-Where Focal sharpens a single screen (one screen, one purpose), Compass guides the **path between screens**. Focal is *within* a screen; Compass is *between* them. Together they cover the whole product: every screen knows its job, and every journey knows its way.
+Where [Focal](../focal) sharpens a single screen (one screen, one purpose), Compass guides the **path between screens**. Focal is *within* a screen; Compass is *between* them. Together they cover the whole product: every screen knows its job, and every journey knows its way.
 
 Three disciplines, treated as top priorities, keep the user oriented:
 
@@ -38,7 +43,7 @@ Three disciplines, treated as top priorities, keep the user oriented:
 Compass is for **cross-screen flows** in functional products—any platform, any user. Onboarding, signup, checkout, multi-step setup, wizards, dashboards with drill-down, account flows, anything that spans more than one screen. If the user has to *move between screens* to get something done, Compass applies.
 
 It is **not** for:
-- Single-screen layout and structure—that's Focal. Compass assumes each screen is already sound and focuses on the joins.
+- Single-screen layout and structure—that's [Focal](../focal). Compass assumes each screen is already sound and focuses on the joins.
 - Marketing pages, landing pages, campaigns—persuasion and narrative, not task completion.
 - Whole-app sitemaps generated from a spec (deciding *which* screens exist before any flow is drawn).
 - Backend, infra, or non-UI work.
@@ -147,11 +152,11 @@ Two ties worth naming, because they recur:
 ## Routing
 
 - **No argument** → explain Never Lost and the three disciplines briefly, then ask: building a new flow, or reviewing an existing one?
-- **`build` (or a description of a flow to design)** → follow **The four moves** below. Pull techniques from reference/patterns.md.
-- **`review` / `audit` (a flow, a set of screens, a prototype, or a description)** → load and follow reference/review.md. It scores each discipline 0–4 against a written rubric, totals to /12 with a band, tags issues P0–P3, and closes on a Never-Lost verdict. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
-- **A question about a specific technique or anti-pattern** → consult reference/patterns.md.
+- **`build` (or a description of a flow to design)** → follow **The four moves** below. Pull techniques from [reference/patterns.md](reference/patterns.md).
+- **`review` / `audit` (a flow, a set of screens, a prototype, or a description)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, and closes on a Never-Lost verdict. That file defines the rubrics, scoring contract, bands, and severities—all of them, and nowhere else.
+- **A question about a specific technique or anti-pattern** → consult [reference/patterns.md](reference/patterns.md).
 
-Before emitting either output, read reference/examples.md. It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
+Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
 
 ---
 
@@ -166,13 +171,13 @@ For each flow, in order. Write the answers down—they are the spec.
 
 Then run the gates: self-check against the five gates in the **`## Gates`** block of the Flow Spec template below. That block is the single canonical list—read them there, and emit them there. Never restate them in your own words.
 
-A flow that passes is sound by Compass's standard. Then design each screen with Focal, and apply visual styling and motion on top.
+A flow that passes is sound by Compass's standard. Then design each screen with [Focal](../focal), and apply visual styling and motion on top.
 
 ---
 
 ## Voice (when giving feedback)
 
-- **Lead with the answer, then structure it.** Open every build or review with one line—the verdict, or the flow's destination—then the locked template (the build template is below; the review template is in reference/review.md). Use it verbatim; don't add, remove, reorder, or rename sections.
+- **Lead with the answer, then structure it.** Open every build or review with one line—the verdict, or the flow's destination—then the locked template (the build template is below; the review template is in [reference/review.md](reference/review.md)). Use it verbatim; don't add, remove, reorder, or rename sections.
 - **Template precedence.** The template is the complete contract for what gets emitted. If any instruction in this skill asks you to produce something the template has no slot for, put it in the nearest slot that fits, or leave it out—never invent a section. A gap like that is a bug in this skill, not a judgment call: name it in one line after the output so it can be fixed. Analysis the template has no room for is still worth doing; it informs the scores even when it isn't printed.
 - **Be specific and quantitative.** "This is a 7-step flow that needs 3" beats "too many steps." Count the steps, name the dead ends, quote the labels.
 - **Be decisive.** "The user is trapped on step 3"—not "the user might feel stuck."
@@ -234,10 +239,9 @@ Filling it: number **only the steps the user passes through**, including the one
 
 ## References
 
-- reference/review.md—the three-discipline flow audit, the Compass scorecard (0–4 per discipline), severity, and output format.
-- reference/patterns.md—orientation patterns, step-reduction techniques, continuity/state patterns, flow-type playbooks, and the anti-pattern library with fixes.
-- reference/examples.md—a worked flow review and a worked flow build, in the locked output templates.
-
+- [reference/review.md](reference/review.md)—the three-discipline flow audit, the Compass scorecard (0–4 per discipline), severity, and output format.
+- [reference/patterns.md](reference/patterns.md)—orientation patterns, step-reduction techniques, continuity/state patterns, flow-type playbooks, and the anti-pattern library with fixes.
+- [reference/examples.md](reference/examples.md)—a worked flow review and a worked flow build, in the locked output templates.
 
 ---
 
@@ -248,7 +252,7 @@ Evaluate a flow (or a set of screens) against the three disciplines and the over
 ## Input modes
 
 - **A described flow**—the user narrates the steps ("they sign up, pick a plan, then…"). Map it as a sequence, name the destination, and audit the path you reconstruct. If the narration is ambiguous, restate the sequence and ask before scoring—that is a clarifying exchange, not part of the emitted review.
-- **A set of screens or screenshots**—read them in order, infer the transitions between them, and critique the joins. You're judging the *seams*, not each screen—a beautiful screen in the wrong order, or one that drops state on the way in, still fails. Per individual screen layout, defer to Focal.
+- **A set of screens or screenshots**—read them in order, infer the transitions between them, and critique the joins. You're judging the *seams*, not each screen—a beautiful screen in the wrong order, or one that drops state on the way in, still fails. Per individual screen layout, defer to [Focal](../../focal).
 - **A clickable prototype / live URL**—if browser automation is available, walk the flow: click through, hit Back, refresh mid-flow, follow a deep link cold. Otherwise audit the described or captured steps. Always test the transitions, not just the destinations—the failures live between screens.
 
 ## Step 0—Notice the journey, name the destination, classify the flow
@@ -260,7 +264,7 @@ Then frame, in one or two sentences each:
 - **Name the destination.** Settle it as *"This flow gets the user from ___ to ___."* One outcome; it lands in the review template as the **Flow** name plus the biggest-break phrase, and in a build as the Flow line's from-to. If it needs an "and," it's two flows wearing one coat—flag the split now; the gates will show why.
 - **What's the user's state?** Anxious, rushed, first-time, returning, interrupted, one-handed? A checkout under time pressure tolerates fewer steps than a leisurely setup. A flow resumed after a phone call must survive the interruption. Name it; the critique must respect it.
 - **What's the bar?** Every flow category has an invisible standard set by its best-in-class journey. A checkout is judged against the cleanest checkouts; an onboarding against the clearest onboardings; a multi-step setup against the cleanest wizard in the category. Ask: *what would the best-in-class flow do at this seam?*
-- **The flow type.** Classify it by walking the decision tree in **Registers** in SKILL.md—take the first match, and don't re-derive the categories here. This sets how the gates should be read; see *Adjust for flow type* below. If the tree lands on linear but an unmanaged fork is bolted on, score it linear and flag the rogue fork under Gate 1.
+- **The flow type.** Classify it by walking the decision tree in **Registers** in [SKILL.md](../SKILL.md)—take the first match, and don't re-derive the categories here. This sets how the gates should be read; see *Adjust for flow type* below. If the tree lands on linear but an unmanaged fork is bolted on, score it linear and flag the rogue fork under Gate 1.
 
 ## Adjust for flow type
 
@@ -335,23 +339,46 @@ Because this discipline is load-bearing, treat a **failed drop test** or a **dea
 
 ## Scoring rules
 
-Score each discipline 0–4 using its gate rubric above. Be honest—a 4 means genuinely seamless, not "fine."
+Every discipline uses the same integer anchors:
 
-- **Bands** (the only band list in this skill; look the string up from here): **11–12** ship it · **8–10** solid, fix the weak discipline · **5–7** significant rework · **0–4** broken.
-- **The Total must equal the three scores summed**, and its band string must be one of the four above, verbatim.
+| Score | Canonical label | Shared meaning |
+|---:|---|---|
+| **0** | **Broken or harmful** | The dimension fails outright, blocks its core outcome, actively inverts the intended behavior, or creates material harm. |
+| **1** | **Major failure** | The outcome may remain technically possible, but the dimension is seriously compromised, unreliable, or largely absent. Substantial correction is required. |
+| **2** | **Partial or inconsistent** | The basic function exists, with a material weakness, missing decision, or inconsistency that prevents dependable quality. |
+| **3** | **Strong** | Deliberate, dependable, context-appropriate professional work with only minor gaps. This is the normal target for good execution. |
+| **4** | **Exemplary** | Fully realized and unusually strong for the relevant context, including realistic states and constraints, with no material gaps. |
+
+Score each discipline holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the dimension overall, apply explicit local caps or prerequisites, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the dimension being scored; it does not universally require novelty.
+
+Keep the native total: `total = Orientation + Path Economy + Continuity`. Calculate `average = total / 3`, display it rounded to one decimal place, and apply this shared algorithm:
+
+| Band | Average rule | Native total |
+|---|---:|---:|
+| **Broken** | `average <= 1.5` | `0–4 / 12` |
+| **Significant rework** | `1.5 < average < 2.5` | `5–7 / 12` |
+| **Solid** | `2.5 <= average < 3.5` | `8–10 / 12` |
+| **Excellent** | `average >= 3.5` | `11–12 / 12` |
+
+Then cap the band by the weakest discipline: a minimum of `0` allows only **Broken**, `1` allows at most **Significant rework**, `2` allows at most **Solid**, and `3–4` adds no ceiling. Use the lower-quality result of the average band and this ceiling. The total must equal the exact sum of the three scores.
+
 - **Score 0 vs 1 (Orientation only).** Score **0** when the flow strands the user with no recovery at all—a true dead end, or a flow with no exit anywhere. Score **1** when a way out exists but is hidden or unlabeled (browser Back only, an unmarked Close). Each gate's own rubric governs its 0 and 1; this clause does not carry across disciplines. A Back that *wipes work* is a Continuity failure, scored by Gate 3, not by this clause.
 - If more than one independent failure sits in a discipline, score the *worst* one, then list the others as separate issues.
-- **The verdict—Never Lost.** Yes or no: at every step, does the user know where they are, what's left, and how to get back or out? The total measures how close the flow gets; the verdict states whether it arrives. **A failed drop test or a dead end is blocking regardless of total.**
-- **A doubled destination** (the flow needs an "and") is a P0 Orientation issue: the user cannot know what they are finishing. Flag it as the split it implies.
+- **The verdict—Never Lost.** Yes or no: at every step, does the user know where they are, what's left, and how to get back or out? The total measures how close the flow gets; the verdict states whether it arrives. A failed drop test or a dead end is a blocker regardless of total.
+- **A doubled destination** (the flow needs an "and") is an Orientation failure; assign P0 only when its consequence meets the shared critical definition, and flag it as the split it implies.
+
+Dimension score, overall quality band, issue severity, critical blocker, and the **Never Lost** verdict are separate. Every P0 is a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. Non-P0 methodology blockers remain in local caps, sequencing, and handoffs.
 
 ## Issue severity
 
 | Priority | Meaning |
 |----------|---------|
-| **P0** | Loses or traps the user, or breaks trust (dead end, no Back, lost state, hidden cost)—fix now |
-| **P1** | Causes real confusion or bloat (hidden progress, a setup wall, a memory bridge)—fix before release |
-| **P2** | Annoyance with a workaround—next pass |
-| **P3** | Polish—if time permits |
+| **P0 — Critical** | Blocks the core outcome; traps the user; destroys work or state; causes or risks material harm; hides material cost, consequence, permission, or risk; removes informed choice; or uses coercive manipulation. Fix before release. |
+| **P1 — Major** | Materially damages comprehension, completion, orientation, trust, value realization, or return for a meaningful share of users. Fix before release. |
+| **P2 — Moderate** | Creates real friction, confusion, dilution, or missed value with a viable recovery, workaround, or limited scope. Fix in the next planned pass. |
+| **P3 — Minor** | Low-impact craft, consistency, or polish. Fix when time permits. |
+
+Assign severity from consequence, reach, and recoverability. A methodology rule violation is not automatically P0.
 
 **Ordering (one rule):** sort by priority, P0 first. Within the same priority, break ties by type of harm—**Orientation** (the user is lost or trapped) outranks **Path Economy** (the path is longer or less honest than it should be) outranks **Continuity** (a seam drops context or state). Never reorder across priorities; a P0 Continuity issue outranks a P1 Orientation issue.
 
@@ -364,6 +391,8 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 
 **Flow:** <name> · type: <linear | branching | hub-and-spoke | open-ended> · audience: <novice | mixed | expert>
 **Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
+**Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
+**Blocker:** <None. | concise blocker reason>
 
 ## Scorecard
 | Discipline | Score | Key finding |
@@ -371,7 +400,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 | Orientation | _/4 | <one line> |
 | Path Economy | _/4 | <one line> |
 | Continuity | _/4 | <one line> |
-| **Total** | **_/12** | **<band>** |
+| **Total** | **_/12 · _._/4** | **<band>** |
 
 ## Issues (most severe first)
 - **[P0 · Orientation]** <Name>—<observation>. <impact>. **Fix:** <fix>.
@@ -390,8 +419,8 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 
 Filling it:
 - **Issues**—repeat the issue line once per issue, tagged **Orientation / Path Economy / Continuity**. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
-- **Next**—structural before executional, always: signposting a maze only labels the dead ends. Resolve structural items with the four-move build workflow in SKILL.md and the techniques in patterns.md.
-- **Single-screen problems are out of scope—route them to Focal.** If an individual screen is overloaded, mis-ranked, or has no clear primary action, that is a within-screen failure for Focal, not a seam for Compass; name it in **Next** and hand it off.
+- **Next**—structural before executional, always: signposting a maze only labels the dead ends. Resolve structural items with the four-move build workflow in [SKILL.md](../SKILL.md) and the techniques in [patterns.md](patterns.md).
+- **Single-screen problems are out of scope—route them to [Focal](../../focal).** If an individual screen is overloaded, mis-ranked, or has no clear primary action, that is a within-screen failure for Focal, not a seam for Compass; name it in **Next** and hand it off.
 - Re-run the audit after fixes to watch the score climb.
 
 ---
@@ -408,7 +437,7 @@ Orientation is the load-bearing discipline—it's the literal promise. When two 
 
 How to make sure the user can always answer *Where am I? How far is left? How do I get back, or out?*
 
-- **Progress as milestones, not a tally.** A stepper that reads "Step 2 of 4" promises an end the user can picture. "12 of 47 complete" reads as a sentence. Frame progress as a small count of named, achievable stages; if the real count is large, group it ("Account → Payment → Review", not "field 14 of 38"). Defer to Focal for whether any one step is overloaded—Compass owns the count of steps, not the contents of one.
+- **Progress as milestones, not a tally.** A stepper that reads "Step 2 of 4" promises an end the user can picture. "12 of 47 complete" reads as a sentence. Frame progress as a small count of named, achievable stages; if the real count is large, group it ("Account → Payment → Review", not "field 14 of 38"). Defer to [Focal](../../focal) for whether any one step is overloaded—Compass owns the count of steps, not the contents of one.
 - **Breadcrumbs and active state.** On hub-and-spoke and any nested structure, the user must be able to point at where they are: a breadcrumb trail back to the hub, a highlighted nav item, a screen title that matches the link they followed. Recognition beats recall—the path home should be readable, not remembered.
 - **A real Back on every screen.** Not just the browser button, and not a Back that secretly resets. Every screen in a flow has a visible, reliable way to the previous step. If Back would lose work, that's a Continuity failure too (see below)—fix both.
 - **Escape hatches and Cancel.** Every flow needs a way *out*, not just back: Cancel, Close, "Save & exit," or "Do this later." Back retreats one step; the escape hatch leaves the flow entirely. A multi-step wizard with no Cancel is a trap with a polite face.
@@ -431,12 +460,12 @@ Every screen in a flow is a tax on the user. Cut the tax to the minimum the task
 | **Infer rather than ask** | The system already knows or can derive the answer | Detect card type from the number; pull name from the signed-in account; geolocate the city |
 | **First value before setup** | Value is gated behind configuration | Show the populated app with sensible defaults, defer settings to when they're relevant |
 | **Prune dead branches** | A fork leads somewhere with no real continuation | Remove the option that dead-ends; or give that branch a real next step |
-| **Collapse adjacent steps** | Two thin screens fit comfortably on one without overload | Merge name + email into one screen—*defer to Focal for whether the merged screen is now too heavy* |
+| **Collapse adjacent steps** | Two thin screens fit comfortably on one without overload | Merge name + email into one screen—*defer to [Focal](../../focal) for whether the merged screen is now too heavy* |
 
 **Choosing well:**
 - The best step is the one the user never has to take. Before adding a screen, ask whether its answer can be inferred, defaulted, or deferred.
 - Count honestly. "This is a 7-step flow that needs 3" is a finding; "feels long" is a feeling.
-- Shortening a path is a Focal handoff at the boundary: Compass merges *screens*, Focal judges whether the merged screen overloads. Don't collapse steps so aggressively that each screen breaks One Screen, One Purpose.
+- Shortening a path is a [Focal](../../focal) handoff at the boundary: Compass merges *screens*, Focal judges whether the merged screen overloads. Don't collapse steps so aggressively that each screen breaks One Screen, One Purpose.
 
 **The honesty caveat—read this.** Shorten the path by removing *waste*, never by removing *protection*. Skipping a confirmation on a destructive or costly action, hiding a required disclosure, auto-opting the user into something, or burying the price to "reduce friction" is a **dark pattern, not economy**. A step that protects the user or earns their trust is not waste—it is load-bearing. If removing a step makes the flow shorter but the user worse off, you have not practiced Path Economy; you have laundered a trap as a convenience.
 
@@ -470,7 +499,7 @@ Orientation owns two extra jobs: show *which branch* the user is on, and offer a
 "Back to center" is sacred: the hub is home base, and every spoke returns to it predictably (breadcrumb, a persistent "Back to dashboard," the same hub state they left). Economy is measured in *hops*—minimize the taps to reach a record and return. Don't trap the user deep in a spoke with no clear road home.
 
 **Open-ended**—*wander a space, no fixed end (browse, search-and-refine, exploration).*
-The exception that proves the rule: there's no single destination, so "how far is left" doesn't apply, and **Never Lost reduces to *always know where you are and how to get home*.** Orient by position-in-space (filters applied, current view, breadcrumb) and guarantee an easy return to a known anchor. Don't force a funnel onto a space meant for roaming. (Journey-level sibling of Focal's exploration register.)
+The exception that proves the rule: there's no single destination, so "how far is left" doesn't apply, and **Never Lost reduces to *always know where you are and how to get home*.** Orient by position-in-space (filters applied, current view, breadcrumb) and guarantee an easy return to a known anchor. Don't force a funnel onto a space meant for roaming. (Journey-level sibling of [Focal](../../focal)'s exploration register.)
 
 ---
 
@@ -481,7 +510,7 @@ The states most flows neglect—where a journey is interrupted, aborted, broken,
 - **Interruption and resume.** Users leave mid-flow—a call, a closed laptop, a dead battery. Persist progress and let them re-enter where they stopped, oriented ("You're on step 3 of 4"), with prior input intact. Resume is a Continuity promise; breaking it is the single most common reason a started flow is never finished.
 - **Partial completion.** A flow abandoned at step 3 isn't a failure to discard—it's progress to honor. Save the draft, the half-filled cart, the in-progress application; surface it on return so the user picks up rather than starts over. The fastest path to finishing is not making them re-do what's done.
 - **Error mid-flow.** When a step fails (payment declined, validation, a server error), keep the user *in the flow* and *in place*. Name the actual problem, offer the fix, preserve everything already entered, and keep Back and exit live. An error that boots the user to step one, or to a dead screen, converts a recoverable hiccup into an abandonment.
-- **Returning from a success screen.** The end of a flow is a transition, not a wall. A success screen needs a clear next move—back to the hub, on to the obvious next task, or out—never a celebratory dead end the user has to use the browser Back to escape. End on a high *and* on a door (peak-end, the journey-level sibling of Focal's peak-end care).
+- **Returning from a success screen.** The end of a flow is a transition, not a wall. A success screen needs a clear next move—back to the hub, on to the obvious next task, or out—never a celebratory dead end the user has to use the browser Back to escape. End on a high *and* on a door (peak-end, the journey-level sibling of [Focal](../../focal)'s peak-end care).
 
 ---
 
@@ -497,7 +526,7 @@ Each entry: the tell—the discipline it breaks—the fix.
 - **The mystery location**—nested screens with no breadcrumb or active state; "how did I get here?" *(Orientation)* Add a trail or active nav so the user can point at where they are.
 - **The setup wall**—first value gated behind six configuration screens. *(Path Economy)* Get the user to one real win on sensible defaults; defer setup to when it's relevant.
 - **The phantom flow**—a 7-step flow that's honestly 3, padded with redundant confirm-and-return screens. *(Path Economy)* Merge the round-trips; cut the steps the task doesn't require.
-- **The needless round-trip**—two screens bounce the user back and forth, each doing half a job. *(Path Economy)* Collapse into one—then check with Focal that the merged screen isn't overloaded.
+- **The needless round-trip**—two screens bounce the user back and forth, each doing half a job. *(Path Economy)* Collapse into one—then check with [Focal](../../focal) that the merged screen isn't overloaded.
 - **The dead branch**—a fork leads to a screen with no real continuation. *(Path Economy)* Remove the branch, or give it a genuine next step.
 - **The friction-hiding shortcut**—a step removed by burying the price, skipping a confirmation, or auto-opting the user in. *(Path Economy)* Restore it. This is a dark pattern, not economy—protection is never waste.
 - **The memory bridge**—step 3 needs a fact only shown on step 1. *(Continuity)* Carry the context forward; show it where it's needed.
@@ -520,7 +549,7 @@ NEVER        trap a modal · hide progress · shorten by hiding cost or skipping
 
 *Defaults for a linear flow. On hub-and-spoke, "back to center" is sacred; on open-ended, drop "how-far-left" and guarantee a way home.*
 
-See ../SKILL.md for the disciplines and the Flow Spec, and review.md for the three-discipline audit and scorecard.
+See [../SKILL.md](../SKILL.md) for the disciplines and the Flow Spec, and [review.md](review.md) for the three-discipline audit and scorecard.
 
 ---
 
@@ -541,6 +570,8 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 
 **Flow:** Team-collaboration app new-user onboarding · type: linear · audience: novice
 **Context:** a first-timer evaluating the product, patience near zero · bar: Linear's and Notion's first-run
+**Basis:** walked from a description · confirm with: walk the prototype through Back, refresh, and the onboarding resume/deep links at every step
+**Blocker:** Verification dead end; no exit from the gated wall; buried pricing; Back and resume links reset entered state.
 
 ## Scorecard
 | Discipline | Score | Key finding |
@@ -548,7 +579,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 | Orientation | 0/4 | Step 2 is a dead end ("check your email", no resend, no back), and none of the 7 steps has a Cancel or skip—the flow traps the user twice over. |
 | Path Economy | 1/4 | 7 steps where 2 are honest, all of them before first value, with prices first shown at step 3 and the free tier visually buried. |
 | Continuity | 0/4 | Browser Back restarts at step 1 with every field empty, and the "Continue setup" email link always reopens step 1. |
-| **Total** | **1/12** | **broken** |
+| **Total** | **1/12 · 0.3/4** | **Broken** |
 
 ## Issues (most severe first)
 - **[P0 · Orientation]** The verification dead end—step 2 shows "check your email" and stops: no resend, no "change email", no Back, no way forward inside the app. A first-timer whose mail is slow, spam-filtered, or mistyped by one character has exactly one move left, which is closing the tab; the screen can be reached and not left, so it fails the drop test outright and breaks the promise at the earliest possible moment. **Fix:** make step 2 a live screen—a 6-digit code field that auto-advances on paste, "Resend code" on a 30-second countdown, "Change email", a real Back to step 1 with the address intact, and "Finish later" that saves the pending account and mails a resume link.

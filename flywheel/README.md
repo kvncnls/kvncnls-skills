@@ -48,7 +48,7 @@ Prefer a copy, or one project only? `cp -R kvncnls-skills/flywheel ~/.claude/ski
 /flywheel diagnose     ← a product, a stage, or a symptom like "nobody comes back"
 ```
 
-Returns a fixed template: the leaking stage, a 0–4 score per play (/16 with a band), P0–P3 issues, the one stage to fix first, and what becomes worth doing after it moves.
+Returns a fixed template: the leaking stage, a 0–4 score per play (/16 with a normalized /4 average and common quality band), P0–P3 issues, the one stage to fix first, and what becomes worth doing after it moves.
 
 **Build**—design one stage with its play.
 

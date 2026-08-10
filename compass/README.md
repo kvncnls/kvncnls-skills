@@ -62,7 +62,7 @@ Compass walks four moves—name the destination → map the fewest honest steps 
 /compass review     ← describe the flow, or give a set of screens / a prototype
 ```
 
-Compass returns the same fixed template every time: a one-line **Never-Lost verdict**, a 0–4 scorecard (/12 total) across the three disciplines, prioritized P0–P3 issues (each tied to the discipline it breaks, with the fix), and the top 3 moves.
+Compass returns the same fixed template every time: a one-line **Never-Lost verdict**, a 0–4 scorecard (/12 total with a normalized /4 average and common quality band) across the three disciplines, prioritized P0–P3 issues (each tied to the discipline it breaks, with the fix), and the top 3 moves.
 
 ---
 

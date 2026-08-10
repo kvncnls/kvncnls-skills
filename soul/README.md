@@ -51,7 +51,7 @@ Prefer a copy, or one project only? `cp -R kvncnls-skills/soul ~/.claude/skills/
 /soul search     ← a product, a flow, screens, or "it feels like every other app"
 ```
 
-Returns a fixed template: the beat-by-beat path map with a tier per beat, a 0–4 score per gate (/16 with a band), the 2–3 Net-New moments ranked, the small things worth elevating, issues tagged P0–P3, and the receipt—which beats stay Expected, and why.
+Returns a fixed template: the beat-by-beat path map with a tier per beat, a 0–4 score per gate (/16 with a normalized /4 average and common quality band), the 2–3 Net-New moments ranked, the small things worth elevating, issues tagged P0–P3, and the receipt—which beats stay Expected, and why.
 
 **Build**—design one moment at full depth.
 

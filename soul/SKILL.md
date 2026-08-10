@@ -97,7 +97,7 @@ Selection heuristics, archetypes, and the full dumping-grounds list live in [ref
 ## Routing
 
 - **No argument** → explain the placement idea in three sentences, then ask: search an existing product, or build one moment?
-- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow [reference/review.md](reference/review.md). It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, totals to /16 with a band, tags issues P0–P3, and returns the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, the bands, and the severities—all of them, and nowhere else.
+- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow [reference/review.md](reference/review.md). It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, totals to /16, displays a normalized /4 average and common quality band with a weakest-gate ceiling, tags issues P0–P3, and returns the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, scoring contract, bands, and severities—all of them, and nowhere else.
 - **`build` / `design` / `treat` (one beat)** → run the beat through the sort tree above; its tier is the build's **Target**. Read [reference/treatments.md](reference/treatments.md)—plus [reference/moments.md](reference/moments.md) when the target is Net-New, to confirm it clears the selection bar—then follow **Build** below.
 - **A question about a moment type or a treatment lever** → [reference/moments.md](reference/moments.md) or [reference/treatments.md](reference/treatments.md).
 
