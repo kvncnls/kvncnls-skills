@@ -1,6 +1,6 @@
 # Flywheel Examples
 
-Two worked examples in the locked output templates—one **diagnosis**, one **build**. They share a narrative: the diagnosis finds a product losing people before first value, and the build redesigns the stage it names. These set the bar for length, specificity, and tone; the templates set the shape.
+Two worked examples in the locked output templates—one **diagnosis**, one **relationship-stage design**. They share a narrative: the diagnosis finds a product losing people before first value, and the stage design addresses the leak it names. These set the bar for length, specificity, and tone; the templates set the shape.
 
 ---
 
@@ -45,7 +45,7 @@ Friction. Nothing downstream can be evaluated until people reach a first report�
 
 ---
 
-## Example 2—Build: the first-report stage
+## Example 2—Stage design: the first-report stage
 
 **Input:** "Design the first-report experience the diagnosis called for."
 
@@ -87,6 +87,6 @@ Friction. Nothing downstream can be evaluated until people reach a first report�
 
 ---
 
-**Why these two:** the diagnosis refuses the question it was asked. The user came for re-engagement email and the honest answer is that there is nothing to re-engage *to*—which is what "fix this first" exists to say. Note that the re-engagement finding is a P1, not a P0: it is a misdirected investment, not a dark pattern, and P0 is reserved for the ethical floor so that it keeps its meaning. The build then resolves it: the sample report inverts the whole stage, because a user who has already seen an output is making a completely different decision when asked to upload.
+**Why these two:** the diagnosis refuses the question it was asked. The user came for re-engagement email and the honest answer is that there is nothing to re-engage *to*—which is what "fix this first" exists to say. Note that the re-engagement finding is a P1, not a P0: it is a misdirected investment, not a dark pattern, and P0 is reserved for the ethical floor so that it keeps its meaning. The relationship-stage design then resolves it: the sample report inverts the whole stage, because a user who has already seen an output is making a completely different decision when asked to upload.
 
 Note what stayed. Two frictions were preserved and named—the upload and the report name—because this play is not about removing effort, it is about making the remaining effort obviously worth it. And note what was refused: no ask on the stage at all, because nothing has happened twice yet.

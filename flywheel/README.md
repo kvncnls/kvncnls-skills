@@ -58,13 +58,13 @@ Returns a fixed **diagnosis**:
 
 See the [locked diagnosis template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).
 
-**Build**—design one stage with its play.
+**Design a relationship stage**—use the `build` command to design one stage with its play.
 
 ```
 /flywheel build the first-run experience for a budgeting app
 ```
 
-Returns a fixed **Stage Spec**:
+The `build` command returns a fixed **Stage Spec**:
 
 - **Stage**—one Trust, Friction, Wins, or Emotion play, its audience, first value, and stakes.
 - **The leak**—what is being lost today and the fastest confirming metric.
@@ -73,7 +73,7 @@ Returns a fixed **Stage Spec**:
 - **The ask**—what value precedes any commercial or social request, and what declining costs.
 - **Gates**—a binary, unscored check of the proposed design.
 
-See the [locked Stage Spec template](./SKILL.md#build-the-five-moves).
+See the [locked Stage Spec template](./SKILL.md#design-a-relationship-stage-the-five-moves).
 
 ---
 
@@ -88,7 +88,7 @@ flywheel/
 │   ├── wins.md           win map, making value visible, timing asks
 │   ├── emotion.md        the arc, baseline vs peaks, endings and re-entry
 │   ├── review.md         the four-play audit + scorecard + severity
-│   └── examples.md       a worked diagnosis + a worked build
+│   └── examples.md       a worked diagnosis + a worked relationship-stage design
 ├── README.md
 └── LICENSE
 ```

@@ -1,6 +1,6 @@
 ---
 name: flywheel
-description: Use when improving how a product converts attention into durable value—the growth and retention side of design. Flywheel finds where a product loses the people it already earned, then applies the play that fixes that stage, across four ordered plays—Trust (the first push), Friction (drag on the bearing), Wins (the power stroke), and Emotion (the mass that keeps it turning). Builds a stage or audits an existing one, scoring each play 0–4. Triggers on growth, retention, activation, onboarding, conversion, churn, drop-off, first impression, time to value, empty state, upgrade prompt, referral, advocacy, "why do users leave", "nobody comes back", "they sign up but never return". Not for single-screen structure (use Focal), multi-screen flows (use Compass), paid channels, campaign copy, analytics instrumentation, or research protocols.
+description: Use when improving how a product converts attention into durable value—the growth and retention side of design. Flywheel finds where a product loses the people it already earned, then applies the play that fixes that stage, across four ordered plays—Trust (the first push), Friction (drag on the bearing), Wins (the power stroke), and Emotion (the mass that keeps it turning). Design a relationship stage or audit an existing one, scoring each play 0–4. Triggers on growth, retention, activation, onboarding, conversion, churn, drop-off, first impression, time to value, empty state, upgrade prompt, referral, advocacy, "why do users leave", "nobody comes back", "they sign up but never return". Not for single-screen structure (use Focal), multi-screen flows (use Compass), paid channels, campaign copy, analytics instrumentation, or research protocols.
 argument-hint: "[build | diagnose] <product, stage, or symptom>"
 ---
 
@@ -120,18 +120,18 @@ Retention depends less on novelty than on respectful continuity: restore context
 
 ## Routing
 
-- **No argument** → explain the wheel and the four plays briefly, then ask: diagnosing an existing product, or building a stage?
+- **No argument** → explain the wheel and the four plays briefly, then ask: diagnosing an existing product, or designing a relationship stage?
 - **`diagnose` / `audit` / `review` (a product, a stage, a screenshot, or a symptom like "nobody comes back")** → load and follow [reference/review.md](reference/review.md). It scores each play 0–4 against a written rubric, totals to /16, displays a normalized /4 average and common quality band with a weakest-play ceiling, tags issues P0–P3, anchors every issue to the exact touchpoint, app state, and relationship lifecycle stage, and names the leaking stage. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
-- **`build` (a stage to design)** → name first value, walk the diagnosis tree to confirm which stage, read that play's reference, then follow **Build** below. That order is fixed: the tree cannot be walked before first value is named.
+- **`build` (a relationship stage to design)** → name first value, walk the diagnosis tree to confirm which stage, read that play's reference, then follow **Design** below. That order is fixed: the tree cannot be walked before first value is named.
 - **A question about one play** → read that play's reference file.
 
 Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well.
 
 ---
 
-## Build: the five moves
+## Design a relationship stage: the five moves
 
-Building a stage needs one input Focal and Compass do not: you cannot design trust or activation in the abstract. Establish the frame first.
+Designing a relationship stage needs one input Focal and Compass do not: you cannot design trust or activation in the abstract. Establish the frame first.
 
 1. **Frame it.** What is the product, who is this stage for, and **what is the first-value event?** Name it as something that changes the user's situation, not as setup completed. "Created an account" is not first value; "imported data and got an actionable insight" is. Name it even when the stage sits after value—the Stage Spec has a slot for it either way, and a stage designed without knowing what value it follows is a stage designed blind.
 2. **Name the stage and its leak.** Which of the four is this, and what is being lost there today (or what would be, if this ships wrong).
@@ -177,7 +177,7 @@ Building a stage needs one input Focal and Compass do not: you cannot design tru
 
 ## Voice (when giving feedback)
 
-- **Emit the exact output template.** Build and diagnose each have a locked structure—the build template is above, the diagnose template is in [reference/review.md](reference/review.md). Use it verbatim: same sections, same order, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections; if a section has nothing, keep its header and write "None."
+- **Emit the exact output template.** The `build` and `diagnose` modes each have a locked structure—the Stage Spec is above, and the diagnosis template is in [reference/review.md](reference/review.md). Use them verbatim: same sections, same order, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections; if a section has nothing, keep its header and write "None."
 - **Template precedence.** The template is the complete contract for what gets emitted. If any instruction in this skill asks you to produce something the template has no slot for, put it in the nearest slot that fits, or leave it out—never invent a section. A gap like that is a bug in this skill, not a judgment call: name it in one line after the output so it can be fixed. Analysis the template has no room for is still worth doing; it informs the scores even when it isn't printed.
 - **Separate measured from diagnosed.** Say which findings come from data and which from reading the artifact. Confidence stated honestly is worth more than confidence borrowed.
 - **Be specific and quantitative.** "Six fields before any value is shown" beats "onboarding is too long." Count the steps, name the moment, quote the copy.
@@ -209,4 +209,4 @@ Match-and-refuse. These are not aggressive growth tactics; they are the ways a w
 - [reference/friction.md](reference/friction.md)—the six-type friction taxonomy, the friction decision test, defining activation, designing backward from first value.
 - [reference/wins.md](reference/wins.md)—win types, the win map, making value visible, proportional amplification, timing asks, shareable artifacts.
 - [reference/emotion.md](reference/emotion.md)—the emotional arc, choosing the emotion, baseline vs peaks, endings and re-entry.
-- [reference/examples.md](reference/examples.md)—a worked diagnosis and a worked build, in the locked output templates.
+- [reference/examples.md](reference/examples.md)—a worked diagnosis and a worked relationship-stage design, in the locked output templates.
