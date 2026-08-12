@@ -44,6 +44,16 @@ They operate on actual UX decisions: what belongs on a screen, what should wait,
 
 They complement rather than replace conventional design systems. Traditional systems help teams render decisions consistently through components, tokens, patterns, and documentation. AI-native design systems also need a judgment layer that governs which decisions should be made: what belongs, what waits, what protects the user, which stage is leaking, and where expressive treatment earns its place. That is the layer this collection explores.
 
+## What this repo is not
+
+This is not a design-system analyzer, component library, token validator, or visual-regression suite. It does not judge whether components are consistent or tell you how to organize tokens. It sits above those systems and helps decide what the experience should do: what belongs, what waits, where value leaks, and where craft earns its place.
+
+It is not a renderer, prototyping tool, animation library, or implementation framework. The Skills produce judgment, audits, and fixed specifications—not production UI or animation code. Soul can identify which moments deserve motion, what that motion should communicate, and when restraint is better; design and engineering tools still implement it.
+
+It is not user research, analytics, experimentation, marketing, or product strategy. It can form hypotheses, locate leaks, and name the fastest validating test or metric, but it does not interview users, instrument events, prove causality, buy attention, set the roadmap, or manufacture product-market fit.
+
+It is not a whole-app sitemap or an all-purpose UX system. Focal works within a screen, Compass between screens, Flywheel across relationship stages, and Soul across memorable moments. They complement design systems and formal accessibility, security, legal, and safety reviews; they do not replace them.
+
 ## Skills
 
 | Skill | What it does |
