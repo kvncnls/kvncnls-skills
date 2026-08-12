@@ -6,9 +6,9 @@ The working catalog behind the three disciplines. Pull from here when building o
 
 ## Information Architecture (Discipline 1)
 
-How to decide what belongs on a screen and organize it so a single job is possible.
+How to decide what belongs on a screen and organize it around one clear intent.
 
-- **The screen inventory.** List every element a screen wants to hold. For each, ask: *does this serve the one job?* If it serves a different intent, it belongs on a different screen. This is the fastest way to find a kitchen-sink screen.
+- **The screen inventory.** List every element a screen wants to hold. For each, ask: *does this support the organizing intent?* If it serves an independently completable outcome, move it, defer it, or make the screen an explicit hub. This is the fastest way to find an accidental kitchen-sink screen.
 - **Split by intent, not content type.** "Account" is not one screen because the data lives in one table—it's profile, security, billing, and notifications, each a separate intent. Split where the user's goal changes, not where your schema does.
 - **Group by relatedness.** Things used together live together. Proximity is the strongest, cheapest grouping signal—closer than a border, closer than a shared background. Reach for dividers and containers only when space alone isn't enough.
 - **Label in the user's words.** Sections, nav, and actions named in language the user already owns. "Trips" not "Itinerary records." Test a label by asking whether a first-timer would pick it blind.
@@ -33,7 +33,7 @@ Match the technique to *why* the content is deferred.
 | **Stepper / wizard** | A task has natural sequential stages | Checkout, multi-part signup, setup |
 | **Drill-down (master → detail)** | A list where each item has depth | Inbox → message, feed → post |
 | **Contextual reveal** | A field/control only matters after a prior choice | "Other" → free-text box; "Ship to address" → address form |
-| **Overflow / "more" menu** | One or two primary actions, a tail of rare ones | "⋯" menu, kebab on a card |
+| **Overflow / "more" menu** | A dominant action or small inherent set, plus a tail of rare actions | "⋯" menu, kebab on a card |
 | **Peek + expand** | Content is scannable truncated, occasionally read in full | "Show more" on long text, truncated comments |
 | **Tooltip / inline hint** | Help is needed rarely and contextually | "?" next to an unfamiliar term |
 
@@ -43,21 +43,21 @@ Match the technique to *why* the content is deferred.
 - One layer of disclosure is a path; three nested layers is a maze. If users must expand to expand to expand, the screen has the wrong architecture (Discipline 1).
 - A stepper must show **where the user is and how far is left**—but frame it as achievable milestones ("Step 1 of 3"), not a demoralizing tally ("3 of 47 done").
 
-**Never defer:** the price, required fields, destructive consequences, error states, or the primary action. Deferral is for reducing choice overload, never for hiding what the user needs to act or to trust the screen.
+**Never defer:** the price, required fields, destructive consequences, error states, or controls needed to use the screen's action model now. Deferral is for reducing choice overload, never for hiding what the user needs to act or to trust the screen.
 
 ---
 
 ## Focus mechanisms (Discipline 3)
 
-How to give a screen a single visual entry point so the eye knows where to start—the visual expression of the one purpose.
+How to give a screen a clear visual entry point so the eye knows where to start—the visual expression of its organizing intent and action model.
 
 - **Size and weight differential.** Make the primary element materially larger or heavier than its neighbors. A ≥1.25 step between tiers reads as intentional; smaller reads as accidental.
 - **Isolation by space.** Surround the primary element with more whitespace than anything else. The eye goes to what's alone.
 - **Position.** Above the fold, in the reading-flow landing zone (top-left start, bottom-right resolution for LTR). On mobile, primary actions sit where the thumb rests (the bottom third); on pointer-driven desktop, in the natural resolution zone of the layout (often bottom-right of a form or panel).
-- **Singular color.** Exactly one saturated accent on the screen, reserved for the primary action. The moment a second element shares it, focus splits.
+- **Disciplined color.** On a task screen, reserve the strongest accent for the primary action or inherent co-equal set. On hubs and exploration surfaces, repeated link or interaction color can support a family of comparable routes; keep one region or content type visually dominant through space and weight.
 - **Suppress the rest.** Often the fastest way to create a focal point is not to amplify the hero but to *quiet everything else*—mute secondary text, recede chrome, drop ambient elements to low contrast.
 
-**Test:** cover the primary element with your thumb. If the screen now feels purposeless, the focus mechanism is working.
+**Test:** squint at the screen and name where the eye starts. It should land on the task's dominant action or read-first content, the hub's leading route or group, or the exploration surface's content field. If unrelated regions tie for first, the focus mechanism has failed.
 
 ---
 
@@ -68,7 +68,7 @@ Climb only as far as you need. Each rung is louder than the last.
 1. **Space.** Proximity groups; distance separates; generous margin elevates. Most hierarchy problems are solved here, for free. Tight gaps within a group (8–12px), generous gaps between groups (48–96px).
 2. **Weight.** Font weight and contrast. A bold label against regular body, or full-contrast text against muted, ranks without changing size or hue.
 3. **Size.** Type scale and element scale. Keep a real scale (≥1.25 ratio between steps); three deliberate sizes beat six arbitrary ones.
-4. **Color.** The loudest, last rung. A single accent for the one thing that matters most. Color as *the* hierarchy tool (rather than reinforcement) is fragile—it fails for colorblind users and in dark/light inversion.
+4. **Color.** The loudest, last rung. On task screens, reserve the strongest accent for the dominant action or inherent set. On hubs and exploration surfaces, use interaction color consistently across comparable controls while space and weight preserve a dominant region. Color as *the* hierarchy tool (rather than reinforcement) is fragile—it fails for colorblind users and in dark/light inversion.
 
 **Rule:** if space and weight already rank the screen, don't add size and color on top. Redundant emphasis flattens hierarchy as surely as no emphasis.
 
@@ -76,7 +76,7 @@ Climb only as far as you need. Each rung is louder than the last.
 
 ## State care
 
-Products live or die on the states most teams treat as afterthoughts. Each is a Focal surface in its own right—it has a purpose, an architecture, and a disclosure budget.
+Products live or die on the states most teams treat as afterthoughts. Each is a Focal surface in its own right—it has an organizing intent, an architecture, and a disclosure budget.
 
 - **Full (worst-case) state.** The biggest clutter trap in data UIs: a screen designed against 3 tidy demo rows becomes chaos at 300—with the longest label, the most items, max-digit numbers, the deepest nesting. Design and review every screen against its *worst realistic data*, not the mock. A layout that only holds together when nearly empty isn't done. (This is why dashboards drift into clutter: they were composed empty.)
 
@@ -92,7 +92,7 @@ Products live or die on the states most teams treat as afterthoughts. Each is a 
 
 Each entry: the tell, the discipline it breaks, the fix. Severity is assigned in [review.md](review.md), not here—one authority, so a finding can't carry two priorities.
 
-- **The kitchen-sink screen**—one screen tries to do three jobs. *(IA)* Split by intent, or keep one purpose and route the others to secondary paths.
+- **The kitchen-sink screen**—one screen carries several independent intents without declaring itself a hub. *(IA)* Split by intent, or explicitly organize it as routing with focused task paths.
 - **The data-model screen**—structure mirrors the database, not the user's goal. *(IA)* Reorganize around intent; group what's used together.
 - **The jargon label**—sections and actions named in system terms. *(IA)* Rename in the user's words; test labels blind.
 - **The memory bridge**—step 3 needs a fact only shown on step 1. *(IA, PD)* Carry the context forward, or co-locate the decision with its inputs.
@@ -100,14 +100,14 @@ Each entry: the tell, the discipline it breaks, the fix. Severity is assigned in
 - **The everything-up-front form**—onboarding asks for all data immediately. *(PD)* Ask only what's needed for the first success; defer the rest to when it's relevant.
 - **The premature settings dump**—advanced options shown before anyone needs them. *(PD)* Collapse behind "Advanced"; smart-default the common case.
 - **The buried essential**—price, required field, or consequence hidden behind a tap. *(PD)* Surface it. This is a dark pattern, not disclosure.
-- **Dual primary CTAs**—two equally-weighted buttons competing. *(VH)* One primary, the other demoted to secondary or a link.
+- **Competing primary CTAs**—two equally weighted task actions pursue independent outcomes. *(VH)* Demote or move one. Preserve a genuine binary choice or inseparable dual-mode set, and do not apply this task rule to ranked hub routes or content-led exploration.
 - **The hero that eats the button**—a giant image/illustration outweighs the primary action. *(VH)* Cut the decoration's weight; the action wins.
-- **The rainbow screen**—color used decoratively everywhere, so it can't signal hierarchy. *(VH)* Reserve one accent for the primary action; mute the rest.
+- **The rainbow screen**—color used decoratively everywhere, so it can't signal hierarchy. *(VH)* Reserve the strongest accent for the dominant task action or use one consistent interaction color across comparable hub/exploration controls; mute the rest.
 - **The flat list pretending to be a hierarchy**—every row identical weight. *(VH)* Differentiate the lead item, or add grouping by space.
 - **The invisible reveal**—content deferred behind nothing the user can perceive. *(PD)* Name the cue, or bring the content back. A gesture-only function is this at its worst.
 - **The false signifier**—an element that looks interactive and isn't: a shadowed card that doesn't open, underlined text that isn't a link, a chevron that leads nowhere. *(VH)* Give it a control's shape or take the shape away; the ambiguous middle costs a tap and some trust.
 - **Nothing reads as actionable**—the primary action carries no control signifier at all, regardless of where it ranks, so the user can see what matters and still not know they may act on it. *(VH)* Give it a traced boundary, a platform-native control convention, or an icon-plus-label tap target.
-- **The modal reflex**—interrupting the screen's purpose with a dialog for something that could be inline. *(VH)* Exhaust inline and progressive alternatives first.
+- **The modal reflex**—interrupting the screen's organizing intent with a dialog for something that could be inline. *(VH)* Exhaust inline and progressive alternatives first.
 - **The icon-only mystery nav**—unlabeled icons forcing recall. *(IA)* Add labels; recognition beats recall.
 
 ---
@@ -115,13 +115,14 @@ Each entry: the tell, the discipline it breaks, the fix. Severity is assigned in
 ## Quick reference card
 
 ```
-PURPOSE    "This screen exists so the user can ___."   (no "and")
-ACTION     one primary action, period
-IA         everything on screen serves that one job · group related · label plainly
+INTENT     "This screen exists so the user can ___."   (no unrelated second outcome)
+ACTION     task: one primary usually · hub: ranked routes · exploration: content leads
+IA         everything supports the organizing intent · group related · label plainly
 DISCLOSE   every element → Now / On-demand / Never · ≤4 at any decision point
            name the signifier for each deferral
-HIERARCHY  1 primary · 2–3 secondary · rest ambient · space → weight → size → color
-NEVER      hide price, required fields, consequences, or the primary action
+HIERARCHY  1 dominant element/region · 2–3 secondary · rest ambient
+           space → weight → size → color
+NEVER      hide price, required fields, consequences, or controls needed now
 ```
 
-*Defaults for a task screen. On a hub the ≤4 binds per row; on an exploration surface, per item.*
+*A task can preserve an inherent binary choice or inseparable dual mode. On a hub the ≤4 binds per row; on an exploration surface, per item.*

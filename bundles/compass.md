@@ -26,7 +26,7 @@ argument-hint: "[build | review] <flow, journey, or description>"
 
 A flow is a sequence of screens with a destination. Good cross-screen UX means the user never has to wonder *Where am I? How far is left? How do I get back, or out?* The moment they can't answer one of those, the flow becomes a maze—and people abandon mazes.
 
-Where [Focal](../focal) sharpens a single screen (one screen, one purpose), Compass guides the **path between screens**. Focal is *within* a screen; Compass is *between* them. Together they cover the whole product: every screen knows its job, and every journey knows its way.
+Where [Focal](../focal) sharpens a single screen (one screen, one clear intent), Compass guides the **path between screens**. Focal is *within* a screen; Compass is *between* them. Together they cover the whole product: every screen has a clear center of gravity, and every journey knows its way.
 
 Three disciplines, treated as top priorities, keep the user oriented:
 
@@ -479,7 +479,7 @@ Every screen in a flow is a tax on the user. Cut the tax to the minimum the task
 **Choosing well:**
 - The best step is the one the user never has to take. Before adding a screen, ask whether its answer can be inferred, defaulted, or deferred.
 - Count honestly. "This is a 7-step flow that needs 3" is a finding; "feels long" is a feeling.
-- Shortening a path is a [Focal](../../focal) handoff at the boundary: Compass merges *screens*, Focal judges whether the merged screen overloads. Don't collapse steps so aggressively that each screen breaks One Screen, One Purpose.
+- Shortening a path is a [Focal](../../focal) handoff at the boundary: Compass merges *screens*, Focal judges whether the merged screen overloads. Don't collapse steps so aggressively that a screen loses its clear organizing intent.
 
 **The honesty caveat—read this.** Shorten the path by removing *waste*, never by removing *protection*. Skipping a confirmation on a destructive or costly action, hiding a required disclosure, auto-opting the user into something, or burying the price to "reduce friction" is a **dark pattern, not economy**. A step that protects the user or earns their trust is not waste—it is load-bearing. If removing a step makes the flow shorter but the user worse off, you have not practiced Path Economy; you have laundered a trap as a convenience.
 
@@ -564,6 +564,7 @@ NEVER        trap a modal · hide progress · shorten by hiding cost or skipping
 *Defaults for a linear flow. On hub-and-spoke, "back to center" is sacred; on open-ended, drop "how-far-left" and guarantee a way home.*
 
 See [../SKILL.md](../SKILL.md) for the disciplines and the Flow Spec, and [review.md](review.md) for the three-discipline audit and scorecard.
+
 ---
 
 # Compass Examples

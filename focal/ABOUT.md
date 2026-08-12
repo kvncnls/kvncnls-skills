@@ -1,16 +1,18 @@
 # New Skill: Focal
 
-**Focal** is a Claude Code skill that helps you design and declutter the screens of an app, dashboard, or tool—so each screen does *one job clearly* instead of turning into a crowded mess.
+**Focal** is a Claude Code skill that helps you design and declutter the screens of an app, dashboard, or tool—so each screen has *one clear organizing intent* instead of turning into a crowded mess.
 
 Think of it as an **editor for screens**. The way a good editor asks "what is this paragraph actually saying?" and cuts the rest, Focal asks "what is this screen actually *for*?"—and tells you what to cut, group, hide, or emphasize.
 
 ### The problem it solves
 
-Developers build fast and tend to disregard information architecture, layouts, visual hierarchy and progressive disclosure. What ends up happening is screens get crowded over time. A dashboard sprouts ten widgets, a settings page tries to do five things at once, a form asks for everything up front. The user glances, feels overwhelmed, and misses the one thing that mattered. Focal is a discipline for preventing and fixing that.
+Developers build fast and tend to disregard information architecture, layouts, visual hierarchy and progressive disclosure. What ends up happening is screens get crowded over time. A dashboard sprouts ten widgets, a settings page tries to do five things at once, a form asks for everything up front. The user glances, feels overwhelmed, and cannot tell what kind of place this is or what matters now. Focal is a discipline for preventing and fixing that.
 
-### The core idea: One Screen, One (Primary) Purpose
+### The core idea: One Screen, One Clear Intent
 
-Every screen should exist so the user can do **one main thing**. The test: finish the sentence *"This screen exists so the user can \_\_\_."* If you need the word "and," the screen is doing too much.
+Every screen should make one **organizing intent** legible. The test: finish the sentence *"This screen exists so the user can \_\_\_."* If "and" joins two outcomes that can succeed independently, the screen is doing too much.
+
+This is not a universal one-action rule. A task screen usually has one primary action, but a binary choice can have two co-equal options, a hub can offer many ranked destinations, and an exploration surface can foreground many items. What stays singular is the reason those actions or items belong together.
 
 ### How it gets there—three disciplines
 
@@ -20,14 +22,14 @@ Every screen should exist so the user can do **one main thing**. The test: finis
 
 ### Two ways to use it
 
-- **Build**—describe a screen you want to design, and it hands back a clean spec: the purpose, what's on the screen, what's hidden, what's most prominent, and a checklist.
+- **Build**—describe a screen you want to design, and it hands back a clean spec: the organizing intent, action model, what's on the screen, what's hidden, what's most prominent, and a checklist.
 - **Review**—paste a screenshot or point it at a screen, and it scores the screen 0–4 on each discipline, lists the problems worst-first, and gives you the **top 3 fixes**.
 
 ### It's smart about screen types
 
 Not every screen is a single-task screen, so it adapts:
 
-- a **task** screen (one job, like checkout),
+- a **task** screen (one coherent job, usually one primary action, like checkout),
 - a **hub** (like a home screen—its job is to *route* you, so many links is fine),
 - an **exploration** screen (like a feed—abundance is the point).
 

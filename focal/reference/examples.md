@@ -28,8 +28,8 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 | **Total** | **3/12 · 1.0/4** | **Broken** |
 
 ## Issues (most severe first)
-- **[P0 · Hierarchy]** **At:** Contact detail action bar · state: full/default · lifecycle: returning rep reviewing an existing contact. Three filled primaries, one destructive—Save, Convert to Deal, and Delete are styled identically. Three primaries means no primary: nothing says where to start, and an irreversible action wears the exact affordance of the safest one, sitting adjacent to it. This is the one issue on the screen that can destroy a customer record on a mis-click. **Fix:** with autosave, Save disappears. Keep "Convert to Deal" as the single filled primary; "Log a call" and "Send email" become secondary; Delete moves into an overflow "⋯" menu behind a typed confirmation.
-- **[P1 · IA]** **At:** Contact detail body · state: full/default · lifecycle: returning rep scanning during or between calls. Four jobs, one screen—the one-sentence test returns "This screen exists so the user can view a contact *and* edit six fields *and* log a call *and* send an email *and* manage deals, notes, and files." Two of those are full composers sitting open on a record surface, and the six fields render as live inputs with a global Save, which means the screen is permanently in edit mode. A rep who opened it to read a phone number is forced to re-sort several intents by eye. **Fix:** make Contact detail a hub whose single purpose is *route to the right next action*. Fields become read-only text with per-field inline edit and autosave (no global Save); "Log a call" and "Send email" become their own focused task screens launched from the header.
+- **[P0 · Hierarchy]** **At:** Contact detail action bar · state: full/default · lifecycle: returning rep reviewing an existing contact. Three filled primaries, one destructive—Save, Convert to Deal, and Delete are styled identically. On this task-overloaded action bar, three competing primaries means no primary: nothing says where to start, and an irreversible action wears the exact affordance of the safest one, sitting adjacent to it. This is the one issue on the screen that can destroy a customer record on a mis-click. **Fix:** with autosave, Save disappears. Keep "Convert to Deal" as the single filled primary; "Log a call" and "Send email" become secondary; Delete moves into an overflow "⋯" menu behind a typed confirmation.
+- **[P1 · IA]** **At:** Contact detail body · state: full/default · lifecycle: returning rep scanning during or between calls. Four jobs, one screen—the one-sentence test returns "This screen exists so the user can view a contact *and* edit six fields *and* log a call *and* send an email *and* manage deals, notes, and files." Each outcome can succeed independently, so the sentence exposes competing intents rather than one coherent task. Two of those are full composers sitting open on a record surface, and the six fields render as live inputs with a global Save, which means the screen is permanently in edit mode. A rep who opened it to read a phone number is forced to re-sort several intents by eye. **Fix:** make Contact detail a hub whose organizing intent is *route to the right next action*. Fields become read-only text with per-field inline edit and autosave (no global Save); "Log a call" and "Send email" become their own focused task screens launched from the header.
 - **[P1 · IA]** **At:** Activity/Deals/Notes/Files regions · state: full/default · lifecycle: recurring account review. The panels mirror the data model—Deals, Notes, Files, and Activity are four peer panels, one per related table, ranked equally because the schema ranks them equally. A rep's actual intent is overwhelmingly "what happened last, and what's the open deal"; Notes and Files are archive lookups. Organizing by table forces the user to re-sort the screen by eye on every visit. **Fix:** reorder by intent—Activity dominant, Deals second in the same column, Notes and Files collapsed into one "Attachments & notes" section.
 - **[P1 · Disclosure]** **At:** Contact detail landing viewport · state: full/default · lifecycle: every return to an existing contact. Nothing is deferred—ten top-level regions compete at landing, and scored by task rules that is straightforward overload: three *task* surfaces sit resident on the same screen and no element anywhere sits behind a reveal. Every element is "Now" because nobody ran the triage. **Fix:** Now—identity, read-only fields, recent activity, Deals. On-demand—composers behind their header buttons, Notes, Files. Cut—the similar-contacts rail.
 - **[P1 · Disclosure]** **At:** Activity timeline · state: worst-case full · lifecycle: recurring review of a long-lived contact. The timeline has no ceiling—40+ entries render in full, undifferentiated, with no type filter and no collapse. At the worst realistic case (a two-year customer, 400 entries) this panel is the entire screen and Deals is off-screen. **Fix:** show the 5 most recent grouped by day, with a type filter and "Show 37 more"—the count, so the deferral reads as depth rather than absence.
@@ -38,7 +38,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 - **[P2 · Disclosure]** **At:** Deals/Notes/Files regions · state: empty · lifecycle: first visit after contact creation. Empty panels hold full weight—Deals, Notes, and Files each render a full-weight header whether they hold three items or zero, so a brand-new contact shows three headers announcing nothing. **Fix:** collapse empty sections to one quiet line with the add action ("No notes yet · Add note").
 
 ## Top 3 moves
-1. Split the screen: Contact detail becomes a record hub; "Log a call" and "Send email" become their own single-purpose task screens; the six fields become read-only text with per-field inline edit and autosave, retiring the global Save.
+1. Split the screen: Contact detail becomes a record hub; "Log a call" and "Send email" become focused task screens with clear completion intents; the six fields become read-only text with per-field inline edit and autosave, retiring the global Save.
 2. Rebuild the action bar to one primary: "Convert to Deal" filled, "Log a call" / "Send email" secondary, Delete in an overflow menu behind typed confirmation.
 3. Rank what remains with space and weight: Activity dominant and capped at 5 with a filter and a "Show N more" count, Deals second, Notes and Files collapsed, similar-contacts rail cut.
 
@@ -57,7 +57,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 **Focal's output:**
 
 ```
-**Screen:** Log a call—exists so the user can record what happened on a call they just made. Primary action: Log call.
+**Screen:** Log a call—organized around recording what happened on a call the user just made. **Action model:** one primary: Log call.
 **Register:** task   ·   **Audience:** mixed
 
 ## Information
@@ -95,16 +95,16 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 - Full (worst case): 900-character notes scroll inside the field without pushing "Log call" off-screen; a 40-character company name truncates in the strip rather than wrapping to three lines.
 
 ## Gates
-- [x] One-sentence purpose, no "and"
-- [x] Exactly one primary action
+- [x] One-sentence organizing intent; no unrelated second outcome
+- [x] Action model matches the register; any co-equal actions are inherent to the same intent
 - [x] Grouped + labeled; no orphans; no memory bridge
 - [x] ≤4 chunks at any decision point; nothing essential deferred
-- [x] One element is materially heaviest and it is the primary; where the primary is an action, the spec names what makes it read as actionable
+- [x] One element or region is materially heaviest and expresses the action model; any primary action reads as actionable
 - [x] All four states above designed
 ```
 
 ---
 
-**Why these two:** the review never just lists problems—it ties every issue to a discipline, ends on three ranked moves, and sorts the work structural-before-executional. The build never returns prose—it returns the same Screen Spec every time. And the second resolves the first: "split the composers onto their own task screens" becomes an actual single-purpose screen whose one job you can say in a sentence. That is the method in motion, in both directions.
+**Why these two:** the review never just lists problems—it ties every issue to a discipline, ends on three ranked moves, and sorts the work structural-before-executional. The build never returns prose—it returns the same Screen Spec every time. And the second resolves the first: "split the composers onto their own task screens" becomes a screen with one coherent completion intent and an action model that fits. That is the method in motion, in both directions.
 
 Note the disclosure discipline doing the real work in the build: seven things were cut or deferred, and the busiest decision point holds four chunks. Note also what was *not* deferred—nothing the rep needs in order to log the call sits behind a reveal. Deferral is not burial.
