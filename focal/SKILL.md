@@ -1,16 +1,18 @@
 ---
 name: focal
-description: Use when reviewing, designing, or decluttering the UX of any functional product, app, dashboard, or tool screen—any platform, any user (novice or expert). Focal is the structure-and-attention lens—it decides what belongs on a screen, what to cut, and how to rank it, across three disciplines—Information Architecture (what belongs, how it's grouped), Progressive Disclosure (limit what competes at a decision point; reveal complexity only when needed), and Visual Hierarchy (weight matches importance)—culminating in one methodology, One Screen, One (Primary) Purpose. Adapts to the screen's register (task, hub, exploration) and the user's expertise. Triggers on cluttered, overwhelming, "too much on screen", "simplify this screen", "what's the primary action", one screen one purpose, IA, dashboard, admin, onboarding, settings. Not for multi-screen flows or navigation (use Compass), visual styling (color, type, spacing), motion, research, code, marketing/landing pages, backend, or non-UI work.
+description: Use when designing, reviewing, or decluttering a functional product, app, dashboard, or tool screen on any platform for novice or expert users. Focal is the screen-local structure-and-attention lens—it decides what belongs, what waits, and what wins attention through Information Architecture, Progressive Disclosure, and Visual Hierarchy. Its methodology is One Screen, One Clear Intent—not one action per screen. It classifies the register (task, hub, exploration), chooses the matching action model, accommodates inherent binary-choice or dual-mode sets, and adjusts density for expertise. Triggers on clutter, "too much on screen", "simplify this screen", "what's the primary action", one screen one purpose, one clear intent, IA, dashboard, admin, onboarding, or settings. Not for multi-screen flows or navigation (use Compass), visual styling, motion, research, code, marketing/landing pages, backend, or non-UI work.
 argument-hint: "[build | review] <screen, file, or description>"
 ---
 
 # Focal
 
-**One screen, one (primary) purpose.**
+**One screen, one clear intent.**
 
 Good UX guides attention. People don't read a screen, they orient on it—scanning for where they are, what matters, and what to do next. Every screen, the moment it appears, has to answer three questions: *Where am I? What matters here? What do I do?* The faster and more certainly it answers, the better it works—whether it's a phone app glanced at one-handed or a dashboard an expert lives in all day. Only the pace and the density change.
 
-Focal's answer is a single methodology: **every screen serves one primary purpose.** A screen with one job is glanceable; a screen with three is a puzzle. Simple, clean UX is not a style—it is the visible result of every screen knowing its one job.
+Focal's answer is a single methodology: **every screen needs one clear organizing intent.** That does not mean one action, one content block, or one possible user goal. A task screen usually has one primary action; a hub can offer many destinations; an exploration surface can foreground many items. What stays singular is the screen's center of gravity—the reason its content and actions belong together.
+
+Simple, clean UX is not a style. It is the visible result of a screen making that organizing intent legible instead of forcing the user to sort competing intents by eye.
 
 Three disciplines, treated as top priorities, are how you earn that outcome:
 
@@ -20,7 +22,7 @@ Three disciplines, treated as top priorities, are how you earn that outcome:
 
 ```
                  ┌────────────────────────────────────────────┐
-   the outcome   │      ONE SCREEN, ONE (PRIMARY) PURPOSE       │
+   the outcome   │         ONE SCREEN, ONE CLEAR INTENT         │
                  └────────────────────────────────────────────┘
                         ▲              ▲               ▲
    the means     Information      Progressive       Visual
@@ -28,7 +30,7 @@ Three disciplines, treated as top priorities, are how you earn that outcome:
                  what belongs     what shows now     what wins
 ```
 
-Get all three right and the screen settles onto its single purpose on its own. Miss any one and the purpose blurs. **Progressive Disclosure is the load-bearing discipline**—a screen with the right structure and clear hierarchy decays the instant you let complexity pile on, so weight it the most.
+Get all three right and the screen settles around one clear intent on its own. Miss any one and that intent blurs. **Progressive Disclosure is the load-bearing discipline**—a screen with the right structure and clear hierarchy decays the instant you let complexity pile on, so weight it the most.
 
 ---
 
@@ -37,22 +39,22 @@ Get all three right and the screen settles onto its single purpose on its own. M
 Focal is for **functional interfaces**—the screens of an app, product, or tool, on any platform (mobile, web, desktop, tablet), for any user (first-timer or expert). Onboarding, feeds, home screens, settings, dashboards, admin panels, checkout, editors, consoles. If a person is on the screen trying to *do* something, Focal applies.
 
 It is **not** for:
-- Marketing pages, landing pages, campaigns—design there is persuasion and narrative, not task completion, so "one screen, one purpose" and the working-memory limit bend too far to guide you.
+- Marketing pages, landing pages, campaigns—design there is persuasion and narrative, not task completion, so the clear-intent test and working-memory limit bend too far to guide you.
 - Backend, infra, or non-UI work.
 
 Dense, expert tools (dashboards, IDEs, trading terminals) **are** in scope—high density is right when the audience can read it. The methodology bends for them, never breaks, through two modifiers covered below: the screen's **register** and the user's **expertise** (experts read dense displays as a few familiar chunks; first-timers can't).
 
-**Scope.** Focal is a *lens* for structure and attention—*what belongs on a screen and how it's ranked*—not a full visual-design system. It tells you the screen's purpose, its single primary action, its information structure, and its hierarchy. The execution of color, typography, spacing, and motion is left to your own design system and tooling. Get the methodology right first: visual polish lands far better on a screen that already knows its one job.
+**Scope.** Focal is a *lens* for structure and attention—*what belongs on a screen and how it's ranked*—not a full visual-design system. It tells you the screen's organizing intent, the action model appropriate to its register, its information structure, and its hierarchy. The execution of color, typography, spacing, and motion is left to your own design system and tooling. Get the methodology right first: visual polish lands far better on a screen whose center of gravity is already clear.
 
 ---
 
-## The methodology—One Screen, One (Primary) Purpose
+## The methodology—One Screen, One Clear Intent
 
-The north star. Every screen earns its place by serving exactly one primary purpose.
+The north star. Every screen earns its place by making one organizing intent legible. An **organizing intent** is the reason this screen exists in the product—not a demand that only one action, destination, or item can appear.
 
-- **The one-sentence test.** Finish this sentence: *"This screen exists so the user can ______."* If you need the word "and," you have two screens. Split them, or demote one job to a secondary path and route it elsewhere.
-- **The single primary action.** Exactly one action gets primary visual treatment per screen. Two primary buttons is usually two purposes wearing one screen. Everything else is secondary (visible, quieter) or tertiary (a link, a menu item, deferred). *Genuine exceptions:* binary-choice screens (Accept / Decline) and dual-mode screens (a map's browse + search) carry two co-equal actions by nature—don't force a demotion the domain refuses. And on hub and exploration screens, "primary action" reads differently; see **Registers**, below.
-- **Why this is the whole game.** A person holds one intent at a time. A screen that matches that intent feels effortless; a screen that hedges across three feels like work. The three disciplines below are simply the three ways a screen loses its single purpose—and the three ways to defend it.
+- **The one-sentence test.** Finish this sentence: *"This screen exists so the user can ______."* If "and" joins two outcomes that can succeed independently, the screen has competing intents. Split them, or demote one to a secondary path. Do not fail a coherent task merely because its natural name contains "and"—*review and approve this invoice* is one intent when review is necessary to approval.
+- **The register-aware action model.** Do not force one CTA onto every screen. A task screen usually gives one action primary weight. A hub ranks several destinations. An exploration surface lets a coherent field of content lead. Binary-choice screens (Accept / Decline) and genuine dual-mode screens (a map's browse + search) may carry an inherent co-equal set. Multiple primary-weight actions are a failure only when they compete for different outcomes or leave the screen without a clear center of gravity.
+- **Why this is the whole game.** People need to understand what kind of place they are in before they can use it. A screen with one legible organizing intent feels coherent; a screen hedging across three independent outcomes feels like work. The three disciplines below are the three ways that intent becomes clear—or gets lost.
 
 ---
 
@@ -64,18 +66,18 @@ These describe the **task screen**—the default screen type, where the user is 
 
 A screen is a unit of intent. IA decides which content and actions belong on it, how they're grouped and labeled, and where the screen sits in the larger flow. Get this wrong and no amount of hierarchy or polish can rescue the screen—it is organizing the wrong things.
 
-- **One job per screen.** If content serves a different intent, it belongs on a different screen. Split by *intent*, not by content type or by your data model.
+- **One organizing intent per screen.** Supporting actions can coexist when they advance the same intent. If an action or content region serves an independently completable outcome, move it, defer it, or make the screen's routing role explicit. Split by *intent*, not by content type or by your data model.
 - **Group by relatedness.** Things used together live together. Proximity is the cheapest, strongest signal that two elements belong to the same idea.
 - **Label in the user's words.** Navigation, sections, and actions named in plain language the user already owns—never system or domain jargon. Recognition beats recall.
 - **Co-locate a decision and its inputs.** Everything needed to make a choice is present where the choice is made. Never force the user to remember a fact from a previous screen (the "memory bridge").
-- **Merge needless round-trips; split overloaded screens.** Two screens that each do half a job should be one. One screen doing three jobs should be three.
+- **Merge needless round-trips; split overloaded screens.** Two screens that each do half of one intent should be one. One screen carrying three independent intents should be split or reframed as an explicit hub.
 - **Orientation.** The user always knows where they are and how to get back. Findability is structure, not decoration.
 
 > **Fails:** the kitchen-sink screen (three jobs at once); structure that mirrors the database instead of the user's intent; orphan content with no clear home; jargon labels; the memory bridge across screens.
 
 ### 2. Progressive Disclosure—show now, defer the rest *(load-bearing)*
 
-Reveal complexity only when the user needs it. Working memory is the hard constraint, not screen real estate. This is the discipline that *keeps* a screen on its single purpose over time.
+Reveal complexity only when the user needs it. Working memory is the hard constraint, not screen real estate. This is the discipline that *keeps* a screen's organizing intent legible over time.
 
 - **The working-memory rule.** Humans hold about **4 items** in working memory at once (Miller's Law, revised by Cowan). At any single decision point, count the distinct options, fields, or facts the user must hold simultaneously:
   - **≤4**—within budget.
@@ -94,24 +96,24 @@ Reveal complexity only when the user needs it. Working memory is the hard constr
 
 ### 3. Visual Hierarchy—what wins attention
 
-Once the right things are on the screen and the rest deferred, rank what remains. Importance is communicated by visual weight: the heaviest element is the most important one—always, with no exceptions you didn't make on purpose.
+Once the right things are on the screen and the rest deferred, rank what remains. Importance is communicated by visual weight: the heaviest element or region is the most important one—always, with no exceptions you did not choose deliberately for the register.
 
 - **The squint test.** Blur your eyes (or the screenshot). Can you still tell what's #1, what's #2, and how things group? If everything has the same weight, you have a list, not a hierarchy.
 - **The 3-second test.** A first-time user should be able to name the most important thing on screen within ~3 seconds.
-- **Weight must match importance.** The most common hierarchy bug: decoration (a hero image, an illustration, a giant logo) outweighs the primary action. Visual weight is a budget—spend it on what the user came to do.
-- **The focusing mechanism.** One element must be the visual entry point that says *start here*. If the eye bounces between equally-weighted regions, the single purpose isn't being expressed.
+- **Weight must match importance.** The most common hierarchy bug: decoration (a hero image, an illustration, a giant logo) outweighs the action model's dominant element or region. Visual weight is a budget—spend it on what the user came to do.
+- **The focusing mechanism.** One element or region must be the visual entry point that says *start here*. On a task screen that is usually the primary action or the content needed before it; on a hub it can be the leading destination or group; in exploration it is the content field itself. If the eye bounces between unrelated, equally weighted regions, the organizing intent is not being expressed.
 - **Weight ranks; it does not permit.** Hierarchy answers *what should I do*; it does not answer *what can I do*. A heading can be the heaviest thing on screen and still be inert. So where the primary is an action, it has to carry a signifier that reads as actionable inside the same ~3 seconds: a traced boundary (fill, border, or elevation), a platform-native control convention (an iOS bar button), or an icon plus label inside a tap target. Bare text at any weight, with no convention behind it, ranks without permitting—say which of these the primary is using. A screen can pass the squint test and still leave the user unsure they are allowed to touch anything.
 - **No false signifiers.** A shadowed card that doesn't open, underlined text that isn't a link, a chevron that leads nowhere—these spend attention the screen budgeted for real actions, because the eye reads them exactly like real controls. They also cost trust the first time someone taps one and nothing happens. Count them as clutter, not decoration.
 - **The hierarchy ladder.** Use the *fewest* dimensions that achieve clear ranking, in this order: **space → weight → size → color.** Reach for color last; it is the loudest and easiest to overuse.
-- **The shape of a good screen:** one primary element, two to three secondary, everything else ambient. When every element is loud, none is.
+- **The shape of a good screen:** one dominant element or region, two to three secondary tiers, everything else ambient. The dominant thing must match the register's action model. When every element is loud, none is.
 
-> **Fails:** hierarchy carried by color alone; the "visual noise floor" where everything has equal weight; decoration outweighing function; six type sizes that read as one; a primary action that ranks first but doesn't read as actionable; inert elements dressed as controls.
+> **Fails:** hierarchy carried by color alone; the "visual noise floor" where everything has equal weight; decoration outweighing function; six type sizes that read as one; a dominant action that ranks first but doesn't read as actionable; inert elements dressed as controls.
 
 ---
 
 ## Registers—when the rules shift
 
-The disciplines above assume the **task screen**: the default, and the most common. Two other screen types are legitimate, and applying task rules to them is a mistake—it flattens screens that are *supposed* to hold many things. Identify the register first; it changes what "one purpose" means and how the disciplines bind.
+The disciplines above assume the **task screen**: the default, and the most common. Two other screen types are legitimate, and applying task rules to them is a mistake—it flattens screens that are *supposed* to hold many things. Identify the register first; it changes how the clear intent is expressed, which action model fits, and where the disciplines bind.
 
 **Classify with this tree.** Walk it top to bottom and take the first match. Answer about what the user came to *do*, not about how the screen currently looks—a cluttered screen is not automatically a hub.
 
@@ -132,22 +134,22 @@ Two ties worth naming, because they recur:
 - **A record or detail screen** (a contact, an issue, an order) is a **hub** when its job is to show state and route you onward, and a **task** screen when it exists to be edited. If it tries to be both at once, that is the overloaded case—the tree's last branch.
 - **Search results** are **exploration** when the user is scanning to discover, and a **task** screen when they are finding one known item to act on.
 
-- **Task**—the user is completing a single job. *Default; everything above applies as written.* One purpose, one primary action, ≤4 at a decision point. (Checkout, compose, a signup step, a settings detail, any form.)
-- **Hub**—the user is choosing where to go. The single purpose *is routing*; many destinations is correct, not clutter. (Home screen, profile, settings index, account screen, app root.)
+- **Task**—the user is completing a specific job. *Default; everything above applies as written.* One completion intent, usually one primary action, ≤4 chunks at a decision point. An inherent binary choice or inseparable dual mode can be co-equal without creating a second intent. (Checkout, compose, a signup step, a settings detail, any form.)
+- **Hub**—the user is choosing where to go. The organizing intent *is routing*; many destinations is correct, not clutter. (Home screen, profile, settings index, account screen, app root.)
 - **Exploration**—the user is browsing for its own sake. Abundance is the point; the goal is dwell and discovery, not a fast exit. (Feeds, discover/browse tabs, search results, a photo or product grid.)
 
-The methodology still holds—*one screen, one purpose*—but "purpose" reads differently per register, and the working-memory limit **relocates** rather than disappears:
+The methodology still holds—*one screen, one clear intent*—but its expression changes by register, and the working-memory limit **relocates** rather than disappears:
 
 | | Task | Hub | Exploration |
 |---|---|---|---|
-| **The one purpose** | complete one job | route to the one thing | browse one kind of content |
-| **Primary action** | one action wins | the most-likely destination wins | the content is the hero; "keep looking" is the action |
+| **Organizing intent** | complete one coherent job | route among related destinations | browse one coherent content space |
+| **Action model** | one primary action usually wins; name any inherent co-equal set | rank destinations; let the likely next route lead | content leads; controls support continued discovery |
 | **Where ≤4 binds** | the whole decision point | per group / per row (not the total destination count) | per item (each card holds ≤4 facts), not the item count |
-| **Hierarchy** | one primary, 2–3 secondary | rank destinations by likelihood | one content type dominates; chrome recedes |
+| **Hierarchy** | one dominant action or read-first region | one destination or group leads; routes remain comparable | one content type dominates; chrome recedes |
 
 Note that ≤4 never vanishes—it moves. A settings index with 9 rows is fine (hub); a settings *row* cramming 9 facts is not. A feed with 200 posts is fine (exploration); a feed *card* with 9 competing elements is not.
 
-The trap runs both ways: flattening a hub or feed down to a single action (now it does its job badly), **or** letting a task screen sprawl into a hub because you skipped the one-sentence test. When you can't tell which register you're in, you're usually looking at a task screen wearing too many hats—split it.
+The trap runs both ways: flattening a hub or feed down to a single action (now it does its job badly), **or** letting a task screen sprawl into an accidental hub because you skipped the one-sentence test. When you can't tell which register you're in, you're usually looking at a task screen wearing too many hats—split it or deliberately reframe it as routing.
 
 ---
 
@@ -155,12 +157,12 @@ The trap runs both ways: flattening a hub or feed down to a single action (now i
 
 Apply them in this order. Skipping ahead produces a pretty screen that does the wrong thing.
 
-1. **Define the purpose** (methodology). One sentence, one primary action.
+1. **Define the intent and action model** (methodology). One sentence; then choose the model that fits the register.
 2. **Architect the information** (IA). Decide what belongs and how it's organized.
 3. **Disclose progressively** (PD). Of what belongs, decide what shows now and what waits.
 4. **Establish hierarchy** (VH). Rank only what survived onto the screen.
 
-You cannot rank elements before you know which show (3 before 4), cannot decide what shows before you know what belongs (2 before 3), and cannot decide what belongs before you know the screen's job (1 before 2). Hierarchy applied to a kitchen-sink screen just makes the clutter well-organized.
+You cannot rank elements before you know which show (3 before 4), cannot decide what shows before you know what belongs (2 before 3), and cannot decide what belongs before you know the screen's organizing intent (1 before 2). Hierarchy applied to a kitchen-sink screen just makes the clutter well-organized.
 
 This order holds for every register; only the *targets* shift—in a hub, step 4 ranks destinations; in exploration, it ranks content types over chrome.
 
@@ -168,10 +170,10 @@ This order holds for every register; only the *targets* shift—in a hub, step 4
 
 ## Flows—hand off to Compass
 
-Focal is screen-local on purpose. A flow is a *sequence* of single-purpose screens, so apply Focal to each screen in one—but the path *between* them belongs to **Compass**, the sibling skill for cross-screen flows. Focal is *within* a screen; Compass is *between* them.
+Focal is screen-local on purpose. A flow is a *sequence* of screens with clear organizing intents, so apply Focal to each screen in one—but the path *between* them belongs to **Compass**, the sibling skill for cross-screen flows. Focal is *within* a screen; Compass is *between* them.
 
 Route it:
-- **Focal's**—a screen that does too much, buries what matters, has no clear primary action, or ranks the wrong thing loudest.
+- **Focal's**—a screen that does too much, buries what matters, uses the wrong action model, or ranks the wrong thing loudest.
 - **Compass's**—too many steps, a dead end, a trapped modal, a Back that wipes work, a deep link that dumps the user at step one, or a user who can't tell where they are in the journey.
 
 Neither is a whole-app IA or sitemap tool. If the question is "how should the entire product be organized," that is a larger exercise—return to Focal screen by screen, and Compass flow by flow, once that map exists.
@@ -183,7 +185,7 @@ Neither is a whole-app IA or sitemap tool. If the question is "how should the en
 - **No argument** → explain the methodology and three disciplines briefly, then ask: building a new screen, or reviewing an existing one?
 - **`build` (or a description of a screen to design)** → follow **The five moves** below. Pull techniques from [reference/patterns.md](reference/patterns.md).
 - **A multi-screen flow, journey, or navigation question** → that is Compass's, not Focal's. Say so and hand off (see **Flows**, above).
-- **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, anchors every issue to the exact screen region, app state, and lifecycle moment, and closes on a One-Purpose verdict. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
+- **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, anchors every issue to the exact screen region, app state, and lifecycle moment, and closes on a Clear-Intent verdict. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
 - **A question about a specific technique or anti-pattern** → consult [reference/patterns.md](reference/patterns.md).
 
 Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
@@ -194,10 +196,10 @@ Before emitting either output, read [reference/examples.md](reference/examples.m
 
 For each screen, in order. Write the answers down—they are the spec.
 
-1. **Name the purpose.** One sentence: *"This screen exists so the user can ___."* No "and." Name the single primary action.
+1. **Name the intent and action model.** One sentence: *"This screen exists so the user can ___."* Reject an "and" only when it joins independently completable outcomes. Classify the register, then name one primary action, an inherent co-equal set, ranked routes, or the content field that leads.
 2. **Architect the information.** List what belongs on the screen. Group related items; label them in the user's words; co-locate each decision with its inputs. Anything serving a different intent moves to another screen.
 3. **Triage disclosure.** Sort every element into Now / On-demand / Never. Cut the Nevers. Defer the On-demands behind a reveal. Keep the Nows.
-4. **Rank what stays.** Assign each surviving element a tier: primary (one), secondary (2–3), ambient (the rest). Spend visual weight accordingly, climbing the hierarchy ladder only as far as needed.
+4. **Rank what stays.** Assign each surviving element or region a tier: dominant (one), secondary (2–3), ambient (the rest). Make the dominant tier express the register's action model, climbing the hierarchy ladder only as far as needed.
 5. **Run the gates.** Self-check against the six gates in the **`## Gates`** block of the Screen Spec template below. That block is the single canonical list—read them there, and emit them there. Never restate them in your own words.
 
 A screen that passes all six is structurally sound by Focal's standard. Apply visual styling and motion on top of that foundation—it lands far better on a screen that already earns its hierarchy.
@@ -205,7 +207,7 @@ A screen that passes all six is structurally sound by Focal's standard. Apply vi
 **Output—the Screen Spec (use this exact structure).** Every build returns this template verbatim, in this order. Fill the `<…>` slots; keep every fixed label and every gate, even when the answer is one line.
 
 ```
-**Screen:** <name>—exists so the user can <one purpose, no "and">. Primary action: <the one action>.
+**Screen:** <name>—organized around <one clear intent; no unrelated second outcome>. **Action model:** <one primary | inherent co-equal set | ranked routes | content-led>: <name the action, set, routes, or content field>.
 **Register:** task | hub | exploration | task-overloaded   ·   **Audience:** novice | mixed | expert
 
 ## Information
@@ -218,7 +220,7 @@ A screen that passes all six is structurally sound by Focal's standard. Apply vi
 - Cut: <removed; nobody needed it>
 
 ## Hierarchy
-- Primary: <the one element that is the visual entry point—usually the primary action, but on a read-first screen it can be the content; when it is an action, name what makes it read as actionable>
+- Primary: <the one element or region that is the visual entry point—the task action, read-first content, leading hub route/group, or exploration content field; when it is an action, name what makes it read as actionable>
 - Secondary: <2–3>
 - Ambient: <the muted rest>
 
@@ -229,11 +231,11 @@ A screen that passes all six is structurally sound by Focal's standard. Apply vi
 - Full (worst case): <how it holds at max realistic data—longest label, most rows>
 
 ## Gates
-- [ ] One-sentence purpose, no "and"
-- [ ] Exactly one primary action
+- [ ] One-sentence organizing intent; no unrelated second outcome
+- [ ] Action model matches the register; any co-equal actions are inherent to the same intent
 - [ ] Grouped + labeled; no orphans; no memory bridge
 - [ ] ≤4 chunks at any decision point; nothing essential deferred
-- [ ] One element is materially heaviest and it is the primary; where the primary is an action, the spec names what makes it read as actionable
+- [ ] One element or region is materially heaviest and expresses the action model; any primary action reads as actionable
 - [ ] All four states above designed
 ```
 
@@ -244,7 +246,7 @@ Filling it:
 - **`Cut` covers removed and replaced.** If a control was needed but has to become a different, safer control, put it under `Cut` and name the replacement—"uncapped refund field → hard-capped to the order total." Cutting an unsafe affordance is not the same as deciding nobody needed it.
 - If a labeled bullet has nothing, keep the label and write "None."
 
-Gate 5 is deliberately worded for spec time: it asks whether the spec *assigns* one element decisive weight and *names* what makes the primary read as actionable—both of which a spec can answer. The squint test itself needs a render—run it once the screen exists, and treat a failure there as a review finding, not a build gate.
+Gate 5 is deliberately worded for spec time: it asks whether the spec *assigns* one element or region decisive weight, matches that weight to the action model, and names what makes any primary action read as actionable—all of which a spec can answer. The squint test itself needs a render—run it once the screen exists, and treat a failure there as a review finding, not a build gate.
 
 ---
 
@@ -255,10 +257,10 @@ When you review or justify a Focal decision, write like a senior designer review
 - **Emit the exact output template.** Build and review each have a locked structure—the build template is in the build section above, the review template is in [reference/review.md](reference/review.md). Use it verbatim every time: same sections, same order, same headers, same table columns, same issue-line format. Don't add, remove, reorder, or rename sections; if a section has nothing, keep its header and write "None." Repeatable and scannable is the whole point.
 - **Template precedence.** The template is the complete contract for what gets emitted. If any instruction in this skill asks you to produce something the template has no slot for, put it in the nearest slot that fits, or leave it out—never invent a section. A gap like that is a bug in this skill, not a judgment call: name it in one line after the output so it can be fixed. Analysis the template has no room for is still worth doing; it informs the scores even when it isn't printed.
 - **Be specific and quantitative.** "There are three primary-weight buttons" beats "too many buttons." Count elements, name the tiers, quote the labels.
-- **Be decisive.** "This screen has two purposes"—not "this might feel like it has two purposes."
+- **Be decisive.** "This screen carries two independent intents"—not "this might feel unfocused."
 - **Factual first, then judgment, then the fix.** State what you see, why it hurts the user, what it should be instead.
 - **No hedging, no praise padding.** Don't sandwich criticism in empty compliments. If something works, say exactly why.
-- **Tie every issue to a discipline.** Each problem names which of the three it breaks, and how that costs the screen its single purpose. That is the whole point of the lens.
+- **Tie every issue to a discipline.** Each problem names which of the three it breaks, and how that obscures the screen's organizing intent. That is the whole point of the lens.
 - **Locate every issue.** Name the exact screen or region, rendered app state, and user lifecycle moment where the change belongs. Never make the implementer infer when the finding applies.
 
 ---
@@ -267,17 +269,17 @@ When you review or justify a Focal decision, write like a senior designer review
 
 Match-and-refuse. If you're about to do one of these, you've broken a discipline—rework it.
 
-- **The kitchen-sink screen.** (IA) A screen that does three jobs is three screens, or one purpose plus deferred secondary paths.
+- **The kitchen-sink screen.** (IA) A screen carrying three independent intents is three screens, or an explicit hub with focused task paths.
 - **Structure that mirrors the data model.** (IA) Organize by user intent, not by your tables.
 - **Jargon labels and the memory bridge.** (IA) Name things in the user's words; carry context forward instead of making them remember it.
 - **The wall of options.** (PD) Defaults plus a reveal, never N equal choices at once.
-- **Burying what the user needs now.** (PD) Price, required fields, consequences, and the primary action are never hidden behind disclosure.
-- **Two primary actions on a task screen.** (Methodology / VH) Demote one—unless it's a genuine binary-choice or dual-mode screen, or a hub/exploration surface (see Registers).
+- **Burying what the user needs now.** (PD) Price, required fields, consequences, and controls required by the action model are never hidden behind disclosure.
+- **Competing primary actions on a task screen.** (Methodology / VH) Demote one when they pursue independent outcomes. Preserve an inherent binary-choice or dual-mode set, and never apply this task rule to a hub or exploration surface (see Registers).
 - **A reveal with no cue.** (PD) If nothing on screen says something is there, it isn't deferred—it's cut by accident. Gesture-only functions are the worst case.
 - **False signifiers.** (VH) Inert things dressed as controls. A shadowed card that doesn't open, underlined text that isn't a link. They spend the attention budget and cost trust on the first tap.
 - **Hierarchy by color alone.** (VH) Climb the ladder: space and weight first.
-- **Decoration outweighing the primary action.** (VH) The hero image must not beat the button.
-- **Modal as first thought.** (VH) A modal interrupts the screen's one purpose. Exhaust inline and progressive alternatives first.
+- **Decoration outweighing the action model.** (VH) The hero image must not beat the task action, leading hub route, or exploration content field.
+- **Modal as first thought.** (VH) A modal interrupts the screen's organizing intent. Exhaust inline and progressive alternatives first.
 
 ---
 

@@ -9,7 +9,7 @@ Evaluate a screen against the three disciplines and the overarching methodology,
 - **Live URL**—if browser automation is available, open the page; otherwise fetch markup. If the request names several screens, return one complete scorecard per screen, and say plainly that the path between them is Compass's.
 - **A description**—walk the stated screen and its states, label findings as walked from a description, and name the fastest interaction or artifact check that would confirm the consequential claims.
 
-## Step 0—Notice, frame, and name the purpose
+## Step 0—Notice, frame, and name the intent
 
 Before judging, *notice*. Most people glance; a reviewer sees. Count the elements. Name the colors. Identify the type sizes. Read the labels verbatim. The specificity of your observation is the ceiling on the quality of your critique.
 
@@ -19,7 +19,7 @@ Then frame, in one or two sentences each:
 - **Which app state and lifecycle moment is this?** Name the rendered state—default/full, loading, empty, error, success, expanded, permission-denied—and when it occurs—first run, setup, recurring use, re-entry, or post-action. If the artifact shows several variants, inventory them. If it does not, mark material states `not shown` rather than assuming them.
 - **What's the bar?** Every product category has an invisible standard set by its best-in-class tool. A notes screen is judged against Apple Notes and Bear; a dashboard against Linear, Stripe, and Vercel; a checkout against Stripe and Shop Pay. Ask: *what would the best-in-class product in this category do here?*
 - **The register.** Classify it by walking the decision tree in **Registers** in [SKILL.md](../SKILL.md)—take the first match, and don't re-derive the categories here. This sets how the gates should be read; see *Adjust for register* below.
-- **The methodology lens.** State the screen's *apparent* single purpose in one sentence (for a hub, that purpose is *routing*; for exploration, *browsing a kind of content*), and name what *appears* to be the primary action. On a task screen, if the sentence needs an "and," or you can't find one primary action, the screen has already failed its overarching purpose, and the gates below will show why.
+- **The methodology lens.** State the screen's apparent **organizing intent** in one sentence, then name its apparent **action model**: one primary action, an inherent co-equal set, ranked routes, or content-led exploration. On a task screen, an "and" fails only when it joins independently completable outcomes; multiple primary-weight actions fail only when they compete rather than form an inherent binary or dual-mode set. For a hub, the intent is *routing*; for exploration, *browsing one coherent content space*.
 
 ## Locate every finding
 
@@ -36,8 +36,8 @@ Use product labels and concrete conditions. `Contact detail · empty state · fi
 Read the gates through the register you classified in Step 0. The disciplines still apply; their targets move. Scoring a hub or feed by task-screen rules produces false failures.
 
 - **Task**: score exactly as the gates describe.
-- **Hub**: the purpose is *routing*. Do **not** penalize many destinations under Gate 2—the ≤4 limit binds *per group and per row*, not on the total. Score IA on whether destinations are grouped and labeled, VH on whether the most-likely next step wins. A hub flattened to one action scores *worse*, not better.
-- **Exploration**: abundance is the point. Do **not** penalize many items under Gate 2—the ≤4 limit binds *per item* (each row's or card's facts), not on the item count. Score VH on whether one content type dominates and chrome recedes; a single "primary action" is not expected.
+- **Hub**: the organizing intent is *routing*. Do **not** penalize many destinations under Gate 1 or Gate 2—the ≤4 limit binds *per group and per row*, not on the total. Score IA on whether destinations form a coherent, grouped space, and VH on whether the likely next route or leading group is easy to find. A hub flattened to one action scores *worse*, not better.
+- **Exploration**: abundance is the point. Do **not** penalize many items under Gate 1 or Gate 2—the ≤4 limit binds *per item* (each row's or card's facts), not on the item count. Score VH on whether one coherent content field dominates and chrome recedes; a single primary action is not expected.
 - **Task-overloaded**: score by task rules and flag the overload as the leading Gate 1 issue.
 - **Audience:** weigh expertise. The working-memory budget is ~4 *chunks*, and experts read dense displays as a few learned groups. Don't score a pro tool's dense panel as overload if its users chunk it; do score a novice or first-run screen strictly. Density is a function of who's reading it.
 
@@ -51,26 +51,26 @@ Run each gate in turn, in the order the disciplines apply. Each produces a 0–4
 
 *What belongs on this screen, and how is it organized?*
 
-- Apply the **one-sentence test** to the actual content: write *"This screen exists so the user can ___."* If you need "and," IA has put two jobs on one screen.
-- Count the **primary-weight actions** the structure implies. More than one means more than one purpose.
+- Apply the **one-sentence test** to the actual content: write *"This screen exists so the user can ___."* If "and" joins independently completable outcomes, IA has put competing intents on one screen. A phrase such as *review and approve this invoice* can remain one coherent intent when the first action is necessary to the second.
+- Identify the **action model** and test it against the register. On a task screen, multiple primary-weight actions usually signal competing intents unless they form an inherent binary or dual-mode set. On a hub, ranked routes are expected; in exploration, the content field leads.
 - Check **grouping and labeling**: are related things together? Are labels in the user's words or in system jargon?
 - Check for the **memory bridge**: does any decision require a fact only shown on an earlier screen?
 - Check for **orphan content** and **data-model-shaped structure** (organized for the database, not the user's intent).
 
 | Score | Criteria |
 |-------|----------|
-| 0 | No discernible job—a dumping ground of unrelated content |
-| 1 | Multiple competing jobs; structure mirrors the data model; jargon labels |
-| 2 | One job identifiable but a second muddies it; weak grouping or a memory bridge |
-| 3 | Clear single job, sensible grouping and labels, minor structural noise |
-| 4 | One unmistakable job; everything on screen earns its place; plain labels; nothing orphaned |
+| 0 | No discernible organizing intent—a dumping ground of unrelated content |
+| 1 | Multiple competing intents; structure mirrors the data model; jargon labels |
+| 2 | One intent is identifiable but an independent outcome muddies it; weak grouping or a memory bridge |
+| 3 | Clear organizing intent, suitable action model, sensible grouping and labels, minor structural noise |
+| 4 | Unmistakable organizing intent; every element supports it; action model fits the register; plain labels; nothing orphaned |
 
 ### Gate 2—Progressive Disclosure *(load-bearing)*
 
 *Of what belongs, is the right amount shown now?*
 
 - At the busiest decision point, **count items in working memory**. ≤4 good, 5–7 borderline, 8+ overload.
-- Check the **disclosure triage**: is anything shown that should be deferred (rare options, advanced settings)? Is anything deferred that should be shown *now* (price, required fields, consequences, the primary action)?
+- Check the **disclosure triage**: is anything shown that should be deferred (rare options, advanced settings)? Is anything deferred that should be shown *now* (price, required fields, consequences, the task's primary action, or a control required by the register's action model)?
 - Check that deferral signals **what's hidden** (a count, a clear "More") rather than reading as absence. Name the cue for each deferred thing; if you cannot find one, the content is hidden rather than deferred. A function reachable only by an uncued gesture is the worst case.
 
 | Score | Criteria |
@@ -89,16 +89,16 @@ Because this discipline is load-bearing, record a score of ≤1 caused by **bury
 
 - Run the **squint test** on the screenshot (or describe the weight order from the code). Name #1, #2, and the groupings.
 - Run the **3-second test**: would a first-timer name the most important element in 3 seconds?
-- Check **weight vs. importance**: does anything decorative outweigh the primary action? Is there a single visual entry point (the focusing mechanism)? Count distinct type sizes/weights—deliberate scale, or noise?
-- Check **rank vs. actionability** separately. Ranking first is not the same as reading as actionable: name what tells the user the primary action can be acted on. Then count **false signifiers** (patterns.md, The false signifier).
+- Check **weight vs. importance**: does anything decorative outweigh the action model's dominant element or region? Is there a clear visual entry point (the focusing mechanism)? Count distinct type sizes/weights—deliberate scale, or noise?
+- Check **rank vs. actionability** separately. Ranking first is not the same as reading as actionable: when the dominant element is an action, name what says it can be acted on. Then count **false signifiers** (patterns.md, The false signifier).
 
 | Score | Criteria |
 |-------|----------|
 | 0 | Flat—everything equal weight, no ranking survives a squint |
 | 1 | Weak or inverted hierarchy; decoration beats function; no entry point; false signifiers competing with real controls |
-| 2 | Hierarchy present but muddy; some elements miscalibrated; or the primary action ranks first but carries nothing that reads as actionable |
+| 2 | Hierarchy present but muddy; some elements miscalibrated; or a dominant action ranks first but carries nothing that reads as actionable |
 | 3 | Clear hierarchy, weight mostly matches importance |
-| 4 | Effortless ranking; the heaviest thing is the most important thing |
+| 4 | Effortless ranking; the dominant element or region is the right one for the action model |
 
 ## Scoring rules
 
@@ -125,7 +125,7 @@ Keep the native total: `total = Information Architecture + Progressive Disclosur
 
 Then cap the band by the weakest discipline: a minimum of `0` allows only **Broken**, `1` allows at most **Significant rework**, `2` allows at most **Solid**, and `3–4` adds no ceiling. Use the lower-quality result of the average band and this ceiling. The total must equal the exact sum of the three scores.
 
-Dimension score, overall quality band, issue severity, critical blocker, and the **One Screen, One Purpose** verdict are separate. The verdict remains Yes or No: a screen can be Solid and still receive No if its primary purpose is structurally unresolved. Every P0 is a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. Non-P0 methodology blockers remain in local caps, sequencing, and handoffs.
+Dimension score, overall quality band, issue severity, critical blocker, and the **One Screen, One Clear Intent** verdict are separate. The verdict remains Yes or No: a screen can be Solid and still receive No if its organizing intent or action model is structurally unresolved. Every P0 is a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. Non-P0 methodology blockers remain in local caps, sequencing, and handoffs.
 
 ## Issue severity
 
@@ -145,7 +145,7 @@ Assign severity from consequence, reach, and recoverability. A methodology rule 
 Every review returns this template verbatim, in this order. Don't add, remove, reorder, or rename sections. Fill the `<…>` slots; keep every fixed label. This block is the single source of truth for the emitted shape—the issue line, the table columns, and the section list exist only here.
 
 ```
-**Verdict:** <single purpose—yes or no> · <the one biggest problem, one phrase> · **<total>/12**
+**Verdict:** <clear intent—yes or no> · <the one biggest problem, one phrase> · **<total>/12**
 
 **Screen:** <what it is> · register: <task | hub | exploration | task-overloaded> · audience: <novice | mixed | expert>
 **Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
@@ -179,5 +179,5 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 Filling it:
 - **Coverage**—name only states and lifecycle moments the evidence actually exposes. Use `gaps` for consequential variants such as loading, error, first-run, re-entry, or worst-case data that were not shown or tested.
 - **Issues**—repeat the issue line once per issue, tagged **IA / Disclosure / Hierarchy**. Keep the `At` locator specific enough that a designer or engineer can open the right surface and reproduce the state without rereading the diagnosis. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
-- **Next**—structural before executional, always: polishing a screen with the wrong purpose only organizes the clutter. Resolve structural items with the five-move build workflow in [SKILL.md](../SKILL.md). Single-screen work is Focal's; if the real problem is the path between screens, say so and hand off to Compass.
+- **Next**—structural before executional, always: polishing a screen with an unresolved organizing intent only organizes the clutter. Resolve structural items with the five-move build workflow in [SKILL.md](../SKILL.md). Single-screen work is Focal's; if the real problem is the path between screens, say so and hand off to Compass.
 - Re-run the audit after fixes to watch the score climb.

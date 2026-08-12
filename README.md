@@ -21,7 +21,7 @@ Across all four, trust is the floor: no coherent experience hides material conse
 
 These Skills put that judgment back in the loop, on demand:
 
-- **Focal** keeps a single screen focused—*one screen, one purpose.*
+- **Focal** gives a screen one clear center of gravity—*one screen, one clear intent.*
 - **Compass** keeps a journey navigable—*never lost.*
 - **Flywheel** keeps the value you earned from leaking away—*earn the second visit.*
 - **Soul** gives the happy path moments worth remembering—*never boring.*
@@ -48,7 +48,7 @@ They complement rather than replace conventional design systems. Traditional sys
 
 | Skill | What it does |
 |-------|--------------|
-| [**focal**](./focal) | One screen, one purpose. Declutters and structures app/dashboard screens through three disciplines—Information Architecture, Progressive Disclosure, and Visual Hierarchy. Build new screens or review existing ones. |
+| [**focal**](./focal) | One screen, one clear intent. Declutters and structures app/dashboard screens through three disciplines—Information Architecture, Progressive Disclosure, and Visual Hierarchy. Its action model adapts to task, hub, and exploration screens. Build new screens or review existing ones. |
 | [**compass**](./compass) | Never lost. Guides multi-screen flows and navigation through three disciplines—Orientation, Path Economy, and Continuity. Build new flows or review existing ones. Pairs with Focal (single screens). |
 | [**flywheel**](./flywheel) | Earn the second visit. Growth and retention: finds where a product loses the users it already earned, across four ordered plays—Trust, Friction, Wins, and Emotion. Diagnose a leak or build a stage. |
 | [**soul**](./soul) | Never boring. Delight, placed: sorts every beat of the happy path into three tiers—Expected stays functional, Elevated adds craft to the small things, Net-New rebuilds the 2–3 biggest moments entirely. Search a product or build a moment. |
@@ -59,7 +59,7 @@ Every Skill has two output modes. **Build** proposes a new design as a fixed spe
 
 | Skill | Build output | Audit-style output | Local conclusion |
 |---|---|---|---|
-| [**Focal**](./focal) | **Screen Spec**—purpose, information, disclosure, hierarchy, states, and gates | **Screen review**—three-discipline scorecard, issues, Top 3 moves, and structural/executional next steps | Does the screen satisfy **One Screen, One Purpose**? |
+| [**Focal**](./focal) | **Screen Spec**—organizing intent, action model, information, disclosure, hierarchy, states, and gates | **Screen review**—three-discipline scorecard, issues, Top 3 moves, and structural/executional next steps | Does the screen satisfy **One Screen, One Clear Intent**? |
 | [**Compass**](./compass) | **Flow Spec**—destination, steps, cuts, orientation, continuity, and gates | **Flow review**—three-discipline scorecard, issues, Top 3 moves, and structural/executional next steps | Is the user **Never Lost**? |
 | [**Flywheel**](./flywheel) | **Stage Spec**—first value, leak, design, friction kept, ask placement, and gates | **Diagnosis**—four-play scorecard, issues, one stage to fix first, and what follows | Where is the earliest leak? |
 | [**Soul**](./soul) | **Moment Spec**—feeling, frequency, tier, three rungs, constraints, and gates | **Happy-path sweep**—path map, four-gate scorecard, ranked moments, small things, and restraint receipt | Is the path authored, anonymous, misplaced, or exhausting? |

@@ -10,7 +10,7 @@ argument-hint: "[build | review] <flow, journey, or description>"
 
 A flow is a sequence of screens with a destination. Good cross-screen UX means the user never has to wonder *Where am I? How far is left? How do I get back, or out?* The moment they can't answer one of those, the flow becomes a maze—and people abandon mazes.
 
-Where [Focal](../focal) sharpens a single screen (one screen, one purpose), Compass guides the **path between screens**. Focal is *within* a screen; Compass is *between* them. Together they cover the whole product: every screen knows its job, and every journey knows its way.
+Where [Focal](../focal) sharpens a single screen (one screen, one clear intent), Compass guides the **path between screens**. Focal is *within* a screen; Compass is *between* them. Together they cover the whole product: every screen has a clear center of gravity, and every journey knows its way.
 
 Three disciplines, treated as top priorities, keep the user oriented:
 

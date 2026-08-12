@@ -1,10 +1,12 @@
 # Focal
 
-> **One screen, one (primary) purpose.**
+> **One screen, one clear intent.**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-Focal is an open-source [Claude Code](https://claude.com/claude-code) skill for designing and reviewing **the UX of functional product screens**—apps, tools, and dashboards across mobile, web, and desktop. It is a lens, not a renderer: it decides what belongs on a screen and how it's ranked, so every screen lands on a single, clear purpose.
+Focal is an open-source [Claude Code](https://claude.com/claude-code) skill for designing and reviewing **the UX of functional product screens**—apps, tools, and dashboards across mobile, web, and desktop. It is a lens, not a renderer: it decides what belongs on a screen and how it's ranked, so every screen has one legible organizing intent.
+
+That does **not** mean one action, one content block, or one possible user goal. A task screen usually has one primary action. A hub can offer many destinations. An exploration surface can foreground many items. Focal asks whether those things share a clear center of gravity and whether the action model fits the kind of screen.
 
 People don't read a screen, they orient on it—scanning for where they are, what matters, and what to do next. Every screen has to answer *Where am I? What matters here? What do I do?*—whether it's a phone app glanced at one-handed or a dashboard an expert lives in all day. Focal exists to make those answers obvious.
 
@@ -12,11 +14,11 @@ People don't read a screen, they orient on it—scanning for where they are, wha
 
 ## The idea
 
-Simple, clean UX is not a style. It is the visible result of every screen knowing its one job. Focal makes three disciplines the top priority, all culminating in one methodology.
+Simple, clean UX is not a style. It is the visible result of every screen making its organizing intent clear. Focal makes three disciplines the top priority, all culminating in one methodology.
 
 ```
                  ┌────────────────────────────────────────────┐
-   the outcome   │      ONE SCREEN, ONE (PRIMARY) PURPOSE       │
+   the outcome   │         ONE SCREEN, ONE CLEAR INTENT         │
                  └────────────────────────────────────────────┘
                         ▲              ▲               ▲
    the means     Information      Progressive       Visual
@@ -26,11 +28,11 @@ Simple, clean UX is not a style. It is the visible result of every screen knowin
 
 - **Information Architecture**—what belongs on the screen, and how it's organized.
 - **Progressive Disclosure** *(load-bearing)*—what's shown now, and what waits. At most ~4 things at any decision point on a task screen.
-- **Visual Hierarchy**—what wins attention; the heaviest element is the most important one.
+- **Visual Hierarchy**—what wins attention; the heaviest element or region should match the action model.
 
-Get all three right and the screen settles onto its single purpose on its own. Miss any one and the purpose blurs.
+Get all three right and the screen settles around one clear intent on its own. Miss any one and that intent blurs.
 
-**It adapts to the screen type.** The rules above describe a *task* screen—one job to finish. Two other screen types bend them: a **hub** (home, profile, settings index) exists to *route*, so many destinations is correct, not clutter; an **exploration** surface (feeds, search, grids) exists for *browsing*, so abundance is the point. The working-memory limit doesn't vanish on these—it relocates (per row on a hub, per card on a feed). Focal classifies the register before it judges the screen.
+**It adapts to the screen type.** The default is a *task* screen—one coherent job, usually one primary action. A genuine binary choice or inseparable dual mode can keep co-equal actions. A **hub** (home, profile, settings index) exists to *route*, so many ranked destinations are correct, not clutter. An **exploration** surface (feeds, search, grids) exists for *browsing*, so content leads and abundance is the point. The working-memory limit doesn't vanish on these—it relocates (per row on a hub, per card on a feed). Focal classifies the register before it judges the screen.
 
 ---
 
@@ -58,15 +60,15 @@ Invoke it explicitly with `/focal`, or just describe a screen and let it trigger
 /focal build a checkout screen for a food-delivery app
 ```
 
-Focal walks the five moves: name the purpose and single primary action → architect the information → triage disclosure (Now / On-demand / Never) → rank what stays → run the gates.
+Focal walks the five moves: name the organizing intent and register-aware action model → architect the information → triage disclosure (Now / On-demand / Never) → rank what stays → run the gates.
 
 It returns a fixed **Screen Spec**:
 
-- **Screen**—one purpose and one primary action.
+- **Screen**—one clear organizing intent and the action model that fits its register.
 - **Information**—what stays, moves, merges, or leaves.
 - **Disclosure**—what appears Now, On-demand, or Never.
 - **Hierarchy**—the intended attention order and focusing mechanism.
-- **States**—empty, loading, error, full, and first-run behavior.
+- **States**—empty, loading, error, and worst-case full behavior.
 - **Gates**—a binary, unscored check of the proposed design.
 
 See the [locked Screen Spec template](./SKILL.md#build-the-five-moves).
@@ -79,7 +81,7 @@ See the [locked Screen Spec template](./SKILL.md#build-the-five-moves).
 
 It returns a fixed **screen review**:
 
-- **Verdict**—Yes or No for One Screen, One Purpose, plus the largest problem and native `/12` total.
+- **Verdict**—Yes or No for One Screen, One Clear Intent, plus the largest problem and native `/12` total.
 - **Screen, Context, Coverage, Basis, and Blocker**—what was reviewed, the user's situation, which app states and lifecycle moments were inspected, material gaps, the confirming check, and any critical condition.
 - **Scorecard**—Information Architecture, Progressive Disclosure, and Visual Hierarchy scored `0–4`, followed by the normalized average and final common band.
 - **Issues**—P0–P3 findings tagged to the discipline they break, each anchored to the exact screen region, app state, and lifecycle moment with a concrete fix.
@@ -112,22 +114,23 @@ focal/
 - Marketing or landing pages, where design *is* the product and the job is persuasion, not task completion.
 - Backend or non-UI work.
 
-Focal owns *structure and attention*. The execution of color, typography, spacing, and motion is left to your own design system and tooling—visual polish lands far better on a screen that already knows its one job.
+Focal owns *structure and attention*. The execution of color, typography, spacing, and motion is left to your own design system and tooling—visual polish lands far better on a screen whose center of gravity is already clear.
 
 ---
 
 ## Quick reference
 
 ```
-PURPOSE    "This screen exists so the user can ___."   (no "and")
-ACTION     one primary action, period
-IA         everything on screen serves that one job · group related · label plainly
+INTENT     "This screen exists so the user can ___."   (no unrelated second outcome)
+ACTION     task: one primary usually · hub: ranked routes · exploration: content leads
+IA         everything supports the organizing intent · group related · label plainly
 DISCLOSE   every element → Now / On-demand / Never · ≤4 at any decision point
-HIERARCHY  1 primary · 2–3 secondary · rest ambient · space → weight → size → color
-NEVER      hide price, required fields, consequences, or the primary action
+HIERARCHY  1 dominant element/region · 2–3 secondary · rest ambient
+           space → weight → size → color
+NEVER      hide price, required fields, consequences, or controls needed now
 ```
 
-*Defaults for a task screen. On a hub the ≤4 binds per row; on an exploration surface, per item.*
+*A task can preserve an inherent binary choice or inseparable dual mode. On a hub the ≤4 binds per row; on an exploration surface, per item.*
 
 ---
 
