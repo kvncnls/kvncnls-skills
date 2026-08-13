@@ -113,7 +113,7 @@ Selection heuristics, archetypes, and the full dumping-grounds list live in [ref
 ## Routing
 
 - **No argument** → explain the placement idea in three sentences, then ask: search an existing product, or build one moment?
-- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow [reference/review.md](reference/review.md). It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, totals to /16, displays a normalized /4 average and common quality band with a weakest-gate ceiling, tags issues P0–P3, anchors every issue to the exact beat, app state, and lifecycle occurrence, and returns the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
+- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow [reference/review.md](reference/review.md). It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, requires an evidence-based rationale and next-point change for every score, totals to /16, displays a normalized /4 average and common quality band with a weakest-gate ceiling, tags issues P0–P3, anchors every issue to the exact beat, app state, and lifecycle occurrence, and returns the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
 - **`build` / `design` / `treat` (one beat)** → run the beat through the sort tree above; its tier is the build's **Target**. Read [reference/treatments.md](reference/treatments.md)—plus [reference/moments.md](reference/moments.md) when the target is Net-New, to confirm it clears the selection bar—then follow **Build** below.
 - **A question about a moment type or a treatment lever** → [reference/moments.md](reference/moments.md) or [reference/treatments.md](reference/treatments.md).
 
@@ -307,6 +307,10 @@ Every gate uses the same integer anchors:
 
 Score each gate holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the gate overall, apply explicit prerequisite caps, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the gate being scored; Signature may legitimately require recognizable authorship because distinctiveness is what that gate measures.
 
+### Score rationale—required
+
+A score without an explanation is invalid. Fill every scorecard row with the same chain: **evidence → consequence → rubric anchor → next-point change**. State what was observed, inferred, tested, walked, or measured; what it costs the path's authorship or usability; why that evidence earns the integer under the local rubric and stops there; and the smallest concrete change that would raise it one point. A `2` must say what works and name the material weakness; a `3` must name the remaining gap; a `4` must explain why the gate is exemplary and say `None—already exemplary` in the next-point field. If the evidence does not expose a state or lifecycle occurrence, say `not shown` in Coverage/Basis and name the validating check—do not award credit or invent failure.
+
 Keep the native total: `total = Baseline + Placement + Proportion + Signature`. Calculate `average = total / 4`, display it rounded to one decimal place, and apply this shared algorithm:
 
 | Band | Average rule | Native total |
@@ -358,13 +362,13 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 | 1 | <enters from…> | <surface> | <once | recurring | every-run> | <Expected | Elevated | Net-New (Moment 1)> |
 
 ## Scorecard
-| Gate | Score | Key finding |
-|---|---|---|
-| Baseline | _/4 | <one line> |
-| Placement | _/4 | <one line> |
-| Proportion | _/4 | <one line> |
-| Signature | _/4 | <one line> |
-| **Total** | **_/16 · _._/4** | **<band>** |
+| Gate | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Baseline | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Placement | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Proportion | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Signature | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| **Total** | **_/16 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-gate ceiling applied> |
 
 ## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—<beat>, <the named feeling>
@@ -583,13 +587,13 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 | 7 | Sees dashboard updated—paid, month total | screen | recurring | Elevated |
 
 ## Scorecard
-| Gate | Score | Key finding |
-|---|---|---|
-| Baseline | 3/4 | Fast and clear—the path holds, so treatment will read as intentional rather than cosmetic. |
-| Placement | 2/4 | Touches exist on-path (send confetti) but nobody chose them, and the best-crafted work in the product is a 404 minigame. |
-| Proportion | 1/4 | Intensity is decided by habit—confetti on the routine send, silence at the payoff. Nothing tracks magnitude. |
-| Signature | 1/4 | Swap the logo and nobody notices. The mascot is a stock personality, and the ending feeling is unchosen. |
-| **Total** | **7/16 · 1.8/4** | **Significant rework** |
+| Gate | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Baseline | 3/4 | The default path is fast, clear, and reachable, so expressive treatment will not read as a cover for broken UX; the evidence does not show a signature-level baseline, which keeps it at Strong. | Make the payment confirmation equally fast, clear, and dependable across the actual notification and re-entry states. |
+| Placement | 2/4 | Confetti exists on the path but is unchosen, while the strongest craft lives on a 404; expressive effort is present but materially misplaced away from the moments most people remember. | Move the budget to two or three chosen path beats, especially payment and the ending. |
+| Proportion | 1/4 | Confetti fires on a routine send while the payment peak is silent; intensity ignores frequency and magnitude, so repetition becomes noise and the payoff becomes flat. | Remove recurring confetti, then tune treatment intensity to beat frequency and consequence. |
+| Signature | 1/4 | Swap the logo and the product is indistinguishable; the mascot is generic and the ending feeling is unnamed, so no authored moment identifies the product. | Choose the ending feeling and build one distinctive payment or completion moment around it. |
+| **Total** | **7/16 · 1.8/4** | **Significant rework; exact sum of justified component scores** | Weakest-gate ceiling applied |
 
 ## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—Payment lands (beat 6), relief

@@ -38,11 +38,11 @@ The four foundational Skills have two output modes. **Build** proposes a new des
 
 | Skill | Build output | Audit-style output | Local conclusion |
 |---|---|---|---|
-| [**Product Judgement**](./product-judgement) | — | **Holistic audit**—four native scorecards, shared coverage, deduplicated cross-scale findings, and a prioritized list of changes with dependencies and validation | Are the four scales coherent, and what should be fixed first? |
-| [**Focal**](./focal) | **Screen Spec**—organizing intent, action model, information, disclosure, hierarchy, states, and gates | **Screen review**—three-discipline scorecard, issues, Top 3 moves, and structural/executional next steps | Does the screen satisfy **One Screen, One Clear Intent**? |
-| [**Compass**](./compass) | **Flow Spec**—destination, steps, cuts, orientation, continuity, and gates | **Flow review**—three-discipline scorecard, issues, Top 3 moves, and structural/executional next steps | Is the user **Never Lost**? |
-| [**Flywheel**](./flywheel) | **Stage Spec**—first value, leak, design, friction kept, ask placement, and gates | **Diagnosis**—four-play scorecard, issues, one stage to fix first, and what follows | Where does momentum drop first—before engagement, before first value, after value, or after repeat use? |
-| [**Soul**](./soul) | **Moment Spec**—feeling, frequency, tier, three rungs, constraints, and gates | **Happy-path sweep**—path map, four-gate scorecard, ranked moments, small things, and restraint receipt | Is the path authored, anonymous, misplaced, or exhausting? |
+| [**Product Judgement**](./product-judgement) | — | **Holistic audit**—four native scorecards with evidence-backed component rationales, shared coverage, deduplicated cross-scale findings, and a prioritized list of changes with dependencies and validation | Are the four scales coherent, and what should be fixed first? |
+| [**Focal**](./focal) | **Screen Spec**—organizing intent, action model, information, disclosure, hierarchy, states, and gates | **Screen review**—three-discipline scorecard with per-discipline rationales, issues, Top 3 moves, and structural/executional next steps | Does the screen satisfy **One Screen, One Clear Intent**? |
+| [**Compass**](./compass) | **Flow Spec**—destination, steps, cuts, orientation, continuity, and gates | **Flow review**—three-discipline scorecard with per-discipline rationales, issues, Top 3 moves, and structural/executional next steps | Is the user **Never Lost**? |
+| [**Flywheel**](./flywheel) | **Stage Spec**—first value, leak, design, friction kept, ask placement, and gates | **Diagnosis**—four-play scorecard with per-play rationales, issues, one stage to fix first, and what follows | Where does momentum drop first—before engagement, before first value, after value, or after repeat use? |
+| [**Soul**](./soul) | **Moment Spec**—feeling, frequency, tier, three rungs, constraints, and gates | **Happy-path sweep**—four-gate scorecard with per-gate rationales, path map, ranked moments, small things, and restraint receipt | Is the path authored, anonymous, misplaced, or exhausting? |
 
 For Flywheel, a **leak** is not just churn. It is the first point where momentum drops out of the relationship: people leave without engaging, engage without reaching first value, reach value without returning or converting, or return for a while and then drift away.
 
@@ -68,6 +68,19 @@ The scorecard keeps each foundational Skill's native total—`/12` for Focal and
 | **Excellent** | `≥ 3.5` | `11–12` | `14–16` |
 
 The weakest dimension then caps the final displayed band: a lowest score of `0` caps it at **Broken**, `1` at **Significant rework**, `2` at **Solid**, and `3–4` adds no ceiling. This prevents a high total from hiding one failed dimension.
+
+### Scores must explain themselves
+
+A score without an explanation is invalid. Every scorecard row must show the chain **evidence → consequence → rubric anchor → next-point change**:
+
+- **Evidence**—what was observed, inferred, tested, walked, or measured, anchored to the relevant surface or transition, app state, and lifecycle moment.
+- **Consequence**—what that condition costs the user or product in the Skill's terms.
+- **Rubric anchor**—why the evidence earns this integer and what keeps it from the next higher integer. A `2` says what works and names the material weakness; a `3` names the remaining gap; a `4` explains why the dimension is exemplary.
+- **Next-point change**—the smallest concrete change that would raise the score by one point; a `4` says `None—already exemplary.`
+
+Do not award credit for behavior the artifact does not expose, and do not turn an unseen state into a failure without a rubric basis. Mark it `not shown` in Coverage/Basis and name the validating check. The total is the exact sum of the justified component scores; never derive component scores from the total.
+
+`Focal 7/12` is therefore incomplete. A valid result must show something like: `Information Architecture 2/4`—the screen groups the core content but leaves two independent jobs resident, so the user still sorts competing outcomes; split or demote one job to reach 3. `Progressive Disclosure 2/4`—the primary facts are visible but secondary history loads at full depth; cap the default and defer the rest to reach 3. `Visual Hierarchy 3/4`—the primary action wins, with one secondary region still too loud; quiet that region to reach 4. Then, and only then, report **7/12 · 2.3/4 · Significant rework**.
 
 Five concepts remain separate in every audit:
 

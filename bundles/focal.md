@@ -201,7 +201,7 @@ Neither is a whole-app IA or sitemap tool. If the question is "how should the en
 - **No argument** → explain the methodology and three disciplines briefly, then ask: building a new screen, or reviewing an existing one?
 - **`build` (or a description of a screen to design)** → follow **The five moves** below. Pull techniques from [reference/patterns.md](reference/patterns.md).
 - **A multi-screen flow, journey, or navigation question** → that is Compass's, not Focal's. Say so and hand off (see **Flows**, above).
-- **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, anchors every issue to the exact screen region, app state, and lifecycle moment, and closes on a Clear-Intent verdict. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
+- **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, requires an evidence-based rationale and next-point change for every score, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, anchors every issue to the exact screen region, app state, and lifecycle moment, and closes on a Clear-Intent verdict. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
 - **A question about a specific technique or anti-pattern** → consult [reference/patterns.md](reference/patterns.md).
 
 Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
@@ -423,6 +423,10 @@ Every discipline uses the same integer anchors:
 
 Score each discipline holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the dimension overall, apply explicit local caps or prerequisites, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the dimension being scored; it does not universally require novelty.
 
+### Score rationale—required
+
+A score without an explanation is invalid. Fill every scorecard row with the same chain: **evidence → consequence → rubric anchor → next-point change**. State what was observed, inferred, tested, walked, or measured; what it costs the user; why that evidence earns the integer under the local rubric and stops there; and the smallest concrete change that would raise it one point. A `2` must say what works and name the material weakness; a `3` must name the remaining gap; a `4` must explain why the dimension is exemplary and say `None—already exemplary` in the next-point field. If the evidence does not expose a state, say `not shown` in Coverage/Basis and name the validating check—do not award credit or invent failure.
+
 Keep the native total: `total = Information Architecture + Progressive Disclosure + Visual Hierarchy`. Calculate `average = total / 3`, display it rounded to one decimal place, and apply this shared algorithm:
 
 | Band | Average rule | Native total |
@@ -463,12 +467,12 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 **Blocker:** <None. | concise blocker reason>
 
 ## Scorecard
-| Discipline | Score | Key finding |
-|---|---|---|
-| Information Architecture | _/4 | <one line> |
-| Progressive Disclosure | _/4 | <one line> |
-| Visual Hierarchy | _/4 | <one line> |
-| **Total** | **_/12 · _._/4** | **<band>** |
+| Discipline | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Information Architecture | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Progressive Disclosure | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Visual Hierarchy | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| **Total** | **_/12 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-discipline ceiling applied> |
 
 ## Issues (most severe first)
 - **[P0 · IA]** **At:** <screen/region> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
@@ -646,12 +650,12 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 **Blocker:** Delete is presented as a filled primary beside routine actions, creating a material risk of accidental record destruction.
 
 ## Scorecard
-| Discipline | Score | Key finding |
-|---|---|---|
-| Information Architecture | 1/4 | Four jobs on one screen: view the record, edit six fields, log a call, send an email—plus three related-record panels and a prospecting rail that serve a different intent entirely. |
-| Progressive Disclosure | 1/4 | Zero deferral anywhere: ten top-level regions at landing, both composers open before the rep has chosen to compose, 40+ timeline entries unfiltered. |
-| Visual Hierarchy | 1/4 | Below the identity header the screen is flat—every panel header identical in size and weight—and the ranking that does exist is inverted: Delete carries the same primary weight as Save. |
-| **Total** | **3/12 · 1.0/4** | **Broken** |
+| Discipline | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Information Architecture | 1/4 | Four independently completable jobs share one surface, plus unrelated panels and a prospecting rail; the rep must sort competing outcomes by eye, which is a major failure of screen intent. | Make Contact detail a routing hub, move the composers to focused task screens, and demote unrelated regions. |
+| Progressive Disclosure | 1/4 | Ten top-level regions land open, both composers are resident before selection, and 40+ timeline entries are unfiltered; nothing waits, so first-run and recurring scanning are both overloaded. | Defer composers and secondary regions, cap the timeline, and remove the similar-contacts rail. |
+| Visual Hierarchy | 1/4 | Panel headers are visually flat and Delete carries the same filled-primary weight as Save; the screen offers no safe starting point and makes the irreversible action look routine. | Establish one primary action, move Delete behind a confirmation, and rank the remaining regions with space and weight. |
+| **Total** | **3/12 · 1.0/4** | **Broken; exact sum of justified component scores** | Weakest-discipline ceiling applied |
 
 ## Issues (most severe first)
 - **[P0 · Hierarchy]** **At:** Contact detail action bar · state: full/default · lifecycle: returning rep reviewing an existing contact. Three filled primaries, one destructive—Save, Convert to Deal, and Delete are styled identically. On this task-overloaded action bar, three competing primaries means no primary: nothing says where to start, and an irreversible action wears the exact affordance of the safest one, sitting adjacent to it. This is the one issue on the screen that can destroy a customer record on a mis-click. **Fix:** with autosave, Save disappears. Keep "Convert to Deal" as the single filled primary; "Log a call" and "Send email" become secondary; Delete moves into an overflow "⋯" menu behind a typed confirmation.

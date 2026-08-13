@@ -91,7 +91,7 @@ It returns a fixed **screen review**:
 
 - **Verdict**—Yes or No for One Screen, One Clear Intent, plus the largest problem and native `/12` total.
 - **Screen, Context, Coverage, Basis, and Blocker**—what was reviewed, the user's situation, which app states and lifecycle moments were inspected, material gaps, the confirming check, and any critical condition.
-- **Scorecard**—Information Architecture, Progressive Disclosure, and Visual Hierarchy scored `0–4`, followed by the normalized average and final common band.
+- **Scorecard**—Information Architecture, Progressive Disclosure, and Visual Hierarchy scored `0–4`, with evidence-backed rationales and the smallest change that would raise each score one point, followed by the normalized average and final common band.
 - **Issues**—P0–P3 findings tagged to the discipline they break, each anchored to the exact screen region, app state, and lifecycle moment with a concrete fix.
 - **Top 3 moves and Next**—the highest-leverage changes, structural-before-executional sequencing, and any Compass or Flywheel handoff.
 

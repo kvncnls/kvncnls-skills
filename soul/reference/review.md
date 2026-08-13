@@ -102,6 +102,10 @@ Every gate uses the same integer anchors:
 
 Score each gate holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the gate overall, apply explicit prerequisite caps, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the gate being scored; Signature may legitimately require recognizable authorship because distinctiveness is what that gate measures.
 
+### Score rationale—required
+
+A score without an explanation is invalid. Fill every scorecard row with the same chain: **evidence → consequence → rubric anchor → next-point change**. State what was observed, inferred, tested, walked, or measured; what it costs the path's authorship or usability; why that evidence earns the integer under the local rubric and stops there; and the smallest concrete change that would raise it one point. A `2` must say what works and name the material weakness; a `3` must name the remaining gap; a `4` must explain why the gate is exemplary and say `None—already exemplary` in the next-point field. If the evidence does not expose a state or lifecycle occurrence, say `not shown` in Coverage/Basis and name the validating check—do not award credit or invent failure.
+
 Keep the native total: `total = Baseline + Placement + Proportion + Signature`. Calculate `average = total / 4`, display it rounded to one decimal place, and apply this shared algorithm:
 
 | Band | Average rule | Native total |
@@ -153,13 +157,13 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 | 1 | <enters from…> | <surface> | <once | recurring | every-run> | <Expected | Elevated | Net-New (Moment 1)> |
 
 ## Scorecard
-| Gate | Score | Key finding |
-|---|---|---|
-| Baseline | _/4 | <one line> |
-| Placement | _/4 | <one line> |
-| Proportion | _/4 | <one line> |
-| Signature | _/4 | <one line> |
-| **Total** | **_/16 · _._/4** | **<band>** |
+| Gate | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Baseline | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Placement | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Proportion | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Signature | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| **Total** | **_/16 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-gate ceiling applied> |
 
 ## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—<beat>, <the named feeling>

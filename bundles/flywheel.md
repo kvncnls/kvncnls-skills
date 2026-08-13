@@ -137,7 +137,7 @@ Retention depends less on novelty than on respectful continuity: restore context
 ## Routing
 
 - **No argument** → explain the wheel and the four plays briefly, then ask: diagnosing an existing product, or designing a relationship stage?
-- **`diagnose` / `audit` / `review` (a product, a stage, a screenshot, or a symptom like "nobody comes back")** → load and follow [reference/review.md](reference/review.md). It scores each play 0–4 against a written rubric, totals to /16, displays a normalized /4 average and common quality band with a weakest-play ceiling, tags issues P0–P3, anchors every issue to the exact touchpoint, app state, and relationship lifecycle stage, and names the leaking stage. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
+- **`diagnose` / `audit` / `review` (a product, a stage, a screenshot, or a symptom like "nobody comes back")** → load and follow [reference/review.md](reference/review.md). It scores each play 0–4 against a written rubric, requires an evidence-based rationale and next-point change for every score, totals to /16, displays a normalized /4 average and common quality band with a weakest-play ceiling, tags issues P0–P3, anchors every issue to the exact touchpoint, app state, and relationship lifecycle stage, and names the leaking stage. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
 - **`build` (a relationship stage to design)** → name first value, walk the diagnosis tree to confirm which stage, read that play's reference, then follow **Design** below. That order is fixed: the tree cannot be walked before first value is named.
 - **A question about one play** → read that play's reference file.
 
@@ -339,6 +339,10 @@ Every play uses the same integer anchors:
 
 Score each play holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the play overall, apply explicit prerequisite caps, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the play being scored; recognizability remains relevant where Emotion's local rubric requires it.
 
+### Score rationale—required
+
+A score without an explanation is invalid. Fill every scorecard row with the same chain: **evidence → consequence → rubric anchor → next-point change**. State what was observed, inferred, tested, walked, or measured; what it costs the relationship; why that evidence earns the integer under the local rubric and stops there; and the smallest concrete change that would raise it one point. A `2` must say what works and name the material weakness; a `3` must name the remaining gap; a `4` must explain why the play is exemplary and say `None—already exemplary` in the next-point field. If the evidence does not expose a state or lifecycle stage, say `not shown` in Coverage/Basis and name the validating metric or behavior—do not award credit or invent failure.
+
 Keep the native total: `total = Trust + Friction + Wins + Emotion`. Calculate `average = total / 4`, display it rounded to one decimal place, and apply this shared algorithm:
 
 | Band | Average rule | Native total |
@@ -382,13 +386,13 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 **Blocker:** <None. | concise blocker reason>
 
 ## Scorecard
-| Play | Score | Key finding |
-|---|---|---|
-| Trust | _/4 | <one line> |
-| Friction | _/4 | <one line> |
-| Wins | _/4 | <one line> |
-| Emotion | _/4 | <one line> |
-| **Total** | **_/16 · _._/4** | **<band>** |
+| Play | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Trust | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Friction | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Wins | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Emotion | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| **Total** | **_/16 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-play ceiling applied> |
 
 ## Issues (most severe first)
 - **[P0 · Trust]** **At:** <touchpoint> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
@@ -813,13 +817,13 @@ Two worked examples in the locked output templates—one **diagnosis**, one **re
 **Blocker:** None.
 
 ## Scorecard
-| Play | Score | Key finding |
-|---|---|---|
-| Trust | 3/4 | The outcome is legible and the promise is specific; nothing here explains why loss happens later. |
-| Friction | 1/4 | A setup wall—6 configuration fields and a required CSV upload stand between signup and any evidence the product works. |
-| Wins | 1/4 | A 4-minute generation ends in a "Done" toast; the report's actual value is never stated. |
-| Emotion | 1/4 | No emotional design at all, and with Friction at 1 the baseline could not carry one yet anyway. |
-| **Total** | **6/16 · 1.5/4** | **Broken** |
+| Play | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Trust | 3/4 | The outcome is legible and the promise is specific, so the first push is strong; the artifact does not show proof near the promise, which keeps Trust from exemplary. | Put a real report or credible sample beside the promise and verify message match across the highest-traffic entry. |
+| Friction | 1/4 | Six setup fields and a required CSV upload block any evidence the product works; the outcome remains technically reachable, but commitment effort is seriously misplaced before first value. | Generate a real report from sample data in one click and defer the six fields until after first value. |
+| Wins | 1/4 | Four minutes of work ends in a generic "Done" toast, so the user cannot see what changed or why the result matters; value technically arrives but is largely invisible. | Replace the toast with the report result, what was analyzed, and one next action that extends the win. |
+| Emotion | 1/4 | No return-worthy feeling or authored reinforcement is present, and Friction at 1 means the baseline cannot carry expressive treatment yet; the play is absent and sequenced too early. | First make the path reach value reliably, then author a specific reason to prefer returning. |
+| **Total** | **6/16 · 1.5/4** | **Broken; exact sum of justified component scores** | Weakest-play ceiling applied |
 
 ## Issues (most severe first)
 - **[P1 · Friction]** **At:** Workspace setup → CSV upload · state: required configuration with no sample · lifecycle: new signup activating before first value. The setup wall—6 workspace fields and a CSV upload sit before any output. None can be answered well by someone who has not seen a report, and the upload demands data they may not have exported yet. This is commitment friction placed before value. **Fix:** ship a sample dataset that generates a real report in one click; defer all 6 fields until after the first report exists, and infer the workspace name from the email domain.

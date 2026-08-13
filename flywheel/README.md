@@ -58,7 +58,7 @@ Returns a fixed **diagnosis**:
 
 - **Verdict**—the earliest leaking stage, largest loss, and native `/16` total.
 - **Product, first value, stakes, Coverage, Basis, and Blocker**—the frame, relationship stages and app states reviewed, material gaps, evidence available, confirming check, and any critical condition.
-- **Scorecard**—Trust, Friction, Wins, and Emotion scored `0–4`, followed by the normalized average and final common band.
+- **Scorecard**—Trust, Friction, Wins, and Emotion scored `0–4`, with evidence-backed rationales and the smallest change that would raise each score one point, followed by the normalized average and final common band.
 - **Issues**—P0–P3 findings ordered from the earliest stage downstream, each anchored to the exact touchpoint, app state, and relationship lifecycle stage with a concrete fix.
 - **Fix this first and Next**—exactly one stage to address now, what becomes worthwhile afterward, and any Focal or Compass handoff.
 

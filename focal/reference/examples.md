@@ -20,12 +20,12 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 **Blocker:** Delete is presented as a filled primary beside routine actions, creating a material risk of accidental record destruction.
 
 ## Scorecard
-| Discipline | Score | Key finding |
-|---|---|---|
-| Information Architecture | 1/4 | Four jobs on one screen: view the record, edit six fields, log a call, send an email—plus three related-record panels and a prospecting rail that serve a different intent entirely. |
-| Progressive Disclosure | 1/4 | Zero deferral anywhere: ten top-level regions at landing, both composers open before the rep has chosen to compose, 40+ timeline entries unfiltered. |
-| Visual Hierarchy | 1/4 | Below the identity header the screen is flat—every panel header identical in size and weight—and the ranking that does exist is inverted: Delete carries the same primary weight as Save. |
-| **Total** | **3/12 · 1.0/4** | **Broken** |
+| Discipline | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Information Architecture | 1/4 | Four independently completable jobs share one surface, plus unrelated panels and a prospecting rail; the rep must sort competing outcomes by eye, which is a major failure of screen intent. | Make Contact detail a routing hub, move the composers to focused task screens, and demote unrelated regions. |
+| Progressive Disclosure | 1/4 | Ten top-level regions land open, both composers are resident before selection, and 40+ timeline entries are unfiltered; nothing waits, so first-run and recurring scanning are both overloaded. | Defer composers and secondary regions, cap the timeline, and remove the similar-contacts rail. |
+| Visual Hierarchy | 1/4 | Panel headers are visually flat and Delete carries the same filled-primary weight as Save; the screen offers no safe starting point and makes the irreversible action look routine. | Establish one primary action, move Delete behind a confirmation, and rank the remaining regions with space and weight. |
+| **Total** | **3/12 · 1.0/4** | **Broken; exact sum of justified component scores** | Weakest-discipline ceiling applied |
 
 ## Issues (most severe first)
 - **[P0 · Hierarchy]** **At:** Contact detail action bar · state: full/default · lifecycle: returning rep reviewing an existing contact. Three filled primaries, one destructive—Save, Convert to Deal, and Delete are styled identically. On this task-overloaded action bar, three competing primaries means no primary: nothing says where to start, and an irreversible action wears the exact affordance of the safest one, sitting adjacent to it. This is the one issue on the screen that can destroy a customer record on a mis-click. **Fix:** with autosave, Save disappears. Keep "Convert to Deal" as the single filled primary; "Log a call" and "Send email" become secondary; Delete moves into an overflow "⋯" menu behind a typed confirmation.

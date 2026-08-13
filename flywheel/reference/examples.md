@@ -19,13 +19,13 @@ Two worked examples in the locked output templates—one **diagnosis**, one **re
 **Blocker:** None.
 
 ## Scorecard
-| Play | Score | Key finding |
-|---|---|---|
-| Trust | 3/4 | The outcome is legible and the promise is specific; nothing here explains why loss happens later. |
-| Friction | 1/4 | A setup wall—6 configuration fields and a required CSV upload stand between signup and any evidence the product works. |
-| Wins | 1/4 | A 4-minute generation ends in a "Done" toast; the report's actual value is never stated. |
-| Emotion | 1/4 | No emotional design at all, and with Friction at 1 the baseline could not carry one yet anyway. |
-| **Total** | **6/16 · 1.5/4** | **Broken** |
+| Play | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Trust | 3/4 | The outcome is legible and the promise is specific, so the first push is strong; the artifact does not show proof near the promise, which keeps Trust from exemplary. | Put a real report or credible sample beside the promise and verify message match across the highest-traffic entry. |
+| Friction | 1/4 | Six setup fields and a required CSV upload block any evidence the product works; the outcome remains technically reachable, but commitment effort is seriously misplaced before first value. | Generate a real report from sample data in one click and defer the six fields until after first value. |
+| Wins | 1/4 | Four minutes of work ends in a generic "Done" toast, so the user cannot see what changed or why the result matters; value technically arrives but is largely invisible. | Replace the toast with the report result, what was analyzed, and one next action that extends the win. |
+| Emotion | 1/4 | No return-worthy feeling or authored reinforcement is present, and Friction at 1 means the baseline cannot carry expressive treatment yet; the play is absent and sequenced too early. | First make the path reach value reliably, then author a specific reason to prefer returning. |
+| **Total** | **6/16 · 1.5/4** | **Broken; exact sum of justified component scores** | Weakest-play ceiling applied |
 
 ## Issues (most severe first)
 - **[P1 · Friction]** **At:** Workspace setup → CSV upload · state: required configuration with no sample · lifecycle: new signup activating before first value. The setup wall—6 workspace fields and a CSV upload sit before any output. None can be answered well by someone who has not seen a report, and the upload demands data they may not have exported yet. This is commitment friction placed before value. **Fix:** ship a sample dataset that generates a real report in one click; defer all 6 fields until after the first report exists, and infer the workspace name from the email domain.

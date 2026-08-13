@@ -30,13 +30,13 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 | 7 | Sees dashboard updated—paid, month total | screen | recurring | Elevated |
 
 ## Scorecard
-| Gate | Score | Key finding |
-|---|---|---|
-| Baseline | 3/4 | Fast and clear—the path holds, so treatment will read as intentional rather than cosmetic. |
-| Placement | 2/4 | Touches exist on-path (send confetti) but nobody chose them, and the best-crafted work in the product is a 404 minigame. |
-| Proportion | 1/4 | Intensity is decided by habit—confetti on the routine send, silence at the payoff. Nothing tracks magnitude. |
-| Signature | 1/4 | Swap the logo and nobody notices. The mascot is a stock personality, and the ending feeling is unchosen. |
-| **Total** | **7/16 · 1.8/4** | **Significant rework** |
+| Gate | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Baseline | 3/4 | The default path is fast, clear, and reachable, so expressive treatment will not read as a cover for broken UX; the evidence does not show a signature-level baseline, which keeps it at Strong. | Make the payment confirmation equally fast, clear, and dependable across the actual notification and re-entry states. |
+| Placement | 2/4 | Confetti exists on the path but is unchosen, while the strongest craft lives on a 404; expressive effort is present but materially misplaced away from the moments most people remember. | Move the budget to two or three chosen path beats, especially payment and the ending. |
+| Proportion | 1/4 | Confetti fires on a routine send while the payment peak is silent; intensity ignores frequency and magnitude, so repetition becomes noise and the payoff becomes flat. | Remove recurring confetti, then tune treatment intensity to beat frequency and consequence. |
+| Signature | 1/4 | Swap the logo and the product is indistinguishable; the mascot is generic and the ending feeling is unnamed, so no authored moment identifies the product. | Choose the ending feeling and build one distinctive payment or completion moment around it. |
+| **Total** | **7/16 · 1.8/4** | **Significant rework; exact sum of justified component scores** | Weakest-gate ceiling applied |
 
 ## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—Payment lands (beat 6), relief

@@ -153,7 +153,7 @@ Two ties worth naming, because they recur:
 
 - **No argument** → explain Never Lost and the three disciplines briefly, then ask: building a new flow, or reviewing an existing one?
 - **`build` (or a description of a flow to design)** → follow **The four moves** below. Pull techniques from [reference/patterns.md](reference/patterns.md).
-- **`review` / `audit` (a flow, a set of screens, a prototype, or a description)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, anchors every issue to the exact step or seam, interaction state, and journey lifecycle moment, and closes on a Never-Lost verdict. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
+- **`review` / `audit` (a flow, a set of screens, a prototype, or a description)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, requires an evidence-based rationale and next-point change for every score, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, anchors every issue to the exact step or seam, interaction state, and journey lifecycle moment, and closes on a Never-Lost verdict. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
 - **A question about a specific technique or anti-pattern** → consult [reference/patterns.md](reference/patterns.md).
 
 Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
@@ -363,6 +363,10 @@ Every discipline uses the same integer anchors:
 
 Score each discipline holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the dimension overall, apply explicit local caps or prerequisites, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the dimension being scored; it does not universally require novelty.
 
+### Score rationale—required
+
+A score without an explanation is invalid. Fill every scorecard row with the same chain: **evidence → consequence → rubric anchor → next-point change**. State what was observed, inferred, tested, walked, or measured; what it costs the user; why that evidence earns the integer under the local rubric and stops there; and the smallest concrete change that would raise it one point. A `2` must say what works and name the material weakness; a `3` must name the remaining gap; a `4` must explain why the discipline is exemplary and say `None—already exemplary` in the next-point field. If the evidence does not expose a state or transition, say `not shown` in Coverage/Basis and name the validating check—do not award credit or invent failure.
+
 Keep the native total: `total = Orientation + Path Economy + Continuity`. Calculate `average = total / 3`, display it rounded to one decimal place, and apply this shared algorithm:
 
 | Band | Average rule | Native total |
@@ -408,12 +412,12 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 **Blocker:** <None. | concise blocker reason>
 
 ## Scorecard
-| Discipline | Score | Key finding |
-|---|---|---|
-| Orientation | _/4 | <one line> |
-| Path Economy | _/4 | <one line> |
-| Continuity | _/4 | <one line> |
-| **Total** | **_/12 · _._/4** | **<band>** |
+| Discipline | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Orientation | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Path Economy | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| Continuity | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
+| **Total** | **_/12 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-discipline ceiling applied> |
 
 ## Issues (most severe first)
 - **[P0 · Orientation]** **At:** <step or seam> · state: <exact state> · lifecycle: <exact journey moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
@@ -589,12 +593,12 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 **Blocker:** Verification dead end; no exit from the gated wall; buried pricing; Back and resume links reset entered state.
 
 ## Scorecard
-| Discipline | Score | Key finding |
-|---|---|---|
-| Orientation | 0/4 | Step 2 is a dead end ("check your email", no resend, no back), and none of the 7 steps has a Cancel or skip—the flow traps the user twice over. |
-| Path Economy | 1/4 | 7 steps where 2 are honest, all of them before first value, with prices first shown at step 3 and the free tier visually buried. |
-| Continuity | 0/4 | Browser Back restarts at step 1 with every field empty, and the "Continue setup" email link always reopens step 1. |
-| **Total** | **1/12 · 0.3/4** | **Broken** |
+| Discipline | Score | Why this score | What raises it one point |
+|---|---:|---|---|
+| Orientation | 0/4 | Step 2 is a true dead end and the 7-step wall has no Cancel or skip; a first-timer cannot recover or exit, so the Never-Lost promise fails outright. | Add resend, change-email, Back, and Finish later to verification, then provide a visible exit on every remaining step. |
+| Path Economy | 1/4 | Only account creation and verification are load-bearing, while five configuration steps precede first value and pricing appears after sunk effort; the path is technically traversable but seriously wasteful and misleading. | Cut to the two honest steps and move plans, invites, integrations, naming, and the tour into dismissible in-product prompts. |
+| Continuity | 0/4 | Browser Back erases every field and the resume link returns to step 1; the flow destroys state at both exit seams, so interruption and re-entry cannot work. | Persist pending signup state, create real history entries, and deep-link users back to the step they left. |
+| **Total** | **1/12 · 0.3/4** | **Broken; exact sum of justified component scores** | Weakest-discipline ceiling applied |
 
 ## Issues (most severe first)
 - **[P0 · Orientation]** **At:** Step 2, email verification · state: waiting for code/email · lifecycle: first-run activation before workspace entry. The verification dead end—step 2 shows "check your email" and stops: no resend, no "change email", no Back, no way forward inside the app. A first-timer whose mail is slow, spam-filtered, or mistyped by one character has exactly one move left, which is closing the tab; the screen can be reached and not left, so it fails the drop test outright and breaks the promise at the earliest possible moment. **Fix:** make step 2 a live screen—a 6-digit code field that auto-advances on paste, "Resend code" on a 30-second countdown, "Change email", a real Back to step 1 with the address intact, and "Finish later" that saves the pending account and mails a resume link.

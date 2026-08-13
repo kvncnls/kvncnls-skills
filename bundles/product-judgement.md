@@ -132,7 +132,7 @@ Create one issue ledger from the four native reports:
 2. Assign one primary owner using the boundary rules above.
 3. Keep the exact surface or transition, state, and lifecycle locator.
 4. Record dependencies, such as `Soul after Compass` or `Flywheel after Focal`.
-5. Preserve every local score and verdict; do not average unlike totals into a false Product Judgement score.
+5. Preserve every local score, verdict, and component score rationale; do not average unlike totals into a false Product Judgement score.
 6. Separate observed, inferred, walked, tested, and measured claims.
 
 Set the priority changes by dependency and consequence. Rank concrete implementation changes, not just findings or Skill owners:
@@ -147,7 +147,7 @@ This order can change when evidence shows a different upstream dependency. Do no
 
 ## Holistic output
 
-Run all four local audits first, then return this wrapper. Keep the local reports available in working notes; print their full locked templates only when the user asks for the detailed passes. The **Priority changes** section is required: each item must name the owner, exact surface or transition, app state, lifecycle moment, concrete change, reason for its rank, and dependency.
+Run all four local audits first, then return this wrapper. Keep the local reports available in working notes; print their full locked templates only when the user asks for the detailed passes. The **Score rationale** section is required: never report a native total such as `Focal 7/12` without its component rationales. Each component must use the local chain **evidence → consequence → rubric anchor → next-point change**. The **Priority changes** section is also required: each item must name the owner, exact surface or transition, app state, lifecycle moment, concrete change, reason for its rank, and dependency.
 
 ```markdown
 **Verdict:** <coherent | needs structural work | needs lifecycle work | needs authorship> · <one biggest cross-scale issue>
@@ -158,12 +158,18 @@ Run all four local audits first, then return this wrapper. Keep the local report
 **Blocker:** <None. | concise blocker reason>
 
 ## Four-scale scorecard
-| Skill | Native verdict | Score | Primary finding |
+| Skill | Native verdict | Score | Cross-scale finding |
 |---|---|---:|---|
 | Focal | <Clear Intent verdict> | _/12 · _._/4 | <one line> |
 | Compass | <Never Lost verdict> | _/12 · _._/4 | <one line> |
 | Flywheel | <earliest leaking stage> | _/16 · _._/4 | <one line> |
 | Soul | <authored-state verdict> | _/16 · _._/4 | <one line> |
+
+## Score rationale
+- **Focal <_/12>:** Information Architecture _/4 — <evidence → consequence → rubric anchor → next-point change>; Progressive Disclosure _/4 — <evidence → consequence → rubric anchor → next-point change>; Visual Hierarchy _/4 — <evidence → consequence → rubric anchor → next-point change>.
+- **Compass <_/12>:** Orientation _/4 — <evidence → consequence → rubric anchor → next-point change>; Path Economy _/4 — <evidence → consequence → rubric anchor → next-point change>; Continuity _/4 — <evidence → consequence → rubric anchor → next-point change>.
+- **Flywheel <_/16>:** Trust _/4 — <evidence → consequence → rubric anchor → next-point change>; Friction _/4 — <evidence → consequence → rubric anchor → next-point change>; Wins _/4 — <evidence → consequence → rubric anchor → next-point change>; Emotion _/4 — <evidence → consequence → rubric anchor → next-point change>.
+- **Soul <_/16>:** Baseline _/4 — <evidence → consequence → rubric anchor → next-point change>; Placement _/4 — <evidence → consequence → rubric anchor → next-point change>; Proportion _/4 — <evidence → consequence → rubric anchor → next-point change>; Signature _/4 — <evidence → consequence → rubric anchor → next-point change>.
 
 ## Cross-scale findings
 - **[P0–P3 · <Focal | Compass | Flywheel | Soul>]** **At:** <surface or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. <Name>—<observation and cost>. **Fix:** <specific change>. **Depends on:** <owner or "none">.
