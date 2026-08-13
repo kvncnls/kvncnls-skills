@@ -29,11 +29,11 @@ For a narrower question, invoke the local Skill directly. A single dashboard bel
 
 ## Evidence and context
 
-Accept a codebase, live product, clickable prototype, Figma or Paper frames, screenshots, or a product description. Prefer the codebase when it is available. It can expose routes, components, state transitions, validation, persistence, re-entry behavior, copy, and implementation constraints that frames cannot.
+Accept a codebase, live product, clickable prototype, Figma or Paper frames, screenshots, or a product description. Also accept the surrounding product context: the PRD (Product Requirements Document), product brief, strategy or goal documents, user research, personas, journey maps, analytics or funnel data, support themes, experiment history, and technical, accessibility, legal, or safety constraints. The artifact tells you what exists; these materials explain why it exists, for whom, and what success means. The more relevant context available, the more specific and defensible the audit. Prefer the codebase when it is available because it can expose routes, components, state transitions, validation, persistence, re-entry behavior, copy, and implementation constraints that frames cannot.
 
 Before auditing, collect or infer the following and label assumptions:
 
-- business goal and the product outcome that matters;
+- business goal, product requirements, success criteria, and the outcome that matters;
 - primary audience, expertise, situation, and stakes;
 - the user's intended first-value event;
 - the primary entry points and journeys;

@@ -127,7 +127,7 @@ When the question spans the app, use the holistic Skill:
 
 Product Judgement runs all four foundational Skills, keeps their ownership distinct, and returns the native scorecards plus a deduplicated issue ledger, a prioritized list of changes with dependencies, and a validation plan. It does not add another lens: Focal owns the screen, Compass the path, Flywheel the relationship, and Soul the memory.
 
-The most useful context is the business goal, user intent, audience, stakes, first-value event, primary journeys, constraints, and any evidence or metrics available. When context is missing, the Skills state their assumptions instead of presenting them as facts.
+Give the Skills the surrounding product context as well. Attach or point the LLM at the PRD (Product Requirements Document), product brief, strategy or goal documents, user research, personas, journey maps, analytics or funnel data, support themes, experiment history, and technical, accessibility, legal, or safety constraints. The more relevant context you provide, the better the Skills can judge whether a design serves a real user, goal, and constraint instead of only reacting to what is visible. When context is missing, the Skills state their assumptions instead of presenting them as facts.
 
 ## Install
 
