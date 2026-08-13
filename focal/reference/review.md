@@ -54,6 +54,8 @@ Run each gate in turn, in the order the disciplines apply. Each produces a 0–4
 - Apply the **one-sentence test** to the actual content: write *"This screen exists so the user can ___."* If "and" joins independently completable outcomes, IA has put competing intents on one screen. A phrase such as *review and approve this invoice* can remain one coherent intent when the first action is necessary to the second.
 - Identify the **action model** and test it against the register. On a task screen, multiple primary-weight actions usually signal competing intents unless they form an inherent binary or dual-mode set. On a hub, ranked routes are expected; in exploration, the content field leads.
 - Check **grouping and labeling**: are related things together? Are labels in the user's words or in system jargon?
+- Check whether the screen **infers recognizable input before asking for classification**. Does it show the interpretation, allow correction, and retain a fallback when ambiguity remains?
+- Check whether **decision-critical context stays at the decision surface**: history, status, price, and consequence should not require a context jump or memory bridge.
 - Check for the **memory bridge**: does any decision require a fact only shown on an earlier screen?
 - Check for **orphan content** and **data-model-shaped structure** (organized for the database, not the user's intent).
 
@@ -70,6 +72,7 @@ Run each gate in turn, in the order the disciplines apply. Each produces a 0–4
 *Of what belongs, is the right amount shown now?*
 
 - At the busiest decision point, **count items in working memory**. ≤4 good, 5–7 borderline, 8+ overload.
+- Check whether the screen **minimizes decisions without withholding evidence**. Technical detail can remain available for trust, verification, or expert use without making every user interpret it before proceeding.
 - Check the **disclosure triage**: is anything shown that should be deferred (rare options, advanced settings)? Is anything deferred that should be shown *now* (price, required fields, consequences, the task's primary action, or a control required by the register's action model)?
 - Check that deferral signals **what's hidden** (a count, a clear "More") rather than reading as absence. Name the cue for each deferred thing; if you cannot find one, the content is hidden rather than deferred. A function reachable only by an uncued gesture is the worst case.
 
@@ -90,6 +93,7 @@ Because this discipline is load-bearing, record a score of ≤1 caused by **bury
 - Run the **squint test** on the screenshot (or describe the weight order from the code). Name #1, #2, and the groupings.
 - Run the **3-second test**: would a first-timer name the most important element in 3 seconds?
 - Check **weight vs. importance**: does anything decorative outweigh the action model's dominant element or region? Is there a clear visual entry point (the focusing mechanism)? Count distinct type sizes/weights—deliberate scale, or noise?
+- Check whether the **consequence is visible** when a decision depends on a relationship, tradeoff, or process state. A summary, comparison, preview, or visualization should clarify raw values without replacing the supporting evidence.
 - Check **rank vs. actionability** separately. Ranking first is not the same as reading as actionable: when the dominant element is an action, name what says it can be acted on. Then count **false signifiers** (patterns.md, The false signifier).
 
 | Score | Criteria |
@@ -173,11 +177,11 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 ## Next
 - **Structural** (do first): <what changes what the screen *is*—split or merge, regroup, relabel, re-triage>
 - **Executional** (after): <what changes how it *looks*—weight, color, type, spacing, motion>
-- **Hand off**: <anything that is not this screen's problem—cross-screen path issues go to Compass; "None" if all of it is Focal's>
+- **Hand off**: <anything that is not this screen's problem—cross-screen path issues go to Compass; activation, value-recognition, or return leaks go to Flywheel; "None" if all of it is Focal's>
 ```
 
 Filling it:
 - **Coverage**—name only states and lifecycle moments the evidence actually exposes. Use `gaps` for consequential variants such as loading, error, first-run, re-entry, or worst-case data that were not shown or tested.
 - **Issues**—repeat the issue line once per issue, tagged **IA / Disclosure / Hierarchy**. Keep the `At` locator specific enough that a designer or engineer can open the right surface and reproduce the state without rereading the diagnosis. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
-- **Next**—structural before executional, always: polishing a screen with an unresolved organizing intent only organizes the clutter. Resolve structural items with the five-move build workflow in [SKILL.md](../SKILL.md). Single-screen work is Focal's; if the real problem is the path between screens, say so and hand off to Compass.
+- **Next**—structural before executional, always: polishing a screen with an unresolved organizing intent only organizes the clutter. Resolve structural items with the five-move build workflow in [SKILL.md](../SKILL.md). Single-screen work is Focal's; if the real problem is the path between screens, hand off to Compass; if it is a lifecycle leak in activation, value recognition, or return, hand off to Flywheel.
 - Re-run the audit after fixes to watch the score climb.

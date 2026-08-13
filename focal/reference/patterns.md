@@ -1,6 +1,6 @@
 # Focal Patterns—techniques and anti-patterns
 
-The working catalog behind the three disciplines. Pull from here when building or when prescribing a fix in a review. Ordered the way the disciplines apply: Information Architecture → Progressive Disclosure → Visual Hierarchy.
+The working catalog behind the three disciplines and the decision-support rules. Pull from here when building or when prescribing a fix in a review. Ordered the way the disciplines apply: Information Architecture → Progressive Disclosure → Visual Hierarchy.
 
 ---
 
@@ -12,7 +12,8 @@ How to decide what belongs on a screen and organize it around one clear intent.
 - **Split by intent, not content type.** "Account" is not one screen because the data lives in one table—it's profile, security, billing, and notifications, each a separate intent. Split where the user's goal changes, not where your schema does.
 - **Group by relatedness.** Things used together live together. Proximity is the strongest, cheapest grouping signal—closer than a border, closer than a shared background. Reach for dividers and containers only when space alone isn't enough.
 - **Label in the user's words.** Sections, nav, and actions named in language the user already owns. "Trips" not "Itinerary records." Test a label by asking whether a first-timer would pick it blind.
-- **Co-locate the decision and its inputs.** Everything needed to make a choice is present where the choice is made. If step 3 needs a number from step 1, show it on step 3. Never make the user hold it in their head.
+- **Pattern recognition—infer before asking.** When input has recognizable structure—an address, identifier, date, or transaction type—parse it and show the likely interpretation. Let the user correct it, and retain a manual fallback when ambiguity remains. Never make the user classify input the system can already recognize.
+- **Contextual UI—keep context at the decision surface.** Everything needed to make a choice is present where the choice is made. If a decision needs history, status, price, or consequence, show the relevant slice beside the action; if step 3 needs a number from step 1, show it on step 3. Never make the user hold it in their head or leave the work surface for decision-critical context.
 - **Merge round-trips; split overload.** Two screens that each do half a job and bounce the user back and forth should be one. One screen juggling three jobs should be three.
 - **Keep navigation shallow and oriented.** ≤5 top-level destinations; group the rest. The user should always know where they are (active state, breadcrumb, title) and how to get back.
 
@@ -38,6 +39,7 @@ Match the technique to *why* the content is deferred.
 | **Tooltip / inline hint** | Help is needed rarely and contextually | "?" next to an unfamiliar term |
 
 **Choosing well:**
+- **Minimize decisions, not information.** Present the few choices that change the next action. Keep evidence and technical detail discoverable when it supports trust, verification, or an expert path; do not force every user to interpret it before proceeding.
 - Defer the *rare*, surface the *common*. The split is by frequency of need, never by your convenience.
 - **Every deferral needs a signifier**—the perceptible cue that says something is there, present in the screen's default state without hover or gesture. The table above pairs each technique with its cue: an accordion has its chevron, an overflow menu its "⋯", a peek its "Show more", a stepper its position marker. Choosing a technique means committing to its cue; a technique whose cue you cannot name is not deferral, it is disappearance. When the deferred thing is a countable set, make the cue a count ("12 more") rather than a bare "More", so deferral reads as depth and not absence. Gestures (swipe, long-press) carry no inherent cue, so they need a visible partner control on the screen itself—never use one as the only path to a function.
 - One layer of disclosure is a path; three nested layers is a maze. If users must expand to expand to expand, the screen has the wrong architecture (Discipline 1).
@@ -55,6 +57,7 @@ How to give a screen a clear visual entry point so the eye knows where to start�
 - **Isolation by space.** Surround the primary element with more whitespace than anything else. The eye goes to what's alone.
 - **Position.** Above the fold, in the reading-flow landing zone (top-left start, bottom-right resolution for LTR). On mobile, primary actions sit where the thumb rests (the bottom third); on pointer-driven desktop, in the natural resolution zone of the layout (often bottom-right of a form or panel).
 - **Disciplined color.** On a task screen, reserve the strongest accent for the primary action or inherent co-equal set. On hubs and exploration surfaces, repeated link or interaction color can support a family of comparable routes; keep one region or content type visually dominant through space and weight.
+- **Show the consequence.** When a decision depends on a relationship, tradeoff, or process state, make that meaning legible at the decision surface with a summary, comparison, preview, or visualization when useful. Preserve exact values as supporting evidence; do not use the visual to decorate or hide the underlying facts.
 - **Suppress the rest.** Often the fastest way to create a focal point is not to amplify the hero but to *quiet everything else*—mute secondary text, recede chrome, drop ambient elements to low contrast.
 
 **Test:** squint at the screen and name where the eye starts. It should land on the task's dominant action or read-first content, the hub's leading route or group, or the exploration surface's content field. If unrelated regions tie for first, the focus mechanism has failed.
@@ -95,8 +98,11 @@ Each entry: the tell, the discipline it breaks, the fix. Severity is assigned in
 - **The kitchen-sink screen**—one screen carries several independent intents without declaring itself a hub. *(IA)* Split by intent, or explicitly organize it as routing with focused task paths.
 - **The data-model screen**—structure mirrors the database, not the user's goal. *(IA)* Reorganize around intent; group what's used together.
 - **The jargon label**—sections and actions named in system terms. *(IA)* Rename in the user's words; test labels blind.
+- **The classification tax**—recognizable input requires the user to select its type, network, or mode before the product can proceed. *(IA)* Parse the input, show the interpretation, allow correction, and keep a manual fallback for ambiguous cases.
+- **The context jump**—the user must leave the decision surface to inspect history, status, price, or consequence. *(IA)* Bring the decision-relevant slice into the same screen or region; defer deep detail, not the context needed to choose.
 - **The memory bridge**—step 3 needs a fact only shown on step 1. *(IA, PD)* Carry the context forward, or co-locate the decision with its inputs.
 - **The wall of options**—8+ equal choices at one decision point. *(PD)* Defaults + reveal; recommend one; group the rest.
+- **The numeric fog**—raw values leave the user to derive the relationship, tradeoff, or process state that matters. *(VH)* Add a clear summary, comparison, preview, or visualization; keep exact values available as evidence.
 - **The everything-up-front form**—onboarding asks for all data immediately. *(PD)* Ask only what's needed for the first success; defer the rest to when it's relevant.
 - **The premature settings dump**—advanced options shown before anyone needs them. *(PD)* Collapse behind "Advanced"; smart-default the common case.
 - **The buried essential**—price, required field, or consequence hidden behind a tap. *(PD)* Surface it. This is a dark pattern, not disclosure.
@@ -120,6 +126,7 @@ ACTION     task: one primary usually · hub: ranked routes · exploration: conte
 IA         everything supports the organizing intent · group related · label plainly
 DISCLOSE   every element → Now / On-demand / Never · ≤4 at any decision point
            name the signifier for each deferral
+DECIDE     minimize choices · infer before asking · context at the decision · consequence visible
 HIERARCHY  1 dominant element/region · 2–3 secondary · rest ambient
            space → weight → size → color
 NEVER      hide price, required fields, consequences, or controls needed now

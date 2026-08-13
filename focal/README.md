@@ -32,6 +32,8 @@ Simple, clean UX is not a style. It is the visible result of every screen making
 
 Get all three right and the screen settles around one clear intent on its own. Miss any one and that intent blurs.
 
+Focal treats the screen as a **decision surface**, not just a container. It minimizes decisions without withholding useful evidence, infers recognizable input before asking users to classify it, keeps decision-critical context beside the action, and makes consequences legible through summaries, comparisons, previews, or visualizations when raw values are not enough. It can prescribe what the interface should make clear; it does not implement parsers, chart systems, or visual styling.
+
 **It adapts to the screen type.** The default is a *task* screen—one coherent job, usually one primary action. A genuine binary choice or inseparable dual mode can keep co-equal actions. A **hub** (home, profile, settings index) exists to *route*, so many ranked destinations are correct, not clutter. An **exploration** surface (feeds, search, grids) exists for *browsing*, so content leads and abundance is the point. The working-memory limit doesn't vanish on these—it relocates (per row on a hub, per card on a feed). Focal classifies the register before it judges the screen.
 
 ---
@@ -85,7 +87,7 @@ It returns a fixed **screen review**:
 - **Screen, Context, Coverage, Basis, and Blocker**—what was reviewed, the user's situation, which app states and lifecycle moments were inspected, material gaps, the confirming check, and any critical condition.
 - **Scorecard**—Information Architecture, Progressive Disclosure, and Visual Hierarchy scored `0–4`, followed by the normalized average and final common band.
 - **Issues**—P0–P3 findings tagged to the discipline they break, each anchored to the exact screen region, app state, and lifecycle moment with a concrete fix.
-- **Top 3 moves and Next**—the highest-leverage changes, structural-before-executional sequencing, and any Compass handoff.
+- **Top 3 moves and Next**—the highest-leverage changes, structural-before-executional sequencing, and any Compass or Flywheel handoff.
 
 See the [locked review template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).
 
@@ -116,6 +118,8 @@ focal/
 
 Focal owns *structure and attention*. The execution of color, typography, spacing, and motion is left to your own design system and tooling—visual polish lands far better on a screen whose center of gravity is already clear.
 
+For a complete multi-screen journey, use Compass to map the path and Flywheel to diagnose where activation, value recognition, or return loses momentum. Focal keeps each screen inside that journey understandable and actionable.
+
 ---
 
 ## Quick reference
@@ -125,6 +129,7 @@ INTENT     "This screen exists so the user can ___."   (no unrelated second outc
 ACTION     task: one primary usually · hub: ranked routes · exploration: content leads
 IA         everything supports the organizing intent · group related · label plainly
 DISCLOSE   every element → Now / On-demand / Never · ≤4 at any decision point
+DECIDE     minimize choices · infer before asking · context at the decision · consequence visible
 HIERARCHY  1 dominant element/region · 2–3 secondary · rest ambient
            space → weight → size → color
 NEVER      hide price, required fields, consequences, or controls needed now
