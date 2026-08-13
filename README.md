@@ -1,6 +1,6 @@
 # Product Judgement
 
-A collection of AI Skills for making better product decisions across the screen, the journey, the relationship, and the memory. Each one is a self-contained folder of Markdown—no build step, no dependencies—and each also ships as a single file, so they work in Claude Code, Codex, ChatGPT, Cursor, and anything else that reads Markdown.
+Skills for making better product decisions across the screen, the journey, the relationship, and the memory. Each one is a self-contained folder of Markdown—no build step, no dependencies—and each also ships as a single file, so they work in Claude Code, Codex, ChatGPT, Cursor, and anything else that reads Markdown.
 
 The umbrella is **coherence**: focused within a screen, navigable across a journey, valuable across the relationship, memorable after the experience, and trustworthy throughout.
 
