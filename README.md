@@ -1,16 +1,14 @@
-# kvncnls-skills
+# Product Judgement
 
-A collection of Skills for product design and UI/UX design, by Kevin Canlas. Each one is a self-contained folder of Markdown—no build step, no dependencies—and each also ships as a single file, so they work in Claude Code, Codex, ChatGPT, Cursor, and anything else that reads Markdown.
-
-**A system for product judgment across four scales of experience: the screen, the journey, the relationship, and the memory.**
+A collection of AI Skills for making better product decisions across the screen, the journey, the relationship, and the memory. Each one is a self-contained folder of Markdown—no build step, no dependencies—and each also ships as a single file, so they work in Claude Code, Codex, ChatGPT, Cursor, and anything else that reads Markdown.
 
 The umbrella is **coherence**: focused within a screen, navigable across a journey, valuable across the relationship, memorable after the experience, and trustworthy throughout.
 
 ## Why this collection exists
 
-Vibe coding made implementation fast and easy and made product judgment even easier to skip. Features accumulate, screens grow crowded, flows become mazes, value gets buried, and working products become generic and forgettable. The 'Ship fast, iterate later' mantra has produced AI product slop en masse.
+Vibe coding made implementation fast and easy and made product judgement even easier to skip. Features accumulate, screens grow crowded, flows become mazes, value gets buried, and working products become generic and forgettable. The 'Ship fast, iterate later' mantra has produced AI product slop en masse.
 
-These Skills put product judgment back in the loop. They encode principles, decision trees, failure modes, audit rubrics, exceptions, and fixed outputs for recurring UX problems—helping an AI reason about the experience as a connected system instead of generating one plausible screen at a time.
+These Skills put product judgement back in the loop. They encode principles, decision trees, failure modes, audit rubrics, exceptions, and fixed outputs for recurring UX problems—helping an AI reason about the experience as a connected system instead of generating one plausible screen at a time.
 
 They complement design systems: design systems standardize how decisions are rendered; these Skills help decide which decisions should be made.
 
@@ -18,7 +16,7 @@ Each Skill owns one scale: Focal sharpens the screen, Compass connects the journ
 
 ## What this repo is not
 
-This is not a design-system analyzer, component library, token validator, visual-regression suite, renderer, prototyping tool, animation library, or implementation framework. It produces product-design judgment, audits, and fixed specifications—not production UI or animation code. Soul can identify where motion or expressive treatment earns its place; other tools implement it.
+This is not a design-system analyzer, component library, token validator, visual-regression suite, renderer, prototyping tool, animation library, or implementation framework. It produces product-design judgement, audits, and fixed specifications—not production UI or animation code. Soul can identify where motion or expressive treatment earns its place; other tools implement it.
 
 It is not context-free product wisdom. Because these Skills make product-design decisions, they work best with the context behind the decision: business goals, user intent, audience, constraints, stakes, the existing journey, and the evidence available. The more relevant context you provide, the more specific and useful the output; without it, the result is a hypothesis to validate, not a substitute for product knowledge.
 
@@ -83,23 +81,45 @@ Every audit also states its evidence **Basis** and the fastest test, behavior, o
 
 ## Install
 
+### Any supported agent
+
+Install all four Skills with the [Skills CLI](https://skills.sh/docs/cli):
+
+```bash
+npx skills add kvncnls/product-judgement --all
+```
+
+Or install the collection globally for Claude Code, Codex, and Cursor:
+
+```bash
+npx skills add kvncnls/product-judgement --skill '*' -g -a claude-code -a codex -a cursor -y
+```
+
+Install one Skill by name:
+
+```bash
+npx skills add kvncnls/product-judgement --skill focal
+```
+
+### Manual installation
+
 Each skill comes in two shapes. The **folder** (`focal/`) loads its references on demand and gives you a slash command. The **bundle** ([`bundles/focal.md`](./bundles)) is the same skill flattened into one file—spine, references, rubrics, and templates—for tools that can't load a multi-file folder. Start by cloning:
 
 ```bash
-git clone https://github.com/kvncnls/kvncnls-skills.git
+git clone https://github.com/kvncnls/product-judgement.git
 ```
 
 **Claude Code**—install the folder. Symlink to keep edits in sync:
 
 ```bash
-ln -s "$(pwd)/kvncnls-skills/focal" ~/.claude/skills/focal
+ln -s "$(pwd)/product-judgement/focal" ~/.claude/skills/focal
 ```
 
 Prefer an independent copy, or scope it to one project?
 
 ```bash
-cp -R kvncnls-skills/focal ~/.claude/skills/focal     # independent copy, all projects
-cp -R kvncnls-skills/focal <project>/.claude/skills/  # one project only
+cp -R product-judgement/focal ~/.claude/skills/focal     # independent copy, all projects
+cp -R product-judgement/focal <project>/.claude/skills/  # one project only
 ```
 
 Restart Claude Code and `/focal` is available.
@@ -107,7 +127,7 @@ Restart Claude Code and `/focal` is available.
 **Codex**—append a bundle to your project's `AGENTS.md`, which Codex loads automatically:
 
 ```bash
-cat kvncnls-skills/bundles/focal.md >> AGENTS.md
+cat product-judgement/bundles/focal.md >> AGENTS.md
 ```
 
 **ChatGPT**—create a Custom GPT and paste a bundle into *Instructions*, or upload it as a *Knowledge* file. A Project works the same way: add it to the project's files.
@@ -115,7 +135,7 @@ cat kvncnls-skills/bundles/focal.md >> AGENTS.md
 **Cursor / Windsurf / Cline**—drop a bundle in as a rules file:
 
 ```bash
-cp kvncnls-skills/bundles/focal.md .cursor/rules/focal.md
+cp product-judgement/bundles/focal.md .cursor/rules/focal.md
 ```
 
 Swap `focal` for whichever skill you want. Each skill's own `README.md` has its full usage, and the bundles are build artifacts—regenerate rather than edit them.

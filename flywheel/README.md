@@ -32,11 +32,17 @@ The order is not a preference. If people don't trust you, nothing downstream mat
 ## Install
 
 ```bash
-git clone https://github.com/kvncnls/kvncnls-skills.git
-ln -s "$(pwd)/kvncnls-skills/flywheel" ~/.claude/skills/flywheel
+npx skills add kvncnls/product-judgement --skill flywheel
 ```
 
-Prefer a copy, or one project only? `cp -R kvncnls-skills/flywheel ~/.claude/skills/flywheel`, or copy the folder into a project's `.claude/skills/`. Restart Claude Code if it was running.
+For manual installation:
+
+```bash
+git clone https://github.com/kvncnls/product-judgement.git
+ln -s "$(pwd)/product-judgement/flywheel" ~/.claude/skills/flywheel
+```
+
+Prefer a copy, or one project only? `cp -R product-judgement/flywheel ~/.claude/skills/flywheel`, or copy the folder into a project's `.claude/skills/`. Restart Claude Code if it was running.
 
 ---
 

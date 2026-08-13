@@ -32,15 +32,21 @@ A flow is a sequence of screens with a destination. Good cross-screen UX means t
 
 ## Install
 
-Compass ships in the [`kvncnls-skills`](https://github.com/kvncnls/kvncnls-skills) collection. To install it for every session:
+Compass ships in the [**Product Judgement**](https://github.com/kvncnls/product-judgement) collection. To install it with the Skills CLI:
 
 ```bash
-git clone https://github.com/kvncnls/kvncnls-skills.git
-# Symlink the skill so edits stay in sync:
-ln -s "$(pwd)/kvncnls-skills/compass" ~/.claude/skills/compass
+npx skills add kvncnls/product-judgement --skill compass
 ```
 
-Prefer an independent copy, or just one project? Use `cp -R kvncnls-skills/compass ~/.claude/skills/compass`, or copy the `compass/` folder into a project's `.claude/skills/` instead. Restart Claude Code if it was already running.
+To install it manually for every session:
+
+```bash
+git clone https://github.com/kvncnls/product-judgement.git
+# Symlink the skill so edits stay in sync:
+ln -s "$(pwd)/product-judgement/compass" ~/.claude/skills/compass
+```
+
+Prefer an independent copy, or just one project? Use `cp -R product-judgement/compass ~/.claude/skills/compass`, or copy the `compass/` folder into a project's `.claude/skills/` instead. Restart Claude Code if it was already running.
 
 ---
 

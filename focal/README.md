@@ -40,15 +40,21 @@ Focal treats the screen as a **decision surface**, not just a container. It mini
 
 ## Install
 
-Focal is a standard Claude Code Agent Skill—a folder of Markdown, no build step or dependencies. It ships in the [`kvncnls-skills`](https://github.com/kvncnls/kvncnls-skills) collection. To install it for every session:
+Focal is a standard Claude Code Agent Skill—a folder of Markdown, no build step or dependencies. It ships in the [**Product Judgement**](https://github.com/kvncnls/product-judgement) collection. To install it with the Skills CLI:
 
 ```bash
-git clone https://github.com/kvncnls/kvncnls-skills.git
-# Symlink the skill so edits stay in sync:
-ln -s "$(pwd)/kvncnls-skills/focal" ~/.claude/skills/focal
+npx skills add kvncnls/product-judgement --skill focal
 ```
 
-Prefer an independent copy, or just one project? Use `cp -R kvncnls-skills/focal ~/.claude/skills/focal`, or copy the `focal/` folder into a project's `.claude/skills/` instead. Restart Claude Code if it was already running.
+To install it manually for every session:
+
+```bash
+git clone https://github.com/kvncnls/product-judgement.git
+# Symlink the skill so edits stay in sync:
+ln -s "$(pwd)/product-judgement/focal" ~/.claude/skills/focal
+```
+
+Prefer an independent copy, or just one project? Use `cp -R product-judgement/focal ~/.claude/skills/focal`, or copy the `focal/` folder into a project's `.claude/skills/` instead. Restart Claude Code if it was already running.
 
 ---
 

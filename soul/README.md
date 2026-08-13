@@ -35,11 +35,17 @@ Every beat on the path gets exactly one of three tiers:
 ## Install
 
 ```bash
-git clone https://github.com/kvncnls/kvncnls-skills.git
-ln -s "$(pwd)/kvncnls-skills/soul" ~/.claude/skills/soul
+npx skills add kvncnls/product-judgement --skill soul
 ```
 
-Prefer a copy, or one project only? `cp -R kvncnls-skills/soul ~/.claude/skills/soul`, or copy the folder into a project's `.claude/skills/`. Restart Claude Code if it was running.
+For manual installation:
+
+```bash
+git clone https://github.com/kvncnls/product-judgement.git
+ln -s "$(pwd)/product-judgement/soul" ~/.claude/skills/soul
+```
+
+Prefer a copy, or one project only? `cp -R product-judgement/soul ~/.claude/skills/soul`, or copy the folder into a project's `.claude/skills/`. Restart Claude Code if it was running.
 
 ---
 
