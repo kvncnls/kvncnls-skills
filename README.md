@@ -6,53 +6,21 @@ A collection of Skills for product design and UI/UX design, by Kevin Canlas. Eac
 
 The umbrella is **coherence**: focused within a screen, navigable across a journey, valuable across the relationship, memorable after the experience, and trustworthy throughout.
 
-## Why these exist
+## Why this collection exists
 
-Vibe coding made building software fast and easy—describe a feature, watch it appear. But building fast and designing well are different skills, and the second hasn't kept up. I keep seeing the same pattern: features stacked on features, screens accumulating widgets, flows sprouting steps, value buried behind setup, and meaningful moments flattened into generic UI. No one stops to ask whether the app still hangs together, earns a second visit, or gives anyone something worth remembering.
+Vibe coding made implementation fast and easy, but product judgment is still easy to skip. Features accumulate, screens grow crowded, flows become mazes, value gets buried, and working products become forgettable.
 
-The first casualties are the quiet judgments that make software feel coherent: what belongs, what waits, what deserves attention, how state survives, whether value becomes visible, and where craft earns its place. They rarely block a release, so they get skipped. The product still works, but it breaks at one of four scales:
+These Skills put product judgment back in the loop. They encode principles, decision trees, failure modes, audit rubrics, exceptions, and fixed outputs for recurring UX problems—helping an AI reason about the experience as a connected system instead of generating one plausible screen at a time.
 
-- **The screen**—it does too much. Widgets compete, nothing is clearly primary, everything shows at once.
-- **The journey**—the path becomes a maze. Too many steps, no sense of where you are, no clean way back.
-- **The relationship**—people arrive, but value is buried, delayed, or delivered silently, so the product never earns a second visit.
-- **The memory**—everything works and nothing stays with you. Every screen functional, every flow passable, nothing anyone would describe to a friend.
+They complement design systems: design systems standardize how decisions are rendered; these Skills help decide which decisions should be made.
 
-Across all four, trust is the floor: no coherent experience hides material consequence, destroys work, removes informed choice, or uses craft to cover a broken path.
-
-These Skills put that judgment back in the loop, on demand:
-
-- **Focal** gives a screen one clear center of gravity—*one screen, one clear intent.*
-- **Compass** keeps a journey navigable—*never lost.*
-- **Flywheel** keeps the value you earned from leaking away—*earn the second visit.*
-- **Soul** gives the happy path moments worth remembering—*never boring.*
-
-More will follow, each targeting a craft that speed tends to leave behind.
-
-## One skill, one job
-
-Each Skill is deliberately scoped around one design lens and a north-star outcome. Each supports a focused build workflow and a separate audit-style workflow, with handoffs for adjacent problems.
-
-Focal decides what belongs on one screen and what wins attention. Compass designs the path between screens so users stay oriented and state survives the seams. Flywheel finds the earliest leak that keeps arrival from becoming value—or value from earning a second visit. Soul decides where a working happy path should stay conventional, gain craft, or become memorable.
-
-Their boundaries are working boundaries, not walls. This keeps the collection composable: use one lens when it is enough, combine several when the problem crosses scales, and never turn any one Skill into an all-purpose product design system.
-
-## Product judgment, encoded
-
-These Skills encode product-design judgment: principles, decision trees, failure modes, review rubrics, exceptions, and fixed outputs for recurring UX problems. Their purpose is to help an AI reason about the experience as a connected system instead of generating one plausible screen at a time.
-
-They operate on actual UX decisions: what belongs on a screen, what should wait, which action deserves attention, how a user knows where they are, whether state survives between steps, where a product loses people, whether users recognize that value happened, and which moments deserve deeper authorship.
-
-They complement rather than replace conventional design systems. Traditional systems help teams render decisions consistently through components, tokens, patterns, and documentation. AI-native design systems also need a judgment layer that governs which decisions should be made: what belongs, what waits, what protects the user, which stage is leaking, and where expressive treatment earns its place. That is the layer this collection explores.
+Each Skill owns one scale: Focal sharpens the screen, Compass connects the journey, Flywheel strengthens the relationship, and Soul authors what gets remembered. They stay narrow so they can be combined when a problem crosses scales without becoming an all-purpose product design system.
 
 ## What this repo is not
 
-This is not a design-system analyzer, component library, token validator, or visual-regression suite. It does not judge whether components are consistent or tell you how to organize tokens. It sits above those systems and helps decide what the experience should do: what belongs, what waits, where value leaks, and where craft earns its place.
+This is not a design-system analyzer, component library, token validator, visual-regression suite, renderer, prototyping tool, animation library, or implementation framework. It produces product-design judgment, audits, and fixed specifications—not production UI or animation code. Soul can identify where motion or expressive treatment earns its place; other tools implement it.
 
-It is not a renderer, prototyping tool, animation library, or implementation framework. The Skills produce judgment, audits, and fixed specifications—not production UI or animation code. Soul can identify which moments deserve motion, what that motion should communicate, and when restraint is better; design and engineering tools still implement it.
-
-It is not user research, analytics, experimentation, marketing, or product strategy. It can form hypotheses, locate leaks, and name the fastest validating test or metric, but it does not interview users, instrument events, prove causality, buy attention, set the roadmap, or manufacture product-market fit.
-
-It is not a whole-app sitemap or an all-purpose UX system. Focal works within a screen, Compass between screens, Flywheel across relationship stages, and Soul across memorable moments. They complement design systems and formal accessibility, security, legal, and safety reviews; they do not replace them.
+It is not user research, analytics, experimentation, marketing, or product strategy. It can form hypotheses, locate leaks, and name a confirming test or metric, but it does not collect evidence, prove causality, buy attention, set roadmaps, or manufacture product-market fit. It is not a whole-app sitemap or all-purpose UX system, and it does not replace design-system, accessibility, security, legal, or safety reviews.
 
 ## Skills
 
