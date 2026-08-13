@@ -84,7 +84,7 @@ Establish the product, audience, stakes, first value, business goal, and evidenc
 - **Relationship**—arrival, trust, activation before value, first value, return, lapse, re-engagement, and advocacy.
 - **Memory**—the default happy path, its beats, frequency, ending, and any moments already carrying expressive treatment.
 
-Use the same implementation locator throughout: **surface or transition · exact app state · lifecycle moment**. Keep rendered state separate from occurrence. For example, `Import screen · validation error · first-run activation` is precise; `onboarding` is not.
+Use the same four-part implementation locator throughout: **Screen · Flow · State · Lifecycle**. Keep rendered state separate from occurrence. For example, `Import screen · CSV upload flow · validation error · first-run activation` is precise; `onboarding` is not. If one field is not evidenced, write `not shown` and name the check that would expose it.
 
 ### 2. Run Focal on the decision surfaces
 
@@ -116,7 +116,7 @@ Create one issue ledger from the four native reports:
 
 1. Deduplicate findings that describe the same condition.
 2. Assign one primary owner using the boundary rules above.
-3. Keep the exact surface or transition, state, and lifecycle locator.
+3. Keep the exact **Screen · Flow · State · Lifecycle** locator on every finding, recommendation, handoff, and priority change.
 4. Record dependencies, such as `Soul after Compass` or `Flywheel after Focal`.
 5. Preserve every local score, verdict, and component score rationale; do not average unlike totals into a false Product Judgement score.
 6. Separate observed, inferred, walked, tested, and measured claims.
@@ -133,12 +133,16 @@ This order can change when evidence shows a different upstream dependency. Do no
 
 ## Holistic output
 
-Run all four local audits first, then return this wrapper. Keep the local reports available in working notes; print their full locked templates only when the user asks for the detailed passes. The **Score rationale** section is required: never report a native total such as `Focal 7/12` without its component rationales. Each component must use the local chain **evidence → consequence → rubric anchor → next-point change**. The **Priority changes** section is also required: each item must name the owner, exact surface or transition, app state, lifecycle moment, concrete change, reason for its rank, and dependency.
+Run all four local audits first, then return this wrapper. Keep the local reports available in working notes; print their full locked templates only when the user asks for the detailed passes. The **Score rationale** section is required: never report a native total such as `Focal 7/12` without its component rationales. Each component must use the local chain **evidence → consequence → rubric anchor → next-point change**, citing the same four-part locator. The **Priority changes** section is also required: each item must name the owner, **Screen, Flow, State, and Lifecycle**, concrete change, reason for its rank, and dependency.
 
 ```markdown
 **Verdict:** <coherent | needs structural work | needs lifecycle work | needs authorship> · <one biggest cross-scale issue>
 
 **Product:** <what it is, for whom> · goal: <business or user outcome> · first value: <event, or "undefined"> · stakes: <low | medium | high>
+**Screen:** <exact screens, regions, or touchpoints reviewed>
+**Flow:** <named journeys and transitions reviewed>
+**State:** <exact rendered or system states reviewed>
+**Lifecycle:** <exact user/product relationship moments reviewed>
 **Coverage:** <screens, journeys, relationship stages, states, and lifecycle moments reviewed> · gaps: <material gaps, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <fastest validating check>
 **Blocker:** <None. | concise blocker reason>
@@ -158,23 +162,23 @@ Run all four local audits first, then return this wrapper. Keep the local report
 - **Soul <_/16>:** Baseline _/4 — <evidence → consequence → rubric anchor → next-point change>; Placement _/4 — <evidence → consequence → rubric anchor → next-point change>; Proportion _/4 — <evidence → consequence → rubric anchor → next-point change>; Signature _/4 — <evidence → consequence → rubric anchor → next-point change>.
 
 ## Cross-scale findings
-- **[P0–P3 · <Focal | Compass | Flywheel | Soul>]** **At:** <surface or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. <Name>—<observation and cost>. **Fix:** <specific change>. **Depends on:** <owner or "none">.
+- **[P0–P3 · <Focal | Compass | Flywheel | Soul>]** **At:** screen: <exact screen/region/touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. <Name>—<observation and cost>. **Fix:** <specific change>. **Depends on:** <owner or "none">.
 
 ## Priority changes
-1. **Priority 1 · <P0–P3> · Now — <primary owner and stage>** · **At:** <surface or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the concrete implementation change>. **Why now:** <the consequence and upstream reason>. **Depends on:** <owner or "none">.
-2. **Priority 2 · <P0–P3> · Next — <primary owner>** · **At:** <surface or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the change unlocked by Now>. **Why now:** <the consequence and dependency>. **Depends on:** <owner or "none">.
-3. **Priority 3 · <P0–P3> · Then — <primary owner>** · **At:** <surface or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the change that makes value, return, or comprehension stronger>. **Why now:** <the consequence and dependency>. **Depends on:** <owner or "none">.
-4. **Priority 4 · <P0–P3> · After the floor holds — Soul** · **At:** <surface or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the one or two moments worth authoring, or "None yet."> **Why now:** <why expressive treatment is ready—or not ready>. **Depends on:** <owner or "none">.
+1. **Priority 1 · <P0–P3> · Now — <primary owner and stage>** · **At:** screen: <exact screen/region/touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the concrete implementation change>. **Why now:** <the consequence and upstream reason>. **Depends on:** <owner or "none">.
+2. **Priority 2 · <P0–P3> · Next — <primary owner>** · **At:** screen: <exact screen/region/touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the change unlocked by Now>. **Why now:** <the consequence and dependency>. **Depends on:** <owner or "none">.
+3. **Priority 3 · <P0–P3> · Then — <primary owner>** · **At:** screen: <exact screen/region/touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the change that makes value, return, or comprehension stronger>. **Why now:** <the consequence and dependency>. **Depends on:** <owner or "none">.
+4. **Priority 4 · <P0–P3> · After the floor holds — Soul** · **At:** screen: <exact screen/region/touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the one or two moments worth authoring, or "None yet."> **Why now:** <why expressive treatment is ready—or not ready>. **Depends on:** <owner or "none">.
 
 ## Handoffs and validation
-- **Focal:** <screen(s) to review or rebuild, with state and lifecycle>.
-- **Compass:** <journey or seam to review or rebuild, with state and lifecycle>.
-- **Flywheel:** <stage and first-value or return check to validate>.
-- **Soul:** <moment to author only after its dependency holds>.
+- **Focal:** **At:** screen: <exact screen/region or `not shown`> · flow: <named flow or `not shown`> · state: <exact state or `not shown`> · lifecycle: <exact moment or `not shown`> · <screen(s) to review or rebuild>.
+- **Compass:** **At:** screen: <source/destination screen or seam or `not shown`> · flow: <named journey or transition or `not shown`> · state: <exact state or `not shown`> · lifecycle: <exact moment or `not shown`> · <journey or seam to review or rebuild>.
+- **Flywheel:** **At:** screen: <exact touchpoint or `not shown`> · flow: <named journey or transition or `not shown`> · state: <exact state or `not shown`> · lifecycle: <exact moment or `not shown`> · <stage and first-value or return check to validate>.
+- **Soul:** **At:** screen: <exact beat/touchpoint or `not shown`> · flow: <named happy path or transition or `not shown`> · state: <exact state or `not shown`> · lifecycle: <exact moment or `not shown`> · <moment to author only after its dependency holds>.
 - **Validation:** <fastest behavior, user test, or metric for the highest-consequence claim>.
 ```
 
-Never emit a vague location such as `the onboarding` or `the dashboard` when a screen, transition, state, and lifecycle moment can be named. If the evidence cannot support that precision, say `not shown` and name what would expose it.
+Never emit a vague location such as `the onboarding` or `the dashboard` when **Screen, Flow, State, and Lifecycle** can be named. If the evidence cannot support that precision, say `not shown` for the missing field and name what would expose it.
 
 ## Routing
 

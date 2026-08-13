@@ -137,7 +137,7 @@ Retention depends less on novelty than on respectful continuity: restore context
 ## Routing
 
 - **No argument** → explain the wheel and the four plays briefly, then ask: diagnosing an existing product, or designing a relationship stage?
-- **`diagnose` / `audit` / `review` (a product, a stage, a screenshot, or a symptom like "nobody comes back")** → load and follow [reference/review.md](reference/review.md). It scores each play 0–4 against a written rubric, requires an evidence-based rationale and next-point change for every score, totals to /16, displays a normalized /4 average and common quality band with a weakest-play ceiling, tags issues P0–P3, anchors every issue to the exact touchpoint, app state, and relationship lifecycle stage, and names the leaking stage. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
+- **`diagnose` / `audit` / `review` (a product, a stage, a screenshot, or a symptom like "nobody comes back")** → load and follow [reference/review.md](reference/review.md). It scores each play 0–4 against a written rubric, requires an evidence-based rationale and next-point change for every score, totals to /16, displays a normalized /4 average and common quality band with a weakest-play ceiling, tags issues P0–P3, and anchors every issue and suggested move to the exact **Screen · Flow · State · Lifecycle** locator before naming the leaking stage. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
 - **`build` (a relationship stage to design)** → name first value, walk the diagnosis tree to confirm which stage, read that play's reference, then follow **Design** below. That order is fixed: the tree cannot be walked before first value is named.
 - **A question about one play** → read that play's reference file.
 
@@ -252,13 +252,14 @@ Before scoring, establish in one or two sentences each:
 
 ## Locate every finding
 
-Every issue must carry an implementation locator that answers **where**, **in what state**, and **when**:
+Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Fix this first recommendation, Next item, and handoff must carry the same locator:
 
-- **Surface**—the exact touchpoint, screen, message, control, or transition.
-- **State**—the rendered or system condition: first encounter, empty, loading, error, success, ask, retry, and so on.
-- **Lifecycle**—the relationship stage: arrival, consideration, activation before value, first value, return, lapse, re-engagement, or advocacy.
+1. **Screen**—the exact touchpoint, screen, message, or control.
+2. **Flow**—the named journey or transition that carries the user to that touchpoint.
+3. **State**—the rendered or system condition: first encounter, empty, loading, error, success, ask, retry, and so on.
+4. **Lifecycle**—the relationship stage: arrival, consideration, activation before value, first value, return, lapse, re-engagement, or advocacy.
 
-Use the narrowest defensible locator. `Report generation → result · success after processing · first value for a new signup` is actionable; `activation` is not. List only evidenced states under **Coverage**. Put material unknowns under `gaps`, and name the metric or behavior that would confirm them in **Basis**.
+Use the narrowest defensible locator. `Report screen → result · report generation flow · success after processing · first value for a new signup` is actionable; `activation` is not. If any locator field is not evidenced, write `not shown` and name the metric or behavior that would confirm it in **Coverage** or **Basis**.
 
 ## The four gates
 
@@ -381,6 +382,10 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 **Verdict:** <the leaking stage> · <the one biggest loss, one phrase> · **<total>/16**
 
 **Product:** <what it is, for whom> · first value: <the event, or "undefined"> · stakes: <low | medium | high>
+**Screen:** <exact touchpoint(s) or `not shown`>
+**Flow:** <named journey or transition(s) or `not shown`>
+**State:** <exact rendered or system state(s) reviewed>
+**Lifecycle:** <exact relationship stage(s) reviewed>
 **Coverage:** <relationship stages and app states actually reviewed> · gaps: <material stages or states not shown or measured, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
 **Blocker:** <None. | concise blocker reason>
@@ -395,21 +400,22 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 | **Total** | **_/16 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-play ceiling applied> |
 
 ## Issues (most severe first)
-- **[P0 · Trust]** **At:** <touchpoint> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
-- **[P1 · Friction]** **At:** <touchpoint> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
+- **[P0 · Trust]** **At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
+- **[P1 · Friction]** **At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
 
 ## Fix this first
+**At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage>
 <the single leaking stage, and why fixing anything downstream is premature>
 
 ## Next
-- **Now**: <the change at the leaking stage>
-- **After it moves**: <what becomes worth doing once that stage holds>
-- **Hand off**: <single-screen structure goes to Focal; multi-screen path goes to Compass; "None" if all of it is Flywheel's>
+- **Now**: **At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage> · <the change at the leaking stage>
+- **After it moves**: **At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage> · <what becomes worth doing once that stage holds>
+- **Hand off**: **At:** screen: <exact touchpoint or `not shown`> · flow: <named flow or transition or `not shown`> · state: <exact app state or `not shown`> · lifecycle: <exact relationship stage or `not shown`> · <single-screen structure goes to Focal; multi-screen path goes to Compass; "None" if all of it is Flywheel's>
 ```
 
 Filling it:
 - **Coverage**—name only relationship stages and app states the evidence actually exposes. Use `gaps` for consequential stages such as first value, return, lapse, or re-engagement that were not shown or measured.
-- **Issues**—repeat the issue line once per issue, tagged **Trust / Friction / Wins / Emotion**. Keep the `At` locator precise enough to identify the exact touchpoint and cohort moment that must change. `<observation>` may run two or three sentences when being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Issues and suggestions**—repeat the issue line once per issue, and give every issue, Fix this first recommendation, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Keep the `At` locator precise enough to identify the exact touchpoint and cohort moment that must change. `<observation>` may run two or three sentences when being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Fix this first**—one stage, never a list. The whole point of the diagnosis is to refuse to work on four things at once.
 - **Basis**—never claim measurement you do not have. Use the controlled basis vocabulary in the template, and name the fastest confirming metric or behavior.
 
@@ -812,6 +818,10 @@ Two worked examples in the locked output templates—one **diagnosis**, one **re
 **Verdict:** Friction · people never reach a first report, so there is nothing to come back to · **6/16**
 
 **Product:** support-ticket analytics for support and product teams · first value: undefined · stakes: low
+**Screen:** workspace setup, report result, and empty dashboard
+**Flow:** signup-to-first-report
+**State:** required setup, report success, empty dashboard, and proposed re-engagement
+**Lifecycle:** arrival, activation before first value, first value, and attempted return
 **Coverage:** signup, pre-value setup, CSV upload, empty dashboard, report loading/success, and proposed re-engagement · gaps: measured activation cohorts, real returning-user state, lapse timing, and referral/advocacy not shown
 **Basis:** walked from a description · confirm with: share of signups that generate a first report, and 4-week retention split by whether they did
 **Blocker:** None.
@@ -826,19 +836,20 @@ Two worked examples in the locked output templates—one **diagnosis**, one **re
 | **Total** | **6/16 · 1.5/4** | **Broken; exact sum of justified component scores** | Weakest-play ceiling applied |
 
 ## Issues (most severe first)
-- **[P1 · Friction]** **At:** Workspace setup → CSV upload · state: required configuration with no sample · lifecycle: new signup activating before first value. The setup wall—6 workspace fields and a CSV upload sit before any output. None can be answered well by someone who has not seen a report, and the upload demands data they may not have exported yet. This is commitment friction placed before value. **Fix:** ship a sample dataset that generates a real report in one click; defer all 6 fields until after the first report exists, and infer the workspace name from the email domain.
-- **[P1 · Wins]** **At:** Report generation → result · state: success after a 4-minute loading wait · lifecycle: first value for a new signup. The silent power stroke—the product's whole value arrives after a 4-minute wait and is announced by a toast reading "Done." The user is not told what was found, how many tickets were read, or what changed. The single largest win in the product is invisible. **Fix:** replace the toast with the result—themes found, tickets analyzed, the top theme stated in one line—and a next action that extends it.
-- **[P1 · Emotion]** **At:** Proposed re-engagement email · state: lapsed before any report exists · lifecycle: attempted return before first value. Re-engagement aimed at people who never got value—the proposed fix emails users who never reached a first report. Mail asking someone to return to a product that never worked for them is pressure substituting for a reason, and it burns the address for the day the product is actually ready. **Fix:** do not build it. Every hour here belongs at Friction until first-report rate moves.
-- **[P2 · Trust]** **At:** Acquisition/landing promise · state: first encounter with no product proof · lifecycle: arrival before signup. No evidence near the claim—the promise is specific but nothing on the page shows a real report. **Fix:** put an actual output on the first screen; it does double duty as proof and as comprehension.
-- **[P2 · Friction]** **At:** Reports dashboard · state: empty with "No reports yet" · lifecycle: activation before first report. The empty state is a notice—"No reports yet" states a fact and offers no path. **Fix:** make it the activation surface: what will appear here, why it is useful, and one button that runs the sample.
+- **[P1 · Friction]** **At:** screen: Workspace setup → CSV upload · flow: signup-to-first-report · state: required configuration with no sample · lifecycle: new signup activating before first value. The setup wall—6 workspace fields and a CSV upload sit before any output. None can be answered well by someone who has not seen a report, and the upload demands data they may not have exported yet. This is commitment friction placed before value. **Fix:** ship a sample dataset that generates a real report in one click; defer all 6 fields until after the first report exists, and infer the workspace name from the email domain.
+- **[P1 · Wins]** **At:** screen: Report generation → result · flow: signup-to-first-report · state: success after a 4-minute loading wait · lifecycle: first value for a new signup. The silent power stroke—the product's whole value arrives after a 4-minute wait and is announced by a toast reading "Done." The user is not told what was found, how many tickets were read, or what changed. The single largest win in the product is invisible. **Fix:** replace the toast with the result—themes found, tickets analyzed, the top theme stated in one line—and a next action that extends it.
+- **[P1 · Emotion]** **At:** screen: Proposed re-engagement email · flow: signup-to-first-report · state: lapsed before any report exists · lifecycle: attempted return before first value. Re-engagement aimed at people who never got value—the proposed fix emails users who never reached a first report. Mail asking someone to return to a product that never worked for them is pressure substituting for a reason, and it burns the address for the day the product is actually ready. **Fix:** do not build it. Every hour here belongs at Friction until first-report rate moves.
+- **[P2 · Trust]** **At:** screen: Acquisition/landing promise · flow: signup-to-first-report · state: first encounter with no product proof · lifecycle: arrival before signup. No evidence near the claim—the promise is specific but nothing on the page shows a real report. **Fix:** put an actual output on the first screen; it does double duty as proof and as comprehension.
+- **[P2 · Friction]** **At:** screen: Reports dashboard · flow: signup-to-first-report · state: empty with "No reports yet" · lifecycle: activation before first report. The empty state is a notice—"No reports yet" states a fact and offers no path. **Fix:** make it the activation surface: what will appear here, why it is useful, and one button that runs the sample.
 
 ## Fix this first
+**At:** screen: workspace setup and Reports dashboard · flow: signup-to-first-report · state: required setup and empty dashboard · lifecycle: activation before first value
 Friction. Nothing downstream can be evaluated until people reach a first report—the Wins finding is real but affects only the small group that survives setup today, and the Emotion play cannot add mass to a wheel that has not turned once. Re-engagement email is the last thing to build, not the first.
 
 ## Next
-- **Now**: cut the path to first report to one click on sample data; defer the 6 fields; turn the empty state into the entry point.
-- **After it moves**: replace the "Done" toast with the result and a next action, then place the upgrade ask after the second report.
-- **Hand off**: the 6-field setup form is a single-screen structure problem once it is repositioned—Focal.
+- **Now**: **At:** screen: workspace setup and Reports dashboard · flow: signup-to-first-report · state: required setup and empty dashboard · lifecycle: activation before first value · cut the path to first report to one click on sample data; defer the 6 fields; turn the empty state into the entry point.
+- **After it moves**: **At:** screen: report result · flow: signup-to-first-report · state: success after processing · lifecycle: first value · replace the "Done" toast with the result and a next action, then place the upgrade ask after the second report.
+- **Hand off**: **At:** screen: workspace setup form · flow: signup-to-first-report · state: required pre-value setup · lifecycle: activation before first value · the 6-field setup form is a single-screen structure problem once it is repositioned—Focal.
 ```
 
 ---

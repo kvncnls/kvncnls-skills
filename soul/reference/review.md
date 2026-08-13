@@ -20,13 +20,14 @@ Before scoring, establish:
 
 ## Locate every finding
 
-Every issue must carry an implementation locator that answers **where**, **in what state**, and **when**:
+Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Moment, small thing, Next item, and handoff must carry the same locator:
 
-- **Surface**—the exact beat and touchpoint.
-- **State**—the rendered or system condition: default, empty, loading, error, success, notification, and so on.
-- **Lifecycle**—the occurrence in the experience: first run, first success, steady-state repeat, re-entry, milestone, failure, or recovery.
+1. **Screen**—the exact beat, touchpoint, screen, message, or control.
+2. **Flow**—the named happy path or transition that contains the beat.
+3. **State**—the rendered or system condition: default, empty, loading, error, success, notification, and so on.
+4. **Lifecycle**—the occurrence in the experience: first run, first success, steady-state repeat, re-entry, milestone, failure, or recovery.
 
-Use concrete moments. `Payment landed · success notification · first payment received` is actionable; `the happy path` is not. List only observed or walked variants under **Coverage**. Put material unseen occurrences under `gaps`, and name the fastest validating trigger in **Basis** rather than inventing them.
+Use concrete moments. `Payment screen → confirmation · payment flow · success notification · first payment received` is actionable; `the happy path` is not. If any locator field is not evidenced, write `not shown` and name the fastest validating trigger in **Coverage** or **Basis**—do not invent it.
 
 ## The four gates
 
@@ -147,6 +148,10 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 **Verdict:** <the state, one phrase> · <the biggest missed or misplaced moment> · **<total>/16**
 
 **Product:** <what it is, for whom> · **Path:** <N> beats, <entry> → <outcome> · **Ends feeling:** <the intended emotion, or "unnamed">
+**Screen:** <exact touchpoint(s) or `not shown`>
+**Flow:** <named happy path or transition(s) or `not shown`>
+**State:** <exact rendered or system state(s) reviewed>
+**Lifecycle:** <exact occurrence(s) reviewed>
 **Coverage:** <app states and lifecycle occurrences actually reviewed> · gaps: <material states or occurrences not shown or triggered, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
 **Blocker:** <None. | concise blocker reason>
@@ -167,23 +172,24 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 
 ## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—<beat>, <the named feeling>
+- **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence>
 - Why here: <reach × memory, one line>
 - Expected: <one line> · Elevated: <one line> · Net-New: <one line>
 - Constraints: <one line>
 
 ## The small things (Elevated)
-- Beat <n>—<the craft touch, one line>
+- **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence> · Beat <n>—<the craft touch, one line>
 
 ## Issues (most severe first)
-- **[P0 · beat <n>]** **At:** <beat/touchpoint> · state: <exact app state> · lifecycle: <exact occurrence>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
+- **[P0 · beat <n>]** **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
 
 ## Kept Expected, on purpose
 <the beats that stay standard, and the strongest reason—load-bearing convention, every-run frequency, high stakes>
 
 ## Next
-- **Now**: <the first treatment to ship—or the handoff, if the floor failed>
-- **After it lands**: <the second moment>
-- **Hand off**: <screen structure → Focal; path or navigation → Compass; a leak → Flywheel; "None" if all of it is Soul's>
+- **Now**: **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence> · <the first treatment to ship—or the handoff, if the floor failed>
+- **After it lands**: **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence> · <the second moment>
+- **Hand off**: **At:** screen: <exact beat/touchpoint or `not shown`> · flow: <named happy path or transition or `not shown`> · state: <exact app state or `not shown`> · lifecycle: <exact occurrence or `not shown`> · <screen structure → Focal; path or navigation → Compass; a leak → Flywheel; "None" if all of it is Soul's>
 ```
 
 Filling it:
@@ -191,5 +197,5 @@ Filling it:
 - **The moments**—repeat the Moment block for each of the 2–3 Net-New moments, ranked. The rung lines show the floor-to-target range in one line each; a full ladder belongs in a follow-up `build`.
 - **The small things**—one line per Elevated touch, only craft the beat's ceiling allows: on every-run beats that is speed, feel, anticipation, or useful variation. Write "None." if the ceilings leave nothing.
 - **Coverage**—name only states and lifecycle occurrences actually observed or walked. Use `gaps` for material variants such as first run, repeated use, re-entry, failure, recovery, or the real success trigger that were not shown.
-- **Issues**—repeat the line once per issue, tagged with the beat number (or `off-path` for dumping-ground finds). Keep the `At` locator precise enough to trigger the same moment and see the same state. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Issues and suggestions**—repeat the line once per issue, and give every issue, Moment, small thing, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Keep the `At` locator precise enough to trigger the same moment and see the same state. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Basis**—never claim observation you do not have. "Walked from a description" with the assumed beats named is a stronger answer than borrowed confidence.

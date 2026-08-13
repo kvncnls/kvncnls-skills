@@ -14,6 +14,10 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 **Verdict:** functional but forgettable · the product's biggest moment—getting paid—is a system-default notification · **7/16**
 
 **Product:** invoicing for freelancers · **Path:** 7 beats, bookmark → payment landed · **Ends feeling:** unnamed—relief is the obvious candidate, and nobody has chosen it
+**Screen:** dashboard, invoice composer, payment notification, and 404
+**Flow:** invoice-to-payment
+**State:** recurring default, invoice-send success, payment success notification, failed-send error, and invalid-route recovery
+**Lifecycle:** first run, recurring use, first value, re-entry, and accidental off-path visit
 **Coverage:** recurring default path, first-run dashboard, invoice-send success, payment success notification, failed-send error, and 404 · gaps: payment failure, notifications disabled, re-entry after lapse, and later milestones not triggered
 **Basis:** observed from a screenshot or artifact · confirm with: trigger a real payment and read the actual notification—the claim the verdict rests on
 **Blocker:** The mascot jokes through a failed send, risking trust and material financial harm while the invoice's delivery state is uncertain.
@@ -40,37 +44,40 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 
 ## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—Payment lands (beat 6), relief
+- **At:** screen: payment notification and dashboard · flow: invoice-to-payment · state: successful payment · lifecycle: first and recurring value realization
 - Why here: the entire point of invoicing, reached by every paying client, and it is the peak and near-ending of the path—currently rendered as "Invoice #1042 was paid."
 - Expected: notification names client, invoice, and amount · Elevated: amount-first copy, a paid-receipt block, the outstanding total visibly settling to its new value · Net-New: a Paid ledger—a year-view that fills with each payment and exports clean at tax time
 - Constraints: money moment—records and amounts precede any feeling; no sound.
 
 ### Moment 2—Send (beat 5), confidence
+- **At:** screen: invoice send confirmation · flow: invoice-to-payment · state: successful send · lifecycle: recurring invoice creation
 - Why here: the effort peak, and the anxiety is "does it look professional to my client"—the confirmation answers a different question than the one being asked.
 - Expected: "Sent to client@" with timestamp · Elevated: preview exactly as the client sees it, then a delivered state · Net-New: a client-facing invoice page polished enough to be the freelancer's storefront
 - Constraints: nothing may delay the send action itself.
 
 ### Moment 3—First-run dashboard (beat 2, first pass), possibility
+- **At:** screen: first-run dashboard · flow: invoice-to-payment · state: empty state · lifecycle: first run
 - Why here: the first impression, every user, exactly once—a `once` beat that can carry expressive treatment the recurring beats cannot.
 - Expected: "No invoices yet" plus a button · Elevated: an empty state that starts the work—a sample invoice and "your first takes 2 minutes" · Net-New: composing the first invoice is the onboarding; the form is the tour
 - Constraints: one primary action; the sample must be deletable in one tap.
 
 ## The small things (Elevated)
-- Beat 3—say it in the freelancer's words: "Who owes you: $4,200 across 3 invoices" instead of "Outstanding: $4,200."
-- Beat 7—paid rows settle to the bottom with a quiet check; the outstanding total counts down to its new value, and reduced motion gets the delta in text.
+- **At:** screen: dashboard outstanding summary · flow: invoice-to-payment · state: populated recurring state · lifecycle: recurring use · Beat 3—say it in the freelancer's words: "Who owes you: $4,200 across 3 invoices" instead of "Outstanding: $4,200."
+- **At:** screen: updated dashboard · flow: invoice-to-payment · state: payment-settled state · lifecycle: post-payment re-entry · Beat 7—paid rows settle to the bottom with a quiet check; the outstanding total counts down to its new value, and reduced motion gets the delta in text.
 
 ## Issues (most severe first)
-- **[P0 · off-path]** **At:** Invoice send · state: failed-send error · lifecycle: recurring invoice creation. Wit at failure—the mascot grins through a failed send with "Whoops! Gremlins!" A freelancer whose invoice did not reach a client is losing money while the product jokes. **Fix:** plain error—what happened, whether the invoice is safe, what to do next. If failed sends are frequent, that is a leak for Flywheel, not copy for Soul.
-- **[P1 · beat 6]** **At:** Payment landed notification · state: successful payment · lifecycle: first and recurring value realization. The silent payoff—the product's peak moment is an OS-default notification, indistinguishable from a calendar reminder. **Fix:** treat as Moment 1; the Elevated rung alone changes what users remember this product doing.
-- **[P1 · off-path]** **At:** 404 page · state: invalid-route recovery · lifecycle: accidental off-path visit. The misdirected budget—the 404 minigame is the most-crafted surface in the product, reached by accident, in annoyance. **Fix:** relocate the craft to Moment 2 or 3; the game itself is cut, not polished.
-- **[P2 · beat 5]** **At:** Invoice send confirmation · state: successful send with confetti · lifecycle: steady-state recurring use after novelty has decayed. Decayed repetition—confetti on every send was charming once and is wallpaper by week two, and it spends celebration the payoff never gets. **Fix:** replace with a sent-state that survives repetition—preview, delivered check, done.
+- **[P0 · off-path]** **At:** screen: Invoice send · flow: invoice-to-payment · state: failed-send error · lifecycle: recurring invoice creation. Wit at failure—the mascot grins through a failed send with "Whoops! Gremlins!" A freelancer whose invoice did not reach a client is losing money while the product jokes. **Fix:** plain error—what happened, whether the invoice is safe, what to do next. If failed sends are frequent, that is a leak for Flywheel, not copy for Soul.
+- **[P1 · beat 6]** **At:** screen: Payment landed notification · flow: invoice-to-payment · state: successful payment · lifecycle: first and recurring value realization. The silent payoff—the product's peak moment is an OS-default notification, indistinguishable from a calendar reminder. **Fix:** treat as Moment 1; the Elevated rung alone changes what users remember this product doing.
+- **[P1 · off-path]** **At:** screen: 404 page · flow: invoice-to-payment · state: invalid-route recovery · lifecycle: accidental off-path visit. The misdirected budget—the 404 minigame is the most-crafted surface in the product, reached by accident, in annoyance. **Fix:** relocate the craft to Moment 2 or 3; the game itself is cut, not polished.
+- **[P2 · beat 5]** **At:** screen: Invoice send confirmation · flow: invoice-to-payment · state: successful send with confetti · lifecycle: steady-state recurring use after novelty has decayed. Decayed repetition—confetti on every send was charming once and is wallpaper by week two, and it spends celebration the payoff never gets. **Fix:** replace with a sent-state that survives repetition—preview, delivered check, done.
 
 ## Kept Expected, on purpose
 Beats 1 and 4 stay standard. Beat 4 is load-bearing convention—a weekly form freelancers fill from muscle memory, where novelty costs speed. Beat 1 is an every-run entry whose only honest lever is pace, and pace is already at ceiling (Baseline 3).
 
 ## Next
-- **Now**: the small things and Moment 1's Elevated interim—amount-first notification, receipt block, the settling total—ship while the Net-New ledger is scoped.
-- **After it lands**: Moment 1's Net-New ledger, then Moment 3—the only `once` beat on the path, currently spending nothing.
-- **Hand off**: None. (If failed sends turn out to be frequent, route the error branch to Flywheel as a leak.)
+- **Now**: **At:** screen: payment notification and dashboard · flow: invoice-to-payment · state: successful payment · lifecycle: first and recurring value realization · the small things and Moment 1's Elevated interim—amount-first notification, receipt block, the settling total—ship while the Net-New ledger is scoped.
+- **After it lands**: **At:** screen: Paid ledger and first-run dashboard · flow: invoice-to-payment · state: payment-settled and empty states · lifecycle: first value and first run · Moment 1's Net-New ledger, then Moment 3—the only `once` beat on the path, currently spending nothing.
+- **Hand off**: **At:** screen: invoice send error branch · flow: invoice-to-payment · state: failed-send error · lifecycle: recurring invoice creation · None. (If failed sends turn out to be frequent, route the error branch to Flywheel as a leak.)
 ```
 
 ---

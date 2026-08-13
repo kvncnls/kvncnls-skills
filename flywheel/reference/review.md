@@ -21,13 +21,14 @@ Before scoring, establish in one or two sentences each:
 
 ## Locate every finding
 
-Every issue must carry an implementation locator that answers **where**, **in what state**, and **when**:
+Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Fix this first recommendation, Next item, and handoff must carry the same locator:
 
-- **Surface**—the exact touchpoint, screen, message, control, or transition.
-- **State**—the rendered or system condition: first encounter, empty, loading, error, success, ask, retry, and so on.
-- **Lifecycle**—the relationship stage: arrival, consideration, activation before value, first value, return, lapse, re-engagement, or advocacy.
+1. **Screen**—the exact touchpoint, screen, message, or control.
+2. **Flow**—the named journey or transition that carries the user to that touchpoint.
+3. **State**—the rendered or system condition: first encounter, empty, loading, error, success, ask, retry, and so on.
+4. **Lifecycle**—the relationship stage: arrival, consideration, activation before value, first value, return, lapse, re-engagement, or advocacy.
 
-Use the narrowest defensible locator. `Report generation → result · success after processing · first value for a new signup` is actionable; `activation` is not. List only evidenced states under **Coverage**. Put material unknowns under `gaps`, and name the metric or behavior that would confirm them in **Basis**.
+Use the narrowest defensible locator. `Report screen → result · report generation flow · success after processing · first value for a new signup` is actionable; `activation` is not. If any locator field is not evidenced, write `not shown` and name the metric or behavior that would confirm it in **Coverage** or **Basis**.
 
 ## The four gates
 
@@ -150,6 +151,10 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 **Verdict:** <the leaking stage> · <the one biggest loss, one phrase> · **<total>/16**
 
 **Product:** <what it is, for whom> · first value: <the event, or "undefined"> · stakes: <low | medium | high>
+**Screen:** <exact touchpoint(s) or `not shown`>
+**Flow:** <named journey or transition(s) or `not shown`>
+**State:** <exact rendered or system state(s) reviewed>
+**Lifecycle:** <exact relationship stage(s) reviewed>
 **Coverage:** <relationship stages and app states actually reviewed> · gaps: <material stages or states not shown or measured, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
 **Blocker:** <None. | concise blocker reason>
@@ -164,20 +169,21 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 | **Total** | **_/16 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-play ceiling applied> |
 
 ## Issues (most severe first)
-- **[P0 · Trust]** **At:** <touchpoint> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
-- **[P1 · Friction]** **At:** <touchpoint> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
+- **[P0 · Trust]** **At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
+- **[P1 · Friction]** **At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
 
 ## Fix this first
+**At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage>
 <the single leaking stage, and why fixing anything downstream is premature>
 
 ## Next
-- **Now**: <the change at the leaking stage>
-- **After it moves**: <what becomes worth doing once that stage holds>
-- **Hand off**: <single-screen structure goes to Focal; multi-screen path goes to Compass; "None" if all of it is Flywheel's>
+- **Now**: **At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage> · <the change at the leaking stage>
+- **After it moves**: **At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage> · <what becomes worth doing once that stage holds>
+- **Hand off**: **At:** screen: <exact touchpoint or `not shown`> · flow: <named flow or transition or `not shown`> · state: <exact app state or `not shown`> · lifecycle: <exact relationship stage or `not shown`> · <single-screen structure goes to Focal; multi-screen path goes to Compass; "None" if all of it is Flywheel's>
 ```
 
 Filling it:
 - **Coverage**—name only relationship stages and app states the evidence actually exposes. Use `gaps` for consequential stages such as first value, return, lapse, or re-engagement that were not shown or measured.
-- **Issues**—repeat the issue line once per issue, tagged **Trust / Friction / Wins / Emotion**. Keep the `At` locator precise enough to identify the exact touchpoint and cohort moment that must change. `<observation>` may run two or three sentences when being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Issues and suggestions**—repeat the issue line once per issue, and give every issue, Fix this first recommendation, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Keep the `At` locator precise enough to identify the exact touchpoint and cohort moment that must change. `<observation>` may run two or three sentences when being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Fix this first**—one stage, never a list. The whole point of the diagnosis is to refuse to work on four things at once.
 - **Basis**—never claim measurement you do not have. Use the controlled basis vocabulary in the template, and name the fastest confirming metric or behavior.

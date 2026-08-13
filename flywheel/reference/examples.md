@@ -14,6 +14,10 @@ Two worked examples in the locked output templates—one **diagnosis**, one **re
 **Verdict:** Friction · people never reach a first report, so there is nothing to come back to · **6/16**
 
 **Product:** support-ticket analytics for support and product teams · first value: undefined · stakes: low
+**Screen:** workspace setup, report result, and empty dashboard
+**Flow:** signup-to-first-report
+**State:** required setup, report success, empty dashboard, and proposed re-engagement
+**Lifecycle:** arrival, activation before first value, first value, and attempted return
 **Coverage:** signup, pre-value setup, CSV upload, empty dashboard, report loading/success, and proposed re-engagement · gaps: measured activation cohorts, real returning-user state, lapse timing, and referral/advocacy not shown
 **Basis:** walked from a description · confirm with: share of signups that generate a first report, and 4-week retention split by whether they did
 **Blocker:** None.
@@ -28,19 +32,20 @@ Two worked examples in the locked output templates—one **diagnosis**, one **re
 | **Total** | **6/16 · 1.5/4** | **Broken; exact sum of justified component scores** | Weakest-play ceiling applied |
 
 ## Issues (most severe first)
-- **[P1 · Friction]** **At:** Workspace setup → CSV upload · state: required configuration with no sample · lifecycle: new signup activating before first value. The setup wall—6 workspace fields and a CSV upload sit before any output. None can be answered well by someone who has not seen a report, and the upload demands data they may not have exported yet. This is commitment friction placed before value. **Fix:** ship a sample dataset that generates a real report in one click; defer all 6 fields until after the first report exists, and infer the workspace name from the email domain.
-- **[P1 · Wins]** **At:** Report generation → result · state: success after a 4-minute loading wait · lifecycle: first value for a new signup. The silent power stroke—the product's whole value arrives after a 4-minute wait and is announced by a toast reading "Done." The user is not told what was found, how many tickets were read, or what changed. The single largest win in the product is invisible. **Fix:** replace the toast with the result—themes found, tickets analyzed, the top theme stated in one line—and a next action that extends it.
-- **[P1 · Emotion]** **At:** Proposed re-engagement email · state: lapsed before any report exists · lifecycle: attempted return before first value. Re-engagement aimed at people who never got value—the proposed fix emails users who never reached a first report. Mail asking someone to return to a product that never worked for them is pressure substituting for a reason, and it burns the address for the day the product is actually ready. **Fix:** do not build it. Every hour here belongs at Friction until first-report rate moves.
-- **[P2 · Trust]** **At:** Acquisition/landing promise · state: first encounter with no product proof · lifecycle: arrival before signup. No evidence near the claim—the promise is specific but nothing on the page shows a real report. **Fix:** put an actual output on the first screen; it does double duty as proof and as comprehension.
-- **[P2 · Friction]** **At:** Reports dashboard · state: empty with "No reports yet" · lifecycle: activation before first report. The empty state is a notice—"No reports yet" states a fact and offers no path. **Fix:** make it the activation surface: what will appear here, why it is useful, and one button that runs the sample.
+- **[P1 · Friction]** **At:** screen: Workspace setup → CSV upload · flow: signup-to-first-report · state: required configuration with no sample · lifecycle: new signup activating before first value. The setup wall—6 workspace fields and a CSV upload sit before any output. None can be answered well by someone who has not seen a report, and the upload demands data they may not have exported yet. This is commitment friction placed before value. **Fix:** ship a sample dataset that generates a real report in one click; defer all 6 fields until after the first report exists, and infer the workspace name from the email domain.
+- **[P1 · Wins]** **At:** screen: Report generation → result · flow: signup-to-first-report · state: success after a 4-minute loading wait · lifecycle: first value for a new signup. The silent power stroke—the product's whole value arrives after a 4-minute wait and is announced by a toast reading "Done." The user is not told what was found, how many tickets were read, or what changed. The single largest win in the product is invisible. **Fix:** replace the toast with the result—themes found, tickets analyzed, the top theme stated in one line—and a next action that extends it.
+- **[P1 · Emotion]** **At:** screen: Proposed re-engagement email · flow: signup-to-first-report · state: lapsed before any report exists · lifecycle: attempted return before first value. Re-engagement aimed at people who never got value—the proposed fix emails users who never reached a first report. Mail asking someone to return to a product that never worked for them is pressure substituting for a reason, and it burns the address for the day the product is actually ready. **Fix:** do not build it. Every hour here belongs at Friction until first-report rate moves.
+- **[P2 · Trust]** **At:** screen: Acquisition/landing promise · flow: signup-to-first-report · state: first encounter with no product proof · lifecycle: arrival before signup. No evidence near the claim—the promise is specific but nothing on the page shows a real report. **Fix:** put an actual output on the first screen; it does double duty as proof and as comprehension.
+- **[P2 · Friction]** **At:** screen: Reports dashboard · flow: signup-to-first-report · state: empty with "No reports yet" · lifecycle: activation before first report. The empty state is a notice—"No reports yet" states a fact and offers no path. **Fix:** make it the activation surface: what will appear here, why it is useful, and one button that runs the sample.
 
 ## Fix this first
+**At:** screen: workspace setup and Reports dashboard · flow: signup-to-first-report · state: required setup and empty dashboard · lifecycle: activation before first value
 Friction. Nothing downstream can be evaluated until people reach a first report—the Wins finding is real but affects only the small group that survives setup today, and the Emotion play cannot add mass to a wheel that has not turned once. Re-engagement email is the last thing to build, not the first.
 
 ## Next
-- **Now**: cut the path to first report to one click on sample data; defer the 6 fields; turn the empty state into the entry point.
-- **After it moves**: replace the "Done" toast with the result and a next action, then place the upgrade ask after the second report.
-- **Hand off**: the 6-field setup form is a single-screen structure problem once it is repositioned—Focal.
+- **Now**: **At:** screen: workspace setup and Reports dashboard · flow: signup-to-first-report · state: required setup and empty dashboard · lifecycle: activation before first value · cut the path to first report to one click on sample data; defer the 6 fields; turn the empty state into the entry point.
+- **After it moves**: **At:** screen: report result · flow: signup-to-first-report · state: success after processing · lifecycle: first value · replace the "Done" toast with the result and a next action, then place the upgrade ask after the second report.
+- **Hand off**: **At:** screen: workspace setup form · flow: signup-to-first-report · state: required pre-value setup · lifecycle: activation before first value · the 6-field setup form is a single-screen structure problem once it is repositioned—Focal.
 ```
 
 ---

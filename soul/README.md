@@ -64,7 +64,7 @@ Returns a fixed **happy-path sweep**:
 - **The path**—every beat, touchpoint, frequency, and Expected/Elevated/Net-New assignment.
 - **Scorecard**—Baseline, Placement, Proportion, and Signature scored `0–4`, with evidence-backed rationales and the smallest change that would raise each score one point, followed by the normalized average and final common band.
 - **The moments and small things**—the 2–3 Net-New moments ranked by reach × memory, plus Elevated craft opportunities.
-- **Issues, Kept Expected, and Next**—P0–P3 findings anchored to the exact beat, app state, and lifecycle occurrence, plus the restraint receipt, sequencing, and any Focal, Compass, or Flywheel handoff.
+- **Issues, Kept Expected, and Next**—P0–P3 findings anchored to the exact **Screen · Flow · State · Lifecycle** locator, plus the restraint receipt, sequencing, and any Focal, Compass, or Flywheel handoff.
 
 See the [locked search template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).
 

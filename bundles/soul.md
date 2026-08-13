@@ -113,7 +113,7 @@ Selection heuristics, archetypes, and the full dumping-grounds list live in [ref
 ## Routing
 
 - **No argument** → explain the placement idea in three sentences, then ask: search an existing product, or build one moment?
-- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow [reference/review.md](reference/review.md). It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, requires an evidence-based rationale and next-point change for every score, totals to /16, displays a normalized /4 average and common quality band with a weakest-gate ceiling, tags issues P0–P3, anchors every issue to the exact beat, app state, and lifecycle occurrence, and returns the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
+- **`search` / `sweep` / `audit` / `review` / `find` (a product, a flow, screens, or "it feels generic")** → load and follow [reference/review.md](reference/review.md). It maps the path, assigns every beat a tier, scores four gates 0–4 against written rubrics, requires an evidence-based rationale and next-point change for every score, totals to /16, displays a normalized /4 average and common quality band with a weakest-gate ceiling, tags issues P0–P3, and anchors every issue and suggested moment to the exact **Screen · Flow · State · Lifecycle** locator before returning the ranked Net-New moments plus the small things worth elevating. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
 - **`build` / `design` / `treat` (one beat)** → run the beat through the sort tree above; its tier is the build's **Target**. Read [reference/treatments.md](reference/treatments.md)—plus [reference/moments.md](reference/moments.md) when the target is Net-New, to confirm it clears the selection bar—then follow **Build** below.
 - **A question about a moment type or a treatment lever** → [reference/moments.md](reference/moments.md) or [reference/treatments.md](reference/treatments.md).
 
@@ -225,13 +225,14 @@ Before scoring, establish:
 
 ## Locate every finding
 
-Every issue must carry an implementation locator that answers **where**, **in what state**, and **when**:
+Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Moment, small thing, Next item, and handoff must carry the same locator:
 
-- **Surface**—the exact beat and touchpoint.
-- **State**—the rendered or system condition: default, empty, loading, error, success, notification, and so on.
-- **Lifecycle**—the occurrence in the experience: first run, first success, steady-state repeat, re-entry, milestone, failure, or recovery.
+1. **Screen**—the exact beat, touchpoint, screen, message, or control.
+2. **Flow**—the named happy path or transition that contains the beat.
+3. **State**—the rendered or system condition: default, empty, loading, error, success, notification, and so on.
+4. **Lifecycle**—the occurrence in the experience: first run, first success, steady-state repeat, re-entry, milestone, failure, or recovery.
 
-Use concrete moments. `Payment landed · success notification · first payment received` is actionable; `the happy path` is not. List only observed or walked variants under **Coverage**. Put material unseen occurrences under `gaps`, and name the fastest validating trigger in **Basis** rather than inventing them.
+Use concrete moments. `Payment screen → confirmation · payment flow · success notification · first payment received` is actionable; `the happy path` is not. If any locator field is not evidenced, write `not shown` and name the fastest validating trigger in **Coverage** or **Basis**—do not invent it.
 
 ## The four gates
 
@@ -352,6 +353,10 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 **Verdict:** <the state, one phrase> · <the biggest missed or misplaced moment> · **<total>/16**
 
 **Product:** <what it is, for whom> · **Path:** <N> beats, <entry> → <outcome> · **Ends feeling:** <the intended emotion, or "unnamed">
+**Screen:** <exact touchpoint(s) or `not shown`>
+**Flow:** <named happy path or transition(s) or `not shown`>
+**State:** <exact rendered or system state(s) reviewed>
+**Lifecycle:** <exact occurrence(s) reviewed>
 **Coverage:** <app states and lifecycle occurrences actually reviewed> · gaps: <material states or occurrences not shown or triggered, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
 **Blocker:** <None. | concise blocker reason>
@@ -372,23 +377,24 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 
 ## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—<beat>, <the named feeling>
+- **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence>
 - Why here: <reach × memory, one line>
 - Expected: <one line> · Elevated: <one line> · Net-New: <one line>
 - Constraints: <one line>
 
 ## The small things (Elevated)
-- Beat <n>—<the craft touch, one line>
+- **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence> · Beat <n>—<the craft touch, one line>
 
 ## Issues (most severe first)
-- **[P0 · beat <n>]** **At:** <beat/touchpoint> · state: <exact app state> · lifecycle: <exact occurrence>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
+- **[P0 · beat <n>]** **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
 
 ## Kept Expected, on purpose
 <the beats that stay standard, and the strongest reason—load-bearing convention, every-run frequency, high stakes>
 
 ## Next
-- **Now**: <the first treatment to ship—or the handoff, if the floor failed>
-- **After it lands**: <the second moment>
-- **Hand off**: <screen structure → Focal; path or navigation → Compass; a leak → Flywheel; "None" if all of it is Soul's>
+- **Now**: **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence> · <the first treatment to ship—or the handoff, if the floor failed>
+- **After it lands**: **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence> · <the second moment>
+- **Hand off**: **At:** screen: <exact beat/touchpoint or `not shown`> · flow: <named happy path or transition or `not shown`> · state: <exact app state or `not shown`> · lifecycle: <exact occurrence or `not shown`> · <screen structure → Focal; path or navigation → Compass; a leak → Flywheel; "None" if all of it is Soul's>
 ```
 
 Filling it:
@@ -396,7 +402,7 @@ Filling it:
 - **The moments**—repeat the Moment block for each of the 2–3 Net-New moments, ranked. The rung lines show the floor-to-target range in one line each; a full ladder belongs in a follow-up `build`.
 - **The small things**—one line per Elevated touch, only craft the beat's ceiling allows: on every-run beats that is speed, feel, anticipation, or useful variation. Write "None." if the ceilings leave nothing.
 - **Coverage**—name only states and lifecycle occurrences actually observed or walked. Use `gaps` for material variants such as first run, repeated use, re-entry, failure, recovery, or the real success trigger that were not shown.
-- **Issues**—repeat the line once per issue, tagged with the beat number (or `off-path` for dumping-ground finds). Keep the `At` locator precise enough to trigger the same moment and see the same state. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Issues and suggestions**—repeat the line once per issue, and give every issue, Moment, small thing, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Keep the `At` locator precise enough to trigger the same moment and see the same state. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Basis**—never claim observation you do not have. "Walked from a description" with the assumed beats named is a stronger answer than borrowed confidence.
 
 ---
@@ -571,6 +577,10 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 **Verdict:** functional but forgettable · the product's biggest moment—getting paid—is a system-default notification · **7/16**
 
 **Product:** invoicing for freelancers · **Path:** 7 beats, bookmark → payment landed · **Ends feeling:** unnamed—relief is the obvious candidate, and nobody has chosen it
+**Screen:** dashboard, invoice composer, payment notification, and 404
+**Flow:** invoice-to-payment
+**State:** recurring default, invoice-send success, payment success notification, failed-send error, and invalid-route recovery
+**Lifecycle:** first run, recurring use, first value, re-entry, and accidental off-path visit
 **Coverage:** recurring default path, first-run dashboard, invoice-send success, payment success notification, failed-send error, and 404 · gaps: payment failure, notifications disabled, re-entry after lapse, and later milestones not triggered
 **Basis:** observed from a screenshot or artifact · confirm with: trigger a real payment and read the actual notification—the claim the verdict rests on
 **Blocker:** The mascot jokes through a failed send, risking trust and material financial harm while the invoice's delivery state is uncertain.
@@ -597,37 +607,40 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 
 ## The moments (Net-New, ranked by reach × memory)
 ### Moment 1—Payment lands (beat 6), relief
+- **At:** screen: payment notification and dashboard · flow: invoice-to-payment · state: successful payment · lifecycle: first and recurring value realization
 - Why here: the entire point of invoicing, reached by every paying client, and it is the peak and near-ending of the path—currently rendered as "Invoice #1042 was paid."
 - Expected: notification names client, invoice, and amount · Elevated: amount-first copy, a paid-receipt block, the outstanding total visibly settling to its new value · Net-New: a Paid ledger—a year-view that fills with each payment and exports clean at tax time
 - Constraints: money moment—records and amounts precede any feeling; no sound.
 
 ### Moment 2—Send (beat 5), confidence
+- **At:** screen: invoice send confirmation · flow: invoice-to-payment · state: successful send · lifecycle: recurring invoice creation
 - Why here: the effort peak, and the anxiety is "does it look professional to my client"—the confirmation answers a different question than the one being asked.
 - Expected: "Sent to client@" with timestamp · Elevated: preview exactly as the client sees it, then a delivered state · Net-New: a client-facing invoice page polished enough to be the freelancer's storefront
 - Constraints: nothing may delay the send action itself.
 
 ### Moment 3—First-run dashboard (beat 2, first pass), possibility
+- **At:** screen: first-run dashboard · flow: invoice-to-payment · state: empty state · lifecycle: first run
 - Why here: the first impression, every user, exactly once—a `once` beat that can carry expressive treatment the recurring beats cannot.
 - Expected: "No invoices yet" plus a button · Elevated: an empty state that starts the work—a sample invoice and "your first takes 2 minutes" · Net-New: composing the first invoice is the onboarding; the form is the tour
 - Constraints: one primary action; the sample must be deletable in one tap.
 
 ## The small things (Elevated)
-- Beat 3—say it in the freelancer's words: "Who owes you: $4,200 across 3 invoices" instead of "Outstanding: $4,200."
-- Beat 7—paid rows settle to the bottom with a quiet check; the outstanding total counts down to its new value, and reduced motion gets the delta in text.
+- **At:** screen: dashboard outstanding summary · flow: invoice-to-payment · state: populated recurring state · lifecycle: recurring use · Beat 3—say it in the freelancer's words: "Who owes you: $4,200 across 3 invoices" instead of "Outstanding: $4,200."
+- **At:** screen: updated dashboard · flow: invoice-to-payment · state: payment-settled state · lifecycle: post-payment re-entry · Beat 7—paid rows settle to the bottom with a quiet check; the outstanding total counts down to its new value, and reduced motion gets the delta in text.
 
 ## Issues (most severe first)
-- **[P0 · off-path]** **At:** Invoice send · state: failed-send error · lifecycle: recurring invoice creation. Wit at failure—the mascot grins through a failed send with "Whoops! Gremlins!" A freelancer whose invoice did not reach a client is losing money while the product jokes. **Fix:** plain error—what happened, whether the invoice is safe, what to do next. If failed sends are frequent, that is a leak for Flywheel, not copy for Soul.
-- **[P1 · beat 6]** **At:** Payment landed notification · state: successful payment · lifecycle: first and recurring value realization. The silent payoff—the product's peak moment is an OS-default notification, indistinguishable from a calendar reminder. **Fix:** treat as Moment 1; the Elevated rung alone changes what users remember this product doing.
-- **[P1 · off-path]** **At:** 404 page · state: invalid-route recovery · lifecycle: accidental off-path visit. The misdirected budget—the 404 minigame is the most-crafted surface in the product, reached by accident, in annoyance. **Fix:** relocate the craft to Moment 2 or 3; the game itself is cut, not polished.
-- **[P2 · beat 5]** **At:** Invoice send confirmation · state: successful send with confetti · lifecycle: steady-state recurring use after novelty has decayed. Decayed repetition—confetti on every send was charming once and is wallpaper by week two, and it spends celebration the payoff never gets. **Fix:** replace with a sent-state that survives repetition—preview, delivered check, done.
+- **[P0 · off-path]** **At:** screen: Invoice send · flow: invoice-to-payment · state: failed-send error · lifecycle: recurring invoice creation. Wit at failure—the mascot grins through a failed send with "Whoops! Gremlins!" A freelancer whose invoice did not reach a client is losing money while the product jokes. **Fix:** plain error—what happened, whether the invoice is safe, what to do next. If failed sends are frequent, that is a leak for Flywheel, not copy for Soul.
+- **[P1 · beat 6]** **At:** screen: Payment landed notification · flow: invoice-to-payment · state: successful payment · lifecycle: first and recurring value realization. The silent payoff—the product's peak moment is an OS-default notification, indistinguishable from a calendar reminder. **Fix:** treat as Moment 1; the Elevated rung alone changes what users remember this product doing.
+- **[P1 · off-path]** **At:** screen: 404 page · flow: invoice-to-payment · state: invalid-route recovery · lifecycle: accidental off-path visit. The misdirected budget—the 404 minigame is the most-crafted surface in the product, reached by accident, in annoyance. **Fix:** relocate the craft to Moment 2 or 3; the game itself is cut, not polished.
+- **[P2 · beat 5]** **At:** screen: Invoice send confirmation · flow: invoice-to-payment · state: successful send with confetti · lifecycle: steady-state recurring use after novelty has decayed. Decayed repetition—confetti on every send was charming once and is wallpaper by week two, and it spends celebration the payoff never gets. **Fix:** replace with a sent-state that survives repetition—preview, delivered check, done.
 
 ## Kept Expected, on purpose
 Beats 1 and 4 stay standard. Beat 4 is load-bearing convention—a weekly form freelancers fill from muscle memory, where novelty costs speed. Beat 1 is an every-run entry whose only honest lever is pace, and pace is already at ceiling (Baseline 3).
 
 ## Next
-- **Now**: the small things and Moment 1's Elevated interim—amount-first notification, receipt block, the settling total—ship while the Net-New ledger is scoped.
-- **After it lands**: Moment 1's Net-New ledger, then Moment 3—the only `once` beat on the path, currently spending nothing.
-- **Hand off**: None. (If failed sends turn out to be frequent, route the error branch to Flywheel as a leak.)
+- **Now**: **At:** screen: payment notification and dashboard · flow: invoice-to-payment · state: successful payment · lifecycle: first and recurring value realization · the small things and Moment 1's Elevated interim—amount-first notification, receipt block, the settling total—ship while the Net-New ledger is scoped.
+- **After it lands**: **At:** screen: Paid ledger and first-run dashboard · flow: invoice-to-payment · state: payment-settled and empty states · lifecycle: first value and first run · Moment 1's Net-New ledger, then Moment 3—the only `once` beat on the path, currently spending nothing.
+- **Hand off**: **At:** screen: invoice send error branch · flow: invoice-to-payment · state: failed-send error · lifecycle: recurring invoice creation · None. (If failed sends turn out to be frequent, route the error branch to Flywheel as a leak.)
 ```
 
 ---

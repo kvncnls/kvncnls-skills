@@ -22,13 +22,14 @@ Then frame, in one or two sentences each:
 
 ## Locate every finding
 
-Every issue must carry an implementation locator that answers **where**, **in what state**, and **when**:
+Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Top 3 move, Next item, and handoff must carry the same locator:
 
-- **Surface**—the exact step, screen, entry point, or transition seam.
-- **State**—the interaction or system condition: waiting, validation error, retry, Back, refresh, deep-linked, resumed, and so on.
-- **Lifecycle**—the journey moment: first-run activation, returning completion, interruption/resume, recovery, or another specific path.
+1. **Screen**—the exact source screen, destination screen, entry point, or transition seam.
+2. **Flow**—the named journey and transition being evaluated.
+3. **State**—the interaction or system condition: waiting, validation error, retry, Back, refresh, deep-linked, resumed, and so on.
+4. **Lifecycle**—the journey moment: first-run activation, returning completion, interruption/resume, recovery, or another specific path.
 
-Use concrete transitions. `Email verification → workspace · code-expired error · first-run activation before entry` is actionable; `onboarding` is not. List only walked conditions under **Coverage**. Put material untested paths under `gaps`, and name the fastest validating walk in **Basis** instead of guessing.
+Use concrete transitions. `Email verification screen → workspace · account setup flow · code-expired error · first-run activation before entry` is actionable; `onboarding` is not. If any locator field is not evidenced, write `not shown` and name the fastest validating walk in **Coverage** or **Basis**—do not guess.
 
 ## Adjust for flow type
 
@@ -158,6 +159,9 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 **Verdict:** <No | Yes> · <the single biggest break, one phrase> · **<total>/12**
 
 **Flow:** <name> · type: <linear | branching | hub-and-spoke | open-ended> · audience: <novice | mixed | expert>
+**Screen:** <source and destination screens or exact seam reviewed>
+**State:** <exact interaction or system state(s) reviewed>
+**Lifecycle:** <exact journey moment(s) reviewed>
 **Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
 **Coverage:** <journey states and lifecycle paths actually reviewed> · gaps: <material paths not shown or tested, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
@@ -172,23 +176,23 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 | **Total** | **_/12 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-discipline ceiling applied> |
 
 ## Issues (most severe first)
-- **[P0 · Orientation]** **At:** <step or seam> · state: <exact state> · lifecycle: <exact journey moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
-- **[P1 · Path Economy]** **At:** <step or seam> · state: <exact state> · lifecycle: <exact journey moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
+- **[P0 · Orientation]** **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
+- **[P1 · Path Economy]** **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
 
 ## Top 3 moves
-1. <highest-leverage change>
-2. <next>
-3. <next>
+1. **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment> · <highest-leverage change>
+2. **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment> · <next>
+3. **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment> · <next>
 
 ## Next
-- **Structural** (do first): <what changes what the journey *is*—steps to cut or merge, a branch to manage, a dead end to close, state to carry, an entry point to re-route>
-- **Executional** (after): <what changes how a step *looks or reads*—indicator weight, Back label wording, transition motion>
-- **Hand off**: <anything that is not this flow's problem—single-screen layout or hierarchy goes to Focal; "None" if all of it is Compass's>
+- **Structural** (do first): **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment> · <what changes what the journey *is*—steps to cut or merge, a branch to manage, a dead end to close, state to carry, an entry point to re-route>
+- **Executional** (after): **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment> · <what changes how a step *looks or reads*—indicator weight, Back label wording, transition motion>
+- **Hand off**: **At:** screen: <source/destination screen or seam or `not shown`> · flow: <named flow or `not shown`> · state: <exact state or `not shown`> · lifecycle: <exact journey moment or `not shown`> · <anything that is not this flow's problem—single-screen layout or hierarchy goes to Focal; "None" if all of it is Compass's>
 ```
 
 Filling it:
 - **Coverage**—name only conditions actually walked or evidenced. Use `gaps` for consequential paths such as Back, refresh, retry, interruption/resume, deep link, or returning-user bypass that were not shown or tested.
-- **Issues**—repeat the issue line once per issue, tagged **Orientation / Path Economy / Continuity**. Keep the `At` locator precise enough to replay the failing transition directly. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Issues and suggestions**—repeat the issue line once per issue, and give every issue, Top 3 move, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Keep the `At` locator precise enough to replay the failing transition directly. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Next**—structural before executional, always: signposting a maze only labels the dead ends. Resolve structural items with the four-move build workflow in [SKILL.md](../SKILL.md) and the techniques in [patterns.md](patterns.md).
 - **Single-screen problems are out of scope—route them to [Focal](../../focal).** If an individual screen is overloaded, mis-ranked, or has no clear primary action, that is a within-screen failure for Focal, not a seam for Compass; name it in **Next** and hand it off.
 - Re-run the audit after fixes to watch the score climb.

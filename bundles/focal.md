@@ -201,7 +201,7 @@ Neither is a whole-app IA or sitemap tool. If the question is "how should the en
 - **No argument** → explain the methodology and three disciplines briefly, then ask: building a new screen, or reviewing an existing one?
 - **`build` (or a description of a screen to design)** → follow **The five moves** below. Pull techniques from [reference/patterns.md](reference/patterns.md).
 - **A multi-screen flow, journey, or navigation question** → that is Compass's, not Focal's. Say so and hand off (see **Flows**, above).
-- **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, requires an evidence-based rationale and next-point change for every score, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, anchors every issue to the exact screen region, app state, and lifecycle moment, and closes on a Clear-Intent verdict. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
+- **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, requires an evidence-based rationale and next-point change for every score, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, and anchors every issue and suggested move to the exact **Screen · Flow · State · Lifecycle** locator before closing on a Clear-Intent verdict. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
 - **A question about a specific technique or anti-pattern** → consult [reference/patterns.md](reference/patterns.md).
 
 Before emitting either output, read [reference/examples.md](reference/examples.md). It is the calibration for length, tone, and how the locked templates look when filled well—the templates define the shape, the examples set the bar.
@@ -332,13 +332,14 @@ Then frame, in one or two sentences each:
 
 ## Locate every finding
 
-Every issue must carry an implementation locator that answers **where**, **in what state**, and **when**:
+Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Top 3 move, Next item, and handoff must carry the same locator:
 
-- **Surface**—the exact screen plus region or control.
-- **State**—the rendered UI or system condition, not the user's emotion.
-- **Lifecycle**—the moment in use or relationship: first run, setup, recurring use, re-entry, post-action, or another specific moment.
+1. **Screen**—the exact screen, region, or control.
+2. **Flow**—the named journey or transition that reaches it, or `screen-local` when no cross-screen path is involved.
+3. **State**—the rendered UI or system condition, not the user's emotion.
+4. **Lifecycle**—the moment in use or relationship: first run, setup, recurring use, re-entry, post-action, or another specific moment.
 
-Use product labels and concrete conditions. `Contact detail · empty state · first visit after contact creation` is actionable; `CRM screen` is not. List only reviewed variants under **Coverage**. Put material unobserved variants under `gaps`, and name the fastest validating check in **Basis** instead of inventing behavior.
+Use product labels and concrete conditions. `Contact detail · screen-local · empty state · first visit after contact creation` is actionable; `CRM screen` is not. If any locator field is not evidenced, write `not shown` and name the fastest validating check in **Coverage** or **Basis**—do not invent behavior.
 
 ## Adjust for register
 
@@ -461,6 +462,9 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 **Verdict:** <clear intent—yes or no> · <the one biggest problem, one phrase> · **<total>/12**
 
 **Screen:** <what it is> · register: <task | hub | exploration | task-overloaded> · audience: <novice | mixed | expert>
+**Flow:** <named journey or `screen-local`; if not evidenced, `not shown`>
+**State:** <exact rendered or system state(s) reviewed>
+**Lifecycle:** <exact user/product moment(s) reviewed>
 **Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
 **Coverage:** <app states and lifecycle moments actually reviewed> · gaps: <material states not shown or tested, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
@@ -475,23 +479,23 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 | **Total** | **_/12 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-discipline ceiling applied> |
 
 ## Issues (most severe first)
-- **[P0 · IA]** **At:** <screen/region> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
-- **[P1 · Disclosure]** **At:** <screen/region> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
+- **[P0 · IA]** **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
+- **[P1 · Disclosure]** **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
 
 ## Top 3 moves
-1. <highest-leverage change>
-2. <next>
-3. <next>
+1. **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <highest-leverage change>
+2. **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <next>
+3. **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <next>
 
 ## Next
-- **Structural** (do first): <what changes what the screen *is*—split or merge, regroup, relabel, re-triage>
-- **Executional** (after): <what changes how it *looks*—weight, color, type, spacing, motion>
-- **Hand off**: <anything that is not this screen's problem—cross-screen path issues go to Compass; "None" if all of it is Focal's>
+- **Structural** (do first): **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <what changes what the screen *is*—split or merge, regroup, relabel, re-triage>
+- **Executional** (after): **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <what changes how it *looks*—weight, color, type, spacing, motion>
+- **Hand off**: **At:** screen: <exact screen/region or `not shown`> · flow: <named flow or `not shown`> · state: <exact state or `not shown`> · lifecycle: <exact moment or `not shown`> · <anything that is not this screen's problem—cross-screen path issues go to Compass; "None" if all of it is Focal's>
 ```
 
 Filling it:
 - **Coverage**—name only states and lifecycle moments the evidence actually exposes. Use `gaps` for consequential variants such as loading, error, first-run, re-entry, or worst-case data that were not shown or tested.
-- **Issues**—repeat the issue line once per issue, tagged **IA / Disclosure / Hierarchy**. Keep the `At` locator specific enough that a designer or engineer can open the right surface and reproduce the state without rereading the diagnosis. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Issues and suggestions**—repeat the issue line once per issue, and give every issue, Top 3 move, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Keep it specific enough that a designer or engineer can open the right surface and reproduce the state without rereading the diagnosis. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Next**—structural before executional, always: polishing a screen with an unresolved organizing intent only organizes the clutter. Resolve structural items with the five-move build workflow in [SKILL.md](../SKILL.md). Single-screen work is Focal's; if the real problem is the path between screens, say so and hand off to Compass.
 - Re-run the audit after fixes to watch the score climb.
 
@@ -644,6 +648,9 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 **Verdict:** No · four jobs stacked on one surface, with Delete dressed as a primary button · **3/12**
 
 **Screen:** CRM contact detail—a record home carrying ten co-equal regions and three identical filled primary buttons · register: task-overloaded · audience: mixed
+**Flow:** screen-local (Contact detail review)
+**State:** full/default plus empty related panels
+**Lifecycle:** first visit, recurring review, and first visit after contact creation
 **Context:** a rep mid-call or between calls, scanning fast · bar: Linear's issue detail, Stripe's customer record
 **Coverage:** full/default state for a returning rep, plus empty Deals/Notes/Files on a newly created contact · gaps: loading, save-in-progress, save error, permission-limited, and destructive-confirmation states not shown
 **Basis:** walked from a description · confirm with: open the screen, invoke Delete, and verify the destructive confirmation, autosave, and focus order
@@ -658,24 +665,24 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 | **Total** | **3/12 · 1.0/4** | **Broken; exact sum of justified component scores** | Weakest-discipline ceiling applied |
 
 ## Issues (most severe first)
-- **[P0 · Hierarchy]** **At:** Contact detail action bar · state: full/default · lifecycle: returning rep reviewing an existing contact. Three filled primaries, one destructive—Save, Convert to Deal, and Delete are styled identically. On this task-overloaded action bar, three competing primaries means no primary: nothing says where to start, and an irreversible action wears the exact affordance of the safest one, sitting adjacent to it. This is the one issue on the screen that can destroy a customer record on a mis-click. **Fix:** with autosave, Save disappears. Keep "Convert to Deal" as the single filled primary; "Log a call" and "Send email" become secondary; Delete moves into an overflow "⋯" menu behind a typed confirmation.
-- **[P1 · IA]** **At:** Contact detail body · state: full/default · lifecycle: returning rep scanning during or between calls. Four jobs, one screen—the one-sentence test returns "This screen exists so the user can view a contact *and* edit six fields *and* log a call *and* send an email *and* manage deals, notes, and files." Each outcome can succeed independently, so the sentence exposes competing intents rather than one coherent task. Two of those are full composers sitting open on a record surface, and the six fields render as live inputs with a global Save, which means the screen is permanently in edit mode. A rep who opened it to read a phone number is forced to re-sort several intents by eye. **Fix:** make Contact detail a hub whose organizing intent is *route to the right next action*. Fields become read-only text with per-field inline edit and autosave (no global Save); "Log a call" and "Send email" become their own focused task screens launched from the header.
-- **[P1 · IA]** **At:** Activity/Deals/Notes/Files regions · state: full/default · lifecycle: recurring account review. The panels mirror the data model—Deals, Notes, Files, and Activity are four peer panels, one per related table, ranked equally because the schema ranks them equally. A rep's actual intent is overwhelmingly "what happened last, and what's the open deal"; Notes and Files are archive lookups. Organizing by table forces the user to re-sort the screen by eye on every visit. **Fix:** reorder by intent—Activity dominant, Deals second in the same column, Notes and Files collapsed into one "Attachments & notes" section.
-- **[P1 · Disclosure]** **At:** Contact detail landing viewport · state: full/default · lifecycle: every return to an existing contact. Nothing is deferred—ten top-level regions compete at landing, and scored by task rules that is straightforward overload: three *task* surfaces sit resident on the same screen and no element anywhere sits behind a reveal. Every element is "Now" because nobody ran the triage. **Fix:** Now—identity, read-only fields, recent activity, Deals. On-demand—composers behind their header buttons, Notes, Files. Cut—the similar-contacts rail.
-- **[P1 · Disclosure]** **At:** Activity timeline · state: worst-case full · lifecycle: recurring review of a long-lived contact. The timeline has no ceiling—40+ entries render in full, undifferentiated, with no type filter and no collapse. At the worst realistic case (a two-year customer, 400 entries) this panel is the entire screen and Deals is off-screen. **Fix:** show the 5 most recent grouped by day, with a type filter and "Show 37 more"—the count, so the deferral reads as depth rather than absence.
-- **[P1 · Hierarchy]** **At:** Contact detail body · state: full/default · lifecycle: first visit by a rep unfamiliar with the record. No visual entry point—every panel header is the same size and weight. Squint at this and you get a list, not a hierarchy: nine equal grey blocks. A first-timer cannot name the most important thing in three seconds because nothing is the most important thing. **Fix:** climb the ladder with space and weight before color—48–96px between sections against 8–12px within them, one heavier header on Activity, all other headers dropped to a muted label size.
-- **[P2 · IA]** **At:** Similar contacts rail · state: full/default · lifecycle: returning rep reviewing one known contact. The similar-contacts rail is orphan content—eight contacts occupying a full rail, serving prospecting, an intent nobody arrived on this screen holding. It is here because the data was available, not because a job needed it. **Fix:** cut it; surface similar contacts in search and list views, where the user is actually comparing people.
-- **[P2 · Disclosure]** **At:** Deals/Notes/Files regions · state: empty · lifecycle: first visit after contact creation. Empty panels hold full weight—Deals, Notes, and Files each render a full-weight header whether they hold three items or zero, so a brand-new contact shows three headers announcing nothing. **Fix:** collapse empty sections to one quiet line with the add action ("No notes yet · Add note").
+- **[P0 · Hierarchy]** **At:** screen: Contact detail action bar · flow: screen-local · state: full/default · lifecycle: returning rep reviewing an existing contact. Three filled primaries, one destructive—Save, Convert to Deal, and Delete are styled identically. On this task-overloaded action bar, three competing primaries means no primary: nothing says where to start, and an irreversible action wears the exact affordance of the safest one, sitting adjacent to it. This is the one issue on the screen that can destroy a customer record on a mis-click. **Fix:** with autosave, Save disappears. Keep "Convert to Deal" as the single filled primary; "Log a call" and "Send email" become secondary; Delete moves into an overflow "⋯" menu behind a typed confirmation.
+- **[P1 · IA]** **At:** screen: Contact detail body · flow: screen-local · state: full/default · lifecycle: returning rep scanning during or between calls. Four jobs, one screen—the one-sentence test returns "This screen exists so the user can view a contact *and* edit six fields *and* log a call *and* send an email *and* manage deals, notes, and files." Each outcome can succeed independently, so the sentence exposes competing intents rather than one coherent task. Two of those are full composers sitting open on a record surface, and the six fields render as live inputs with a global Save, which means the screen is permanently in edit mode. A rep who opened it to read a phone number is forced to re-sort several intents by eye. **Fix:** make Contact detail a hub whose organizing intent is *route to the right next action*. Fields become read-only text with per-field inline edit and autosave (no global Save); "Log a call" and "Send email" become their own focused task screens launched from the header.
+- **[P1 · IA]** **At:** screen: Activity/Deals/Notes/Files regions · flow: screen-local · state: full/default · lifecycle: recurring account review. The panels mirror the data model—Deals, Notes, Files, and Activity are four peer panels, one per related table, ranked equally because the schema ranks them equally. A rep's actual intent is overwhelmingly "what happened last, and what's the open deal"; Notes and Files are archive lookups. Organizing by table forces the user to re-sort the screen by eye on every visit. **Fix:** reorder by intent—Activity dominant, Deals second in the same column, Notes and Files collapsed into one "Attachments & notes" section.
+- **[P1 · Disclosure]** **At:** screen: Contact detail landing viewport · flow: screen-local · state: full/default · lifecycle: every return to an existing contact. Nothing is deferred—ten top-level regions compete at landing, and scored by task rules that is straightforward overload: three *task* surfaces sit resident on the same screen and no element anywhere sits behind a reveal. Every element is "Now" because nobody ran the triage. **Fix:** Now—identity, read-only fields, recent activity, Deals. On-demand—composers behind their header buttons, Notes, Files. Cut—the similar-contacts rail.
+- **[P1 · Disclosure]** **At:** screen: Activity timeline · flow: screen-local · state: worst-case full · lifecycle: recurring review of a long-lived contact. The timeline has no ceiling—40+ entries render in full, undifferentiated, with no type filter and no collapse. At the worst realistic case (a two-year customer, 400 entries) this panel is the entire screen and Deals is off-screen. **Fix:** show the 5 most recent grouped by day, with a type filter and "Show 37 more"—the count, so the deferral reads as depth rather than absence.
+- **[P1 · Hierarchy]** **At:** screen: Contact detail body · flow: screen-local · state: full/default · lifecycle: first visit by a rep unfamiliar with the record. No visual entry point—every panel header is the same size and weight. Squint at this and you get a list, not a hierarchy: nine equal grey blocks. A first-timer cannot name the most important thing in three seconds because nothing is the most important thing. **Fix:** climb the ladder with space and weight before color—48–96px between sections against 8–12px within them, one heavier header on Activity, all other headers dropped to a muted label size.
+- **[P2 · IA]** **At:** screen: Similar contacts rail · flow: screen-local · state: full/default · lifecycle: returning rep reviewing one known contact. The similar-contacts rail is orphan content—eight contacts occupying a full rail, serving prospecting, an intent nobody arrived on this screen holding. It is here because the data was available, not because a job needed it. **Fix:** cut it; surface similar contacts in search and list views, where the user is actually comparing people.
+- **[P2 · Disclosure]** **At:** screen: Deals/Notes/Files regions · flow: screen-local · state: empty · lifecycle: first visit after contact creation. Empty panels hold full weight—Deals, Notes, and Files each render a full-weight header whether they hold three items or zero, so a brand-new contact shows three headers announcing nothing. **Fix:** collapse empty sections to one quiet line with the add action ("No notes yet · Add note").
 
 ## Top 3 moves
-1. Split the screen: Contact detail becomes a record hub; "Log a call" and "Send email" become focused task screens with clear completion intents; the six fields become read-only text with per-field inline edit and autosave, retiring the global Save.
-2. Rebuild the action bar to one primary: "Convert to Deal" filled, "Log a call" / "Send email" secondary, Delete in an overflow menu behind typed confirmation.
-3. Rank what remains with space and weight: Activity dominant and capped at 5 with a filter and a "Show N more" count, Deals second, Notes and Files collapsed, similar-contacts rail cut.
+1. **At:** screen: Contact detail body and action bar · flow: screen-local · state: full/default · lifecycle: returning review · Split the screen: Contact detail becomes a record hub; "Log a call" and "Send email" become focused task screens with clear completion intents; the six fields become read-only text with per-field inline edit and autosave, retiring the global Save.
+2. **At:** screen: Contact detail action bar · flow: screen-local · state: full/default · lifecycle: returning review · Rebuild the action bar to one primary: "Convert to Deal" filled, "Log a call" / "Send email" secondary, Delete in an overflow menu behind typed confirmation.
+3. **At:** screen: Contact detail body · flow: screen-local · state: full/default · lifecycle: recurring review · Rank what remains with space and weight: Activity dominant and capped at 5 with a filter and a "Show N more" count, Deals second, Notes and Files collapsed, similar-contacts rail cut.
 
 ## Next
-- **Structural** (do first): split the two composers onto their own task screens, convert the field block to read-only + inline autosave, re-triage the ten regions, cut the similar-contacts rail, cap and filter the timeline.
-- **Executional** (after): the section spacing scale, the muted header treatment, the single accent reserved for the one primary, and the destructive-action confirmation styling.
-- **Hand off**: None—every issue here is within this screen.
+- **Structural** (do first): **At:** screen: Contact detail body · flow: screen-local · state: full/default · lifecycle: returning review · split the two composers onto their own task screens, convert the field block to read-only + inline autosave, re-triage the ten regions, cut the similar-contacts rail, cap and filter the timeline.
+- **Executional** (after): **At:** screen: Contact detail body · flow: screen-local · state: full/default · lifecycle: recurring review · the section spacing scale, the muted header treatment, the single accent reserved for the one primary, and the destructive-action confirmation styling.
+- **Hand off**: **At:** screen: Contact detail · flow: screen-local · state: full/default · lifecycle: returning review · None—every issue here is within this screen.
 ```
 
 ---

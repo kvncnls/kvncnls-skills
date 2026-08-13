@@ -23,13 +23,14 @@ Then frame, in one or two sentences each:
 
 ## Locate every finding
 
-Every issue must carry an implementation locator that answers **where**, **in what state**, and **when**:
+Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Top 3 move, Next item, and handoff must carry the same locator:
 
-- **Surface**—the exact screen plus region or control.
-- **State**—the rendered UI or system condition, not the user's emotion.
-- **Lifecycle**—the moment in use or relationship: first run, setup, recurring use, re-entry, post-action, or another specific moment.
+1. **Screen**—the exact screen, region, or control.
+2. **Flow**—the named journey or transition that reaches it, or `screen-local` when no cross-screen path is involved.
+3. **State**—the rendered UI or system condition, not the user's emotion.
+4. **Lifecycle**—the moment in use or relationship: first run, setup, recurring use, re-entry, post-action, or another specific moment.
 
-Use product labels and concrete conditions. `Contact detail · empty state · first visit after contact creation` is actionable; `CRM screen` is not. List only reviewed variants under **Coverage**. Put material unobserved variants under `gaps`, and name the fastest validating check in **Basis** instead of inventing behavior.
+Use product labels and concrete conditions. `Contact detail · screen-local · empty state · first visit after contact creation` is actionable; `CRM screen` is not. If any locator field is not evidenced, write `not shown` and name the fastest validating check in **Coverage** or **Basis**—do not invent behavior.
 
 ## Adjust for register
 
@@ -156,6 +157,9 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 **Verdict:** <clear intent—yes or no> · <the one biggest problem, one phrase> · **<total>/12**
 
 **Screen:** <what it is> · register: <task | hub | exploration | task-overloaded> · audience: <novice | mixed | expert>
+**Flow:** <named journey or `screen-local`; if not evidenced, `not shown`>
+**State:** <exact rendered or system state(s) reviewed>
+**Lifecycle:** <exact user/product moment(s) reviewed>
 **Context:** <the user's state in a few words> · bar: <the best-in-class comparator you judged against>
 **Coverage:** <app states and lifecycle moments actually reviewed> · gaps: <material states not shown or tested, or "none">
 **Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
@@ -170,22 +174,22 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 | **Total** | **_/12 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-discipline ceiling applied> |
 
 ## Issues (most severe first)
-- **[P0 · IA]** **At:** <screen/region> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
-- **[P1 · Disclosure]** **At:** <screen/region> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
+- **[P0 · IA]** **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
+- **[P1 · Disclosure]** **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
 
 ## Top 3 moves
-1. <highest-leverage change>
-2. <next>
-3. <next>
+1. **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <highest-leverage change>
+2. **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <next>
+3. **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <next>
 
 ## Next
-- **Structural** (do first): <what changes what the screen *is*—split or merge, regroup, relabel, re-triage>
-- **Executional** (after): <what changes how it *looks*—weight, color, type, spacing, motion>
-- **Hand off**: <anything that is not this screen's problem—cross-screen path issues go to Compass; activation, value-recognition, or return leaks go to Flywheel; "None" if all of it is Focal's>
+- **Structural** (do first): **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <what changes what the screen *is*—split or merge, regroup, relabel, re-triage>
+- **Executional** (after): **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <what changes how it *looks*—weight, color, type, spacing, motion>
+- **Hand off**: **At:** screen: <exact screen/region or `not shown`> · flow: <named flow or `not shown`> · state: <exact state or `not shown`> · lifecycle: <exact moment or `not shown`> · <anything that is not this screen's problem—cross-screen path issues go to Compass; activation, value-recognition, or return leaks go to Flywheel; "None" if all of it is Focal's>
 ```
 
 Filling it:
 - **Coverage**—name only states and lifecycle moments the evidence actually exposes. Use `gaps` for consequential variants such as loading, error, first-run, re-entry, or worst-case data that were not shown or tested.
-- **Issues**—repeat the issue line once per issue, tagged **IA / Disclosure / Hierarchy**. Keep the `At` locator specific enough that a designer or engineer can open the right surface and reproduce the state without rereading the diagnosis. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Issues and suggestions**—repeat the issue line once per issue, and give every issue, Top 3 move, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Keep it specific enough that a designer or engineer can open the right surface and reproduce the state without rereading the diagnosis. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Next**—structural before executional, always: polishing a screen with an unresolved organizing intent only organizes the clutter. Resolve structural items with the five-move build workflow in [SKILL.md](../SKILL.md). Single-screen work is Focal's; if the real problem is the path between screens, hand off to Compass; if it is a lifecycle leak in activation, value recognition, or return, hand off to Flywheel.
 - Re-run the audit after fixes to watch the score climb.
