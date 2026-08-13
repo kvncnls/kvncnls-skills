@@ -195,6 +195,7 @@ These skills are not a whole-app IA or sitemap tool. If the question is "how sho
 ## Routing
 
 - **No argument** → explain the methodology and three disciplines briefly, then ask: building a new screen, or reviewing an existing one?
+- **A whole-app or cross-scale audit request** → hand off to [Product Judgement](../product-judgement/SKILL.md), which runs Focal with Compass, Flywheel, and Soul and reconciles the results.
 - **`build` (or a description of a screen to design)** → follow **The five moves** below. Pull techniques from [reference/patterns.md](reference/patterns.md).
 - **A multi-screen flow, journey, or navigation question** → that is Compass's, not Focal's. Say so and hand off (see **Flows**, above). If the question is where the journey loses activation, value recognition, or return, also hand off to Flywheel.
 - **`review` / `critique` / `audit` (or a file, screenshot, or URL to evaluate)** → load and follow [reference/review.md](reference/review.md). It scores each discipline 0–4 against a written rubric, totals to /12, displays a normalized /4 average and common quality band with a weakest-dimension ceiling, tags issues P0–P3, anchors every issue to the exact screen region, app state, and lifecycle moment, and closes on a Clear-Intent verdict. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.

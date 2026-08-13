@@ -113,6 +113,8 @@ soul/
 - Losing users before they reach value—that's [Flywheel](../flywheel). Soul makes a working path memorable; treatments on a broken path read as cosmetic.
 - Brand identity, logo, illustration style, or marketing pages. Soul places moments; it doesn't define the visual language they're executed in.
 
+For a whole-app audit that checks whether expressive moments are sequenced behind sound screens, paths, and relationship stages, use [**Product Judgement**](../product-judgement).
+
 ---
 
 ## Quick reference

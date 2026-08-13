@@ -113,6 +113,8 @@ flywheel/
 
 Flywheel cannot manufacture product-market fit. It stops a valuable product from hiding its value behind uncertainty, effort, silence, or forgettability.
 
+For a whole-app audit that separates relationship leaks from screen, journey, and memory issues, use [**Product Judgement**](../product-judgement).
+
 ---
 
 ## Quick reference

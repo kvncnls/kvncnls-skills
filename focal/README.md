@@ -124,6 +124,8 @@ focal/
 
 Focal owns *structure and attention*. The execution of color, typography, spacing, and motion is left to your own design system and tooling—visual polish lands far better on a screen whose center of gravity is already clear.
 
+For a whole-app audit that combines this screen pass with journey, relationship, and memory reviews, use [**Product Judgement**](../product-judgement).
+
 For a complete multi-screen journey, use Compass to map the path and Flywheel to diagnose where activation, value recognition, or return loses momentum. Focal keeps each screen inside that journey understandable and actionable.
 
 ---

@@ -1,6 +1,6 @@
 # Product Judgement
 
-Skills for making better product decisions across the screen, the journey, the relationship, and the memory. Each one is a self-contained folder of Markdown—no build step, no dependencies—and each also ships as a single file, so they work in Claude Code, Codex, ChatGPT, Cursor, and anything else that reads Markdown.
+Skills for making better product decisions across the screen, the journey, the relationship, and the memory. The four foundational Skills—Focal, Compass, Flywheel, and Soul—each own a scale; Product Judgement combines them for holistic audits. The Skills are Markdown folders—no build step, no dependencies—and each also ships as a single file, so they work in Claude Code, Codex, ChatGPT, Cursor, and anything else that reads Markdown.
 
 The umbrella is **coherence**: focused within a screen, navigable across a journey, valuable across the relationship, memorable after the experience, and trustworthy throughout.
 
@@ -12,7 +12,7 @@ These Skills put product judgement back in the loop. They encode principles, dec
 
 They complement design systems: design systems standardize how decisions are rendered; these Skills help decide which decisions should be made.
 
-Each Skill owns one scale: Focal sharpens the screen, Compass connects the journey, Flywheel strengthens the relationship, and Soul authors what gets remembered. They stay narrow so they can be combined when a problem crosses scales without becoming an all-purpose product design system.
+The four foundational Skills each own one scale: Focal sharpens the screen, Compass connects the journey, Flywheel strengthens the relationship, and Soul authors what gets remembered. They stay narrow so they can be combined when a problem crosses scales. **Product Judgement** is the holistic audit that runs all four, keeps their boundaries clear, and turns their findings into one prioritized sequence; it is not a fifth scale or an all-purpose product design system.
 
 ## What this repo is not
 
@@ -30,10 +30,11 @@ It is not user research, analytics, experimentation, marketing, or product strat
 | [**compass**](./compass) | Never lost. Guides multi-screen flows and navigation through three disciplines—Orientation, Path Economy, and Continuity. Build new flows or review existing ones. Pairs with Focal (single screens). | A task spans screens and users may be lost, facing too many steps, dead ends, Back that resets or loses context, missing progress, or lost state. |
 | [**flywheel**](./flywheel) | Earn the second visit. Growth and retention: finds where a product loses the users it already earned, across four ordered plays—Trust, Friction, Wins, and Emotion. Diagnose where value is leaking, or design the experience that earns the next stage of the relationship. | People arrive but do not trust, reach value, recognize value, return, or bring others. Use it to find the earliest relationship leak or design the stage that earns the next step. |
 | [**soul**](./soul) | Never boring. Delight, placed: sorts every beat of the happy path into three tiers—Expected stays functional, Elevated adds craft to the small things, Net-New rebuilds the 2–3 biggest moments entirely. Search a product or build a moment. | The happy path works but feels generic, forgettable, or over-designed. Use it to decide which moments stay conventional, gain craft, or become memorable—including where motion earns its place. |
+| [**product-judgement**](./product-judgement) | Holistic audit. Runs Focal, Compass, Flywheel, and Soul against a shared evidence map, then reconciles their findings into one prioritized fix sequence. | The question spans the app, or several Skills identify related issues and you need to decide what to fix first. |
 
 ## What each Skill returns
 
-Every Skill has two output modes. **Build** proposes a new design as a fixed specification with an unscored gate checklist. **Audit-style modes**—review, diagnose, or search—evaluate an existing artifact with numeric scores, prioritized findings, and a local methodology verdict.
+The four foundational Skills have two output modes. **Build** proposes a new design as a fixed specification with an unscored gate checklist. **Audit-style modes**—review, diagnose, or search—evaluate an existing artifact with numeric scores, prioritized findings, and a local methodology verdict. Product Judgement is audit-only: it preserves the four native scorecards and adds cross-scale prioritization without inventing a fifth score.
 
 | Skill | Build output | Audit-style output | Local conclusion |
 |---|---|---|---|
@@ -41,6 +42,7 @@ Every Skill has two output modes. **Build** proposes a new design as a fixed spe
 | [**Compass**](./compass) | **Flow Spec**—destination, steps, cuts, orientation, continuity, and gates | **Flow review**—three-discipline scorecard, issues, Top 3 moves, and structural/executional next steps | Is the user **Never Lost**? |
 | [**Flywheel**](./flywheel) | **Stage Spec**—first value, leak, design, friction kept, ask placement, and gates | **Diagnosis**—four-play scorecard, issues, one stage to fix first, and what follows | Where does momentum drop first—before engagement, before first value, after value, or after repeat use? |
 | [**Soul**](./soul) | **Moment Spec**—feeling, frequency, tier, three rungs, constraints, and gates | **Happy-path sweep**—path map, four-gate scorecard, ranked moments, small things, and restraint receipt | Is the path authored, anonymous, misplaced, or exhausting? |
+| [**Product Judgement**](./product-judgement) | — | **Holistic audit**—four native scorecards, shared coverage, deduplicated cross-scale findings, dependencies, and fix order | Are the four scales coherent, and what should be fixed first? |
 
 For Flywheel, a **leak** is not just churn. It is the first point where momentum drops out of the relationship: people leave without engaging, engage without reaching first value, reach value without returning or converting, or return for a while and then drift away.
 
@@ -56,7 +58,7 @@ Build outputs are proposals, so their gates remain binary and unscored. Audit-st
 | **3 — Strong** | Deliberate, dependable professional work with only minor gaps—the normal target for good execution. |
 | **4 — Exemplary** | Fully realized and unusually strong for its context, realistic states, and constraints. |
 
-The scorecard keeps each Skill's native total—`/12` for Focal and Compass, `/16` for Flywheel and Soul—and also displays `total ÷ dimensions` as a normalized `/4` average rounded to one decimal place.
+The scorecard keeps each foundational Skill's native total—`/12` for Focal and Compass, `/16` for Flywheel and Soul—and also displays `total ÷ dimensions` as a normalized `/4` average rounded to one decimal place. Product Judgement preserves those native totals and does not average them into a misleading collection-wide score.
 
 | Common band | Average | `/12` total | `/16` total |
 |---|---:|---:|---:|
@@ -79,11 +81,59 @@ Every audit declares **Coverage**: the app states and lifecycle moments actually
 
 Every audit also states its evidence **Basis** and the fastest test, behavior, or metric that would confirm its most consequential uncertain claim.
 
+## How to use
+
+Designers and developers can use these Skills from a codebase, Figma, Paper, a clickable prototype, screenshots, or a product description. Point the LLM at the artifact and name the scale you want it to inspect.
+
+### From Figma or Paper
+
+Point at one frame when using Focal:
+
+```text
+/focal audit this dashboard
+```
+
+For Compass, select the screens in order—including branches and important variants—and say which frames form the flow:
+
+```text
+/compass audit this flow
+```
+
+You can also ask Flywheel to inspect the relationship represented by the frames, or Soul to sweep the happy path:
+
+```text
+/flywheel audit this onboarding flow
+/soul audit the happy path
+```
+
+Frames show visible structure and selected transitions well, but they do not prove persistence, validation, timing, or lifecycle behavior. Include loading, empty, error, success, permission, interruption, and re-entry states when they exist; otherwise the audit will mark them `not shown`.
+
+### From the codebase (recommended)
+
+The codebase usually contains more context than Figma or Paper: routes, state transitions, persistence, validation, copy, error handling, and the actual lifecycle of the product. Run the Skills from the project so the LLM can inspect that context:
+
+```text
+/focal audit the dashboard
+/compass audit the onboarding flow
+/flywheel audit the onboarding flow
+/soul audit the happy path
+```
+
+When the question spans the app, use the holistic Skill:
+
+```text
+/product-judgement audit the app
+```
+
+Product Judgement runs all four foundational Skills, keeps their ownership distinct, and returns the native scorecards plus a deduplicated issue ledger, dependencies, fix order, and validation plan. It does not add another lens: Focal owns the screen, Compass the path, Flywheel the relationship, and Soul the memory.
+
+The most useful context is the business goal, user intent, audience, stakes, first-value event, primary journeys, constraints, and any evidence or metrics available. When context is missing, the Skills state their assumptions instead of presenting them as facts.
+
 ## Install
 
 ### Any supported agent
 
-Install all four Skills with the [Skills CLI](https://skills.sh/docs/cli):
+Install all five Skills—including the holistic audit—with the [Skills CLI](https://skills.sh/docs/cli):
 
 ```bash
 npx skills add kvncnls/product-judgement --all
@@ -95,11 +145,13 @@ Or install the collection globally for Claude Code, Codex, and Cursor:
 npx skills add kvncnls/product-judgement --skill '*' -g -a claude-code -a codex -a cursor -y
 ```
 
-Install one Skill by name:
+Install one foundational Skill by name:
 
 ```bash
 npx skills add kvncnls/product-judgement --skill focal
 ```
+
+Product Judgement uses the four foundational Skills, so install the full set with the command above when you want `/product-judgement`.
 
 ### Manual installation
 
@@ -138,7 +190,9 @@ cat product-judgement/bundles/focal.md >> AGENTS.md
 cp product-judgement/bundles/focal.md .cursor/rules/focal.md
 ```
 
-Swap `focal` for whichever skill you want. Each skill's own `README.md` has its full usage, and the bundles are build artifacts—regenerate rather than edit them.
+Swap `focal` for whichever foundational Skill you want. The root README and each foundational Skill's own `README.md` have full usage details, and the bundles are build artifacts—regenerate rather than edit them. Product Judgement's orchestration instructions live in its `SKILL.md` and bundle.
+
+For a holistic `/product-judgement` audit in a single-file environment, load the `product-judgement` bundle together with the Focal, Compass, Flywheel, and Soul bundles. The holistic Skill needs all four local methodologies to produce its native scorecards and cross-scale fix order.
 
 ## License
 

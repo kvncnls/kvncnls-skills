@@ -118,6 +118,8 @@ compass/
 
 Compass owns *movement and orientation*. The execution of color, type, motion, and copy is left to your design system, and each individual screen is left to Focal.
 
+For a whole-app audit that combines the path with screen, relationship, and memory reviews, use [**Product Judgement**](../product-judgement).
+
 ---
 
 ## Quick reference
