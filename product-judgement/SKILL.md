@@ -121,7 +121,7 @@ Create one issue ledger from the four native reports:
 5. Preserve every local score and verdict; do not average unlike totals into a false Product Judgement score.
 6. Separate observed, inferred, walked, tested, and measured claims.
 
-Set the fix order by dependency and consequence:
+Set the priority changes by dependency and consequence. Rank concrete implementation changes, not just findings or Skill owners:
 
 1. Stop material harm, coercion, hidden cost, permission, or safety failures.
 2. Repair the earliest blocker on the route to first value—often trust or path integrity.
@@ -133,7 +133,7 @@ This order can change when evidence shows a different upstream dependency. Do no
 
 ## Holistic output
 
-Run all four local audits first, then return this wrapper. Keep the local reports available in working notes; print their full locked templates only when the user asks for the detailed passes.
+Run all four local audits first, then return this wrapper. Keep the local reports available in working notes; print their full locked templates only when the user asks for the detailed passes. The **Priority changes** section is required: each item must name the owner, exact surface or transition, app state, lifecycle moment, concrete change, reason for its rank, and dependency.
 
 ```markdown
 **Verdict:** <coherent | needs structural work | needs lifecycle work | needs authorship> · <one biggest cross-scale issue>
@@ -154,11 +154,11 @@ Run all four local audits first, then return this wrapper. Keep the local report
 ## Cross-scale findings
 - **[P0–P3 · <Focal | Compass | Flywheel | Soul>]** **At:** <surface or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. <Name>—<observation and cost>. **Fix:** <specific change>. **Depends on:** <owner or "none">.
 
-## Fix order
-1. **Now — <primary owner and stage>**: <the upstream change and why it comes first>.
-2. **Next — <primary owner>**: <the change unlocked by Now>.
-3. **Then — <primary owner>**: <the change that makes value, return, or comprehension stronger>.
-4. **After the floor holds — Soul**: <the one or two moments worth authoring, or "None yet.">
+## Priority changes
+1. **Priority 1 · <P0–P3> · Now — <primary owner and stage>** · **At:** <surface or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the concrete implementation change>. **Why now:** <the consequence and upstream reason>. **Depends on:** <owner or "none">.
+2. **Priority 2 · <P0–P3> · Next — <primary owner>** · **At:** <surface or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the change unlocked by Now>. **Why now:** <the consequence and dependency>. **Depends on:** <owner or "none">.
+3. **Priority 3 · <P0–P3> · Then — <primary owner>** · **At:** <surface or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the change that makes value, return, or comprehension stronger>. **Why now:** <the consequence and dependency>. **Depends on:** <owner or "none">.
+4. **Priority 4 · <P0–P3> · After the floor holds — Soul** · **At:** <surface or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the one or two moments worth authoring, or "None yet."> **Why now:** <why expressive treatment is ready—or not ready>. **Depends on:** <owner or "none">.
 
 ## Handoffs and validation
 - **Focal:** <screen(s) to review or rebuild, with state and lifecycle>.

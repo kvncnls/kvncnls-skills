@@ -38,7 +38,7 @@ The four foundational Skills have two output modes. **Build** proposes a new des
 
 | Skill | Build output | Audit-style output | Local conclusion |
 |---|---|---|---|
-| [**Product Judgement**](./product-judgement) | — | **Holistic audit**—four native scorecards, shared coverage, deduplicated cross-scale findings, dependencies, and fix order | Are the four scales coherent, and what should be fixed first? |
+| [**Product Judgement**](./product-judgement) | — | **Holistic audit**—four native scorecards, shared coverage, deduplicated cross-scale findings, and a prioritized list of changes with dependencies and validation | Are the four scales coherent, and what should be fixed first? |
 | [**Focal**](./focal) | **Screen Spec**—organizing intent, action model, information, disclosure, hierarchy, states, and gates | **Screen review**—three-discipline scorecard, issues, Top 3 moves, and structural/executional next steps | Does the screen satisfy **One Screen, One Clear Intent**? |
 | [**Compass**](./compass) | **Flow Spec**—destination, steps, cuts, orientation, continuity, and gates | **Flow review**—three-discipline scorecard, issues, Top 3 moves, and structural/executional next steps | Is the user **Never Lost**? |
 | [**Flywheel**](./flywheel) | **Stage Spec**—first value, leak, design, friction kept, ask placement, and gates | **Diagnosis**—four-play scorecard, issues, one stage to fix first, and what follows | Where does momentum drop first—before engagement, before first value, after value, or after repeat use? |
@@ -125,7 +125,7 @@ When the question spans the app, use the holistic Skill:
 /product-judgement audit the app
 ```
 
-Product Judgement runs all four foundational Skills, keeps their ownership distinct, and returns the native scorecards plus a deduplicated issue ledger, dependencies, fix order, and validation plan. It does not add another lens: Focal owns the screen, Compass the path, Flywheel the relationship, and Soul the memory.
+Product Judgement runs all four foundational Skills, keeps their ownership distinct, and returns the native scorecards plus a deduplicated issue ledger, a prioritized list of changes with dependencies, and a validation plan. It does not add another lens: Focal owns the screen, Compass the path, Flywheel the relationship, and Soul the memory.
 
 The most useful context is the business goal, user intent, audience, stakes, first-value event, primary journeys, constraints, and any evidence or metrics available. When context is missing, the Skills state their assumptions instead of presenting them as facts.
 
