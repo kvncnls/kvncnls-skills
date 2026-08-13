@@ -8,7 +8,7 @@ The umbrella is **coherence**: focused within a screen, navigable across a journ
 
 ## Why this collection exists
 
-Vibe coding made implementation fast and easy, but product judgment is still easy to skip. Features accumulate, screens grow crowded, flows become mazes, value gets buried, and working products become forgettable.
+Vibe coding made implementation fast and easy and made product judgment even easier to skip. Features accumulate, screens grow crowded, flows become mazes, value gets buried, and working products become generic and forgettable. The 'Ship fast, iterate later' mantra has produced AI product slop en masse.
 
 These Skills put product judgment back in the loop. They encode principles, decision trees, failure modes, audit rubrics, exceptions, and fixed outputs for recurring UX problems—helping an AI reason about the experience as a connected system instead of generating one plausible screen at a time.
 
@@ -19,6 +19,8 @@ Each Skill owns one scale: Focal sharpens the screen, Compass connects the journ
 ## What this repo is not
 
 This is not a design-system analyzer, component library, token validator, visual-regression suite, renderer, prototyping tool, animation library, or implementation framework. It produces product-design judgment, audits, and fixed specifications—not production UI or animation code. Soul can identify where motion or expressive treatment earns its place; other tools implement it.
+
+It is not context-free product wisdom. Because these Skills make product-design decisions, they work best with the context behind the decision: business goals, user intent, audience, constraints, stakes, the existing journey, and the evidence available. The more relevant context you provide, the more specific and useful the output; without it, the result is a hypothesis to validate, not a substitute for product knowledge.
 
 It is not user research, analytics, experimentation, marketing, or product strategy. It can form hypotheses, locate leaks, and name a confirming test or metric, but it does not collect evidence, prove causality, buy attention, set roadmaps, or manufacture product-market fit. It is not a whole-app sitemap or all-purpose UX system, and it does not replace design-system, accessibility, security, legal, or safety reviews.
 
