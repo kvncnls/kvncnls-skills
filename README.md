@@ -56,7 +56,11 @@ Build outputs are proposals, so their gates remain binary and unscored. Audit-st
 | **1 — Major failure** | Technically possible, but seriously compromised, unreliable, or largely absent. |
 | **2 — Partial or inconsistent** | The basic function exists, but a material weakness prevents dependable quality. |
 | **3 — Strong** | Deliberate, dependable professional work with only minor gaps—the normal target for good execution. |
-| **4 — Exemplary** | Fully realized and unusually strong for its context, realistic states, and constraints. |
+| **4 — Exemplary, above and beyond** | Goes beyond strong professional execution: fully realized and unusually effective for its context, realistic states, and constraints. It is intentionally uncommon and not the norm. |
+
+These are ordinal quality levels, not percentages or school grades. A `3/4` is the intended bar for strong product work; it does **not** mean 75%. A Focal or Compass result of `9/12`, or a Flywheel or Soul result of `12/16`, means every evaluated dimension is Strong. A `4/4` is deliberately harder: it recognizes above-and-beyond execution in a selectively exemplary dimension. It is not the norm, the expected baseline, or the minimum acceptable result.
+
+Do not optimize every audit toward a perfect total. Eliminate `0`s and `1`s, improve consequential `2`s, establish `3` as the dependable baseline, then pursue selected `4`s only where deeper investment supports the product's goals or creates meaningful differentiation. Scores describe the quality profile; they do not decide release readiness by themselves. A P0 or explicit blocker still requires action regardless of the total.
 
 The scorecard keeps each foundational Skill's native total—`/12` for Focal and Compass, `/16` for Flywheel and Soul—and also displays `total ÷ dimensions` as a normalized `/4` average rounded to one decimal place. Product Judgement preserves those native totals and does not average them into a misleading collection-wide score.
 
