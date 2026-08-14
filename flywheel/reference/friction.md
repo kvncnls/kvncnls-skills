@@ -46,7 +46,7 @@ Onboarding is not a set of introductory screens. It is the path from expectation
 | Reached the dashboard | Imported data and received an actionable insight |
 | Enabled notifications | Invited a collaborator who participated |
 
-**Validate it.** If people who complete your activation event do not retain better than people who do not, the event does not represent value and every decision built on it is aimed at the wrong target.
+**Validate it.** If people who complete the proposed activation event do not retain better than comparable people who do not, the event is weak evidence of value and the definition should be revisited. The cohort comparison shows association, not causation; control for acquisition, intent, and survivorship, and use experiments or research before claiming the event caused retention.
 
 ## Design backward from first value
 
@@ -61,9 +61,9 @@ Onboarding is not a set of introductory screens. It is the path from expectation
 
 Step 8 is the handoff to the Wins play. Value the user does not notice did not land.
 
-## Progressive disclosure
+## Progressive disclosure across the stage
 
-Show what is needed now; reveal depth when it becomes useful. Appropriate for advanced settings, secondary analytics, technical detail, fee composition, optional configuration, and expert controls.
+Sequence setup so only prerequisites for the next value-bearing step are required now; reveal secondary configuration when it becomes useful. Flywheel owns whether the timing delays first value. Focal owns the disclosure and hierarchy inside any one screen, and Compass owns the route between screens.
 
 **Never defer anything that materially affects consent, cost, risk, or expected outcome.** That is not disclosure, it is concealment, and it is a P0 under this skill's don'ts.
 
@@ -81,7 +81,7 @@ Onboarding completion, step-level abandonment, time to first value, sessions to 
 
 **Use distributions, not averages.** A median hides the tail of people who are stuck, and the tail is the leak.
 
-Compare retention of activated versus non-activated users—that comparison is what validates the activation definition itself.
+Compare retention of comparable activated and non-activated cohorts as one validation signal. Report it as association unless an experiment or stronger causal design isolates the activation event.
 
 ## Anti-patterns
 

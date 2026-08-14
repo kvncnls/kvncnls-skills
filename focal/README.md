@@ -4,154 +4,142 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-Focal is an open-source [Claude Code](https://claude.com/claude-code) skill for designing and reviewing **the UX of functional product screens**—apps, tools, and dashboards across mobile, web, and desktop. It is a lens, not a renderer: it decides what belongs on a screen and how it's ranked, so every screen has one legible organizing intent.
+Focal is a Skill for designing and reviewing the product decisions inside a functional screen: what belongs, what waits, and what deserves attention. It works across mobile, web, desktop, apps, tools, dashboards, and expert interfaces.
 
-That does **not** mean one action, one content block, or one possible user goal. A task screen usually has one primary action. A hub can offer many destinations. An exploration surface can foreground many items. Focal asks whether those things share a clear center of gravity and whether the action model fits the kind of screen.
+“One clear intent” does not mean one action, one content block, or one possible user goal. A task screen usually has one primary action. A hub can offer many ranked destinations. An exploration surface can foreground many items. Focal asks whether the screen has one legible reason for bringing those elements together and an action model that fits the kind of screen it is.
 
-People don't read a screen, they orient on it—scanning for where they are, what matters, and what to do next. Every screen has to answer *Where am I? What matters here? What do I do?*—whether it's a phone app glanced at one-handed or a dashboard an expert lives in all day. Focal exists to make those answers obvious.
+## The method
 
----
+Focal treats a screen as a decision surface, not a container. Three disciplines support one local conclusion:
 
-## The idea
-
-Simple, clean UX is not a style. It is the visible result of every screen making its organizing intent clear. Focal makes three disciplines the top priority, all culminating in one methodology.
-
-```
-                 ┌────────────────────────────────────────────┐
-   the outcome   │         ONE SCREEN, ONE CLEAR INTENT         │
-                 └────────────────────────────────────────────┘
-                        ▲              ▲               ▲
-   the means     Information      Progressive       Visual
-                 Architecture     Disclosure        Hierarchy
-                 what belongs     what shows now     what wins
+```text
+                 ONE SCREEN, ONE CLEAR INTENT
+                         /      |      \
+            Information   Progressive   Visual
+            Architecture   Disclosure    Hierarchy
+            what belongs   what waits    what wins
 ```
 
-- **Information Architecture**—what belongs on the screen, and how it's organized.
-- **Progressive Disclosure** *(load-bearing)*—what's shown now, and what waits. At most ~4 things at any decision point on a task screen.
-- **Visual Hierarchy**—what wins attention; the heaviest element or region should match the action model.
+- **Information Architecture** decides what belongs on the screen and how related information is grouped.
+- **Progressive Disclosure** sequences information and choices so the user can decide without unnecessary overload. It does not hide price, risk, requirements, or evidence needed now.
+- **Visual Hierarchy** defines the intended attention order. The strongest element or region should match the screen’s action model.
 
-Get all three right and the screen settles around one clear intent on its own. Miss any one and that intent blurs.
+Progressive Disclosure is the main anti-overload lever, but it is not a universal item-count rule. Roughly four decision chunks is a useful diagnostic starting point for an unfamiliar task screen. Experts, high-stakes comparisons, hubs, and exploration surfaces can support more when the information is meaningfully grouped and necessary to the decision.
 
-Focal treats the screen as a **decision surface**, not just a container. It minimizes decisions without withholding useful evidence, infers recognizable input before asking users to classify it, keeps decision-critical context beside the action, and makes consequences legible through summaries, comparisons, previews, or visualizations when raw values are not enough. It can prescribe what the interface should make clear; it does not implement parsers, chart systems, or visual styling.
+Focal also asks whether the interface can reduce unnecessary choices by recognizing input, keep decision-critical context beside the action, and show consequences through a useful summary, comparison, preview, or visualization instead of raw data alone. It specifies what the product should make clear; it does not implement parsers, chart systems, or visual styling.
 
-**It adapts to the screen type.** The default is a *task* screen—one coherent job, usually one primary action. A genuine binary choice or inseparable dual mode can keep co-equal actions. A **hub** (home, profile, settings index) exists to *route*, so many ranked destinations are correct, not clutter. An **exploration** surface (feeds, search, grids) exists for *browsing*, so content leads and abundance is the point. The working-memory limit doesn't vanish on these—it relocates (per row on a hub, per card on a feed). Focal classifies the register before it judges the screen.
+## Screen registers
 
----
+Focal classifies the screen before judging it:
 
-## Install
+- **Task**—one coherent job, usually with one primary action. An inherent binary choice or inseparable dual mode can remain co-equal.
+- **Hub**—a routing surface where many ranked destinations may be correct. Decision load is judged within meaningful groups, not by counting every route as clutter.
+- **Exploration**—a feed, search, grid, or canvas where browsing is the intent and content leads. Decision load is judged at the item or local-choice level.
 
-Focal is a standard Claude Code Agent Skill—a folder of Markdown, no build step or dependencies. It ships in the [**Product Judgement**](https://github.com/kvncnls/product-judgement) collection. To install it with the Skills CLI:
+Audience, expertise, stakes, device, and frequency change what “clear” requires. Density is not automatically a defect.
+
+## When to use Focal
+
+Reach for Focal when a screen feels crowded, unclear, over-explained, under-contextualized, or unable to show what matters now. Use it for both new designs and existing screens.
+
+Focal does not own:
+
+- the route across multiple screens—that is [Compass](../compass);
+- activation, value recognition, return, or relationship momentum—that is [Flywheel](../flywheel);
+- the placement of memorable or expressive moments—that is [Soul](../soul);
+- typography, color, spacing systems, animation implementation, marketing pages, or backend work.
+
+Use [Product Judgement](../product-judgement) when the question crosses several of those scales.
+
+## Install and update
+
+Install Focal globally with the [Skills CLI](https://skills.sh/docs/cli):
 
 ```bash
-npx skills add kvncnls/product-judgement --skill focal
+npx skills add kvncnls/product-judgement --skill focal -g
 ```
 
-To install it manually for every session:
+Update an installation tracked by the CLI:
 
 ```bash
-git clone https://github.com/kvncnls/product-judgement.git
-# Symlink the skill so edits stay in sync:
-ln -s "$(pwd)/product-judgement/focal" ~/.claude/skills/focal
+npx skills update -g focal
 ```
 
-Prefer an independent copy, or just one project? Use `cp -R product-judgement/focal ~/.claude/skills/focal`, or copy the `focal/` folder into a project's `.claude/skills/` instead. Restart Claude Code if it was already running.
-
----
+See the collection’s [installation and update guide](../README.md#install) for Claude Code, Codex, Cursor, manual folders, and generated single-file bundles.
 
 ## Use
 
-Invoke it explicitly with `/focal`, or just describe a screen and let it trigger.
+Invoke `/focal` explicitly or ask an agent with the Skill installed.
 
-**Build a new screen**
+### Build a screen
 
-```
+```text
 /focal build a checkout screen for a food-delivery app
 ```
 
-Focal walks the five moves: name the organizing intent and register-aware action model → architect the information → triage disclosure (Now / On-demand / Never) → rank what stays → run the gates.
+Focal returns a fixed **Screen Spec**:
 
-It returns a fixed **Screen Spec**:
-
-- **Screen**—one clear organizing intent and the action model that fits its register.
+- **Screen**—organizing intent, register, audience, and action model.
 - **Information**—what stays, moves, merges, or leaves.
 - **Disclosure**—what appears Now, On-demand, or Never.
 - **Hierarchy**—the intended attention order and focusing mechanism.
-- **States**—empty, loading, error, and worst-case full behavior.
-- **Gates**—a binary, unscored check of the proposed design.
+- **States**—empty, loading, error, success, and worst-case full behavior relevant to the screen.
+- **Gates**—a binary, unscored check of the proposal.
 
-See the [locked Screen Spec template](./SKILL.md#build-the-five-moves).
+See the [locked Screen Spec](./SKILL.md#build-the-five-moves).
 
-**Review an existing screen**
+### Audit a screen
 
+```text
+/focal audit this dashboard
 ```
-/focal review     ← then paste a screenshot, point at a component file, or give a URL
-```
 
-It returns a fixed **screen review**:
+Point the agent at a frame, screenshot, component, route, prototype, or running product. Focal returns:
 
-- **Verdict**—Yes or No for One Screen, One Clear Intent, plus the largest problem and native `/12` total.
-- **Screen, Context, Coverage, Basis, and Blocker**—what was reviewed, the user's situation, which app states and lifecycle moments were inspected, material gaps, the confirming check, and any critical condition.
-- **Scorecard**—Information Architecture, Progressive Disclosure, and Visual Hierarchy scored `0–4`, with evidence-backed rationales and the smallest change that would raise each score one point, followed by the normalized average and final common band.
-- **Issues**—P0–P3 findings tagged to the discipline they break, each anchored to the exact **Screen · Flow · State · Lifecycle** locator with a concrete fix.
-- **Top 3 moves and Next**—the highest-leverage changes, structural-before-executional sequencing, and any Compass or Flywheel handoff.
+- **Verdict**—Yes or No for One Screen, One Clear Intent, plus the largest local problem.
+- **Coverage and Basis**—the exact Screen · Flow · State · Lifecycle reviewed, missing evidence, and a confirming check.
+- **Scorecard**—Information Architecture, Progressive Disclosure, and Visual Hierarchy scored `0–4`, for a native total of `/12`.
+- **Issues**—P0–P3 findings with exact locators and concrete fixes.
+- **Top moves**—up to three high-leverage changes; fewer when fewer are justified.
+- **Next**—structural-before-executional sequencing and any Compass, Flywheel, or Soul handoff.
 
-See the [locked review template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).
+Every score must explain **evidence → consequence → rubric anchor → smallest next-point change**. A `3/4` is the normal target for strong professional work. A `4/4` means above-and-beyond, unusually effective execution and is intentionally uncommon. A total without those row-level explanations is invalid.
 
----
+See the [locked review output](./reference/review.md#output-formatuse-this-exact-structure) and the collection’s [shared audit contract](../README.md#shared-audit-contract).
 
-## What's inside
+## Give it context
 
-```
+The more Focal knows about the user, intent, business goal, constraints, stakes, device, frequency, and surrounding flow, the more useful its decisions become. Include a PRD, research, analytics, requirements, or codebase when available. If a state is not visible or verifiable, the audit marks it `not shown` rather than inventing behavior.
+
+## What is inside
+
+```text
 focal/
-├── SKILL.md              the spine: methodology, three disciplines, build workflow
+├── SKILL.md
 ├── reference/
-│   ├── review.md         the three-discipline audit + scorecard + severity
-│   ├── patterns.md       IA techniques, disclosure catalog, hierarchy ladder, anti-patterns
-│   └── examples.md       a worked review + a worked build, in the locked templates
+│   ├── review.md
+│   ├── patterns.md
+│   └── examples.md
 ├── README.md
 └── LICENSE
 ```
 
----
-
-## Scope
-
-**Use it for** functional interfaces—app, product, and tool screens across mobile, web, desktop, and tablet, for everyday or expert users: onboarding, feeds, home screens, settings, dashboards, admin panels, checkout, editors, consoles. Anywhere someone is trying to get something done. Density-heavy expert tools are in scope too—Focal adapts via the screen's register and the user's expertise (experts read dense displays as a few familiar chunks).
-
-**Not for:**
-- Marketing or landing pages, where design *is* the product and the job is persuasion, not task completion.
-- Backend or non-UI work.
-
-Focal owns *structure and attention*. The execution of color, typography, spacing, and motion is left to your own design system and tooling—visual polish lands far better on a screen whose center of gravity is already clear.
-
-For a whole-app audit that combines this screen pass with journey, relationship, and memory reviews, use [**Product Judgement**](../product-judgement).
-
-For a complete multi-screen journey, use Compass to map the path and Flywheel to diagnose where activation, value recognition, or return loses momentum. Focal keeps each screen inside that journey understandable and actionable.
-
----
-
 ## Quick reference
 
+```text
+INTENT     “This screen exists so the user can ___.”
+REGISTER   task: focused action · hub: ranked routes · exploration: content leads
+IA         include what supports the intent · group meaningfully · label plainly
+DISCLOSE   Now / On-demand / Never · fit decision load to audience and stakes
+DECIDE     minimize unnecessary choices · infer before asking · keep context nearby
+SHOW       make consequences legible; use a preview or visualization when it helps
+HIERARCHY  one intended attention order · strongest treatment matches the action model
+NEVER      hide price, requirements, consequences, or controls needed now
 ```
-INTENT     "This screen exists so the user can ___."   (no unrelated second outcome)
-ACTION     task: one primary usually · hub: ranked routes · exploration: content leads
-IA         everything supports the organizing intent · group related · label plainly
-DISCLOSE   every element → Now / On-demand / Never · ≤4 at any decision point
-DECIDE     minimize choices · infer before asking · context at the decision · consequence visible
-HIERARCHY  1 dominant element/region · 2–3 secondary · rest ambient
-           space → weight → size → color
-NEVER      hide price, required fields, consequences, or controls needed now
-```
-
-*A task can preserve an inherent binary choice or inseparable dual mode. On a hub the ≤4 binds per row; on an exploration surface, per item.*
-
----
 
 ## Contributing
 
-Issues and pull requests welcome. Focal is intentionally tight—three disciplines, one methodology. Proposals should sharpen that focus, not broaden the scope. If a change adds a new topic area (visual craft, motion, code), it probably belongs in a separate skill.
-
----
+Issues and pull requests are welcome. Changes should sharpen Focal’s ownership of screen structure, disclosure, and attention rather than broaden it into journey design, relationship design, visual styling, motion, or implementation.
 
 ## License
 

@@ -4,17 +4,17 @@ Evaluate a flow (or a set of screens) against the three disciplines and the over
 
 ## Input modes
 
-- **A described flow**—the user narrates the steps ("they sign up, pick a plan, then…"). Map it as a sequence, name the destination, and audit the path you reconstruct. If the narration is ambiguous, restate the sequence and ask before scoring—that is a clarifying exchange, not part of the emitted review.
+- **A described flow**—the user narrates the steps ("they sign up, pick a plan, then…"). Map it as a sequence, name the finite outcome or open-ended intent and home anchor, and audit the journey you reconstruct. If the narration is ambiguous, restate the sequence and ask before scoring—that is a clarifying exchange, not part of the emitted review.
 - **A set of screens or screenshots**—read them in order, infer the transitions between them, and critique the joins. You're judging the *seams*, not each screen—a beautiful screen in the wrong order, or one that drops state on the way in, still fails. Per individual screen layout, defer to [Focal](../../focal).
 - **A clickable prototype / live URL**—if browser automation is available, walk the flow: click through, hit Back, refresh mid-flow, follow a deep link cold. Otherwise audit the described or captured steps. Always test the transitions, not just the destinations—the failures live between screens.
 
-## Step 0—Notice the journey, name the destination, classify the flow
+## Step 0—Notice the journey, name the outcome or anchor, classify the flow
 
 Before judging, *walk it*. Most people glance at one screen; a reviewer traces the whole path. Count the steps. Read the progress indicators and Back affordances verbatim. Note what each transition carries and what it drops. Try to get lost. The specificity of your observation is the ceiling on the quality of your critique.
 
 Then frame, in one or two sentences each:
-- **What is this journey?** Product type, what the flow is for, where it starts and ends.
-- **Name the destination.** Settle it as *"This flow gets the user from ___ to ___."* One outcome; it lands in the review template as the **Flow** name plus the biggest-break phrase, and in a build as the Flow line's from-to. If it needs an "and," it's two flows wearing one coat—flag the split now; the gates will show why.
+- **What is this journey?** Product type, what the journey is for, and its entry plus outcome or home anchor.
+- **Name the outcome or anchor.** For a finite flow, settle *"This flow gets the user from ___ to ___."* If two outcomes can succeed independently, split them. For an open-ended journey, settle *"This space lets the user ___, and ___ is home."* Do not invent an end for browsing.
 - **What's the user's state?** Anxious, rushed, first-time, returning, interrupted, one-handed? A checkout under time pressure tolerates fewer steps than a leisurely setup. A flow resumed after a phone call must survive the interruption. Name it; the critique must respect it.
 - **Which journey states and lifecycle paths are covered?** Inventory the exact conditions walked: first run, returning, Back, refresh, validation error, retry, interruption/resume, deep link, branch change, or recovery. Mark important paths `not shown` when the artifact does not expose them.
 - **What's the bar?** Every flow category has an invisible standard set by its best-in-class journey. A checkout is judged against the cleanest checkouts; an onboarding against the clearest onboardings; a multi-step setup against the cleanest wizard in the category. Ask: *what would the best-in-class flow do at this seam?*
@@ -22,7 +22,7 @@ Then frame, in one or two sentences each:
 
 ## Locate every finding
 
-Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Top 3 move, Next item, and handoff must carry the same locator:
+Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Top move, Next item, and handoff must carry the same locator:
 
 1. **Screen**—the exact source screen, destination screen, entry point, or transition seam.
 2. **Flow**—the named journey and transition being evaluated.
@@ -35,7 +35,7 @@ Use concrete transitions. `Email verification screen → workspace · account se
 
 Read the gates through the flow type you classified in Step 0. The disciplines still apply; their targets move. Scoring a hub-and-spoke or an open-ended space by linear rules produces false failures.
 
-- **Linear** (default—checkout, onboarding, setup, wizards): score exactly as the gates describe. Progress to the end is sacred; every skippable step is waste.
+- **Linear** (default—checkout, onboarding, setup, wizards): score exactly as the gates describe. Progress to the end is sacred. A skippable step is waste only when skipping it loses no protection, comprehension, preference, or branch-specific value; optional does not automatically mean unnecessary.
 - **Branching** (conditional signup, "what brings you here?", plan-dependent paths): Orientation must also tell the user *which branch they're on* and *how to change it*—a fork the user can't see or undo fails Gate 1. Under Path Economy, judge whether dead or rarely-taken branches are pruned and whether the common branch is defaulted. Don't penalize the existence of branches; penalize unmanaged ones.
 - **Hub-and-spoke** (dashboard → record → dashboard, settings index → detail → index): *"back to the hub" is sacred*—the center is home base, and losing the way back to it is a Gate 1 failure even mid-spoke. Don't score it as a broken linear flow for "having no progress bar"; a hub has no single end. Under Path Economy, count hops out to a spoke and back—minimize them, don't funnel.
 - **Open-ended** (browse, search-and-refine, exploration, infinite spaces): the exception that proves the rule. There's no single destination, so *"how far is left" does not apply*—do **not** penalize the absence of a progress indicator under Gate 1. "Never Lost" reduces to *always know where you are in the space, and how to get home*. Under Path Economy, let the user roam; don't force a funnel onto a wander. (This is the journey-level sibling of Focal's exploration register.)
@@ -49,27 +49,27 @@ Run each gate in turn. Orientation leads—it's the load-bearing promise. Each p
 
 ### Gate 1—Orientation *(load-bearing)*
 
-*At every step, can the user answer where am I, how far is left, and how do I get back or out?*
+*At every step, can the user answer where am I, what remains when bounded, and how do I retreat, get home, or leave?*
 
-- Run the **drop test** on every screen: drop the user onto it with no memory of how they arrived. Can they tell where they are, what's left, and how to proceed or retreat? A screen that fails the drop test fails Orientation.
+- Run the **drop test** on every screen: drop the user onto it with no memory of how they arrived. Can they tell where they are, what remains when bounded, and how to proceed, retreat, or get home? A screen that fails those applicable questions fails Orientation.
 - Check **position and progress**: "Step 2 of 4," a breadcrumb, an active nav state. Is progress framed as achievable milestones, not a demoralizing tally ("12 of 47")?
-- Check for a **real Back on every screen** and an **escape hatch** (Cancel / Close / Save & exit) out of every flow—especially modals and wizards. Nothing traps the user.
+- Check for a **platform-appropriate retreat or home path** and an **escape hatch** from every owned bounded flow—especially modals and wizards. Browser Back can be sufficient when history and state behave correctly; a product-owned stack needs its own visible retreat. Do not demand duplicate controls that add no clarity.
 - Hunt for **dead ends**: a screen the user can reach but not leave is a bug, not a state.
 - For branching/hub flows, check that the user can see **which branch they're on** or **how to get back to the hub**.
 
 | Score | Criteria |
 |-------|----------|
 | 0 | No recovery exists—a true dead end, or a flow the user cannot leave from any screen |
-| 1 | A way out exists but is hidden or unlabeled (browser Back only, an unmarked Close); or progress is hidden and the drop test fails on a key screen. A Back that *wipes work* is Gate 3's, not this gate's |
-| 2 | Orientable, but one of where-am-I / how-far / how-to-get-back is weak or absent at a step |
-| 3 | Clear position, Back, and exit throughout; minor signposting gaps |
-| 4 | At every step the user knows where they are, what's left, and how to retreat or escape—the drop test passes everywhere |
+| 1 | A way out exists but is hidden or unlabeled; or progress is hidden and the drop test fails on a key screen. Browser Back alone is a failure only when the product owns a bounded flow, history is unsafe or surprising, or the retreat is not reasonably discoverable. A retreat that *wipes work* is Gate 3's, not this gate's |
+| 2 | Orientable, but one applicable answer—where-am-I, what-remains-when-bounded, or how-to-retreat/get-home—is weak or absent at a step |
+| 3 | Clear position, platform-appropriate retreat/home, and exit throughout; minor signposting gaps |
+| 4 | At every step the user knows where they are, what remains when bounded, and how to proceed, retreat, get home, or escape—the journey-appropriate drop test passes everywhere |
 
-Because this discipline is load-bearing, treat a **failed drop test** or a **dead end** as a blocking issue regardless of the total.
+Because this discipline is load-bearing, a true dead end on the core path is a blocker. A failed drop test is not automatically release-critical: assign severity from consequence, reach, and recoverability, and reserve blocker status for a key state where the user cannot orient, proceed, retreat, or recover.
 
 ### Gate 2—Path Economy
 
-*Is this the fewest honest steps to the destination?*
+*For this journey type, is this the least needless effort without cutting protection?*
 
 - **Count the steps**, then count how many the task *honestly* requires. "This is a 7-step flow that needs 3" is the finding.
 - Check for **redundant screens**, needless round-trips, and steps that could **merge** without overloading a single screen (defer to Focal for whether the merged screen is too dense).
@@ -112,7 +112,7 @@ Every discipline uses the same integer anchors:
 | **1** | **Major failure** | The outcome may remain technically possible, but the dimension is seriously compromised, unreliable, or largely absent. Substantial correction is required. |
 | **2** | **Partial or inconsistent** | The basic function exists, with a material weakness, missing decision, or inconsistency that prevents dependable quality. |
 | **3** | **Strong** | Deliberate, dependable, context-appropriate professional work with only minor gaps. This is the normal target for good execution. |
-| **4** | **Exemplary** | Fully realized and unusually strong for the relevant context, including realistic states and constraints, with no material gaps. |
+| **4** | **Exemplary—above and beyond** | Fully realized and unusually effective for the relevant context, including realistic states and constraints. This is intentionally uncommon, not the normal target. |
 
 Score each discipline holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the dimension overall, apply explicit local caps or prerequisites, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the dimension being scored; it does not universally require novelty.
 
@@ -131,12 +131,12 @@ Keep the native total: `total = Orientation + Path Economy + Continuity`. Calcul
 
 Then cap the band by the weakest discipline: a minimum of `0` allows only **Broken**, `1` allows at most **Significant rework**, `2` allows at most **Solid**, and `3–4` adds no ceiling. Use the lower-quality result of the average band and this ceiling. The total must equal the exact sum of the three scores.
 
-- **Score 0 vs 1 (Orientation only).** Score **0** when the flow strands the user with no recovery at all—a true dead end, or a flow with no exit anywhere. Score **1** when a way out exists but is hidden or unlabeled (browser Back only, an unmarked Close). Each gate's own rubric governs its 0 and 1; this clause does not carry across disciplines. A Back that *wipes work* is a Continuity failure, scored by Gate 3, not by this clause.
+- **Score 0 vs 1 (Orientation only).** Score **0** when the flow strands the user with no recovery at all—a true dead end, or a flow with no exit anywhere. Score **1** when a way out exists but is hidden, surprising, unsafe, or unlabeled. Browser Back is not inherently a failure; judge whether it is the expected, discoverable, state-safe retreat for this platform and flow. A retreat that *wipes work* is a Continuity failure, scored by Gate 3.
 - If more than one independent failure sits in a discipline, score the *worst* one, then list the others as separate issues.
-- **The verdict—Never Lost.** Yes or no: at every step, does the user know where they are, what's left, and how to get back or out? The total measures how close the flow gets; the verdict states whether it arrives. A failed drop test or a dead end is a blocker regardless of total.
+- **The verdict—Never Lost.** Yes or no: at every step, does the user know where they are, what remains when bounded, and how to retreat, get home, or leave? The total measures how close the journey gets; the verdict states whether it arrives. A true dead end on the core path is a blocker; other drop-test failures take severity from their actual consequence.
 - **A doubled destination** (the flow needs an "and") is an Orientation failure; assign P0 only when its consequence meets the shared critical definition, and flag it as the split it implies.
 
-Dimension score, overall quality band, issue severity, critical blocker, and the **Never Lost** verdict are separate. Every P0 is a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. Non-P0 methodology blockers remain in local caps, sequencing, and handoffs.
+Dimension score, overall quality band, issue severity, critical blocker, and the **Never Lost** verdict are separate. Every P0 is a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. Non-critical methodology failures belong in the local verdict, score, sequencing, or handoff—not in **Blocker**.
 
 ## Issue severity
 
@@ -159,6 +159,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 **Verdict:** <No | Yes> · <the single biggest break, one phrase> · **<total>/12**
 
 **Flow:** <name> · type: <linear | branching | hub-and-spoke | open-ended> · audience: <novice | mixed | expert>
+**Outcome / anchor:** <finite destination | open-ended organizing intent + home anchor>
 **Screen:** <source and destination screens or exact seam reviewed>
 **State:** <exact interaction or system state(s) reviewed>
 **Lifecycle:** <exact journey moment(s) reviewed>
@@ -179,7 +180,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 - **[P0 · Orientation]** **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
 - **[P1 · Path Economy]** **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
 
-## Top 3 moves
+## Top moves (up to 3)
 1. **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment> · <highest-leverage change>
 2. **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment> · <next>
 3. **At:** screen: <source/destination screen or seam> · flow: <named flow and transition> · state: <exact state> · lifecycle: <exact journey moment> · <next>
@@ -192,7 +193,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 
 Filling it:
 - **Coverage**—name only conditions actually walked or evidenced. Use `gaps` for consequential paths such as Back, refresh, retry, interruption/resume, deep link, or returning-user bypass that were not shown or tested.
-- **Issues and suggestions**—repeat the issue line once per issue, and give every issue, Top 3 move, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Keep the `At` locator precise enough to replay the failing transition directly. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Issues and suggestions**—repeat the issue line once per issue, and give every issue, Top move, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Emit one to three Top moves only when each is warranted; never invent filler to reach three. If none is warranted, write `None.` Keep the `At` locator precise enough to replay the failing transition directly. `<observation>` may run two or three sentences when specificity requires it. If nothing ranks above P3, write "None above P3." under the Issues header and keep the header.
 - **Next**—structural before executional, always: signposting a maze only labels the dead ends. Resolve structural items with the four-move build workflow in [SKILL.md](../SKILL.md) and the techniques in [patterns.md](patterns.md).
 - **Single-screen problems are out of scope—route them to [Focal](../../focal).** If an individual screen is overloaded, mis-ranked, or has no clear primary action, that is a within-screen failure for Focal, not a seam for Compass; name it in **Next** and hand it off.
 - Re-run the audit after fixes to watch the score climb.

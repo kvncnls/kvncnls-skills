@@ -30,7 +30,7 @@ Three disciplines, treated as top priorities, are how you earn that outcome:
                  what belongs     what shows now     what wins
 ```
 
-Get all three right and the screen settles around one clear intent on its own. Miss any one and that intent blurs. **Progressive Disclosure is the load-bearing discipline**—a screen with the right structure and clear hierarchy decays the instant you let complexity pile on, so weight it the most.
+Get all three right and the screen settles around one clear intent on its own. Miss any one and that intent blurs. **Progressive Disclosure is the anti-overload discipline**—it runs before hierarchy because a screen cannot rank its way out of carrying too much. That is a sequencing dependency, not extra numeric weight: all three disciplines still score on the same 0–4 scale.
 
 Together, the disciplines make the screen a better **decision surface**. Keep these four rules in view:
 
@@ -78,20 +78,16 @@ A screen is a unit of intent. IA decides which content and actions belong on it,
 - **Label in the user's words.** Navigation, sections, and actions named in plain language the user already owns—never system or domain jargon. Recognition beats recall.
 - **Pattern recognition—infer before asking.** When input has recognizable structure—an address, identifier, date, or transaction type—parse it and propose the likely interpretation. Show what was inferred, let the user correct it, and keep a manual fallback for ambiguity; do not make the user classify input the system can already recognize.
 - **Contextual UI—keep context at the decision surface.** Co-locate everything needed to make a choice where the choice is made. If history, status, price, or consequence informs the decision, bring the relevant slice into the same screen or region. Defer deep detail, never the context required to decide or trust the action, and never force the user to remember a fact from a previous screen (the "memory bridge").
-- **Merge needless round-trips; split overloaded screens.** Two screens that each do half of one intent should be one. One screen carrying three independent intents should be split or reframed as an explicit hub.
-- **Orientation.** The user always knows where they are and how to get back. Findability is structure, not decoration.
+- **Merge needless round-trips; split overloaded screens.** Two screens that each do half of one intent should be one. One screen carrying three independent intents should be split or reframed as an explicit hub. Focal decides whether the resulting screen is coherent; Compass decides how the route between screens works.
 
 > **Fails:** the kitchen-sink screen (three jobs at once); structure that mirrors the database instead of the user's intent; orphan content with no clear home; jargon labels; the memory bridge across screens.
 
-### 2. Progressive Disclosure—show now, defer the rest *(load-bearing)*
+### 2. Progressive Disclosure—show now, defer the rest *(anti-overload)*
 
 Reveal complexity only when the user needs it. Working memory is the hard constraint, not screen real estate. This is the discipline that *keeps* a screen's organizing intent legible over time.
 
-- **The working-memory rule.** Humans hold about **4 items** in working memory at once (Miller's Law, revised by Cowan). At any single decision point, count the distinct options, fields, or facts the user must hold simultaneously:
-  - **≤4**—within budget.
-  - **5–7**—group or defer.
-  - **8+**—overloaded; users skip, misclick, or abandon.
-- **Count chunks, not raw elements.** A group the user recognizes as one unit—a familiar toolbar, a labeled section—counts as one. Expertise grows chunk size: a pro tool can show dense data because its users read it as a few learned groups, where a first-run screen cannot. The budget is ~4 *chunks*, and who the user is sets how large a chunk can be.
+- **Use four chunks as a task-screen diagnostic, not a universal limit.** At one unfamiliar decision point, about four independent options, fields, or facts is a useful default; a higher count is a prompt to test grouping, familiarity, and decision cost, not an automatic failure. A high-stakes choice may need fewer. A learned expert control set may support more.
+- **Count chunks, not raw elements.** A group the audience recognizes as one unit—a familiar toolbar, a labeled section—counts as one. Expertise grows chunk size: a pro tool can show dense data because its users read it as a few learned groups, where a first-run screen cannot. Score the actual cognitive decision, not the DOM count.
 - **The disclosure triage.** For every element, decide **Now / On-demand / Never.**
   - *Now*—needed to complete the primary action this visit. It stays.
   - *On-demand*—needed by some users sometimes. Defer it behind a reveal (see [reference/patterns.md](reference/patterns.md)).
@@ -107,11 +103,11 @@ Reveal complexity only when the user needs it. Working memory is the hard constr
 Once the right things are on the screen and the rest deferred, rank what remains. Importance is communicated by visual weight: the heaviest element or region is the most important one—always, with no exceptions you did not choose deliberately for the register.
 
 - **The squint test.** Blur your eyes (or the screenshot). Can you still tell what's #1, what's #2, and how things group? If everything has the same weight, you have a list, not a hierarchy.
-- **The 3-second test.** A first-time user should be able to name the most important thing on screen within ~3 seconds.
+- **The quick-orientation test.** On a task screen, a first-time user should identify the read-first region or next action within a few seconds. Treat three seconds as a probe during testing, not a stopwatch-based scoring rule; hubs and exploration surfaces orient through a leading group or content field instead of one CTA.
 - **Weight must match importance.** The most common hierarchy bug: decoration (a hero image, an illustration, a giant logo) outweighs the action model's dominant element or region. Visual weight is a budget—spend it on what the user came to do.
 - **The focusing mechanism.** One element or region must be the visual entry point that says *start here*. On a task screen that is usually the primary action or the content needed before it; on a hub it can be the leading destination or group; in exploration it is the content field itself. If the eye bounces between unrelated, equally weighted regions, the organizing intent is not being expressed.
 - **Show the consequence.** When a decision depends on a relationship, tradeoff, or process state, show that meaning at the decision surface—a simple summary, comparison, preview, or visualization may do more than a list of raw numbers. Keep exact values and supporting detail available as evidence; the visual should clarify, not decorate or conceal.
-- **Weight ranks; it does not permit.** Hierarchy answers *what should I do*; it does not answer *what can I do*. A heading can be the heaviest thing on screen and still be inert. So where the primary is an action, it has to carry a signifier that reads as actionable inside the same ~3 seconds: a traced boundary (fill, border, or elevation), a platform-native control convention (an iOS bar button), or an icon plus label inside a tap target. Bare text at any weight, with no convention behind it, ranks without permitting—say which of these the primary is using. A screen can pass the squint test and still leave the user unsure they are allowed to touch anything.
+- **Weight ranks; it does not permit.** Hierarchy answers *what should I do*; it does not answer *what can I do*. A heading can be the heaviest thing on screen and still be inert. So where the primary is an action, it has to carry a signifier that reads as actionable during the first scan: a traced boundary (fill, border, or elevation), a platform-native control convention (an iOS bar button), or an icon plus label inside a tap target. Bare text at any weight, with no convention behind it, ranks without permitting—say which of these the primary is using. A screen can pass the squint test and still leave the user unsure they are allowed to touch anything.
 - **No false signifiers.** A shadowed card that doesn't open, underlined text that isn't a link, a chevron that leads nowhere—these spend attention the screen budgeted for real actions, because the eye reads them exactly like real controls. They also cost trust the first time someone taps one and nothing happens. Count them as clutter, not decoration.
 - **The hierarchy ladder.** Use the *fewest* dimensions that achieve clear ranking, in this order: **space → weight → size → color.** Reach for color last; it is the loudest and easiest to overuse.
 - **The shape of a good screen:** one dominant element or region, two to three secondary tiers, everything else ambient. The dominant thing must match the register's action model. When every element is loud, none is.
@@ -143,7 +139,7 @@ Two ties worth naming, because they recur:
 - **A record or detail screen** (a contact, an issue, an order) is a **hub** when its job is to show state and route you onward, and a **task** screen when it exists to be edited. If it tries to be both at once, that is the overloaded case—the tree's last branch.
 - **Search results** are **exploration** when the user is scanning to discover, and a **task** screen when they are finding one known item to act on.
 
-- **Task**—the user is completing a specific job. *Default; everything above applies as written.* One completion intent, usually one primary action, ≤4 chunks at a decision point. An inherent binary choice or inseparable dual mode can be co-equal without creating a second intent. (Checkout, compose, a signup step, a settings detail, any form.)
+- **Task**—the user is completing a specific job. *Default; everything above applies as written.* One completion intent, usually one primary action, with decision load matched to audience and stakes. An inherent binary choice or inseparable dual mode can be co-equal without creating a second intent. (Checkout, compose, a signup step, a settings detail, any form.)
 - **Hub**—the user is choosing where to go. The organizing intent *is routing*; many destinations is correct, not clutter. (Home screen, profile, settings index, account screen, app root.)
 - **Exploration**—the user is browsing for its own sake. Abundance is the point; the goal is dwell and discovery, not a fast exit. (Feeds, discover/browse tabs, search results, a photo or product grid.)
 
@@ -153,10 +149,10 @@ The methodology still holds—*one screen, one clear intent*—but its expressio
 |---|---|---|---|
 | **Organizing intent** | complete one coherent job | route among related destinations | browse one coherent content space |
 | **Action model** | one primary action usually wins; name any inherent co-equal set | rank destinations; let the likely next route lead | content leads; controls support continued discovery |
-| **Where ≤4 binds** | the whole decision point | per group / per row (not the total destination count) | per item (each card holds ≤4 facts), not the item count |
+| **Where the chunk diagnostic applies** | the unfamiliar decision point | per group / per row, not the total destination count | per item, not the item count |
 | **Hierarchy** | one dominant action or read-first region | one destination or group leads; routes remain comparable | one content type dominates; chrome recedes |
 
-Note that ≤4 never vanishes—it moves. A settings index with 9 rows is fine (hub); a settings *row* cramming 9 facts is not. A feed with 200 posts is fine (exploration); a feed *card* with 9 competing elements is not.
+The diagnostic relocates rather than vanishes. A settings index with 9 rows can be fine; a settings row asking a novice to compare 9 unfamiliar facts probably is not. A feed with 200 posts can be fine; a card with several competing decisions still needs scrutiny. Context and familiarity decide the score, not a raw count alone.
 
 The trap runs both ways: flattening a hub or feed down to a single action (now it does its job badly), **or** letting a task screen sprawl into an accidental hub because you skipped the one-sentence test. When you can't tell which register you're in, you're usually looking at a task screen wearing too many hats—split it or deliberately reframe it as routing.
 
@@ -212,7 +208,7 @@ For each screen, in order. Write the answers down—they are the spec.
 1. **Name the intent and action model.** One sentence: *"This screen exists so the user can ___."* Reject an "and" only when it joins independently completable outcomes. Classify the register, then name one primary action, an inherent co-equal set, ranked routes, or the content field that leads.
 2. **Architect the information.** List what belongs on the screen. Group related items; label them in the user's words; infer recognizable inputs before asking the user to classify them; and keep decision-relevant context beside each action. Anything serving a different intent moves to another screen.
 3. **Triage disclosure.** Minimize decisions, not information. Sort every element into Now / On-demand / Never. Cut the Nevers. Defer the On-demands behind a reveal. Keep the Nows.
-4. **Rank what stays.** Assign each surviving element or region a tier: dominant (one), secondary (2–3), ambient (the rest). Make the dominant tier express the register's action model, and make the consequence legible without letting supporting visualization outrank the action.
+4. **Rank what stays.** Assign each surviving element or region a tier: one dominant entry point, only the secondary ranks the screen actually needs, and the ambient rest. A small screen may need one secondary rank; a dense expert surface may need several. Make the dominant tier express the register's action model, and make the consequence legible without letting supporting visualization outrank the action.
 5. **Run the gates.** Self-check against the six gates in the **`## Gates`** block of the Screen Spec template below. That block is the single canonical list—read them there, and emit them there. Never restate them in your own words.
 
 A screen that passes all six is structurally sound by Focal's standard. Apply visual styling and motion on top of that foundation—it lands far better on a screen that already earns its hierarchy.
@@ -234,22 +230,22 @@ A screen that passes all six is structurally sound by Focal's standard. Apply vi
 
 ## Hierarchy
 - Primary: <the one element or region that is the visual entry point—the task action, read-first content, leading hub route/group, or exploration content field; when it is an action, name what makes it read as actionable>
-- Secondary: <2–3>
+- Secondary: <the ranked supporting elements or regions; `None` is valid>
 - Ambient: <the muted rest>
 
 ## States
-- Empty: <what the screen says and offers with no data>
-- Loading: <skeleton or optimistic; never a blank>
-- Error: <plain-language message, at the source, work preserved>
-- Full (worst case): <how it holds at max realistic data—longest label, most rows>
+- Empty: <what the screen says and offers with no data, or `N/A—<reason>`>
+- Loading: <skeleton or optimistic; never a blank, or `N/A—<reason>`>
+- Error: <plain-language message, at the source, work preserved, or `N/A—<reason>`>
+- Full (worst case): <how it holds at max realistic data—longest label, most rows, or `N/A—<reason>`>
 
 ## Gates
 - [ ] One-sentence organizing intent; no unrelated second outcome
 - [ ] Action model matches the register; any co-equal actions are inherent to the same intent
 - [ ] Grouped + labeled; no orphans; no memory bridge
-- [ ] ≤4 chunks at any decision point; nothing essential deferred
+- [ ] Decision load fits the audience and stakes; nothing essential deferred
 - [ ] One element or region is materially heaviest and expresses the action model; any primary action reads as actionable
-- [ ] All four states above designed
+- [ ] Every applicable state above designed; each `N/A` is justified
 ```
 
 Filling it:

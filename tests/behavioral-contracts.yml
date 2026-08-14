@@ -1,0 +1,138 @@
+- id: focal-expert-hub
+  skill: focal
+  scenario: Audit an expert operations hub with twelve routes grouped into three familiar categories.
+  evidence:
+    - The organizing intent is routing.
+    - The audience uses the surface every day.
+    - Each group has a clear label and one likely next route is emphasized.
+  expected:
+    - Classify the screen as a hub before scoring.
+    - Apply the chunk diagnostic within groups or rows rather than to the total route count.
+    - Do not fail Progressive Disclosure merely because twelve destinations are visible.
+  reject:
+    - Require four or fewer total routes.
+    - Collapse the hub to one action solely to improve the score.
+
+- id: focal-static-evidence
+  skill: focal
+  scenario: Audit one Figma frame of a dashboard with no loading, error, permission, or full-data variants.
+  evidence:
+    - Only the default rendered frame is visible.
+  expected:
+    - Score only behavior supported by the frame.
+    - Mark consequential unseen states as not shown and name a validating check.
+    - Include Screen, Flow, State, and Lifecycle on every finding and move.
+  reject:
+    - Invent a destructive action or persistence failure.
+    - Award credit for responsive or error behavior that is not visible.
+
+- id: compass-open-ended-search
+  skill: compass
+  scenario: Audit a catalog search and discovery space with no completion event.
+  evidence:
+    - Browsing and refinement are the user intent.
+    - Search results is the stable home anchor.
+    - Users can open an item and return to the same filtered result set.
+  expected:
+    - Classify the journey as open-ended.
+    - Judge intent, position, home, return, and continuity without demanding remaining-step progress.
+    - Do not invent a destination or convert discovery into a funnel.
+  reject:
+    - Penalize the absence of a progress bar.
+    - Require a finite outcome sentence.
+
+- id: compass-platform-retreat
+  skill: compass
+  scenario: Audit a web detail view where browser Back is expected, discoverable, and preserves the filtered list state.
+  evidence:
+    - The product uses normal browser history.
+    - Back returns to the prior result set with filters and scroll position intact.
+  expected:
+    - Accept browser Back as a valid platform-appropriate retreat.
+    - Avoid prescribing a duplicate in-product Back control unless it adds clarity.
+  reject:
+    - Fail Orientation because every screen lacks a literal Back button.
+
+- id: flywheel-targeted-wins
+  skill: flywheel
+  scenario: Review only the Wins stage after research has already established that users reach first value but do not recognize it.
+  evidence:
+    - Trust and first-value access are outside the requested scope.
+    - The artifact exposes the first-value result and immediate next step.
+  expected:
+    - Score Wins on its native /4 rubric.
+    - Mark Trust, Friction, and Emotion N/E as outside targeted scope.
+    - Report no /16 total or common band.
+  reject:
+    - Fabricate scores for all four plays.
+    - Treat the targeted /4 score as a relationship-wide diagnosis.
+
+- id: flywheel-missing-lifecycle-evidence
+  skill: flywheel
+  scenario: Run a full relationship diagnosis from onboarding frames that expose Trust and Friction but no post-value, return, or lapse behavior.
+  evidence:
+    - Arrival and setup are visible.
+    - First value, Wins, Emotion, and returning-user behavior are not shown.
+  expected:
+    - Evaluate all four plays but mark entirely unsupported plays N/E as insufficient evidence.
+    - Omit the /16 total and common band.
+    - Make any earliest-stage ordering provisional and name the fastest evidence check.
+  reject:
+    - Infer strong or weak retention from onboarding frames alone.
+    - Convert missing lifecycle evidence into zero scores.
+
+- id: soul-restraint-is-valid
+  skill: soul
+  scenario: Audit a recurring high-stakes money-transfer confirmation that is fast, clear, calm, and deliberately conventional.
+  evidence:
+    - The moment occurs every run.
+    - Comprehension and reassurance matter more than novelty.
+    - A restrained Elevated feedback pattern already provides product character.
+  expected:
+    - Treat Expected or calm Elevated treatment as valid.
+    - Permit zero Net-New recommendations.
+    - Score Placement, Proportion, and Signature from the treatment evidence rather than Net-New count.
+  reject:
+    - Add celebration or novelty to satisfy a quota.
+    - Cap Signature solely because no Net-New moment exists.
+
+- id: soul-deferred-readiness
+  skill: soul
+  scenario: Audit expressive treatment on a checkout path whose final submission currently loses entered data.
+  evidence:
+    - The state-loss defect belongs to Compass Continuity.
+    - Some treatment choices before the broken seam remain visible and evaluable.
+  expected:
+    - Mark Readiness Deferred and hand the state-loss defect to Compass.
+    - Score any Soul-local gate that remains genuinely evaluable.
+    - Use N/E only for a gate the broken path prevents evaluating and omit the total if any gate is N/E.
+  reject:
+    - Score the state-loss defect again as a Soul Baseline gate.
+    - Make expressive treatment the first implementation priority.
+
+- id: product-judgement-deduplication
+  skill: product-judgement
+  scenario: Audit an app where state loss on resume harms both journey continuity and returning-user momentum.
+  evidence:
+    - Resume opens the first step and discards completed work.
+    - The same condition lowers Compass Continuity and Flywheel Emotion.
+  expected:
+    - Preserve the effect in both native score rationales.
+    - Print one cross-scale issue owned by Compass with the Flywheel consequence and dependency named.
+    - Include one concrete state-preservation change in the priority sequence.
+  reject:
+    - Print duplicate Compass and Flywheel fixes for the same condition.
+    - Average the native Skill totals into a Product Judgement score.
+
+- id: score-four-calibration
+  skill: shared
+  scenario: Score a dimension that is dependable and context-appropriate but still has one minor realistic-state gap.
+  evidence:
+    - The core behavior is strong.
+    - One minor gap keeps the treatment from being fully realized.
+  expected:
+    - Award 3/4 and name the remaining gap and next-point change.
+    - Explain that 3/4 is the normal strong target.
+  reject:
+    - Award 4/4 merely because no major failure is visible.
+    - Describe 4/4 as the expected professional baseline.

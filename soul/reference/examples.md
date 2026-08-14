@@ -11,16 +11,17 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 **Soul's output:**
 
 ```
-**Verdict:** functional but forgettable · the product's biggest moment—getting paid—is a system-default notification · **7/16**
+**Verdict:** misplaced and anonymous · the product's biggest moment—getting paid—is a system-default notification · **5/12**
 
 **Product:** invoicing for freelancers · **Path:** 7 beats, bookmark → payment landed · **Ends feeling:** unnamed—relief is the obvious candidate, and nobody has chosen it
+**Readiness:** Ready · the default path reaches payment clearly enough for Soul work; failure recovery still needs a restraint fix
 **Screen:** dashboard, invoice composer, payment notification, and 404
 **Flow:** invoice-to-payment
 **State:** recurring default, invoice-send success, payment success notification, failed-send error, and invalid-route recovery
 **Lifecycle:** first run, recurring use, first value, re-entry, and accidental off-path visit
 **Coverage:** recurring default path, first-run dashboard, invoice-send success, payment success notification, failed-send error, and 404 · gaps: payment failure, notifications disabled, re-entry after lapse, and later milestones not triggered
 **Basis:** observed from a screenshot or artifact · confirm with: trigger a real payment and read the actual notification—the claim the verdict rests on
-**Blocker:** The mascot jokes through a failed send, risking trust and material financial harm while the invoice's delivery state is uncertain.
+**Blocker:** None observed. The failed-send copy is inappropriate, but the artifact does not show blocked recovery, lost work, or material harm that would justify P0.
 
 ## The path
 | # | Beat | Touchpoint | Frequency | Verdict |
@@ -36,13 +37,12 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 ## Scorecard
 | Gate | Score | Why this score | What raises it one point |
 |---|---:|---|---|
-| Baseline | 3/4 | The default path is fast, clear, and reachable, so expressive treatment will not read as a cover for broken UX; the evidence does not show a signature-level baseline, which keeps it at Strong. | Make the payment confirmation equally fast, clear, and dependable across the actual notification and re-entry states. |
 | Placement | 2/4 | Confetti exists on the path but is unchosen, while the strongest craft lives on a 404; expressive effort is present but materially misplaced away from the moments most people remember. | Move the budget to two or three chosen path beats, especially payment and the ending. |
-| Proportion | 1/4 | Confetti fires on a routine send while the payment peak is silent; intensity ignores frequency and magnitude, so repetition becomes noise and the payoff becomes flat. | Remove recurring confetti, then tune treatment intensity to beat frequency and consequence. |
+| Proportion | 2/4 | Most of the path stays restrained, but recurring confetti overplays a routine send while the payment peak is silent; one material mismatch keeps intensity from fitting frequency and magnitude dependably. | Remove recurring confetti, then give the payment outcome proportionate, record-first treatment. |
 | Signature | 1/4 | Swap the logo and the product is indistinguishable; the mascot is generic and the ending feeling is unnamed, so no authored moment identifies the product. | Choose the ending feeling and build one distinctive payment or completion moment around it. |
-| **Total** | **7/16 · 1.8/4** | **Significant rework; exact sum of justified component scores** | Weakest-gate ceiling applied |
+| **Total** | **5/12 · 1.7/4** | **Significant rework; exact sum of justified component scores** | Weakest-gate ceiling applied |
 
-## The moments (Net-New, ranked by reach × memory)
+## The moments (Net-New, up to 3, ranked by reach × memory)
 ### Moment 1—Payment lands (beat 6), relief
 - **At:** screen: payment notification and dashboard · flow: invoice-to-payment · state: successful payment · lifecycle: first and recurring value realization
 - Why here: the entire point of invoicing, reached by every paying client, and it is the peak and near-ending of the path—currently rendered as "Invoice #1042 was paid."
@@ -66,13 +66,13 @@ Two worked examples in the locked templates—one **search**, one **build**. The
 - **At:** screen: updated dashboard · flow: invoice-to-payment · state: payment-settled state · lifecycle: post-payment re-entry · Beat 7—paid rows settle to the bottom with a quiet check; the outstanding total counts down to its new value, and reduced motion gets the delta in text.
 
 ## Issues (most severe first)
-- **[P0 · off-path]** **At:** screen: Invoice send · flow: invoice-to-payment · state: failed-send error · lifecycle: recurring invoice creation. Wit at failure—the mascot grins through a failed send with "Whoops! Gremlins!" A freelancer whose invoice did not reach a client is losing money while the product jokes. **Fix:** plain error—what happened, whether the invoice is safe, what to do next. If failed sends are frequent, that is a leak for Flywheel, not copy for Soul.
+- **[P1 · off-path restraint]** **At:** screen: Invoice send · flow: invoice-to-payment · state: failed-send error · lifecycle: recurring invoice creation. Wit at failure—the mascot grins through a failed send with "Whoops! Gremlins!" while delivery is uncertain. The tone materially damages confidence at a consequential moment, but no blocked recovery or financial loss is shown, so it is not P0. **Fix:** plain error—what happened, whether the invoice is safe, and what to do next. If failed sends are frequent, hand the relationship leak to Flywheel.
 - **[P1 · beat 6]** **At:** screen: Payment landed notification · flow: invoice-to-payment · state: successful payment · lifecycle: first and recurring value realization. The silent payoff—the product's peak moment is an OS-default notification, indistinguishable from a calendar reminder. **Fix:** treat as Moment 1; the Elevated rung alone changes what users remember this product doing.
-- **[P1 · off-path]** **At:** screen: 404 page · flow: invoice-to-payment · state: invalid-route recovery · lifecycle: accidental off-path visit. The misdirected budget—the 404 minigame is the most-crafted surface in the product, reached by accident, in annoyance. **Fix:** relocate the craft to Moment 2 or 3; the game itself is cut, not polished.
 - **[P2 · beat 5]** **At:** screen: Invoice send confirmation · flow: invoice-to-payment · state: successful send with confetti · lifecycle: steady-state recurring use after novelty has decayed. Decayed repetition—confetti on every send was charming once and is wallpaper by week two, and it spends celebration the payoff never gets. **Fix:** replace with a sent-state that survives repetition—preview, delivered check, done.
+- **[P2 · off-path]** **At:** screen: 404 page · flow: invoice-to-payment · state: invalid-route recovery · lifecycle: accidental off-path visit. The misdirected budget—the 404 minigame is the most-crafted surface in the product, reached by accident, in annoyance. Its reach is limited and recovery still exists, so this is misplaced effort rather than a major path failure. **Fix:** relocate the craft to Moment 2 or 3; the game itself is cut, not polished.
 
 ## Kept Expected, on purpose
-Beats 1 and 4 stay standard. Beat 4 is load-bearing convention—a weekly form freelancers fill from muscle memory, where novelty costs speed. Beat 1 is an every-run entry whose only honest lever is pace, and pace is already at ceiling (Baseline 3).
+Beats 1 and 4 stay standard. Beat 4 is load-bearing convention—a weekly form freelancers fill from muscle memory, where novelty costs speed. Beat 1 is an every-run entry whose only honest lever is pace, and the observed pace already needs no additional treatment.
 
 ## Next
 - **Now**: **At:** screen: payment notification and dashboard · flow: invoice-to-payment · state: successful payment · lifecycle: first and recurring value realization · the small things and Moment 1's Elevated interim—amount-first notification, receipt block, the settling total—ship while the Net-New ledger is scoped.
@@ -94,7 +94,7 @@ Beats 1 and 4 stay standard. Beat 4 is load-bearing convention—a weekly form f
 
 ## Why this moment
 - On the path: beat 6, reached by every client who pays—which is every successful use of the product.
-- Worth the budget: it is the payoff the whole path exists for, and peak-end says this beat holds more memory than the six before it combined.
+- Budget decision: it is the payoff the whole path exists for, reached by every successful user, and its accumulating record remains useful after novelty fades.
 - Today: an OS-default notification—"Invoice #1042 was paid."—and a dashboard that shows the change only after a manual refresh. Observed from the artifact.
 
 ## The rungs
@@ -122,6 +122,6 @@ Beats 1 and 4 stay standard. Beat 4 is load-bearing convention—a weekly form f
 
 ---
 
-**Why these two:** the search refuses the question as asked. The user said "make it more delightful" and the answer is that delight is already there—in a 404 game and a failure mascot—and the job is relocation, not addition. The verdict names a misplacement, not an absence. Note the tiers doing the restraint: three Net-New moments concentrated where reach × memory peaks, two small things elevated because their ceilings allow only craft, and two beats standard with reasons on record. The build then shows the full range on one moment—Expected floor, Elevated interim, Net-New target—so the caller can land anywhere on the ladder, and proportionality at a money moment: relief is built from records, amounts, and one restrained settle. Celebration never appears, because the frequency is recurring and the subject is money, and either alone would rule it out.
+**Why these two:** the search refuses the question as asked. The user said "make it more delightful" and the answer is that expressive effort already exists—in a 404 game and a failure mascot—and the job is relocation, not addition. The verdict names a misplacement, not an absence. Note the tiers doing the restraint: three justified Net-New candidates, two small things elevated because their ceilings allow only craft, and two beats standard with reasons on record. The build then shows the full range on one moment—Expected floor, Elevated interim, Net-New target—so the caller can land anywhere on the ladder, and proportionality at a money moment: relief is built from records, amounts, and one restrained settle. Celebration never appears, because the frequency is recurring and the subject is money, and either alone would rule it out.
 
-Note what never appears: confetti at any tier, the mascot polished rather than cut, or a fourth Net-New. And the first-run empty state is the only place one-shot expressive treatment is even considered, because it is the only `once` beat on the path.
+Note what never appears: confetti at any tier, the mascot polished rather than cut, or a quota-driven fourth moment. The first-run empty state is the only place one-shot expressive treatment is considered because it is the only `once` beat on the path.

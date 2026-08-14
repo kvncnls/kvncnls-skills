@@ -15,7 +15,7 @@ How to decide what belongs on a screen and organize it around one clear intent.
 - **Pattern recognition—infer before asking.** When input has recognizable structure—an address, identifier, date, or transaction type—parse it and show the likely interpretation. Let the user correct it, and retain a manual fallback when ambiguity remains. Never make the user classify input the system can already recognize.
 - **Contextual UI—keep context at the decision surface.** Everything needed to make a choice is present where the choice is made. If a decision needs history, status, price, or consequence, show the relevant slice beside the action; if step 3 needs a number from step 1, show it on step 3. Never make the user hold it in their head or leave the work surface for decision-critical context.
 - **Merge round-trips; split overload.** Two screens that each do half a job and bounce the user back and forth should be one. One screen juggling three jobs should be three.
-- **Keep navigation shallow and oriented.** ≤5 top-level destinations; group the rest. The user should always know where they are (active state, breadcrumb, title) and how to get back.
+- **Keep local groups legible.** On a hub, group related destinations and rank the likely routes instead of flattening every destination into one list. Whole-product navigation depth, breadcrumbs, and Back behavior belong to Compass.
 
 **Test:** read only the screen's labels and groupings, ignoring the visuals. Can a stranger tell what the screen is for and what they'd do here? If not, the architecture is unclear before any pixel is styled.
 
@@ -25,7 +25,7 @@ How to decide what belongs on a screen and organize it around one clear intent.
 
 Match the technique to *why* the content is deferred.
 
-*The ≤4 working-memory budget below is the task-screen default. On hub and exploration screens it relocates rather than disappears—per row on a hub, per card on a feed. See **Registers** in [SKILL.md](../SKILL.md).*
+*About four unfamiliar chunks is a task-screen diagnostic, not a universal limit. On hub and exploration screens, inspect decision load per row or card rather than counting destinations or items. See **Registers** in [SKILL.md](../SKILL.md).*
 
 | Technique | Use when | Example |
 |-----------|----------|---------|
@@ -86,8 +86,8 @@ Products live or die on the states most teams treat as afterthoughts. Each is a 
 - **Empty state.** Not a void—the first-run teacher. One sentence of what this becomes, one primary action to get there. Empty states are the highest-leverage onboarding you have.
 - **Loading.** Always communicate system status. Skeletons over spinners for content; optimistic UI for actions the user just took. Never a blank screen with no signal.
 - **Error.** Plain language, name the actual problem, offer the fix, preserve the user's work. "Email is missing an @" beats "Invalid input." Place it at the source, not in a banner far away.
-- **First run.** Teach through action, not a wall of coach marks. Defer everything not needed for the first success (Discipline 2). The fastest path to one real win beats a tour.
-- **Peak-end.** Users remember the most intense moment and the ending. Make sure the peak (the payoff, the "sent!", the result) is celebrated, and the experience ends on a high—not on a dead-end screen. Reassure at anxiety spikes (payment, delete, irreversible commits) with progress, confirmation, and undo.
+- **First-use state.** Make the screen's local action model legible without a wall of coach marks. Defer controls that are not needed on this visit. Whether the whole onboarding path reaches first value is Flywheel's question.
+- **Completion state.** Confirm what changed, preserve control, and expose the next locally relevant action. Flywheel owns whether the win earns return; Soul owns whether the moment deserves expressive treatment.
 
 ---
 
@@ -124,12 +124,12 @@ Each entry: the tell, the discipline it breaks, the fix. Severity is assigned in
 INTENT     "This screen exists so the user can ___."   (no unrelated second outcome)
 ACTION     task: one primary usually · hub: ranked routes · exploration: content leads
 IA         everything supports the organizing intent · group related · label plainly
-DISCLOSE   every element → Now / On-demand / Never · ≤4 at any decision point
+DISCLOSE   every element → Now / On-demand / Never · ~4 unfamiliar chunks is a diagnostic
            name the signifier for each deferral
 DECIDE     minimize choices · infer before asking · context at the decision · consequence visible
-HIERARCHY  1 dominant element/region · 2–3 secondary · rest ambient
+HIERARCHY  1 dominant entry point · only the secondary ranks needed · rest ambient
            space → weight → size → color
 NEVER      hide price, required fields, consequences, or controls needed now
 ```
 
-*A task can preserve an inherent binary choice or inseparable dual mode. On a hub the ≤4 binds per row; on an exploration surface, per item.*
+*A task can preserve an inherent binary choice or inseparable dual mode. On hubs and exploration surfaces, inspect per-row or per-item decision load instead of total item count.*

@@ -4,133 +4,134 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-Soul sorts every beat of a product's happy path into **three tiers**—what stays functional, what gets more craft, and the 2–3 moments that get rebuilt entirely.
+Soul is a Skill for deciding where a working product should remain conventional, where it deserves more craft, and where a genuinely new treatment could make the experience memorable. It places authorship; it does not add decoration everywhere.
 
-Not "add polish everywhere." Placement. A product with two authored moments and ten standard beats is remembered; a product with twelve decorated beats is exhausting.
+Where [Focal](../focal) owns screen structure, [Compass](../compass) owns the path, and [Flywheel](../flywheel) owns relationship momentum, Soul owns the treatment and memory of moments on a sound path.
 
-It's an open-source [Claude Code](https://claude.com/claude-code) skill for making a working product memorable. Where [**Focal**](../focal) sharpens one screen, [**Compass**](../compass) guides one journey, and [**Flywheel**](../flywheel) keeps the people you earned, Soul makes the default path worth describing to a friend.
+## The method
 
----
+Soul maps the default path and assigns each beat one target tier:
 
-## The idea
-
-Most products work and feel like nothing. The word people reach for is *soulless*, and the word is a diagnosis: nothing was authored—the product is the average of its competitors.
-
-Soul is not a spec. It is what accumulates when specific moments are placed well. Three facts decide every placement:
-
-- **People remember the peak and the ending, not the average.** So the biggest swings concentrate on 2–3 moments; the everyday beats get craft, not confetti.
-- **Reach beats risk.** Delight traditionally goes where failing is cheap—the 404 page, the easter egg—which is exactly where nobody walks. Soul refuses the dumping grounds and spends the budget on the default path.
-- **Repetition kills novelty.** The 50th confetti is noise. What plays every session gets speed and feel; what plays once may spend everything.
-
-Every beat on the path gets exactly one of three tiers:
-
-| Tier | What it is | Where it goes |
+| Tier | Meaning | Appropriate use |
 |---|---|---|
-| **Expected** | the obvious version, fully functional | beats that must simply work |
-| **Elevated** | the same moment, executed with more craft | the small things, spread wide—how a product stops being boring |
-| **Net-New** | an entirely new experience in place of the old one | the 2–3 biggest moments—the core work |
+| **Expected** | The conventional version, fully functional and restrained. | The moment should simply work, especially when stakes or repetition punish novelty. |
+| **Elevated** | The same moment executed with more care. | Small, repeated craft in timing, feedback, transitions, language, or sensory detail. |
+| **Net-New** | A materially different experience replaces the obvious treatment. | A selectively authored moment whose reach, memory value, and constraints justify the investment. |
 
----
+Net-New is a budget, not a quota. A sweep may recommend zero, one, two, or three Net-New moments. Zero is a valid conclusion when the path is high-stakes, highly repetitive, not yet ready, already distinctive through quiet craft, or simply does not contain a moment that earns reinvention.
 
-## Install
+Soul uses three placement principles:
+
+- **Peak and ending matter**—larger treatments belong where they can shape memory, not at arbitrary decorative points.
+- **Reach matters**—default-path moments usually deserve attention before rare error pages, easter eggs, or other dumping grounds.
+- **Frequency constrains treatment**—what happens every run must survive repetition; one-time moments can spend more. Elevated is the every-run default, while Net-New must prove durable utility beyond surprise.
+
+Error, recovery, and interruption states are still reviewed for restraint and appropriateness, but they are not promoted into Net-New candidates merely because expressive treatment is safer there.
+
+## Soul versus Flywheel Emotion
+
+[Flywheel](../flywheel) asks whether returning preserves or compounds substantive value and whether the relationship earns preference, return, or advocacy. Soul asks how a working moment is authored and remembered. A quiet continuity feature can strengthen Flywheel without becoming a Soul moment; a memorable completion can be strong Soul work without creating a durable reason to return.
+
+## When to use Soul
+
+Reach for Soul when a working path feels anonymous, generic, emotionally flat, over-decorated, or inconsistent about where expressive treatment belongs. It can also identify where motion earns its place, but it does not implement animation.
+
+Soul does not own:
+
+- screen structure or clutter—that is [Focal](../focal);
+- navigation, route economy, or state continuity across a journey—that is [Compass](../compass);
+- activation, value recognition, or durable relationship momentum—that is [Flywheel](../flywheel);
+- brand identity, illustration systems, typography systems, marketing pages, or production animation code.
+
+Use [Product Judgement](../product-judgement) when the question crosses several scales.
+
+## Install and update
+
+Install Soul globally with the [Skills CLI](https://skills.sh/docs/cli):
 
 ```bash
-npx skills add kvncnls/product-judgement --skill soul
+npx skills add kvncnls/product-judgement --skill soul -g
 ```
 
-For manual installation:
+Update an installation tracked by the CLI:
 
 ```bash
-git clone https://github.com/kvncnls/product-judgement.git
-ln -s "$(pwd)/product-judgement/soul" ~/.claude/skills/soul
+npx skills update -g soul
 ```
 
-Prefer a copy, or one project only? `cp -R product-judgement/soul ~/.claude/skills/soul`, or copy the folder into a project's `.claude/skills/`. Restart Claude Code if it was running.
-
----
+See the collection’s [installation and update guide](../README.md#install) for Claude Code, Codex, Cursor, manual folders, and generated single-file bundles.
 
 ## Use
 
-**Search**—soul-searching, mechanized. Point it at a product and it maps the happy path, sorts every beat into a tier, and returns the Net-New moments plus the small things worth elevating.
+Invoke `/soul` explicitly or ask an agent with the Skill installed.
 
+### Audit the default path
+
+```text
+/soul audit the checkout completion path
 ```
-/soul search     ← a product, a flow, screens, or "it feels like every other app"
-```
 
-Returns a fixed **happy-path sweep**:
+Soul returns a fixed **happy-path sweep**:
 
-- **Verdict, Product, Path, and ending feeling**—the authored state, largest missed or misplaced moment, and native `/16` total.
-- **Coverage, Basis, and Blocker**—the app states and lifecycle occurrences reviewed, material gaps, evidence available, confirming check, and any critical condition.
-- **The path**—every beat, touchpoint, frequency, and Expected/Elevated/Net-New assignment.
-- **Scorecard**—Baseline, Placement, Proportion, and Signature scored `0–4`, with evidence-backed rationales and the smallest change that would raise each score one point, followed by the normalized average and final common band.
-- **The moments and small things**—the 2–3 Net-New moments ranked by reach × memory, plus Elevated craft opportunities.
-- **Issues, Kept Expected, and Next**—P0–P3 findings anchored to the exact **Screen · Flow · State · Lifecycle** locator, plus the restraint receipt, sequencing, and any Focal, Compass, or Flywheel handoff.
+- **Readiness**—an unscored `Ready` or `Deferred` verdict stating whether the path is sound enough for expressive investment and which upstream condition matters.
+- **Coverage and Basis**—the exact Screen · Flow · State · Lifecycle reviewed, evidence gaps, and a confirming check.
+- **Path map**—the beats, touchpoints, frequency, stakes, and Expected/Elevated/Net-New assignments.
+- **Scorecard**—Placement, Proportion, and Signature scored `0–4`, for a native total of `/12` when all three are evaluable.
+- **Moments**—up to three ranked Net-New opportunities, which may be `None`, plus Elevated small things.
+- **Issues and restraint receipt**—P0–P3 findings, what remains Expected on purpose, and any Focal, Compass, or Flywheel handoff.
 
-See the [locked search template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).
+Readiness is not a fourth scored gate. If a Deferred path makes a Soul-local gate genuinely unevaluable, that row is `N/E`; Soul reports no native total or common band until the evidence or upstream condition is resolved. `N/E` is not zero.
 
-**Build**—design one moment at full depth.
+Every evaluated score must explain **evidence → consequence → rubric anchor → smallest next-point change**. A `3/4` is the normal target for strong professional work. A `4/4` means above-and-beyond, unusually effective execution and is intentionally uncommon. Signature does not require a Net-New moment: a distinctive, repeatable Elevated pattern can earn it.
 
-```
+See the [locked sweep output](./reference/review.md#output-formatuse-this-exact-structure) and the collection’s [shared audit contract](../README.md#shared-audit-contract).
+
+### Build one moment
+
+```text
 /soul build the payment-landed moment
 ```
 
-Returns a fixed **Moment Spec**:
+Soul returns a fixed **Moment Spec**:
 
 - **Moment**—the beat, audience, named feeling, frequency, stakes, and target tier.
-- **Why this moment**—its position on the path and why it earns the craft budget.
-- **The rungs**—Expected, Elevated, and Net-New treatments from floor to target.
-- **Held constant**—speed, comprehension, convention, and any other invariant.
-- **Constraints for the pick**—brand, technical, accessibility, and contextual limits.
-- **Gates**—a binary, unscored check of the proposed design.
+- **Why this moment**—its role on the path and the budget decision, including why restraint may be right.
+- **Treatment ladder**—only the rungs from Expected through the selected target. If Expected is the target, no more expressive rung is prescribed.
+- **Held constant**—speed, comprehension, convention, safety, and other invariants.
+- **Constraints**—brand, technical, accessibility, frequency, and contextual limits.
+- **Gates**—a binary, unscored check of the proposal.
 
-The pick between rungs stays with you. See the [locked Moment Spec template](./SKILL.md#build-the-five-moves).
+Expected, Elevated, and Net-New are all valid build targets. See the [locked Moment Spec](./SKILL.md#build-the-five-moves).
 
----
+## Give it context
 
-## What's inside
+Provide the default path, intended audience, product promise, frequency, stakes, brand constraints, accessibility needs, existing patterns, business goal, and known relationship behavior. A PRD, research, prototype, codebase, analytics, and design references help Soul distinguish a meaningful moment from decoration. Missing states are marked `not shown` rather than invented.
 
-```
+## What is inside
+
+```text
 soul/
-├── SKILL.md              the placement rules, the 7-beat path skeleton, the eligibility tree
+├── SKILL.md
 ├── reference/
-│   ├── review.md         the four-gate search (Baseline, Placement, Proportion, Signature) + scorecard
-│   ├── moments.md        eight moment archetypes, frequency classes, selection, the dumping grounds
-│   ├── treatments.md     the three tiers in depth, the craft levers, repetition-proof design
-│   └── examples.md       a worked search + a worked build
+│   ├── review.md
+│   ├── moments.md
+│   ├── treatments.md
+│   └── examples.md
 ├── README.md
 └── LICENSE
 ```
 
----
-
-## Scope
-
-**Use it for** a product that already works but reads as anonymous: a flat happy path, a success state that stops instead of lands, an ending nobody designed, celebration and personality budgets with nowhere to go.
-
-**Not for:**
-- Single-screen structure and clutter—that's [Focal](../focal).
-- Multi-screen paths and navigation—that's [Compass](../compass).
-- Losing users before they reach value—that's [Flywheel](../flywheel). Soul makes a working path memorable; treatments on a broken path read as cosmetic.
-- Brand identity, logo, illustration style, or marketing pages. Soul places moments; it doesn't define the visual language they're executed in.
-
-For a whole-app audit that checks whether expressive moments are sequenced behind sound screens, paths, and relationship stages, use [**Product Judgement**](../product-judgement).
-
----
-
 ## Quick reference
 
+```text
+MAP        default-path beats · touchpoint · frequency · stakes · lifecycle
+READINESS  Ready or Deferred; do not disguise an upstream defect as a Soul score
+TIERS      Expected · Elevated · Net-New
+BUDGET     zero to three Net-New moments; zero is valid; never fill a quota
+RANK       reach × memory, tempered by stakes, frequency, and feasibility
+CONSTRAIN  every-run → durable utility, speed, and feel · high stakes → reassurance first
+NEVER      wit at failure · celebration before safety · novelty on every run
 ```
-PATH      enters → sees → understands → takes → responds → reaches → feels
-          10–12 beats max, each tagged: touchpoint + once | recurring | every-run
-PICK      2–3 Net-New moments, never more · rank by reach × memory · ties go to the later beat
-TIERS     Expected (must simply work) · Elevated (craft the small things) · Net-New (rebuild the biggest)
-CEILING   every-run → speed & feel only · high stakes → reassurance before feeling
-          once → may spend everything
-NEVER     wit at failure · celebration before safety · every-run novelty
-          budget in the dumping grounds (404s, easter eggs, error mascots)
-```
-
----
 
 ## License
 

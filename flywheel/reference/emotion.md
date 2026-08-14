@@ -1,89 +1,75 @@
 # Emotion—the mass
 
-What keeps the wheel turning between pushes. A light wheel stops the moment you stop spending; a heavy one coasts. Everything in this play is about how much the experience stores.
+What keeps the wheel turning between visits. In Flywheel, emotion is not a request for decoration or a memorable animation. It is the relationship state that changes future behavior: confidence that makes return feel safe, control that lowers re-entry cost, momentum that makes the next step obvious, mastery that makes continued use worthwhile, or belonging that makes contribution meaningful.
 
-**The job:** create an experience people prefer, remember, return to, and describe—not one they can merely operate.
+**The job:** create a substantive reason to return, prefer, and eventually advocate—then verify that the relationship state is associated with those behaviors.
 
-**Do not run this play on a broken baseline.** Emotional treatment on top of a product that is unclear, slow, or untrustworthy reads as cosmetic, and users correctly discount it. If Trust or Friction is scoring below 3, fix that first.
+**Boundary with Soul.** Flywheel owns whether the relationship earns return, preference, and advocacy. Soul owns where and how a working moment receives expressive authorship. Do not require novelty, visual distinctiveness, motion, or a “recognizable without the logo” signature to pass this play. A restrained product can have strong mass when it remembers the user, compounds value, and gets easier to resume.
 
-## The arc
+## Name the relationship state
 
-> **Insight → emotion → interaction → memory**
+“Delight” is too vague to guide a relationship decision. Name the state the job requires and connect it to a behavior:
 
-The user recognizes something (relevance, progress, possibility), that recognition produces a feeling, the feeling supports an action, and the result becomes easy to recall and associate with the product. Growth happens when memory changes future behavior: return, preference, recommendation, resistance to switching.
+| Context | Useful relationship state | Behavior it should support |
+|---|---|---|
+| Financial | safety, control, confidence | return to review or act without anxiety |
+| Creative tool | flow, possibility, mastery | resume unfinished work and create again |
+| Collaboration | momentum, recognition, belonging | return to contribute and respond |
+| Health | reassurance, agency, consistency | continue a healthy routine without pressure |
+| Developer tool | competence, speed, mastery | reuse the tool and deepen adoption |
+| Learning | capability, progress, curiosity | begin the next practice or lesson |
+| Marketplace | confidence, anticipation, satisfaction | return for the next relevant transaction |
 
-## Name the emotion
+**Test:** finish the sentence, “After this stage, the user should feel ___, which makes them more likely to ___.” If the second blank is only “remember the brand,” hand the moment to Soul. Flywheel needs a relationship behavior.
 
-**"Delight" is not an answer.** It is a placeholder that lets a team skip the decision. Name the feeling the job actually calls for, and let the product's context choose it rather than the brand's wish to seem exciting.
+In high-stakes contexts, calm and control usually outperform excitement. Trustworthy restraint is a relationship decision, not an absence of emotion.
 
-| Context | Useful emotions |
-|---|---|
-| Financial | Safety, control, confidence, progress |
-| Creative tool | Possibility, flow, pride, surprise |
-| Collaboration | Connection, momentum, recognition |
-| Health | Reassurance, agency, consistency, hope |
-| Developer tool | Competence, speed, clarity, mastery |
-| Learning | Curiosity, progress, capability |
-| Marketplace | Confidence, anticipation, satisfaction |
+## The three sources of mass
 
-**Test:** name the emotion, the screen, and the second it happens. If you cannot point to the moment, the emotion is a brand adjective, not a design decision.
+### 1. Continuity—return without reconstruction
 
-In high-stakes contexts, calm outperforms excitement. Trustworthy restraint is an emotional choice, not the absence of one.
+At re-entry, restore the exact object, progress, filters, draft, or decision context that matters. Show what changed while the user was away. Never require someone to rebuild work the product already had.
 
-## Three levels, not one
+Compass owns whether state survives a specific transition. Flywheel owns the relationship consequence: repeated reconstruction teaches the user that returning is expensive.
 
-1. **Baseline**—clear, stable, responsive, accessible, coherent. Non-negotiable.
-2. **Reinforcement**—helpful feedback and a consistent personality during ordinary actions.
-3. **Peak**—distinctive treatment for meaningful outcomes and transitions.
+### 2. Accumulation—repeated use leaves something valuable behind
 
-If the baseline is weak, peaks feel cosmetic. **If everything is a peak, the product is exhausting** and nothing reads as significant. Concentrate peaks on the moments the Wins play identified as high magnitude.
+Make prior effort visible as history, progress, learned preferences, a growing body of work, improved recommendations, reusable configuration, reputation, or another durable asset the user controls. Accumulation must serve the user; streak pressure, artificial loss, and punitive reset mechanics are coercion, not mass.
 
-## The levers
+### 3. Preference—continued use fits the user's life better
 
-**Motion** explains cause and effect, preserves spatial continuity, directs attention, and gives weight to a milestone. It must never obscure status, delay an essential action, or ignore reduced-motion preferences.
-
-**Feedback** makes the product feel attentive: immediate acknowledgment of input, a clear processing state, specific success confirmation, graceful recovery, visible saved state.
-
-**Language** carries more emotional load than visuals in most products. Good emotional copy clarifies before it charms, matches the seriousness of the moment, never blames the user, recognizes real progress, and sounds like one coherent personality—including during failure, which is when personality is actually tested.
-
-**Personalization** works when it reflects meaningful context: goals, progress, recent work, role-relevant guidance, milestones. It fails when it feels invasive, exposes sensitive information, or manufactures intimacy the relationship has not earned.
-
-**Human touches**—considered empty states, contextual encouragement, honest limitations, defaults that anticipate real situations—work because they communicate care, not because they are cute.
+The product becomes easier to choose because it is dependable, anticipates legitimate needs, preserves control, and supports the user's real routine. Preference is not visual familiarity alone. It appears in voluntary return, lower re-entry effort, deeper adoption, resistance to switching for substantive reasons, or advocacy that carries real value to another person.
 
 ## Endings and re-entry
 
-This is where retention is actually built, and it is the most neglected surface in most products.
+**At the end of a session:** confirm progress, preserve state, clarify what can happen next, and leave no uncertainty about whether work is safe.
 
-**At the end of a session:** confirm progress, preserve state, clarify what is next, and leave the user with confidence rather than ambiguity.
+**At re-entry:** restore context, show what changed, surface the next meaningful action, and make accumulated value visible without manufacturing urgency.
 
-**At re-entry:** restore context, show what changed since they left, help them continue, and never make them reconstruct work they already did.
-
-**Retention depends less on novelty than on respectful continuity.** A product that remembers where you were beats a product that greets you with something new. Most churn framed as "boredom" is actually the cost of repeatedly rebuilding context.
-
-## Why this is the moat
-
-Features and visual patterns are copied quickly. A coherent experience is hard to copy because it emerges from many connected decisions: product values, language, interaction rhythm, visual identity, feedback, support behavior, community, progress model, and how failure is treated.
-
-The moat is not any single animation. It is the accumulated relationship—which is exactly what "mass" means in this model.
+Retention depends less on novelty than on respectful continuity. A product that remembers where the user was and has become more useful beats one that merely greets them with something new.
 
 ## What to measure
 
-Emotion is measured through behavior and direct research, never assumed from aesthetic preference.
+Measure behavior and direct research, and keep causality claims honest:
 
-Retention and return frequency, voluntary sharing, how users describe the product unprompted, preference against alternatives, satisfaction after key workflows, confidence before and after a task, perceived control, switching intent, support sentiment, re-engagement after a milestone.
+- return frequency and time to next meaningful action;
+- successful resume after interruption or lapse;
+- depth of repeat use and adoption of adjacent value;
+- voluntary sharing or invitation tied to a useful artifact;
+- preference against alternatives and switching intent;
+- how users describe the relationship state unprompted;
+- retention by whether users accumulated or resumed meaningful value.
 
-**Do not treat a single satisfaction score as proof of attachment.** Ask what people say when they are not being surveyed.
+Activated-versus-non-activated or exposed-versus-unexposed cohorts show association. Use experiments, longitudinal evidence, or direct research before claiming one mechanism caused retention.
 
 ## Anti-patterns
 
-- Confetti substituting for meaningful feedback
-- Excessive motion; motion that delays comprehension
-- Playful copy during serious failure or financial loss
-- Mascots covering confusing UX
-- Gamification disconnected from the user's actual goals
-- Artificial urgency
-- Emotional pressure to prevent cancellation
-- Streaks that punish healthy breaks
-- Personalization from sensitive data without clear value
-- Novel interactions that reduce comprehension
-- Brand expression that makes accessibility secondary
+- Re-engagement prompts sent to people who never reached value
+- A welcome-back screen that hides the unfinished work
+- Streaks that punish healthy breaks or reset accumulated value
+- Artificial urgency, guilt, shame, or loss-chasing
+- Personalization from sensitive data without clear user benefit
+- “New” content that replaces rather than restores relevant context
+- A share button in place of an artifact worth sharing
+- Calling visual distinctiveness proof of retention
+- Treating every lapse as boredom when repeated reconstruction is the real cost

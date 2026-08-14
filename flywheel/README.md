@@ -4,131 +4,142 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-Flywheel finds **where a product loses people who already showed up**, and tells you the one thing to fix.
+Flywheel is a Skill for finding where a product loses people who already showed up and deciding which relationship stage to fix first. It does not buy attention or prescribe a growth channel. It examines what happens from first encounter through first value, recognized value, return, and durable preference.
 
-Not "how do we get more users." You already got them. Where did they go?
+Where [Focal](../focal) owns decisions inside a screen and [Compass](../compass) owns movement through a journey, Flywheel owns whether those experiences build momentum across the relationship.
 
-It's an open-source [Claude Code](https://claude.com/claude-code) skill for the **growth and retention** side of design. Where [**Focal**](../focal) sharpens one screen and [**Compass**](../compass) guides one journey, Flywheel works across the whole relationship—first encounter, activation, value, return.
+## The method
 
----
+A funnel ends. A healthy product relationship feeds future engagement, return, and recommendation back into itself. Flywheel checks four ordered plays:
 
-## The idea
+| Play | Relationship question | Typical loss |
+|---|---|---|
+| **Trust** | Is this relevant, credible, and worth continuing? | People leave before meaningful engagement. |
+| **Friction** | Can I reach value without avoidable effort, confusion, or exposure? | People engage but do not reach first value. |
+| **Wins** | Did value happen, can I recognize it, and is the next step earned? | People reach value but do not return, convert, or continue. |
+| **Emotion** | Does returning preserve or compound something I value? | Repeat users drift because the relationship does not deepen. |
 
-A product's journey is usually drawn as a funnel. But the last stage—people who return and bring others—feeds the first. The chain closes. It is not a funnel, it is a wheel.
+The order matters because upstream loss reduces the population that can experience anything downstream. A full diagnosis scans all four plays, identifies the earliest consequential leak, and recommends one stage to fix first. “Earliest” governs non-critical investment, not emergency response: a P0 at any stage must be stopped or repaired first.
 
-Four properties of a real flywheel decide everything: it is hardest to start, every push adds to what is stored, its mass keeps it turning between pushes, and friction steals what is stored.
+A **relationship leak** is the first point where momentum materially drops: before engagement, before first value, after value but before recognition or return, or after repeat use. The audit can identify evidence and association, but it does not prove causality without research or experiment data.
 
-| Play | The part of the wheel | What you're checking | What the user is asking |
-|---|---|---|---|
-| **1. Trust** | the first push | Do they believe this is worth a minute? | *Is this relevant, credible, worth continuing?* |
-| **2. Friction** | drag on the bearing | Can they get to the good part? | *Can I reach value without getting lost or exposed?* |
-| **3. Wins** | the power stroke | Do they notice the good part happened? | *Did this improve my situation, and what now?* |
-| **4. Emotion** | the mass | Do they want to come back? | *How did that feel, and do I prefer it?* |
+## Flywheel Emotion versus Soul
 
-The order is not a preference. If people don't trust you, nothing downstream matters. If they can't reach the good part, it doesn't matter how good it is. **You cannot add mass to a wheel that never started turning.**
+Flywheel’s Emotion play is about substantive relationship behavior: continuity without reconstruction, accumulated value, meaningful preference, return, and advocacy. [Soul](../soul) owns authored treatment and memory: which working moments deserve expressive craft and how much. A product can have a strong reason to return with quiet treatment, or a memorable moment that does not create durable relationship value.
 
----
+## What “build a stage” means
 
-## Install
+A stage is one relationship transition, not a screen and not the whole lifecycle. Building a stage means designing the product behavior that helps a defined audience move through one play—for example:
+
+- from first encounter to willing engagement through **Trust**;
+- from engagement to first value through **Friction**;
+- from first value to recognized value and an earned next step through **Wins**;
+- from repeat use to continuity, preference, or advocacy through **Emotion**.
+
+The Stage Spec may touch several screens or states. Focal and Compass still own their local structure and path.
+
+## When to use Flywheel
+
+Reach for Flywheel when people arrive but do not trust, activate, recognize value, return, convert after value, or develop a durable reason to stay. Use a full diagnosis when the leaking stage is unknown; use a targeted stage review when the stage is already established and you need depth.
+
+Flywheel does not own:
+
+- screen composition—that is [Focal](../focal);
+- route clarity, step count, or state across one journey—that is [Compass](../compass);
+- expressive treatment or memorable authorship—that is [Soul](../soul);
+- paid acquisition, SEO, campaign planning, analytics instrumentation, experiment statistics, or manufacturing product-market fit.
+
+Use [Product Judgement](../product-judgement) when the question crosses several scales.
+
+## Install and update
+
+Install Flywheel globally with the [Skills CLI](https://skills.sh/docs/cli):
 
 ```bash
-npx skills add kvncnls/product-judgement --skill flywheel
+npx skills add kvncnls/product-judgement --skill flywheel -g
 ```
 
-For manual installation:
+Update an installation tracked by the CLI:
 
 ```bash
-git clone https://github.com/kvncnls/product-judgement.git
-ln -s "$(pwd)/product-judgement/flywheel" ~/.claude/skills/flywheel
+npx skills update -g flywheel
 ```
 
-Prefer a copy, or one project only? `cp -R product-judgement/flywheel ~/.claude/skills/flywheel`, or copy the folder into a project's `.claude/skills/`. Restart Claude Code if it was running.
-
----
+See the collection’s [installation and update guide](../README.md#install) for Claude Code, Codex, Cursor, manual folders, and generated single-file bundles.
 
 ## Use
 
-**Diagnose**—find the leak and what to fix first.
+Invoke `/flywheel` explicitly or ask an agent with the Skill installed.
 
-```
-/flywheel diagnose     ← a product, a stage, or a symptom like "nobody comes back"
-```
+### Diagnose the relationship
 
-Returns a fixed **diagnosis**:
-
-- **Verdict**—the earliest leaking stage, largest loss, and native `/16` total.
-- **Product, first value, stakes, Coverage, Basis, and Blocker**—the frame, relationship stages and app states reviewed, material gaps, evidence available, confirming check, and any critical condition.
-- **Scorecard**—Trust, Friction, Wins, and Emotion scored `0–4`, with evidence-backed rationales and the smallest change that would raise each score one point, followed by the normalized average and final common band.
-- **Issues**—P0–P3 findings ordered from the earliest stage downstream, each anchored to the exact **Screen · Flow · State · Lifecycle** locator with a concrete fix.
-- **Fix this first and Next**—exactly one stage to address now, what becomes worthwhile afterward, and any Focal or Compass handoff.
-
-See the [locked diagnosis template](./reference/review.md#output-formatuse-this-exact-structure) and the collection's [shared audit contract](../README.md#shared-audit-contract).
-
-**Design a relationship stage**—use the `build` command to design one stage with its play.
-
-```
-/flywheel build the first-run experience for a budgeting app
+```text
+/flywheel diagnose why activated users do not come back
 ```
 
-The `build` command returns a fixed **Stage Spec**:
+A full diagnosis returns:
 
-- **Stage**—one Trust, Friction, Wins, or Emotion play, its audience, first value, and stakes.
-- **The leak**—what is being lost today and the fastest confirming metric.
-- **The design**—the proposed intervention at that stage.
+- **Verdict**—the earliest evidenced relationship leak, or the evidence gap that prevents ordering, plus the one stage to fix first.
+- **Coverage and Basis**—the exact Screen · Flow · State · Lifecycle reviewed, evidence gaps, and a confirming behavior or metric.
+- **Scorecard**—Trust, Friction, Wins, and Emotion scored `0–4` when supported, for a native total of `/16` only when all four are evaluable.
+- **Issues**—P0–P3 findings ordered from earlier to later relationship stages, with exact locators and concrete fixes.
+- **Fix this first**—one stage, the reason it precedes downstream work, and what becomes worthwhile afterward.
+- **Handoffs**—local screen, journey, or authored-treatment work owned by Focal, Compass, or Soul.
+
+A targeted stage review scores only the selected play `/4`. The other three rows are `N/E—outside targeted scope`; Flywheel does not turn a one-stage review into a synthetic `/16` total or common band. A full diagnosis evaluates all four plays, but an entirely unexposed play is `N/E—insufficient evidence`; any `N/E` prevents a `/16` total and makes the earliest-stage ordering provisional.
+
+Every evaluated score must explain **evidence → consequence → rubric anchor → smallest next-point change**. A `3/4` is the normal target for strong professional work. A `4/4` means above-and-beyond, unusually effective execution and is intentionally uncommon.
+
+See the [locked diagnosis output](./reference/review.md#output-formatuse-this-exact-structure) and the collection’s [shared audit contract](../README.md#shared-audit-contract).
+
+### Build a relationship stage
+
+```text
+/flywheel build the first-value stage for a budgeting app
+```
+
+Flywheel returns a fixed **Stage Spec**:
+
+- **Stage**—one play, audience, first value, stakes, and relationship transition.
+- **The leak**—what is being lost and the fastest confirming metric or behavior.
+- **The design**—the proposed intervention at that relationship stage.
 - **Friction kept**—productive or protective effort retained deliberately.
-- **The ask**—what value precedes any commercial or social request, and what declining costs.
-- **Gates**—a binary, unscored check of the proposed design.
+- **The ask**—what value precedes a commercial or social request; declining preserves already-earned value, and any foregone benefit is explicit and noncoercive.
+- **Gates**—a binary, unscored check of the proposal.
 
-See the [locked Stage Spec template](./SKILL.md#design-a-relationship-stage-the-five-moves).
+See the [locked Stage Spec](./SKILL.md#design-a-relationship-stage-the-five-moves).
 
----
+## Give it context
 
-## What's inside
+Provide the audience, product promise, first value, business model, stakes, funnel or cohort evidence, lifecycle behavior, and known constraints. A PRD, analytics, research, support themes, experiment history, and codebase help separate a visible symptom from a plausible cause. Flywheel labels uncertain claims and names a confirming test instead of presenting correlation as proof.
 
-```
+## What is inside
+
+```text
 flywheel/
-├── SKILL.md              the wheel, the diagnosis tree, the build workflow
+├── SKILL.md
 ├── reference/
-│   ├── trust.md          the trust stack, message match, performance, accessibility
-│   ├── friction.md       the six-type friction taxonomy, activation, first value
-│   ├── wins.md           win map, making value visible, timing asks
-│   ├── emotion.md        the arc, baseline vs peaks, endings and re-entry
-│   ├── review.md         the four-play audit + scorecard + severity
-│   └── examples.md       a worked diagnosis + a worked relationship-stage design
+│   ├── trust.md
+│   ├── friction.md
+│   ├── wins.md
+│   ├── emotion.md
+│   ├── review.md
+│   └── examples.md
 ├── README.md
 └── LICENSE
 ```
 
----
-
-## Scope
-
-**Use it for** what attention becomes: onboarding, activation, empty states, success states, upgrade and referral moments, re-entry, win visibility. The wheel closes, so the moments that earn word of mouth count too.
-
-**Not for:**
-- Single-screen structure—that's [Focal](../focal).
-- Multi-screen paths and getting lost—that's [Compass](../compass).
-- **Buying** attention: paid channels, budget, bidding, SEO, campaign copy. Flywheel designs what attention meets when it arrives, and what makes people bring more of it. Earned acquisition is in scope; paid is not.
-- Analytics instrumentation, research protocols, or experiment statistics.
-
-Flywheel cannot manufacture product-market fit. It stops a valuable product from hiding its value behind uncertainty, effort, silence, or forgettability.
-
-For a whole-app audit that separates relationship leaks from screen, journey, and memory issues, use [**Product Judgement**](../product-judgement).
-
----
-
 ## Quick reference
 
-```
-DIAGNOSE  leave without engaging → Trust · never reach value → Friction
-          reach value, don't return → Wins · return, then drift → Emotion
-EARLIEST  two stages leaking? fix the earlier one—loss compounds downstream
-FRICTION  remove accidental & cognitive · keep protective & productive
-ASKS      after the value they extend, and declining is free
+```text
+DIAGNOSE  leave before engagement → Trust · engage, no first value → Friction
+          value occurs, no recognition/return → Wins · repeat use, then drift → Emotion
+EARLIEST  among non-critical work, fix the earliest evidenced leak first
+P0        stop or repair immediately at any stage; then resume earliest-stage order
+FRICTION  remove accidental and cognitive drag · keep protective and productive effort
+ASKS      follow relevant value · preserve earned value when declined · disclose tradeoffs
 NEVER     hide cost, permission, risk, or reversibility to increase action
 ```
-
----
 
 ## License
 

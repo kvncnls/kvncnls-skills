@@ -1,19 +1,20 @@
 # Flywheel Diagnose—the four-play audit
 
-Find where a product loses the people it already earned, score each play, and name the one stage to fix first. Use when the user asks to diagnose, audit, or review growth, retention, activation, conversion, churn, or a symptom like "nobody comes back."
+Find where a product loses the people it already earned and name the one stage to fix first. A full relationship diagnosis evaluates all four plays and reports `/16` only when all are supportable; a request explicitly limited to one stage scores that play only and reports no cross-play total. Use when the user asks to diagnose, audit, or review growth, retention, activation, conversion, churn, or a symptom like "nobody comes back."
 
 ## Input modes
 
-- **A symptom** ("they sign up and never return")—map it to a stage with the diagnosis tree in [SKILL.md](../SKILL.md), then audit that stage hardest while still scoring all four.
+- **A symptom** ("they sign up and never return")—map it to a stage with the diagnosis tree in [SKILL.md](../SKILL.md), scan all four to catch an earlier leak, then audit the selected stage deepest.
+- **A targeted stage** ("audit the upgrade moment")—run that play deeply. Mark the other rows `N/E—outside targeted scope`, and do not print a native total or common band. `N/E` means not evaluated, not zero.
 - **Funnel data**—the leak is where the drop-off is. Use cohorts with a shared start point, and read distributions rather than averages.
-- **An artifact** (a screenshot, a page, a flow, a product)—diagnose heuristically from the play's own checks. This is the common case and it is legitimate; label it as diagnosed rather than measured.
+- **An artifact** (a screenshot, a page, a flow, a product)—diagnose heuristically from the play's own checks. This is the common case and it is legitimate; label it as diagnosed rather than measured. If the artifact and supplied context expose no evidence for a play, use `N/E—insufficient evidence` rather than inventing lifecycle behavior.
 
 ## Step 0—Frame, then find the leak
 
 Before scoring, establish in one or two sentences each:
 
 - **What is this product, and who is it for?** A growth judgment with no audience is a guess.
-- **What is first value?** Name the event that changes the user's situation. If the team has not defined it, define it yourself by the rule in **[SKILL.md](../SKILL.md)**—the tree below cannot be walked without it. Then do both: print your definition in the Product line, and report the team's absence of one as its own finding. It caps Friction at 2.
+- **What is first value?** Name the event that changes the user's situation. If the team has not defined it, infer the strictest definition supported by the product evidence and label it as the audit's working definition—the tree below cannot be walked without one. Missing internal terminology does not cap a UX score by itself. If no value-changing outcome can be defended from the product or context at all, say so and score the resulting uncertainty where the local rubric supports it.
 - **What are the stakes?** Low, medium, or high. In finance, health, children's products, employment, housing, education, identity, and safety, protective friction is a foundation and its removal is a defect, not an optimization.
 - **Where is the leak?** Walk the diagnosis tree in **[SKILL.md](../SKILL.md)**—take the first match, and don't re-derive the categories here. If two stages leak, take the earliest; loss compounds downstream.
 - **Which relationship and app states are covered?** Inventory the evidence across arrival, consideration, activation before value, first value, return, lapse, re-engagement, and advocacy—and the exact UI states exposed at those moments. Mark consequential stages or states `not shown` rather than filling them in from assumption.
@@ -32,12 +33,12 @@ Use the narrowest defensible locator. `Report screen → result · report genera
 
 ## The four gates
 
-Score every play, even when only one is leaking—a stage can be strong and still sit behind a broken one, and the reader needs to see that the fix is upstream.
+In a full diagnosis, evaluate all four plays even when only one appears to leak—a stage can be strong and still sit behind a broken one, and the reader needs to see that the fix is upstream. Score every play supported by evidence. If a play is entirely unexposed after inspecting the available artifact and context, mark it `N/E—insufficient evidence`; never turn an absent lifecycle stage into either credit or failure. In a targeted stage review, score only the selected play and mark the other three `N/E—outside targeted scope`.
 
 ### Gate 1—Trust *(the first push)*
 
 - Can a stranger name who this is for and what changes for them, from the first screen alone?
-- Count the competing primary actions. More than one means the screen has not decided.
+- Can the user identify the next relationship commitment and its consequence? Local CTA competition is evidence only when it disrupts trust at this stage; Focal owns the screen-level hierarchy and action model.
 - For each claim, is the evidence within one scroll of it?
 - Do the entry points that carry real traffic preserve the promise that brought the user?
 - Is consequence—cost, permission, reversibility—visible before the action that triggers it?
@@ -48,12 +49,12 @@ Score every play, even when only one is leaking—a stage can be strong and stil
 | 1 | Missing—no recognizable audience, outcome, or reason to continue |
 | 2 | Functional—the category is clear but the outcome, evidence, or next step is not |
 | 3 | Strong—relevant, comprehensible, supported, coherent, and safe |
-| 4 | Exemplary—the first encounter itself demonstrates the product's point of view with unusual clarity for this context |
+| 4 | Exemplary—the first encounter establishes relevance, proof, and safe agency with unusual clarity for this context |
 
 ### Gate 2—Friction *(drag on the bearing)*
 
-- Is first value defined as an outcome rather than setup? If not, cap this gate at 2.
-- Walk each step of the path to first value and name its friction type. Accidental and cognitive friction are waste; protective and productive friction are not.
+- Is first value identifiable as an outcome rather than setup? If the team has not named it, use the audit's evidence-backed working definition. Cap this gate at `2` only when no value-changing outcome can be defended, not merely because internal documentation is missing.
+- Walk the effort before first value and name its friction type. Use Compass to establish route mechanics; Flywheel scores whether that effort and uncertainty prevent the relationship from reaching value. Accidental and cognitive friction are waste; protective and productive friction are not.
 - Is any commitment asked before value has been delivered?
 - Do empty states create a path to value, and do errors preserve the user's work?
 
@@ -70,30 +71,30 @@ Score every play, even when only one is leaking—a stage can be strong and stil
 - Name the largest win the product delivers. Does the user recognize it happened?
 - Does feedback intensity match the magnitude of the win?
 - Does every important workflow have a designed ending, or does it stop?
-- Does each ask land after the value it extends, and is declining free?
+- Does each ask land after the value it extends? Does declining preserve value already earned, with any foregone benefit explicit and noncoercive?
 
 | Score | Criteria |
 |-------|----------|
-| 0 | Asks precede value, or claimed value cannot be substantiated |
-| 1 | Value is delivered silently—the user's situation improves and nothing says so |
+| 0 | Claimed value is fabricated, or an ask uses hidden material consequence or coercion to extract action |
+| 1 | Value is delivered silently, or an interruptive ask materially blocks inspection of the value just earned |
 | 2 | Wins are acknowledged generically; endings stop rather than close |
-| 3 | The main win is visible and proportionate; asks are placed after value |
+| 3 | The main win is visible and proportionate; asks follow related value and preserve already-earned value when declined |
 | 4 | Exemplary—value is made legible and accumulates; endings open the next action; asks read as continuation |
 
 ### Gate 4—Emotion *(the mass)*
 
-- Is the intended emotion named, with the screen and the moment it happens?
-- Is the baseline strong enough to carry expressive layers? If Trust or Friction scores below 3, say so here—peaks on a weak baseline read as cosmetic.
-- Does re-entry restore context and show what changed?
+- Is the intended relationship state named—confidence, control, momentum, mastery, belonging—and is there evidence it supports return or preference?
+- Does re-entry restore context, show what changed, and preserve accumulated value?
+- Does repeated use become easier or more valuable, giving the user a substantive reason to continue?
 - Does anything here rely on shame, urgency, streak pressure, or guilt?
 
 | Score | Criteria |
 |-------|----------|
 | 0 | Emotion is weaponized—shame, false urgency, punitive streaks, guilt-based retention |
-| 1 | Absent—functional, forgettable, and identical to its alternatives |
-| 2 | A consistent surface, but no designed peak and no continuity on return |
-| 3 | A named emotion, a competent baseline, peaks on moments that matter |
-| 4 | Exemplary—a coherent personality across success and failure; re-entry restores momentum; the experience is recognizable without the logo |
+| 1 | No relationship mass—each visit resets context or value, and return depends on prompting rather than a reason |
+| 2 | Return is possible, but restored context, accumulated value, or preference is materially weak or inconsistent |
+| 3 | Re-entry restores momentum, repeated use preserves or compounds value, and the reason to return is clear |
+| 4 | Exemplary—each return is meaningfully easier or more valuable, preference is reinforced without pressure, and evidence supports durable return or advocacy |
 
 ## Scoring rules
 
@@ -105,15 +106,15 @@ Every play uses the same integer anchors:
 | **1** | **Major failure** | The outcome may remain technically possible, but the dimension is seriously compromised, unreliable, or largely absent. Substantial correction is required. |
 | **2** | **Partial or inconsistent** | The basic function exists, with a material weakness, missing decision, or inconsistency that prevents dependable quality. |
 | **3** | **Strong** | Deliberate, dependable, context-appropriate professional work with only minor gaps. This is the normal target for good execution. |
-| **4** | **Exemplary** | Fully realized and unusually strong for the relevant context, including realistic states and constraints, with no material gaps. |
+| **4** | **Exemplary—above and beyond** | Fully realized and unusually effective for the relevant context, including realistic states and constraints. This is intentionally uncommon, not the normal target. |
 
-Score each play holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the play overall, apply explicit prerequisite caps, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the play being scored; recognizability remains relevant where Emotion's local rubric requires it.
+Score each evaluated play holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the play overall, apply explicit prerequisite caps, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the play being scored; expressive distinctiveness is Soul's concern, not a Flywheel prerequisite.
 
 ### Score rationale—required
 
 A score without an explanation is invalid. Fill every scorecard row with the same chain: **evidence → consequence → rubric anchor → next-point change**. State what was observed, inferred, tested, walked, or measured; what it costs the relationship; why that evidence earns the integer under the local rubric and stops there; and the smallest concrete change that would raise it one point. A `2` must say what works and name the material weakness; a `3` must name the remaining gap; a `4` must explain why the play is exemplary and say `None—already exemplary` in the next-point field. If the evidence does not expose a state or lifecycle stage, say `not shown` in Coverage/Basis and name the validating metric or behavior—do not award credit or invent failure.
 
-Keep the native total: `total = Trust + Friction + Wins + Emotion`. Calculate `average = total / 4`, display it rounded to one decimal place, and apply this shared algorithm:
+For a **full diagnosis with all four plays evaluated**, keep the native total: `total = Trust + Friction + Wins + Emotion`. Calculate `average = total / 4`, display it rounded to one decimal place, and apply this shared algorithm. If any play is `N/E—insufficient evidence`, report no `/16` total, average, common band, or weakest-play ceiling. For a **targeted stage review**, report the selected play `/4`, mark the others `N/E—outside targeted scope`, and report `Total: N/E—targeted stage review`; do not calculate an average, common band, or weakest-play ceiling from one play.
 
 | Band | Average rule | Native total |
 |---|---:|---:|
@@ -125,10 +126,10 @@ Keep the native total: `total = Trust + Friction + Wins + Emotion`. Calculate `a
 Then cap the band by the weakest play: a minimum of `0` allows only **Broken**, `1` allows at most **Significant rework**, `2` allows at most **Solid**, and `3–4` adds no ceiling. Use the lower-quality result of the average band and this ceiling. The total must equal the exact sum of the four scores.
 
 - **A dark pattern is a critical blocker regardless of total.** Hiding cost, permission, risk, or reversibility to increase action; weaponizing emotion; or removing informed choice must be tagged P0 and named in **Blocker**. Do not mechanically force an unrelated play to 0; score the play using its rubric.
-- **The earliest leaking stage governs the recommendation.** A 1 at Trust and a 1 at Emotion is a Trust problem; fixing Emotion first spends effort on people who never arrive. A P0 at a later stage does not move **Fix this first**—every P0 is something to *stop doing*, and stopping is not where you invest.
+- **The earliest evidenced leaking stage governs non-critical investment.** A 1 at Trust and a 1 at Emotion is a Trust problem; fixing Emotion first spends effort on people who never arrive. If an earlier play is `N/E`, call the ordering provisional and put its validating check before downstream investment. A P0 at any stage overrides that order for immediate stop or repair and becomes **Fix this first**. After the critical condition is removed, resume from the earliest remaining evidenced leak.
 - **Do not average away a safety or accessibility failure.** Give it its own issue line and blocker state when warranted rather than hiding it inside the total.
 
-Dimension score, overall quality band, issue severity, critical blocker, and the earliest leaking stage are separate. A P0 is always a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. The earliest leaking stage still governs **Fix this first**.
+Dimension score, overall quality band, issue severity, critical blocker, and the earliest leaking stage are separate. A P0 is always a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. P0 stop-or-repair work governs **Fix this first**; otherwise the earliest leaking stage does.
 
 ## Issue severity
 
@@ -148,9 +149,10 @@ Assign severity from consequence, reach, and recoverability. A methodology rule 
 Every diagnosis returns this template verbatim, in this order. Don't add, remove, reorder, or rename sections. Fill the `<…>` slots; keep every fixed label. This block is the single source of truth for the emitted shape.
 
 ```
-**Verdict:** <the leaking stage> · <the one biggest loss, one phrase> · **<total>/16**
+**Verdict:** <the leaking stage | undetermined pending evidence> · <the one biggest loss or evidence gap, one phrase> · **<full: total/16 or N/E | targeted: play score/4>**
 
 **Product:** <what it is, for whom> · first value: <the event, or "undefined"> · stakes: <low | medium | high>
+**Scope:** <full relationship diagnosis | targeted stage: Trust | Friction | Wins | Emotion>
 **Screen:** <exact touchpoint(s) or `not shown`>
 **Flow:** <named journey or transition(s) or `not shown`>
 **State:** <exact rendered or system state(s) reviewed>
@@ -162,11 +164,11 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 ## Scorecard
 | Play | Score | Why this score | What raises it one point |
 |---|---:|---|---|
-| Trust | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
-| Friction | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
-| Wins | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
-| Emotion | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
-| **Total** | **_/16 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-play ceiling applied> |
+| Trust | <_/4 or N/E> | <evidence → consequence → rubric anchor, or N/E reason> | <smallest concrete change, `None—already exemplary`, or `N/E`> |
+| Friction | <_/4 or N/E> | <evidence → consequence → rubric anchor, or N/E reason> | <smallest concrete change, `None—already exemplary`, or `N/E`> |
+| Wins | <_/4 or N/E> | <evidence → consequence → rubric anchor, or N/E reason> | <smallest concrete change, `None—already exemplary`, or `N/E`> |
+| Emotion | <_/4 or N/E> | <evidence → consequence → rubric anchor, or N/E reason> | <smallest concrete change, `None—already exemplary`, or `N/E`> |
+| **Total** | **<full and complete: _/16 · _._/4 | otherwise: N/E>** | **<full and complete: band and exact sum | incomplete/targeted: why no cross-play total>** | <full and complete: weakest-play ceiling | otherwise: validating check or selected play only> |
 
 ## Issues (most severe first)
 - **[P0 · Trust]** **At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
@@ -179,11 +181,12 @@ Every diagnosis returns this template verbatim, in this order. Don't add, remove
 ## Next
 - **Now**: **At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage> · <the change at the leaking stage>
 - **After it moves**: **At:** screen: <exact touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact relationship stage> · <what becomes worth doing once that stage holds>
-- **Hand off**: **At:** screen: <exact touchpoint or `not shown`> · flow: <named flow or transition or `not shown`> · state: <exact app state or `not shown`> · lifecycle: <exact relationship stage or `not shown`> · <single-screen structure goes to Focal; multi-screen path goes to Compass; "None" if all of it is Flywheel's>
+- **Hand off**: **At:** screen: <exact touchpoint or `not shown`> · flow: <named flow or transition or `not shown`> · state: <exact app state or `not shown`> · lifecycle: <exact relationship stage or `not shown`> · <single-screen structure → Focal; multi-screen path → Compass; expressive moment treatment → Soul; "None" if all of it is Flywheel's>
 ```
 
 Filling it:
 - **Coverage**—name only relationship stages and app states the evidence actually exposes. Use `gaps` for consequential stages such as first value, return, lapse, or re-engagement that were not shown or measured.
+- **Scope and total**—use `/16` only when all four plays were evaluated. In a full diagnosis, an entirely unsupported play is `N/E—insufficient evidence`; in a targeted stage review, the three out-of-scope rows are `N/E—outside targeted scope`. Neither kind of `N/E` is `0`, and either prevents a total or common band.
 - **Issues and suggestions**—repeat the issue line once per issue, and give every issue, Fix this first recommendation, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Keep the `At` locator precise enough to identify the exact touchpoint and cohort moment that must change. `<observation>` may run two or three sentences when being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
 - **Fix this first**—one stage, never a list. The whole point of the diagnosis is to refuse to work on four things at once.
 - **Basis**—never claim measurement you do not have. Use the controlled basis vocabulary in the template, and name the fastest confirming metric or behavior.

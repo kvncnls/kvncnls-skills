@@ -14,6 +14,7 @@ Two worked examples in the locked output templates—one **diagnosis**, one **re
 **Verdict:** Friction · people never reach a first report, so there is nothing to come back to · **6/16**
 
 **Product:** support-ticket analytics for support and product teams · first value: undefined · stakes: low
+**Scope:** full relationship diagnosis
 **Screen:** workspace setup, report result, and empty dashboard
 **Flow:** signup-to-first-report
 **State:** required setup, report success, empty dashboard, and proposed re-engagement
@@ -28,7 +29,7 @@ Two worked examples in the locked output templates—one **diagnosis**, one **re
 | Trust | 3/4 | The outcome is legible and the promise is specific, so the first push is strong; the artifact does not show proof near the promise, which keeps Trust from exemplary. | Put a real report or credible sample beside the promise and verify message match across the highest-traffic entry. |
 | Friction | 1/4 | Six setup fields and a required CSV upload block any evidence the product works; the outcome remains technically reachable, but commitment effort is seriously misplaced before first value. | Generate a real report from sample data in one click and defer the six fields until after first value. |
 | Wins | 1/4 | Four minutes of work ends in a generic "Done" toast, so the user cannot see what changed or why the result matters; value technically arrives but is largely invisible. | Replace the toast with the report result, what was analyzed, and one next action that extends the win. |
-| Emotion | 1/4 | No return-worthy feeling or authored reinforcement is present, and Friction at 1 means the baseline cannot carry expressive treatment yet; the play is absent and sequenced too early. | First make the path reach value reliably, then author a specific reason to prefer returning. |
+| Emotion | 1/4 | No return state, accumulated value, or substantive reason to continue is shown; the proposed email tries to prompt return before a first report exists, so each relationship would restart from zero. | First make the path reach value, then preserve the report and resume context so a return continues something useful. |
 | **Total** | **6/16 · 1.5/4** | **Broken; exact sum of justified component scores** | Weakest-play ceiling applied |
 
 ## Issues (most severe first)
@@ -79,14 +80,14 @@ Friction. Nothing downstream can be evaluated until people reach a first report�
 ## The ask
 - Ask: None on this stage.
 - Lands after: n/a—the first upgrade ask belongs after the *second* report, when the user has evidence the product works repeatedly rather than once.
-- Declining costs them: nothing.
+- Declining changes: nothing; there is no ask on this stage and the sample report remains available.
 
 ## Gates
 - [x] First value named as an outcome, not setup
 - [x] The leak is stated with evidence, and the confirming metric is named
 - [x] Every required step has a purpose the user could be told
 - [x] Protective and productive friction preserved
-- [x] Any ask lands after the value it extends, and declining is free
+- [x] Any ask lands after the value it extends; declining preserves value already earned; any foregone benefit is explicit and noncoercive
 - [x] Nothing here hides cost, consequence, permission, or reversibility
 ```
 

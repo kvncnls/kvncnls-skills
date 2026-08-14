@@ -1,6 +1,6 @@
 # Product Judgement
 
-Skills for making better product decisions across the screen, the journey, the relationship, and the memory. The four foundational Skills—Focal, Compass, Flywheel, and Soul—each own a scale; Product Judgement combines them for holistic audits. The Skills are Markdown folders—no build step, no dependencies—and each also ships as a single file, so they work in Claude Code, Codex, ChatGPT, Cursor, and anything else that reads Markdown.
+Skills for making better product decisions across the screen, the journey, the relationship, and the memory. The four foundational Skills—Focal, Compass, Flywheel, and Soul—each own a scale; Product Judgement combines them for holistic audits. The Skills are Markdown folders with no runtime build step or dependencies. Each also ships as a generated single-file bundle, so they work in Claude Code, Codex, ChatGPT, Cursor, and anything else that reads Markdown.
 
 The umbrella is **coherence**: focused within a screen, navigable across a journey, valuable across the relationship, memorable after the experience, and trustworthy throughout.
 
@@ -28,9 +28,9 @@ It is not user research, analytics, experimentation, marketing, or product strat
 |-------|--------------|------------------|
 | [**product-judgement**](./product-judgement) | Holistic audit. Runs all 4 Skills below against a shared evidence map, then reconciles their findings into one prioritized fix sequence. | The question spans the app, or several Skills identify related issues and you need to decide what to fix first. |
 | [**focal**](./focal) | One screen, one clear intent. Declutters and structures app/dashboard screens through three disciplines—Information Architecture, Progressive Disclosure, and Visual Hierarchy. Its action model adapts to task, hub, and exploration screens. | A screen feels crowded, unclear, or unable to make its organizing intent and action model legible. Use it to decide what belongs, what waits, and what wins attention. |
-| [**compass**](./compass) | Never lost. Guides multi-screen flows and navigation through three disciplines—Orientation, Path Economy, and Continuity. Build new flows or review existing ones. Pairs with Focal (single screens). | A task spans screens and users may be lost, facing too many steps, dead ends, Back that resets or loses context, missing progress, or lost state. |
+| [**compass**](./compass) | Never lost. Guides multi-screen flows and navigation through three disciplines—Orientation, Path Economy, and Continuity. Build new flows or review existing ones. Pairs with Focal (single screens). | A task spans screens and users may be lost, facing too many steps, dead ends, retreat that resets or loses context, missing progress in a bounded flow, or lost state. |
 | [**flywheel**](./flywheel) | Earn the second visit. Growth and retention: finds where a product loses the users it already earned, across four ordered plays—Trust, Friction, Wins, and Emotion. Diagnose where value is leaking, or design the experience that earns the next stage of the relationship. | People arrive but do not trust, reach value, recognize value, return, or bring others. Use it to find the earliest relationship leak or design the stage that earns the next step. |
-| [**soul**](./soul) | Never boring. Delight, placed: sorts every beat of the happy path into three tiers—Expected stays functional, Elevated adds craft to the small things, Net-New rebuilds the 2–3 biggest moments entirely. Search a product or build a moment. | The happy path works but feels generic, forgettable, or over-designed. Use it to decide which moments stay conventional, gain craft, or become memorable—including where motion earns its place. |
+| [**soul**](./soul) | Never boring. Delight, placed: sorts every beat of the happy path into three tiers—Expected stays functional, Elevated adds craft to the small things, and up to three Net-New moments may be rebuilt entirely. Zero Net-New moments is valid when restraint is the better decision. | The happy path works but feels generic, forgettable, or over-designed. Use it to decide which moments stay conventional, gain craft, or become memorable—including where motion earns its place. |
 
 ## What each Skill returns
 
@@ -39,16 +39,16 @@ The four foundational Skills have two output modes. **Build** proposes a new des
 | Skill | Build output | Audit-style output | Local conclusion |
 |---|---|---|---|
 | [**Product Judgement**](./product-judgement) | — | **Holistic audit**—four native scorecards with evidence-backed component rationales, shared coverage, deduplicated cross-scale findings, and a prioritized list of changes with Screen · Flow · State · Lifecycle locators | Are the four scales coherent, and what should be fixed first? |
-| [**Focal**](./focal) | **Screen Spec**—organizing intent, action model, information, disclosure, hierarchy, states, and gates | **Screen review**—three-discipline scorecard with per-discipline rationales, issues, Top 3 moves, and structural/executional next steps, all located by Screen · Flow · State · Lifecycle | Does the screen satisfy **One Screen, One Clear Intent**? |
-| [**Compass**](./compass) | **Flow Spec**—destination, steps, cuts, orientation, continuity, and gates | **Flow review**—three-discipline scorecard with per-discipline rationales, issues, Top 3 moves, and structural/executional next steps, all located by Screen · Flow · State · Lifecycle | Is the user **Never Lost**? |
-| [**Flywheel**](./flywheel) | **Stage Spec**—first value, leak, design, friction kept, ask placement, and gates | **Diagnosis**—four-play scorecard with per-play rationales, issues, one stage to fix first, and what follows, all located by Screen · Flow · State · Lifecycle | Where does momentum drop first—before engagement, before first value, after value, or after repeat use? |
-| [**Soul**](./soul) | **Moment Spec**—feeling, frequency, tier, three rungs, constraints, and gates | **Happy-path sweep**—four-gate scorecard with per-gate rationales, path map, ranked moments, small things, and restraint receipt, all located by Screen · Flow · State · Lifecycle | Is the path authored, anonymous, misplaced, or exhausting? |
+| [**Focal**](./focal) | **Screen Spec**—organizing intent, action model, information, disclosure, hierarchy, states, and gates | **Screen review**—three-discipline `/12` scorecard with per-discipline rationales, issues, up to three top moves, and structural/executional next steps, all located by Screen · Flow · State · Lifecycle | Does the screen satisfy **One Screen, One Clear Intent**? |
+| [**Compass**](./compass) | **Flow Spec**—finite outcome or open-ended anchor, steps, cuts, orientation, continuity, and gates | **Flow review**—three-discipline `/12` scorecard with per-discipline rationales, issues, up to three top moves, and structural/executional next steps, all located by Screen · Flow · State · Lifecycle | Is the user **Never Lost**? |
+| [**Flywheel**](./flywheel) | **Stage Spec**—first value, relationship leak, design, friction kept, ask placement, and gates | **Diagnosis**—a full four-play scan with `/16` only when every play is evaluable, or one targeted `/4` stage review, with rationales, issues, the earliest evidenced relationship stage to fix, and what follows, all located by Screen · Flow · State · Lifecycle | Where does momentum drop first—before engagement, before first value, after value, or after repeat use? |
+| [**Soul**](./soul) | **Moment Spec**—feeling, frequency, Expected/Elevated/Net-New target, treatment ladder through that target, constraints, and gates | **Happy-path sweep**—an unscored Readiness verdict plus a three-gate `/12` scorecard, path map, up to three ranked Net-New moments, small things, and restraint receipt, all located by Screen · Flow · State · Lifecycle | Is the working path ready for authorship, and is its treatment memorable without becoming misplaced or exhausting? |
 
 For Flywheel, a **leak** is not just churn. It is the first point where momentum drops out of the relationship: people leave without engaging, engage without reaching first value, reach value without returning or converting, or return for a while and then drift away.
 
 ## Shared audit contract
 
-Build outputs are proposals, so their gates remain binary and unscored. Audit-style outputs evaluate something that already exists, so every local dimension receives an integer score from `0–4`:
+Build outputs are proposals, so their gates remain binary and unscored. Audit-style outputs evaluate something that already exists, so every evaluated local dimension receives an integer score from `0–4`:
 
 | Score | Meaning |
 |---:|---|
@@ -58,11 +58,11 @@ Build outputs are proposals, so their gates remain binary and unscored. Audit-st
 | **3 — Strong** | Deliberate, dependable professional work with only minor gaps—the normal target for good execution. |
 | **4 — Exemplary, above and beyond** | Goes beyond strong professional execution: fully realized and unusually effective for its context, realistic states, and constraints. It is intentionally uncommon and not the norm. |
 
-These are ordinal quality levels, not percentages or school grades. A `3/4` is the intended bar for strong product work; it does **not** mean 75%. A Focal or Compass result of `9/12`, or a Flywheel or Soul result of `12/16`, means every evaluated dimension is Strong. A `4/4` is deliberately harder: it recognizes above-and-beyond execution in a selectively exemplary dimension. It is not the norm, the expected baseline, or the minimum acceptable result.
+These are ordinal quality levels, not percentages or school grades. A `3/4` is the intended bar for strong product work; it does **not** mean 75%. A Focal, Compass, or Soul result of `9/12`, or a full Flywheel result of `12/16`, means every evaluated dimension is Strong. A `4/4` is deliberately harder: it recognizes above-and-beyond execution in a selectively exemplary dimension. It is not the norm, the expected baseline, or the minimum acceptable result.
 
 Do not optimize every audit toward a perfect total. Eliminate `0`s and `1`s, improve consequential `2`s, establish `3` as the dependable baseline, then pursue selected `4`s only where deeper investment supports the product's goals or creates meaningful differentiation. Scores describe the quality profile; they do not decide release readiness by themselves. A P0 or explicit blocker still requires action regardless of the total.
 
-The scorecard keeps each foundational Skill's native total—`/12` for Focal and Compass, `/16` for Flywheel and Soul—and also displays `total ÷ dimensions` as a normalized `/4` average rounded to one decimal place. Product Judgement preserves those native totals and does not average them into a misleading collection-wide score.
+The scorecard keeps each foundational Skill's native total—`/12` for Focal, Compass, and Soul, and `/16` for a complete Flywheel diagnosis—and also displays `total ÷ evaluated dimensions` as a normalized `/4` average rounded to one decimal place. A targeted Flywheel stage review reports one `/4` score and marks the other plays `N/E—outside targeted scope`; a full diagnosis marks an entirely unexposed play `N/E—insufficient evidence`. Neither case invents a `/16` total. Product Judgement preserves native totals and does not average them into a misleading collection-wide score.
 
 | Common band | Average | `/12` total | `/16` total |
 |---|---:|---:|---:|
@@ -72,6 +72,8 @@ The scorecard keeps each foundational Skill's native total—`/12` for Focal and
 | **Excellent** | `≥ 3.5` | `11–12` | `14–16` |
 
 The weakest dimension then caps the final displayed band: a lowest score of `0` caps it at **Broken**, `1` at **Significant rework**, `2` at **Solid**, and `3–4` adds no ceiling. This prevents a high total from hiding one failed dimension.
+
+`N/E` means **not evaluated**, not zero. Use it only where the local contract permits it: a Flywheel play outside targeted scope or entirely unsupported by evidence, or a Soul gate made genuinely unevaluable by Deferred Readiness. When a native scorecard is incomplete, report the evaluated rows and the evidence gap, but do not calculate its native total or common band.
 
 ### Scores must explain themselves
 
@@ -94,7 +96,7 @@ Five concepts remain separate in every audit:
 - **Blocker**—an explicit release-critical condition; every P0 is a blocker, but a blocker does not automatically force a score to `0`.
 - **Local verdict**—the Skill's own north-star conclusion, evaluated independently from the common band.
 
-Every audit declares **Coverage** with a four-part implementation locator: **Screen** (the exact UI surface), **Flow** (the named journey or transition, or `screen-local`), **State** (the exact rendered or system condition), and **Lifecycle** (the exact user/product moment). Every issue, Top 3 move, Next item, handoff, and Product Judgement priority change carries the same four fields, so the reader can open the right place and reproduce how and when the condition occurs. Here, lifecycle means the user's journey or relationship with the product (first run, pre-value activation, recurring use, interruption/resume, re-entry, lapse), not a software release phase. Never use only `the dashboard` or `onboarding`; if a field is not evidenced, write `not shown` and name the validating check instead of inventing behavior.
+Every audit declares **Coverage** with a four-part implementation locator: **Screen** (the exact UI surface), **Flow** (the named journey or transition, or `screen-local`), **State** (the exact rendered or system condition), and **Lifecycle** (the exact user/product moment). Every issue, top move, Next item, handoff, and Product Judgement priority change carries the same four fields, so the reader can open the right place and reproduce how and when the condition occurs. Here, lifecycle means the user's journey or relationship with the product (first run, pre-value activation, recurring use, interruption/resume, re-entry, lapse), not a software release phase. Never use only `the dashboard` or `onboarding`; if a field is not evidenced, write `not shown` and name the validating check instead of inventing behavior.
 
 Every audit also states its evidence **Basis** and the fastest test, behavior, or metric that would confirm its most consequential uncertain claim.
 
@@ -148,68 +150,83 @@ Give the Skills the surrounding product context as well. Attach or point the LLM
 
 ## Install
 
-### Any supported agent
+### Claude Code, Codex, and Cursor
 
-Install all five Skills—including the holistic audit—with the [Skills CLI](https://skills.sh/docs/cli):
-
-```bash
-npx skills add kvncnls/product-judgement --all
-```
-
-Or install the collection globally for Claude Code, Codex, and Cursor:
+Install all five Skills—including the holistic audit—globally with the [Skills CLI](https://skills.sh/docs/cli):
 
 ```bash
 npx skills add kvncnls/product-judgement --skill '*' -g -a claude-code -a codex -a cursor -y
 ```
 
+The CLI keeps a canonical installed copy and links supported agents to it where possible. Global installation makes the Skills available across projects. To let the CLI ask which Skills, agents, scope, and installation method you want instead, run:
+
+```bash
+npx skills add kvncnls/product-judgement
+```
+
 Install one foundational Skill by name:
 
 ```bash
-npx skills add kvncnls/product-judgement --skill focal
+npx skills add kvncnls/product-judgement --skill focal -g
 ```
 
 Product Judgement uses the four foundational Skills, so install the full set with the command above when you want `/product-judgement`.
 
+### Update an existing installation
+
+Check whether tracked Skills have changed upstream:
+
+```bash
+npx skills check
+```
+
+Update this collection's five globally installed Skills:
+
+```bash
+npx skills update -g product-judgement focal compass flywheel soul
+```
+
+Running the update command again is the normal way to refresh an installation; it uses the source recorded by the CLI. If an update reports a failure, a new Skill was added to the repository, an agent link is missing, or the installation predates the CLI lock record, rerun the full global `skills add` command above. The add command is also the repair path when you intentionally want to overwrite an existing installation or add another agent target. Use `npx skills list -g` to inspect what is installed.
+
 ### Manual installation
 
-Each skill comes in two shapes. The **folder** (`focal/`) loads its references on demand and gives you a slash command. The **bundle** ([`bundles/focal.md`](./bundles)) is the same skill flattened into one file—spine, references, rubrics, and templates—for tools that can't load a multi-file folder. Start by cloning:
+Each Skill comes in two shapes. The **folder** (`focal/`) is the source and loads its references on demand. The **bundle** ([`bundles/focal.md`](./bundles)) is generated from that folder for tools that can only load one Markdown file. Start by cloning:
 
 ```bash
 git clone https://github.com/kvncnls/product-judgement.git
+cd product-judgement
 ```
 
-**Claude Code**—install the folder. Symlink to keep edits in sync:
+Agents that support Skill folders can load an independent copy or a symlink. The common global locations are `~/.claude/skills/` for Claude Code, `~/.codex/skills/` for Codex, and `~/.cursor/skills/` for Cursor. For example:
 
 ```bash
-ln -s "$(pwd)/product-judgement/focal" ~/.claude/skills/focal
+ln -s "$(pwd)/focal" ~/.claude/skills/focal
+ln -s "$(pwd)/focal" ~/.codex/skills/focal
+ln -s "$(pwd)/focal" ~/.cursor/skills/focal
 ```
 
-Prefer an independent copy, or scope it to one project?
+Repeat that for each Skill you need. A project-scoped installation belongs in the agent's project Skill directory instead. Consult the agent's current documentation because discovery paths can change.
+
+For tools without multi-file Skill support, load a generated bundle. Examples include appending one to a project instruction file, using one as a Cursor rule, or uploading one to a ChatGPT Project or custom GPT:
 
 ```bash
-cp -R product-judgement/focal ~/.claude/skills/focal     # independent copy, all projects
-cp -R product-judgement/focal <project>/.claude/skills/  # one project only
+cat bundles/focal.md >> AGENTS.md
+cp bundles/focal.md .cursor/rules/focal.md
 ```
 
-Restart Claude Code and `/focal` is available.
+Swap `focal` for the Skill you want. For a holistic `/product-judgement` audit in a single-file environment, load all five bundles; the holistic Skill needs the four local methodologies to produce native scorecards and one cross-scale fix order.
 
-**Codex**—append a bundle to your project's `AGENTS.md`, which Codex loads automatically:
+Bundles are build artifacts. Maintainers regenerate them from the source folders rather than editing them directly:
 
 ```bash
-cat product-judgement/bundles/focal.md >> AGENTS.md
+ruby scripts/build_bundles.rb
 ```
 
-**ChatGPT**—create a Custom GPT and paste a bundle into *Instructions*, or upload it as a *Knowledge* file. A Project works the same way: add it to the project's files.
-
-**Cursor / Windsurf / Cline**—drop a bundle in as a rules file:
+Run the repository verifier before committing. It validates Skill frontmatter, relative links, scoring and boundary invariants, behavioral contract fixtures, and exact bundle synchronization; CI runs the same command:
 
 ```bash
-cp product-judgement/bundles/focal.md .cursor/rules/focal.md
+ruby scripts/verify.rb
 ```
-
-Swap `focal` for whichever foundational Skill you want. The root README and each foundational Skill's own `README.md` have full usage details, and the bundles are build artifacts—regenerate rather than edit them. Product Judgement's orchestration instructions live in its `SKILL.md` and bundle.
-
-For a holistic `/product-judgement` audit in a single-file environment, load the `product-judgement` bundle together with the Focal, Compass, Flywheel, and Soul bundles. The holistic Skill needs all four local methodologies to produce its native scorecards and cross-scale fix order.
 
 ## License
 

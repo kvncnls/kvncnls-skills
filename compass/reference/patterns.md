@@ -2,7 +2,7 @@
 
 The working catalog behind the three disciplines. Pull from here when building a flow or when prescribing a fix in a review. Ordered the way the disciplines apply: Orientation → Path Economy → Continuity.
 
-Orientation is the load-bearing discipline—it's the literal promise. When two fixes compete for attention, the one that restores the user's bearings wins.
+Orientation is the load-bearing discipline—the literal promise. When two fixes have equal consequence and dependency, restore the user's bearings first. This is prioritization, not extra numeric weight.
 
 ---
 
@@ -12,13 +12,13 @@ How to make sure the user can always answer *Where am I? How far is left? How do
 
 - **Progress as milestones, not a tally.** A stepper that reads "Step 2 of 4" promises an end the user can picture. "12 of 47 complete" reads as a sentence. Frame progress as a small count of named, achievable stages; if the real count is large, group it ("Account → Payment → Review", not "field 14 of 38"). Defer to [Focal](../../focal) for whether any one step is overloaded—Compass owns the count of steps, not the contents of one.
 - **Breadcrumbs and active state.** On hub-and-spoke and any nested structure, the user must be able to point at where they are: a breadcrumb trail back to the hub, a highlighted nav item, a screen title that matches the link they followed. Recognition beats recall—the path home should be readable, not remembered.
-- **A real Back on every screen.** Not just the browser button, and not a Back that secretly resets. Every screen in a flow has a visible, reliable way to the previous step. If Back would lose work, that's a Continuity failure too (see below)—fix both.
+- **A platform-appropriate retreat.** Use in-product Back where the product owns the stack, browser Back where history is expected and state-safe, a hub or breadcrumb in nested spaces, and Cancel / Close / Save & exit in bounded tasks. Do not duplicate controls without adding clarity. If retreat loses work, that is also a Continuity failure.
 - **Escape hatches and Cancel.** Every flow needs a way *out*, not just back: Cancel, Close, "Save & exit," or "Do this later." Back retreats one step; the escape hatch leaves the flow entirely. A multi-step wizard with no Cancel is a trap with a polite face.
 - **Never-trap modals.** A modal is the easiest place to strand someone. Every modal closes—an X, an explicit Cancel, click-outside, or Esc—and closing it returns the user to a known place, not a blank. A modal that opens another modal that has no close is the canonical maze.
 - **No dead ends.** Every screen has a clear next step *or* a clear way out. A screen the user can reach but not leave is a bug, not a state—success screens, error screens, and edge-case screens included.
-- **The drop test.** Drop the user onto any screen mid-flow with no memory of how they arrived. Can they tell where they are, what's left, and how to proceed or retreat? Run it on every screen. The screen that fails the drop test is exactly the screen where users report feeling lost.
+- **The drop test.** Drop the user onto any screen mid-journey with no memory of how they arrived. Can they tell where they are, what remains when bounded, and how to proceed, retreat, or get home? Run the applicable questions on every screen. The screen that fails them is where users become lost.
 
-**Test:** strip a screen of its content and leave only its signage—the title, the progress indicator, the Back, the exit. Can a stranger say what flow this is, where in it they sit, and how to leave? If not, orientation has failed before any step is taken.
+**Test:** strip a screen of its content and leave only its signage—the title, any journey-appropriate position or progress cue, retreat/home path, and exit. Can a stranger say what journey this is, where they sit, and how to leave or return home? If not, orientation has failed before any step is taken.
 
 ---
 
@@ -113,9 +113,9 @@ Each entry: the tell—the discipline it breaks—the fix.
 ## Quick reference card
 
 ```
-DESTINATION  "This flow gets the user from ___ to ___."   (one outcome, no "and")
+OUTCOME      finite: "from ___ to ___" · open-ended: one intent + one home anchor
 STEPS        fewest honest steps · merge round-trips · default/infer/defer · no dead branches
-ORIENT       every screen: where-am-I + how-far-left + a real Back + an exit
+ORIENT       location + progress when bounded + expected retreat/home + an exit
 CARRY        no memory bridge · state survives Back/refresh/resume · deep links land in context
 NEVER        trap a modal · hide progress · shorten by hiding cost or skipping protection
 ```

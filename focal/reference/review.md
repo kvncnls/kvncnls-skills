@@ -23,7 +23,7 @@ Then frame, in one or two sentences each:
 
 ## Locate every finding
 
-Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Top 3 move, Next item, and handoff must carry the same locator:
+Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Top move, Next item, and handoff must carry the same locator:
 
 1. **Screen**—the exact screen, region, or control.
 2. **Flow**—the named journey or transition that reaches it, or `screen-local` when no cross-screen path is involved.
@@ -37,8 +37,8 @@ Use product labels and concrete conditions. `Contact detail · screen-local · e
 Read the gates through the register you classified in Step 0. The disciplines still apply; their targets move. Scoring a hub or feed by task-screen rules produces false failures.
 
 - **Task**: score exactly as the gates describe.
-- **Hub**: the organizing intent is *routing*. Do **not** penalize many destinations under Gate 1 or Gate 2—the ≤4 limit binds *per group and per row*, not on the total. Score IA on whether destinations form a coherent, grouped space, and VH on whether the likely next route or leading group is easy to find. A hub flattened to one action scores *worse*, not better.
-- **Exploration**: abundance is the point. Do **not** penalize many items under Gate 1 or Gate 2—the ≤4 limit binds *per item* (each row's or card's facts), not on the item count. Score VH on whether one coherent content field dominates and chrome recedes; a single primary action is not expected.
+- **Hub**: the organizing intent is *routing*. Do **not** penalize many destinations under Gate 1 or Gate 2. Apply the chunk diagnostic *per group and per row*, not to the total destination count. Score IA on whether destinations form a coherent, grouped space, and VH on whether the likely next route or leading group is easy to find. A hub flattened to one action scores *worse*, not better.
+- **Exploration**: abundance is the point. Do **not** penalize many items under Gate 1 or Gate 2. Apply the chunk diagnostic *per item*—to the facts or decisions inside a row or card, not to item count. Score VH on whether one coherent content field dominates and chrome recedes; a single primary action is not expected.
 - **Task-overloaded**: score by task rules and flag the overload as the leading Gate 1 issue.
 - **Audience:** weigh expertise. The working-memory budget is ~4 *chunks*, and experts read dense displays as a few learned groups. Don't score a pro tool's dense panel as overload if its users chunk it; do score a novice or first-run screen strictly. Density is a function of who's reading it.
 
@@ -68,11 +68,11 @@ Run each gate in turn, in the order the disciplines apply. Each produces a 0–4
 | 3 | Clear organizing intent, suitable action model, sensible grouping and labels, minor structural noise |
 | 4 | Unmistakable organizing intent; every element supports it; action model fits the register; plain labels; nothing orphaned |
 
-### Gate 2—Progressive Disclosure *(load-bearing)*
+### Gate 2—Progressive Disclosure *(anti-overload)*
 
 *Of what belongs, is the right amount shown now?*
 
-- At the busiest decision point, **count items in working memory**. ≤4 good, 5–7 borderline, 8+ overload.
+- At the busiest decision point, **count independent chunks in working memory**. About four unfamiliar chunks is a useful task-screen default, not a universal pass/fail line. Judge familiarity, stakes, grouping, and whether each item changes the decision before calling the screen overloaded.
 - Check whether the screen **minimizes decisions without withholding evidence**. Technical detail can remain available for trust, verification, or expert use without making every user interpret it before proceeding.
 - Check the **disclosure triage**: is anything shown that should be deferred (rare options, advanced settings)? Is anything deferred that should be shown *now* (price, required fields, consequences, the task's primary action, or a control required by the register's action model)?
 - Check that deferral signals **what's hidden** (a count, a clear "More") rather than reading as absence. Name the cue for each deferred thing; if you cannot find one, the content is hidden rather than deferred. A function reachable only by an uncued gesture is the worst case.
@@ -81,18 +81,18 @@ Run each gate in turn, in the order the disciplines apply. Each produces a 0–4
 |-------|----------|
 | 0 | Fundamentally broken—severe overload blocks the core task, or essential information is concealed in a way that removes informed choice or creates material harm |
 | 1 | Major failure—a wall of options or a dark-pattern reveal hides price, a required field, or a consequence, but the core task remains technically possible |
-| 2 | Some layering, but a key decision point exceeds working memory; or content deferred behind no perceptible cue |
+| 2 | Some layering, but a key decision point creates material cognitive overload for its audience; or content is deferred behind no perceptible cue |
 | 3 | Mostly well-layered; one or two things shown or deferred wrongly |
-| 4 | Each step holds ≤4; complexity revealed exactly when needed; nothing essential hidden |
+| 4 | Decision load is exceptionally well matched to audience and stakes; complexity appears exactly when needed; nothing essential is hidden |
 
-Because this discipline is load-bearing, record a score of ≤1 caused by **burying an essential** as a blocker regardless of the total. Severity still follows consequence, reach, and recoverability; do not force the dimension to 0 unless its rubric supports 0.
+A **buried essential** is a blocker only when it prevents the core outcome, removes informed choice, or hides material cost, consequence, permission, or risk. Otherwise assign severity from consequence, reach, and recoverability. Do not infer blocker status from the Progressive Disclosure score alone or force the dimension to `0` unless its rubric supports `0`.
 
 ### Gate 3—Visual Hierarchy
 
 *Does weight match importance?*
 
 - Run the **squint test** on the screenshot (or describe the weight order from the code). Name #1, #2, and the groupings.
-- Run the **3-second test**: would a first-timer name the most important element in 3 seconds?
+- Run the **quick-orientation probe**: on a task screen, can a first-timer identify the read-first region or next action within the first few seconds? Three seconds can be a useful test prompt, but it is not a stopwatch threshold or an automatic scoring failure. For hubs and exploration surfaces, look for a leading group or content field rather than one CTA.
 - Check **weight vs. importance**: does anything decorative outweigh the action model's dominant element or region? Is there a clear visual entry point (the focusing mechanism)? Count distinct type sizes/weights—deliberate scale, or noise?
 - Check whether the **consequence is visible** when a decision depends on a relationship, tradeoff, or process state. A summary, comparison, preview, or visualization should clarify raw values without replacing the supporting evidence.
 - Check **rank vs. actionability** separately. Ranking first is not the same as reading as actionable: when the dominant element is an action, name what says it can be acted on. Then count **false signifiers** (patterns.md, The false signifier).
@@ -115,7 +115,7 @@ Every discipline uses the same integer anchors:
 | **1** | **Major failure** | The outcome may remain technically possible, but the dimension is seriously compromised, unreliable, or largely absent. Substantial correction is required. |
 | **2** | **Partial or inconsistent** | The basic function exists, with a material weakness, missing decision, or inconsistency that prevents dependable quality. |
 | **3** | **Strong** | Deliberate, dependable, context-appropriate professional work with only minor gaps. This is the normal target for good execution. |
-| **4** | **Exemplary** | Fully realized and unusually strong for the relevant context, including realistic states and constraints, with no material gaps. |
+| **4** | **Exemplary—above and beyond** | Fully realized and unusually effective for the relevant context, including realistic states and constraints. This is intentionally uncommon, not the normal target. |
 
 Score each discipline holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the dimension overall, apply explicit local caps or prerequisites, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the dimension being scored; it does not universally require novelty.
 
@@ -134,7 +134,7 @@ Keep the native total: `total = Information Architecture + Progressive Disclosur
 
 Then cap the band by the weakest discipline: a minimum of `0` allows only **Broken**, `1` allows at most **Significant rework**, `2` allows at most **Solid**, and `3–4` adds no ceiling. Use the lower-quality result of the average band and this ceiling. The total must equal the exact sum of the three scores.
 
-Dimension score, overall quality band, issue severity, critical blocker, and the **One Screen, One Clear Intent** verdict are separate. The verdict remains Yes or No: a screen can be Solid and still receive No if its organizing intent or action model is structurally unresolved. Every P0 is a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. Non-P0 methodology blockers remain in local caps, sequencing, and handoffs.
+Dimension score, overall quality band, issue severity, critical blocker, and the **One Screen, One Clear Intent** verdict are separate. The verdict remains Yes or No: a screen can be Solid and still receive No if its organizing intent or action model is structurally unresolved. Every P0 is a blocker, but a blocker does not automatically rewrite a score to 0; a score of 0 does not automatically imply P0. Non-critical methodology failures belong in the local verdict, score, sequencing, or handoff—not in **Blocker**.
 
 ## Issue severity
 
@@ -177,7 +177,7 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 - **[P0 · IA]** **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
 - **[P1 · Disclosure]** **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment>. <Name>—<observation>. <impact>. **Fix:** <fix>.
 
-## Top 3 moves
+## Top moves (up to 3)
 1. **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <highest-leverage change>
 2. **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <next>
 3. **At:** screen: <exact screen/region> · flow: <named flow or `screen-local`> · state: <exact state> · lifecycle: <exact moment> · <next>
@@ -190,6 +190,6 @@ Every review returns this template verbatim, in this order. Don't add, remove, r
 
 Filling it:
 - **Coverage**—name only states and lifecycle moments the evidence actually exposes. Use `gaps` for consequential variants such as loading, error, first-run, re-entry, or worst-case data that were not shown or tested.
-- **Issues and suggestions**—repeat the issue line once per issue, and give every issue, Top 3 move, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Keep it specific enough that a designer or engineer can open the right surface and reproduce the state without rereading the diagnosis. `<observation>` may run two or three sentences when you are being specific and quantitative; the rest stay tight. If nothing ranks above P3, write "None above P3." under the header and keep the header.
+- **Issues and suggestions**—repeat the issue line once per issue, and give every issue, Top move, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Emit one to three Top moves, only when each names a real change; never invent filler to reach three. If no move is warranted, write `None.` Keep each locator specific enough that a designer or engineer can reproduce the state without rereading the diagnosis. `<observation>` may run two or three sentences when specificity requires it. If nothing ranks above P3, write "None above P3." under the Issues header and keep the header.
 - **Next**—structural before executional, always: polishing a screen with an unresolved organizing intent only organizes the clutter. Resolve structural items with the five-move build workflow in [SKILL.md](../SKILL.md). Single-screen work is Focal's; if the real problem is the path between screens, hand off to Compass; if it is a lifecycle leak in activation, value recognition, or return, hand off to Flywheel.
 - Re-run the audit after fixes to watch the score climb.

@@ -14,6 +14,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 **Verdict:** No · the email-verification screen is a dead end with no resend, no Back, and no way forward · **1/12**
 
 **Flow:** Team-collaboration app new-user onboarding · type: linear · audience: novice
+**Outcome / anchor:** first real action completed inside a live workspace
 **Screen:** Email verification, onboarding steps, and resume seam
 **State:** waiting for code, attempted exit, default progression, and back-navigation reset
 **Lifecycle:** first-run activation before workspace entry, before value, and interruption/resume
@@ -39,7 +40,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 - **[P1 · Orientation]** **At:** screen: Steps 1–7 chrome · flow: new-user onboarding · state: default progression · lifecycle: first-run activation before value. Hidden progress across all 7 steps—no stepper, no named stages, no count; standing on step 4 the user cannot tell whether one screen is left or six. An unbounded flow reads as endless, and endless is where people quit; combined with the missing signage, the drop test fails on every screen. **Fix:** once the path is cut, carry a milestone stepper with named stages on every remaining gated step ("Step 1 of 2 · Create account"), and never a tally.
 - **[P1 · Path Economy]** **At:** screen: Steps 3–7 · flow: new-user onboarding · state: required pre-product setup · lifecycle: first-run activation before first value. The setup wall—all 7 steps sit before the user ever sees the product: a plan choice, a forced invite, a 24-tile integration grid, a project name, and a 4-slide tour. Only two are load-bearing (create account, verify email)—this is a 7-step flow that needs 2. Every configuration screen before the first win asks a question the user has no context to answer. **Fix:** cut to account + verify, land the user in a pre-seeded workspace, and move plan, invites, integrations, project naming, and the tour into the product as contextual, dismissible prompts—offer 3 relevant integrations with "Browse all", not a grid of 24.
 
-## Top 3 moves
+## Top moves (up to 3)
 1. **At:** screen: onboarding steps 1–7 · flow: new-user onboarding · state: default progression · lifecycle: first-run activation before value · Cut the wall to 2 gated steps—create account, verify email—then put the user in a live, pre-seeded workspace; plan, invites, integrations, project name, and tour all become in-product prompts they can dismiss and return to.
 2. **At:** screen: verification and all gated steps · flow: new-user onboarding · state: waiting, attempted exit, and resume · lifecycle: interruption/resume · Make every step recoverable: a persistent 2-stage stepper, a real Back that preserves state, "Finish later" on both steps, and a verification screen with a code field, resend countdown, and change-email—so no screen can be reached and not left.
 3. **At:** screen: onboarding → resume link · flow: new-user onboarding · state: deep-linked resume · lifecycle: return after interruption · Fix the seams: persist the pending signup so refresh and return-tomorrow resume in place, and re-point the "Continue setup" and verify links at the step the user actually left instead of step 1.
@@ -61,6 +62,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 ```
 **Flow:** Team-collaboration app first run—gets the user from a signup click to their first real action inside a live workspace.
 **Type:** linear   ·   **Audience:** novice
+**Outcome / anchor:** first real action completed inside the live workspace
 
 ## Steps
 1. Create account—email + password or SSO, with plan tiers stated in plain view ("Free forever · Pro $X/user/month—start free, switch anytime"), free pre-selected, no card. [skip: none—this is the entry]
@@ -77,7 +79,7 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 
 ## Orientation
 - Position/progress: both gated steps carry a two-stage milestone stepper with named stages—"Step 1 of 2 · Create account", "Step 2 of 2 · Verify email"—so the end is visible from the first screen. On arrival, the product's own nav is the position signal: workspace name as the active anchor, plus a "Get started" card reading "1 of 3 done" that honors progress rather than gating it.
-- Back + exit: step 1 has "Back to site"; step 2 has a real Back to step 1 with the email still filled, plus "Finish later" which saves the pending account and mails a resume link. Step 2 can never dead-end—resend, change email, paste code, Back, and exit are all live on it. Inside the workspace every deferred prompt is dismissible and permanently reachable: Invite in the header, Integrations in the sidebar, and the checklist collapses rather than disappearing.
+- Retreat/home + exit: step 1 has "Back to site"; step 2 has a real Back to step 1 with the email still filled, plus "Finish later" which saves the pending account and mails a resume link. Step 2 can never dead-end—resend, change email, paste code, Back, and exit are all live on it. Inside the workspace every deferred prompt is dismissible and permanently reachable: Invite in the header, Integrations in the sidebar, and the checklist collapses rather than disappearing.
 
 ## Continuity
 - Carries forward: the address typed on step 1 is shown verbatim on step 2 ("We sent a code to kevin@acme.com") with a change link, so no code or address is carried in the user's head; the email domain becomes the suggested workspace name on step 3; the plan chosen on step 1 carries to billing and is never re-asked.
@@ -85,15 +87,15 @@ Two worked examples, captured from real runs of this skill and shown in the lock
 - Entry points: the "Continue setup" email link carries a signed resume token and opens the exact step the user left, never step 1; the verification magic link completes verification and lands the user in the workspace; a teammate's invite link lands the invitee on that workspace's join screen and, after account creation, inside that workspace rather than a fresh empty one.
 
 ## Gates
-- [x] One destination, no "and"
+- [x] Finite: one outcome with no independent second outcome · open-ended: one organizing intent and a stable home anchor
 - [x] Every step earns its place; nothing protective cut
-- [x] Where-am-I + back + exit on every step
+- [x] Where-am-I + platform-appropriate retreat/home + exit throughout
 - [x] No memory bridge; state survives; deep links land in context
 - [x] Drop test passes on every screen
 ```
 
 ---
 
-**Why these two:** the review never just lists problems—it ties every issue to a discipline, ends on three ranked moves, and sorts the work structural-before-executional. The build never returns prose—it returns the same Flow Spec every time. And the second resolves the first: "cut the wall to 2 gated steps and make every one recoverable" becomes an actual three-screen flow where the user always knows where they are, what's left, and how to get back or out.
+**Why these two:** the review never just lists problems—it ties every issue to a discipline, ends on a short ranked set of real moves, and sorts the work structural-before-executional. The build never returns prose—it returns the same Flow Spec every time. And the second resolves the first: "cut the wall to 2 gated steps and make every one recoverable" becomes an actual three-screen flow where the user always knows where they are, what's left, and how to get back or out.
 
 Note the honest-path line running through both: the review's fix for the buried price is to disclose it *earlier*, and the build states it on step 1. Shortening the felt path by hiding cost, or dropping verification to save a screen, would be a dark pattern rather than Path Economy—which is why `## Cut` names what was kept as protection alongside what was removed as waste.

@@ -22,7 +22,7 @@ Nothing new is introduced. The existing thing, done at a grade users can feel ev
 
 Examples of the register: the confirmation that states the amount and the running total instead of "Done"; the upload that shows filenames processing instead of a spinner; the form whose labels anticipate the next question; the settle animation that gives a completed payment weight.
 
-**On `every-run` and high-stakes beats, Elevated is also the ceiling**—it raises quality without spending novelty, so it survives repetition and never competes with reassurance.
+**On `every-run` and high-stakes beats, Elevated is the default ceiling**—it raises quality without spending novelty, so it survives repetition and does not compete with reassurance. Net-New is an exception, not an entitlement: on an every-run beat it must add durable utility that remains valuable on the 50th run; on a high-stakes beat it must strengthen reassurance, records, or control while preserving load-bearing convention. If the case depends on surprise, spectacle, or unfamiliarity, keep the target at Elevated or Expected.
 
 ## Net-New—an entirely new experience
 
@@ -32,7 +32,7 @@ An entirely new experience in place of the old one—not the same moment execute
 
 Examples of the register: a live visualization where a table was assumed; a personalized artifact worth keeping (a year-in-review, a printable record, a shareable result card); an interactive demo where static onboarding was assumed; a progress mechanic that accumulates something users check voluntarily.
 
-**Net-New ships only on the 2–3 chosen moments, never more.** It spends surprise, and surprise concentrates—spread thinner, none of it clears the threshold of memorable. (In a build, the Net-New rung still gets designed for any beat whose ceiling allows it—ideation is free; the ration is on shipping.) Two rules keep the tier honest:
+**Net-New ships on no more than three chosen moments, and zero is valid.** It spends surprise, so concentration matters—spread thinly, none may clear the threshold of memorable. A build designs the Net-New rung only when the beat's ceiling and target allow it; otherwise the rung states why it is unavailable. Two rules keep the tier honest:
 - **It must survive its frequency.** A Net-New mechanic on an every-run beat must be useful on the 50th run, not clever on the first. If it is only clever, move it to a `once` or `recurring` beat.
 - **It must be worth keeping, not just worth noticing.** The strongest Net-New treatments produce an artifact or capability the user returns to; the weakest produce a reaction and then a chore.
 

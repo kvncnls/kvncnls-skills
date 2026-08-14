@@ -1,6 +1,6 @@
 ---
 name: flywheel
-description: Use when improving how a product converts attention into durable value—the growth and retention side of design. Flywheel finds where a product loses the people it already earned, then applies the play that fixes that stage, across four ordered plays—Trust (the first push), Friction (drag on the bearing), Wins (the power stroke), and Emotion (the mass that keeps it turning). Design a relationship stage or audit an existing one, scoring each play 0–4. Triggers on growth, retention, activation, onboarding, conversion, churn, drop-off, first impression, time to value, empty state, upgrade prompt, referral, advocacy, "why do users leave", "nobody comes back", "they sign up but never return". Not for single-screen structure (use Focal), multi-screen flows (use Compass), paid channels, campaign copy, analytics instrumentation, or research protocols.
+description: Use when improving how a product converts attention into durable value—the growth and retention side of design. Flywheel finds where a product loses the people it already earned, then applies the play that fixes that relationship stage across four ordered plays—Trust, Friction, Wins, and Emotion. A full relationship diagnosis evaluates all four plays and reports /16 only when each is supportable; a targeted stage review scores one play without fabricating a cross-play total. Triggers on growth, retention, activation, onboarding, conversion, churn, drop-off, first impression, time to value, empty state, upgrade prompt, referral, advocacy, "why do users leave", "nobody comes back", or "they sign up but never return". Not for screen-local structure (use Focal), route mechanics or journey orientation (use Compass), expressive treatment (use Soul), paid channels, campaign copy, analytics instrumentation, or research protocols.
 argument-hint: "[build | diagnose] <product, stage, or symptom>"
 ---
 
@@ -50,7 +50,7 @@ It is **not** for:
 
 ## Diagnose first—which play do you need?
 
-Never run all four plays by default. Find the stage that is losing people, and run that play. Walk this tree top to bottom and take the first match.
+A **full relationship diagnosis evaluates all four plays**, because the earliest leak can sit upstream of the symptom the user named. It scores every play supported by evidence and reports `/16` only when all four are evaluable. It still selects only one stage to fix first; scanning four is not permission to redesign four. A **targeted stage review or build runs one play deeply** and does not invent a `/16` total. Walk this tree top to bottom and take the first evidenced match.
 
 ```
 Where does the product lose people?
@@ -64,9 +64,9 @@ Where does the product lose people?
       the wheel has no mass
 ```
 
-**Name first value before you walk the tree.** Branches 2 and 3 are separated by exactly that line, and nothing else—so an undefined first value makes the tree unwalkable, and undefined is the common case. If the team has not named it, name it yourself as the strictest outcome you can defend: the moment the user's situation changes, not the moment setup ends. Say which definition you used, because a looser one moves the whole diagnosis from Friction to Wins and changes every fix that follows. The absence of a team definition is itself a finding—report it.
+**Name first value before you walk the tree.** Branches 2 and 3 are separated by exactly that line, and nothing else—so an undefined first value makes the tree unwalkable, and undefined is the common case. If the team has not named it, use the strictest outcome the available product evidence can defend: the moment the user's situation changes, not the moment setup ends. Say which definition you used, because a looser one moves the whole diagnosis from Friction to Wins and changes every fix that follows. Missing internal terminology is context to align, not an automatic UX score penalty; score the experience the user actually receives.
 
-**If two stages both leak, take the earliest.** Loss compounds downstream: a fix at Wins is wasted on people who never got past Friction. This is the same reason the plays are ordered.
+**If two stages both leak, take the earliest among non-critical improvements.** Loss compounds downstream: a fix at Wins is wasted on people who never got past Friction. A P0 at any stage overrides that investment order for immediate stop or repair; once the critical condition is removed, resume from the earliest remaining leak.
 
 ### Diagnosing with data, and without it
 
@@ -74,7 +74,7 @@ Where does the product lose people?
 
 **Without data**, which is the common case, diagnose from the artifact using the play's own audit checks, and say plainly which measurement would confirm it. Never stall for want of numbers, and never present a heuristic finding as a measured one—say the finding was diagnosed from the artifact, and name the metric that would confirm it. Both output templates have a slot for exactly that.
 
-**Pick the confirming metric by what would change the verdict.** Each play's *What to measure* section is a menu; this rule picks from it, and it picks **one**. State it as a comparison, never a level: the completion rate of the exact step you blamed, and the return or conversion rate of the people who clear that step against those who do not. A level only tells you the stage is low. The comparison tells you whether the step you blamed is the reason—which is the claim you actually made.
+**Pick the confirming metric by what would change the verdict.** Each play's *What to measure* section is a menu; this rule picks from it, and it picks **one**. State it as a comparison, not only a level: the completion rate of the exact step you blamed, and the return or conversion rate of people who clear it versus those who do not. That comparison can support or weaken the diagnosis, but observational cohorts show association, not causation; use an experiment or additional evidence before claiming the step caused the outcome.
 
 ### Two modifiers
 
@@ -86,7 +86,7 @@ Where does the product lose people?
 
 ## The four plays
 
-Each play has its own reference file. Read the one the diagnosis selected; do not read all four.
+Each play has its own reference file. The review contract contains the light scan for all four. Read the selected play's reference for the deep diagnosis or build; read another only when evidence identifies a second independent issue. This keeps the work stage-focused without hiding upstream context.
 
 ### 1. Trust—the first push
 *Read [reference/trust.md](reference/trust.md).*
@@ -112,9 +112,9 @@ An ask before value converts stored momentum into resistance. That is braking yo
 ### 4. Emotion—the mass
 *Read [reference/emotion.md](reference/emotion.md).*
 
-What makes the wheel keep turning between pushes. Name the specific emotion the job calls for—"delight" is not an answer—then build a competent baseline, add reinforcement to ordinary actions, and concentrate peaks on moments that matter. If the baseline is weak, peaks read as cosmetic. If everything is a peak, the product is exhausting.
+What makes the wheel keep turning between visits. Name the relationship state the job calls for—confidence, control, momentum, mastery—and test whether it changes future behavior. Restore context on re-entry, show accumulated value, and give the user a real reason to continue rather than a novelty prompt.
 
-Retention depends less on novelty than on respectful continuity: restore context on re-entry, show what changed, and never make someone rebuild what they already did.
+Flywheel owns whether the relationship earns return, preference, and advocacy. Soul owns the expressive treatment of memorable moments. A product can have strong relationship mass through useful continuity and compounding value without being visually distinctive.
 
 ---
 
@@ -122,7 +122,7 @@ Retention depends less on novelty than on respectful continuity: restore context
 
 - **No argument** → explain the wheel and the four plays briefly, then ask: diagnosing an existing product, or designing a relationship stage?
 - **A whole-app or cross-scale audit request** → hand off to [Product Judgement](../product-judgement/SKILL.md), which runs Flywheel with Focal, Compass, and Soul and reconciles the results.
-- **`diagnose` / `audit` / `review` (a product, a stage, a screenshot, or a symptom like "nobody comes back")** → load and follow [reference/review.md](reference/review.md). It scores each play 0–4 against a written rubric, requires an evidence-based rationale and next-point change for every score, totals to /16, displays a normalized /4 average and common quality band with a weakest-play ceiling, tags issues P0–P3, and anchors every issue and suggested move to the exact **Screen · Flow · State · Lifecycle** locator before naming the leaking stage. That file defines the rubrics, scoring contract, bands, severities, and audit locator—all of them, and nowhere else.
+- **`diagnose` / `audit` / `review` of the product or relationship** → load and follow [reference/review.md](reference/review.md). A full diagnosis evaluates all four plays, scores every supported play 0–4, reports `/16` only when all four are evaluable, and selects the earliest evidenced leak. A request explicitly limited to one stage uses the same rubric but reports that play `/4` with no fabricated `/16` total. Both modes require evidence-based rationales, P0–P3 issues, and exact **Screen · Flow · State · Lifecycle** locators.
 - **`build` (a relationship stage to design)** → name first value, walk the diagnosis tree to confirm which stage, read that play's reference, then follow **Design** below. That order is fixed: the tree cannot be walked before first value is named.
 - **A question about one play** → read that play's reference file.
 
@@ -161,14 +161,14 @@ Designing a relationship stage needs one input Focal and Compass do not: you can
 ## The ask
 - Ask: <the commercial or social ask on this stage, or "None">
 - Lands after: <the value the user has just received>
-- Declining costs them: <nothing, stated plainly—or name the real consequence>
+- Declining changes: <what already-earned value remains, plus any explicit foregone benefit or real consequence>
 
 ## Gates
 - [ ] First value named as an outcome, not setup
 - [ ] The leak is stated with evidence, and the confirming metric is named
 - [ ] Every required step has a purpose the user could be told
 - [ ] Protective and productive friction preserved
-- [ ] Any ask lands after the value it extends, and declining is free
+- [ ] Any ask lands after the value it extends; declining preserves value already earned; any foregone benefit is explicit and noncoercive
 - [ ] Nothing here hides cost, consequence, permission, or reversibility
 ```
 
@@ -192,8 +192,8 @@ Designing a relationship stage needs one input Focal and Compass do not: you can
 
 Match-and-refuse. These are not aggressive growth tactics; they are the ways a wheel gets destroyed while appearing to spin faster.
 
-- **Hiding consequence to increase action.** Cost, renewal, permissions, risk, data use, irreversibility, cancellation. Any of these obscured is a P0 regardless of what it does to the metric.
-- **An ask before value.** An upgrade prompt at task entry, an invite request before the product is understood, a rating prompt on first launch. Braking your own wheel.
+- **Hiding material consequence to increase action.** Cost, renewal, permissions, risk, data use, irreversibility, cancellation. Obscuring a material one removes informed choice and is P0 regardless of what it does to the metric.
+- **An extractive ask before relevant value.** A rating prompt on first launch, an invite request before collaboration is understood, or an unrelated upsell at task entry brakes the wheel. An honest purchase decision can precede product use when payment is the transaction itself; disclose the value, cost, terms, and alternative before commitment.
 - **Weaponized emotion.** Shame, artificial urgency, fear of missing out around risky behavior, loss-chasing, punitive streaks, guilt-based cancellation flows.
 - **Celebration disproportionate to the moment.** Confetti on a routine action reads as juvenile; confetti on a high-stakes financial action before confirming safety reads as a casino.
 - **Optimizing screen count instead of understanding.** Combining screens that each held one real decision does not reduce effort, it concentrates it.

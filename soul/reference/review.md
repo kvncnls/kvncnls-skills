@@ -1,159 +1,137 @@
-# Soul Search—the happy-path sweep
+# Soul Search—the readiness check and three-gate happy-path sweep
 
-Map the default path, sort every beat into a tier, and return the 2–3 Net-New moments plus the small things worth elevating. Use when the user asks to search, sweep, audit, review, or find—or hands over a product with "it feels generic," "it's boring," "make it memorable."
+Map the working happy path, decide where expressive treatment belongs, and return a restrained set of opportunities. Use when the user asks to search, sweep, audit, review, or find the soul in a product that feels generic, forgettable, over-decorated, or inconsistently authored.
 
 ## Input modes
 
-- **A product or flow** (screens, a URL, code, a walkthrough)—map the path directly from the artifact. Label findings *observed*.
-- **A description** ("a budgeting app where you link accounts and get a weekly summary")—walk the skeleton as an interview, fill the seven blanks, and label findings *walked from a description*. Say plainly which beats are assumed.
-- **A symptom** ("nothing about it feels ours")—still map the path first. The symptom picks the emphasis; the map decides the verdict.
+- **A product or flow description**—reconstruct the default path and label every assumed beat. Walked evidence is valid when it is named as such; borrowed confidence is not.
+- **Screens, Figma/Paper frames, or a prototype**—read the visible beats and their order. Include first-use, repeat-use, success, failure, interruption, and re-entry states when available. A frame does not prove timing, persistence, or repetition.
+- **A live product or codebase**—walk the default path, trigger the real success state, repeat frequent beats, inspect reduced-motion behavior, and test failure for restraint. The codebase can expose lifecycle and frequency behavior that static frames cannot.
 
-## Step 0—Map, then check the floor
+## Step 0—Map the path and check readiness
 
-Before scoring, establish:
+Build the happy path with the seven-part skeleton in [SKILL.md](../SKILL.md), then expand only where a beat changes understanding, action, system response, or feeling. Tag each beat with its touchpoint and frequency. State the intended ending feeling; `unnamed` is a finding, not permission to invent brand personality.
 
-- **The path.** Build the beat table from the skeleton in [SKILL.md](../SKILL.md)—10–12 beats, touchpoint-tagged, frequency-tagged. Don't re-derive the skeleton here.
-- **The intended ending feeling.** If nobody can name what the user is meant to feel at beat 7, record "unnamed" in the header—that absence is a finding, and it caps Signature at 2, because a product that has not chosen a feeling cannot have authored one.
-- **The floor.** Does the path actually work—reachable outcome, no trust breaks, no maze? If not, the job is not Soul's yet: score Baseline 0–1, make the handoff the first item in **Next**, and keep the moment analysis as "after the path holds." Treatments on a broken path read as cosmetic, and users correctly discount them.
-- **The state and lifecycle coverage.** For each observed beat, distinguish the rendered state from its occurrence: first run, steady-state repeat, re-entry, milestone, failure, or recovery. Frequency is cadence, not lifecycle; `recurring` alone does not say whether this is the first success or the fiftieth.
-- **Observed or walked?** State which, per the input modes above. Blending them silently turns a heuristic into a false certainty.
+Then run Readiness before choosing treatment:
+
+- **Ready**—the primary user can reach the outcome with enough clarity, stability, trust, and control that expressive work will not cover a defect.
+- **Deferred**—a screen, path, or relationship failure materially prevents the outcome or makes treatment cosmetic. Name the owner: Focal for the screen, Compass for the path, Flywheel for the relationship stage.
+
+Readiness is deliberately **unscored**. The other Skills already score structural and lifecycle quality; scoring it again would double-penalize the same failure. A Deferred result still records observed treatment problems and future candidates, but **Next** starts with the handoff. If the broken path makes Placement, Proportion, or Signature impossible to evaluate, mark that gate `N/E—not evaluable until readiness holds` and do not calculate a `/12` total.
+
+Error branches are not Net-New candidates, but they are evidence for restraint. Check whether failure copy, motion, and personality preserve clarity and dignity; do not turn the error itself into a delight opportunity.
 
 ## Locate every finding
 
-Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Moment, small thing, Next item, and handoff must carry the same locator:
+Before scoring or suggesting a change, build a four-part implementation locator. Every issue, Moment, small thing, Next item, and handoff carries it:
 
-1. **Screen**—the exact beat, touchpoint, screen, message, or control.
-2. **Flow**—the named happy path or transition that contains the beat.
-3. **State**—the rendered or system condition: default, empty, loading, error, success, notification, and so on.
-4. **Lifecycle**—the occurrence in the experience: first run, first success, steady-state repeat, re-entry, milestone, failure, or recovery.
+1. **Screen**—the exact beat, touchpoint, message, or control.
+2. **Flow**—the named happy path or transition.
+3. **State**—the rendered or system condition: first-use, empty, loading, success, failure, re-entry, and so on.
+4. **Lifecycle**—the occurrence: first run, every run, recurring milestone, first value, return, lapse, or recovery.
 
-Use concrete moments. `Payment screen → confirmation · payment flow · success notification · first payment received` is actionable; `the happy path` is not. If any locator field is not evidenced, write `not shown` and name the fastest validating trigger in **Coverage** or **Basis**—do not invent it.
+Use the narrowest defensible locator. `Payment notification · invoice-to-payment · successful settlement · recurring value realization` is actionable; `the ending` is not. If any field is not evidenced, write `not shown` and name the fastest validating check in Coverage or Basis.
 
-## The four gates
+## The three scored gates
 
-Score all four, even when one is obviously the problem—the reader needs to see whether the failure is absence (nothing placed), misplacement (placed where nobody walks), or excess (placed everywhere).
+### Gate 1—Placement *(where does expressiveness belong?)*
 
-### Gate 1—Baseline *(does the path hold?)*
-
-- Can the primary user get from entry to outcome without confusion, delay, or doubt?
-- Is the pace itself a quality signal—fast, stable, immediate acknowledgment?
-- Would quiet craft read as intentional here, or would it sit on top of jank?
-
-| Score | Criteria |
-|-------|----------|
-| 0 | Broken—users cannot reliably reach the outcome, or trust fails on the way; hand off before any treatment |
-| 1 | Reachable but taxed—slow, unstable, or confusing enough that expressive treatment would read as cosmetic |
-| 2 | Sound but bare—it works; nothing about the execution signals that anyone cared |
-| 3 | Quiet quality—fast, stable, comprehensible; the baseline itself reads as intentional |
-| 4 | The baseline is the signature—speed and clarity so far above category norm that they are what users describe |
-
-### Gate 2—Placement *(where does the expressiveness live?)*
-
-- List every deliberate expressive touch in the product. How many sit on the default path?
-- Is anything living in a dumping ground—404 humor, error mascots, easter eggs—while path beats stay sterile?
-- Were the treated beats chosen, or accumulated?
+- List every deliberate expressive touch and every meaningful beat kept Expected.
+- Check whether treatment follows reach × memory rather than low implementation risk.
+- Check the selection bar, frequency and stakes constraints, and load-bearing conventions before promoting any beat. Treat Elevated as the default ceiling for every-run or high-stakes beats, with Net-New allowed only when durable utility, reassurance, records, or control justify the exception.
+- Treat zero Net-New moments as valid when the restraint receipt explains why no beat earns a rebuild.
 
 | Score | Criteria |
-|-------|----------|
-| 0 | Backwards—expressiveness lives in dumping grounds while the path is sterile |
-| 1 | Sterile—no deliberately designed moment anywhere on the path |
-| 2 | Scattered—touches exist on-path, but nobody chose them; density without placement |
-| 3 | Placed—Net-New concentrated on 2–3 chosen moments, craft on the small things, the rest deliberately standard |
-| 4 | Placed and ranked—the Net-New moments are the highest reach × memory beats available, and the receipt shows what was refused |
+|---|---|
+| 0 | Backwards or harmful—expressiveness concentrates in dumping grounds, obstructs the path, or exploits failure while consequential beats are neglected |
+| 1 | Unauthored—no deliberate treatment decisions and no evidence that Expected restraint was chosen |
+| 2 | Partial—some on-path craft exists, but placement is scattered, inherited, or unsupported by a clear restraint receipt |
+| 3 | Deliberate—every meaningful beat has a defensible tier; Elevated craft is distributed where useful; zero to three Net-New moments are chosen only when justified |
+| 4 | Exemplary—treatment and restraint are ranked against the strongest available candidates, alternatives were explicitly refused, and each choice is unusually effective for its context |
 
-### Gate 3—Proportion *(does intensity fit frequency and magnitude?)*
+### Gate 2—Proportion *(does intensity fit frequency, magnitude, and stakes?)*
 
-- Walk each treated beat: does an every-run beat carry novelty that decays, or repetition-proof craft?
-- Does feedback intensity match the size of the moment—and on high-stakes actions, does reassurance come before feeling?
-- Do the endings outweigh the middles?
-
-| Score | Criteria |
-|-------|----------|
-| 0 | Inverted—celebration at high stakes before safety is confirmed, or heavy novelty on every-run beats |
-| 1 | Uniform—one intensity everywhere, so nothing reads as significant |
-| 2 | Mostly fit, one leak—a decayed repeat, or one clearly under-played milestone |
-| 3 | Fit—every-run beats repetition-proof, rare beats carrying the expressiveness, intensity matching magnitude |
-| 4 | Tuned—variation keeps repeated beats alive without exhausting anyone, and the ending is the strongest beat on the path |
-
-### Gate 4—Signature *(would you know it without the logo?)*
-
-- Name one moment a user would describe to a friend. Is there one?
-- Cover the logo: does anything—copy voice, motion character, a specific interaction—identify the product?
-- Is the expressiveness coherent, or a pile of borrowed patterns?
+- Does an every-run beat use repetition-proof craft rather than novelty that decays?
+- Does intensity match the size of the moment?
+- On high-stakes actions, do reassurance, records, and control precede feeling?
+- Does the ending receive enough weight without turning routine completion into ceremony?
 
 | Score | Criteria |
-|-------|----------|
-| 0 | Anti-signature—the memorable thing is an annoyance, an interruption, or a dark pattern |
-| 1 | Anonymous—swap the logo for a competitor's and nobody notices |
-| 2 | A style, not a moment—consistent surface, nothing anyone would describe |
-| 3 | One authored moment users could describe to a friend |
-| 4 | Recognizable without the logo—the moments cohere into a personality that survives success and failure |
+|---|---|
+| 0 | Inverted or harmful—celebration precedes safety on a high-stakes action, or heavy novelty repeatedly obstructs a core task |
+| 1 | Uniform—one intensity is applied everywhere, so routine and milestone beats carry the same emotional weight |
+| 2 | Mostly fit with a material mismatch—one decayed repeat, misplaced ceremony, or underplayed consequential ending |
+| 3 | Fit—frequent beats are repetition-proof, rare beats may carry greater expression, and intensity follows magnitude and stakes |
+| 4 | Exemplary—variation, pacing, and restraint remain unusually effective across first use, repetition, reduced-motion behavior, and the ending |
+
+### Gate 3—Signature *(is any authorship worth remembering?)*
+
+- Name the product-specific moment, interaction quality, or quiet pattern a user could describe.
+- Cover the logo: does the experience retain a coherent point of view without depending on novelty or decoration?
+- Check whether authorship survives both success and failure through clarity, restraint, and consistent character.
+- Do not require Net-New. A distinctive, repetition-proof Elevated pattern or exceptional quiet baseline can carry signature.
+
+| Score | Criteria |
+|---|---|
+| 0 | Anti-signature—the memorable thing is an interruption, dark pattern, mockery at failure, or exhausting repeated treatment |
+| 1 | Anonymous—no product-specific authorship is visible in the evaluated path |
+| 2 | Coherent surface, weak memory—the experience has care or style but nothing yet forms a describable product-specific pattern |
+| 3 | Authored—at least one product-specific moment or quiet pattern is useful, coherent, and describable without taxing the task |
+| 4 | Exemplary—a coherent authored point of view survives success, failure, repetition, accessibility constraints, and multiple path beats without becoming noise |
 
 ## Scoring rules
 
-Every gate uses the same integer anchors:
+Every evaluated gate uses the same integer anchors:
 
 | Score | Canonical label | Shared meaning |
 |---:|---|---|
-| **0** | **Broken or harmful** | The dimension fails outright, blocks its core outcome, actively inverts the intended behavior, or creates material harm. |
-| **1** | **Major failure** | The outcome may remain technically possible, but the dimension is seriously compromised, unreliable, or largely absent. Substantial correction is required. |
-| **2** | **Partial or inconsistent** | The basic function exists, with a material weakness, missing decision, or inconsistency that prevents dependable quality. |
-| **3** | **Strong** | Deliberate, dependable, context-appropriate professional work with only minor gaps. This is the normal target for good execution. |
-| **4** | **Exemplary** | Fully realized and unusually strong for the relevant context, including realistic states and constraints, with no material gaps. |
+| **0** | **Broken or harmful** | The gate fails outright, inverts its intended behavior, or creates material harm. |
+| **1** | **Major failure** | The gate is seriously compromised, unreliable, or largely absent. Substantial correction is required. |
+| **2** | **Partial or inconsistent** | The basic quality exists, but a material weakness prevents dependable execution. |
+| **3** | **Strong** | Deliberate, dependable, context-appropriate professional work with only minor gaps. This is the normal target. |
+| **4** | **Exemplary—above and beyond** | Fully realized and unusually effective for the context, realistic states, and constraints. This is intentionally uncommon, not the normal target. |
 
-Score each gate holistically against its local rubric. Read all checks and evidence, choose the anchor that best describes the gate overall, apply explicit prerequisite caps, and let one severe material failure determine the score when the rubric warrants it. Do not use hidden sub-scores, checklist subtraction, averaging, or half-points. A 4 is exemplary for the gate being scored; Signature may legitimately require recognizable authorship because distinctiveness is what that gate measures.
+Score each gate holistically against its local rubric. Do not use hidden sub-scores, checklist subtraction, averaging, half-points, or a Net-New count as a proxy for quality. A `4` explains what is unusually effective; a restrained `3` can be better product judgment than an over-authored `4` attempt.
 
-### Score rationale—required
+A score without an explanation is invalid. Every row uses **evidence → consequence → rubric anchor → next-point change**. A `2` names what works and the material weakness; a `3` names the remaining minor gap; a `4` says why the gate is above and beyond and uses `None—already exemplary` for the next point. `N/E` is permitted only when Deferred readiness makes the gate genuinely unevaluable; it is not a low score.
 
-A score without an explanation is invalid. Fill every scorecard row with the same chain: **evidence → consequence → rubric anchor → next-point change**. State what was observed, inferred, tested, walked, or measured; what it costs the path's authorship or usability; why that evidence earns the integer under the local rubric and stops there; and the smallest concrete change that would raise it one point. A `2` must say what works and name the material weakness; a `3` must name the remaining gap; a `4` must explain why the gate is exemplary and say `None—already exemplary` in the next-point field. If the evidence does not expose a state or lifecycle occurrence, say `not shown` in Coverage/Basis and name the validating check—do not award credit or invent failure.
-
-Keep the native total: `total = Baseline + Placement + Proportion + Signature`. Calculate `average = total / 4`, display it rounded to one decimal place, and apply this shared algorithm:
+When all three gates are evaluated, keep the native total: `total = Placement + Proportion + Signature`. Calculate `average = total / 3`, round to one decimal, and apply:
 
 | Band | Average rule | Native total |
 |---|---:|---:|
-| **Broken** | `average <= 1.5` | `0–6 / 16` |
-| **Significant rework** | `1.5 < average < 2.5` | `7–9 / 16` |
-| **Solid** | `2.5 <= average < 3.5` | `10–13 / 16` |
-| **Excellent** | `average >= 3.5` | `14–16 / 16` |
+| **Broken** | `average <= 1.5` | `0–4 / 12` |
+| **Significant rework** | `1.5 < average < 2.5` | `5–7 / 12` |
+| **Solid** | `2.5 <= average < 3.5` | `8–10 / 12` |
+| **Excellent** | `average >= 3.5` | `11–12 / 12` |
 
-Then cap the band by the weakest gate: a minimum of `0` allows only **Broken**, `1` allows at most **Significant rework**, `2` allows at most **Solid**, and `3–4` adds no ceiling. Use the lower-quality result of the average band and this ceiling. The total must equal the exact sum of the four scores.
+Cap the displayed band by the weakest evaluated gate: `0` caps at Broken, `1` at Significant rework, `2` at Solid, and `3–4` adds no ceiling. If any gate is `N/E`, report no total, average, or common band.
 
-- **Baseline ≤1 makes the handoff the first move, always.** The moments section still gets filled—the analysis is real—but every treatment is sequenced after the path holds, and **Next** leads with the handoff.
-- **An unnamed ending feeling caps Signature at 2.** Authorship requires a choice; no choice, no author.
-- **A P0 is a critical blocker regardless of total.** Name it in **Blocker** and remove it before any new treatment ships. Do not mechanically force the affected gate to 0; score it using its rubric.
-- **Expected is a verdict, not a deduction.** A beat kept standard on purpose, with the reason on record, supports Placement 3–4. Sterility is only scored down when it is unchosen—the difference is the receipt.
-
-Dimension score, overall quality band, issue severity, critical blocker, and the authored-state verdict are separate. A score of 0 does not automatically imply P0, and a P0 does not automatically rewrite a score to 0. Baseline prerequisite behavior remains a local sequencing and handoff rule, not a universal severity label.
+Readiness, gate score, final band, issue severity, blocker, and authored-state verdict remain separate. A Deferred readiness result is not itself P0. Assign severity from consequence, reach, and recoverability; a methodology preference is never automatically release-critical.
 
 ## Issue severity
 
 | Priority | Meaning |
-|----------|---------|
-| **P0 — Critical** | Blocks the core outcome; traps the user; destroys work or state; causes or risks material harm; hides material cost, consequence, permission, or risk; removes informed choice; or uses coercive manipulation. Fix before release. |
-| **P1 — Major** | Materially damages comprehension, completion, orientation, trust, value realization, or return for a meaningful share of users. Fix before release. |
-| **P2 — Moderate** | Creates real friction, confusion, dilution, or missed value with a viable recovery, workaround, or limited scope. Fix in the next planned pass. |
+|---|---|
+| **P0 — Critical** | Blocks the core outcome; destroys work or state; causes or risks material harm; hides material cost, consequence, permission, or risk; removes informed choice; or uses coercive manipulation. Fix before release. |
+| **P1 — Major** | Materially damages comprehension, trust, value realization, return, or the experience's authorship for a meaningful share of users. Fix before release. |
+| **P2 — Moderate** | Creates real friction, dilution, misplaced treatment, or missed value with a viable recovery, workaround, or limited scope. Fix in the next planned pass. |
 | **P3 — Minor** | Low-impact craft, consistency, or polish. Fix when time permits. |
-
-Assign severity from consequence, reach, and recoverability. A methodology rule violation is not automatically P0.
-
-**Ordering (one rule):** sort by priority, P0 first. Within the same priority, path order—earlier beats first, because more people reach them; off-path issues come after on-path issues of the same priority. Never reorder across priorities.
-
-Note the deliberate asymmetry: **issues** are ordered by path position, but **moments** are ranked by reach × memory—which is why an ending can outrank a first impression in the moments list even though it sits later on the path. Memory weights endings; drop-off weights beginnings.
 
 ## Output format—use this exact structure
 
-Every search returns this template verbatim, in this order. Don't add, remove, reorder, or rename sections. Fill the `<…>` slots; keep every fixed label. This block is the single source of truth for the emitted shape.
+Every search returns this template in this order. Repeat Moment and small-thing lines only as warranted; fixed sections remain present even when their content is `None.`
 
-```
-**Verdict:** <the state, one phrase> · <the biggest missed or misplaced moment> · **<total>/16**
+```markdown
+**Verdict:** <authored | anonymous | misplaced | exhausting | deferred> · <the biggest missed or misplaced decision> · **<total/12 | N/E>**
 
-**Product:** <what it is, for whom> · **Path:** <N> beats, <entry> → <outcome> · **Ends feeling:** <the intended emotion, or "unnamed">
+**Product:** <what it is, for whom> · **Path:** <N> beats, <entry> → <outcome> · **Ends feeling:** <named state or `unnamed`>
+**Readiness:** <Ready | Deferred> · <why, plus owner when Deferred>
 **Screen:** <exact touchpoint(s) or `not shown`>
 **Flow:** <named happy path or transition(s) or `not shown`>
 **State:** <exact rendered or system state(s) reviewed>
 **Lifecycle:** <exact occurrence(s) reviewed>
-**Coverage:** <app states and lifecycle occurrences actually reviewed> · gaps: <material states or occurrences not shown or triggered, or "none">
-**Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <the fastest validating check>
+**Coverage:** <app states and lifecycle occurrences actually reviewed> · gaps: <material states or occurrences not shown, or `none`>
+**Basis:** <observed from a screenshot or artifact | inferred from code | tested in a prototype or live product | walked from a description | measured from product data> · confirm with: <fastest validating check>
 **Blocker:** <None. | concise blocker reason>
 
 ## The path
@@ -164,38 +142,38 @@ Every search returns this template verbatim, in this order. Don't add, remove, r
 ## Scorecard
 | Gate | Score | Why this score | What raises it one point |
 |---|---:|---|---|
-| Baseline | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
-| Placement | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
-| Proportion | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
-| Signature | _/4 | <evidence → consequence → rubric anchor> | <smallest concrete change, or `None—already exemplary`> |
-| **Total** | **_/16 · _._/4** | **<band; exact sum of justified component scores>** | <weakest-gate ceiling applied> |
+| Placement | <_/4 or N/E> | <evidence → consequence → rubric anchor> | <change, `None—already exemplary`, or N/E reason> |
+| Proportion | <_/4 or N/E> | <evidence → consequence → rubric anchor> | <change, `None—already exemplary`, or N/E reason> |
+| Signature | <_/4 or N/E> | <evidence → consequence → rubric anchor> | <change, `None—already exemplary`, or N/E reason> |
+| **Total** | **<_/12 · _._/4 | N/E>** | **<band and exact sum | no total until readiness exposes all gates>** | <weakest-gate ceiling or N/E> |
 
-## The moments (Net-New, ranked by reach × memory)
-### Moment 1—<beat>, <the named feeling>
+## The moments (Net-New, up to 3, ranked by reach × memory)
+### Moment 1—<beat>, <named feeling>
 - **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence>
-- Why here: <reach × memory, one line>
+- Why here: <reach × memory and why this beat clears its ceiling>
 - Expected: <one line> · Elevated: <one line> · Net-New: <one line>
 - Constraints: <one line>
 
 ## The small things (Elevated)
-- **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence> · Beat <n>—<the craft touch, one line>
+- **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence> · Beat <n>—<craft touch>
 
 ## Issues (most severe first)
-- **[P0 · beat <n>]** **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence>. <Name>—<observation>. <what it costs>. **Fix:** <fix>.
+- **[P0–P3 · beat <n> | off-path restraint]** **At:** screen: <exact beat/touchpoint> · flow: <named path or transition> · state: <exact app state> · lifecycle: <exact occurrence>. <Name>—<observation and consequence>. **Fix:** <fix>.
 
 ## Kept Expected, on purpose
-<the beats that stay standard, and the strongest reason—load-bearing convention, every-run frequency, high stakes>
+<beats kept standard and the strongest reason—convention, frequency, stakes, already-sufficient craft>
 
 ## Next
-- **Now**: **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence> · <the first treatment to ship—or the handoff, if the floor failed>
-- **After it lands**: **At:** screen: <exact beat/touchpoint> · flow: <named happy path or transition> · state: <exact app state> · lifecycle: <exact occurrence> · <the second moment>
-- **Hand off**: **At:** screen: <exact beat/touchpoint or `not shown`> · flow: <named happy path or transition or `not shown`> · state: <exact app state or `not shown`> · lifecycle: <exact occurrence or `not shown`> · <screen structure → Focal; path or navigation → Compass; a leak → Flywheel; "None" if all of it is Soul's>
+- **Now**: **At:** screen: <exact beat/touchpoint> · flow: <named path or transition> · state: <exact app state> · lifecycle: <exact occurrence> · <first treatment—or required readiness handoff>
+- **After it lands**: **At:** screen: <exact beat/touchpoint or `not shown`> · flow: <named path or transition or `not shown`> · state: <exact app state or `not shown`> · lifecycle: <exact occurrence or `not shown`> · <next justified treatment, or `None`>
+- **Hand off**: **At:** screen: <exact beat/touchpoint or `not shown`> · flow: <named path or transition or `not shown`> · state: <exact app state or `not shown`> · lifecycle: <exact occurrence or `not shown`> · <screen structure → Focal; path/navigation → Compass; relationship leak → Flywheel; `None` if ready>
 ```
 
 Filling it:
-- **The path**—one row per beat, every beat, including the sterile ones. The Verdict column is where restraint becomes visible: most rows read Expected. A beat whose first pass differs from its steady state carries both tags—`every-run (first run: once)`—and the `once` tag is the one a Moment may spend.
-- **The moments**—repeat the Moment block for each of the 2–3 Net-New moments, ranked. The rung lines show the floor-to-target range in one line each; a full ladder belongs in a follow-up `build`.
-- **The small things**—one line per Elevated touch, only craft the beat's ceiling allows: on every-run beats that is speed, feel, anticipation, or useful variation. Write "None." if the ceilings leave nothing.
-- **Coverage**—name only states and lifecycle occurrences actually observed or walked. Use `gaps` for material variants such as first run, repeated use, re-entry, failure, recovery, or the real success trigger that were not shown.
-- **Issues and suggestions**—repeat the line once per issue, and give every issue, Moment, small thing, Next item, and handoff a complete **screen · flow · state · lifecycle** locator. Keep the `At` locator precise enough to trigger the same moment and see the same state. If nothing ranks above P3, write "None above P3." under the header and keep the header.
-- **Basis**—never claim observation you do not have. "Walked from a description" with the assumed beats named is a stronger answer than borrowed confidence.
+
+- **The path**—one row per consequential default-path beat, including Expected beats. A beat whose first pass differs from steady state carries both frequency tags.
+- **The moments**—emit zero to three. If none clears the bar, keep the header and write `None—no beat currently earns Net-New; see Kept Expected.` Never create filler to satisfy a count.
+- **The small things**—emit only craft the beat's ceiling allows. Write `None.` when no Elevated treatment is warranted.
+- **Readiness and N/E**—Deferred does not automatically erase Soul findings. Use `N/E` only when the structural failure genuinely prevents a gate from being evaluated; otherwise score observed treatment and sequence it after the handoff.
+- **Coverage and Basis**—name only states and occurrences actually observed or walked. Use `not shown` and the fastest validating check instead of awarding credit or inventing failure.
+- **Issues and suggestions**—every issue, Moment, small thing, Next item, and handoff receives a complete **Screen · Flow · State · Lifecycle** locator. If nothing ranks above P3, write `None above P3.` under Issues.

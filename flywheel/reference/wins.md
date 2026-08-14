@@ -63,7 +63,7 @@ Growth asks are upgrade, subscribe, invite, share, rate, review, connect a sourc
 1. The user has received recognizable value.
 2. The ask relates to the value just received.
 3. Accepting helps them continue or extend that value.
-4. Declining costs them nothing and creates no confusion.
+4. Declining preserves the value already earned; any foregone benefit or real consequence is explicit and noncoercive.
 5. The frequency is proportionate.
 
 The sequence is: **outcome occurs → the interface confirms what changed → the emotion is reinforced → a useful next step → then, maybe, an ask.**
@@ -88,7 +88,7 @@ The comparison that matters: users prompted **after a meaningful win** versus us
 
 - Prompting for a rating on first launch
 - Asking for invites before the product is understood
-- Putting every meaningful result behind a paywall
+- Withholding every recognizable result until after payment when the user was promised a way to evaluate value; an honest paid product may charge before use when the transaction, terms, and expected value are clear
 - Manufacturing celebration without real achievement
 - Confetti on high-risk actions before confirming safety
 - Claiming value that cannot be substantiated

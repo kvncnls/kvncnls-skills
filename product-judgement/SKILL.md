@@ -1,6 +1,6 @@
 ---
 name: product-judgement
-description: "Use when auditing an existing product, app, or feature across all four Product Judgement scales: screen structure (Focal), multi-screen journeys (Compass), relationship value and retention (Flywheel), and memorable moments (Soul). Run for a holistic app audit, cross-scale critique, or prioritized UX review using a codebase, live product, prototype, Figma/Paper frames, screenshots, or a description. Prefer a codebase because it exposes behavior, state, and lifecycle context. Do not use for a single-screen, single-flow, or single-stage review; invoke the corresponding Skill instead, or for implementation, design-system analysis, visual styling, animation implementation, research, or analytics."
+description: "Use when auditing an existing product, app, feature, or consequential flow across multiple Product Judgement scales: screen structure (Focal), multi-screen journeys (Compass), relationship value and retention (Flywheel), and memorable moments (Soul). Run for a holistic app audit, cross-scale critique, or prioritized UX review using a codebase, live product, prototype, Figma/Paper frames, screenshots, or a description. Prefer a codebase because it exposes behavior, state, and lifecycle context. Do not use when the request is clearly confined to one scale; invoke that local Skill instead. Not for implementation, design-system analysis, visual styling, animation implementation, research, or analytics."
 ---
 
 # Product Judgement
@@ -25,7 +25,7 @@ Use Product Judgement when the question is larger than one screen, one flow, one
 - decide which UX problem to fix first when several Skills identify related issues;
 - reconcile screen, journey, relationship, and memory findings into one implementation sequence.
 
-For a narrower question, invoke the local Skill directly. A single dashboard belongs to Focal; an onboarding path belongs to Compass; a first-value or retention problem belongs to Flywheel; a happy-path authorship problem belongs to Soul.
+For a question clearly confined to one scale, invoke the local Skill directly. A single dashboard belongs to Focal; a route-orientation problem belongs to Compass; a first-value or retention problem belongs to Flywheel; a happy-path authorship problem belongs to Soul. A single onboarding flow can still warrant Product Judgement when the question spans screen decisions, path integrity, first value, and memory—scope follows the decisions involved, not the number of screens.
 
 ## Evidence and context
 
@@ -67,7 +67,7 @@ Use the failure's location and consequence to assign a primary owner. Several Sk
 
 **Compass vs Flywheel.** Compass asks whether the route is understandable, economical, reversible, and stateful: *Where do I go? What is next? How do I get back?* Flywheel asks whether the effort and uncertainty on that route earn the next relationship stage: *Why should I continue? Is this too much work or exposure before value?* A hidden step, dead end, or lost state is Compass. A coherent but over-demanding setup, premature ask, or effort that delays first value is Flywheel. Use both when both conditions are present; make the path defect the primary owner when it blocks access to the stage.
 
-**Flywheel vs Soul.** Flywheel owns whether value lands, is recognized, and creates a reason to return. Soul owns how a working moment is authored, placed, and made memorable. If people do not return because they never reached or recognized value, fix Flywheel. If value lands and the path holds but the experience is anonymous, use Soul. Soul may identify motion or expressive treatment that strengthens a Flywheel win or emotion, but it must wait behind trust, comprehension, accessibility, and path integrity.
+**Flywheel vs Soul.** Flywheel owns whether value lands, is recognized, compounds, and creates a substantive reason to return. Soul owns where and how a working moment is authored and made memorable. Flywheel Emotion does not require novelty, motion, or recognizability without the logo; it asks whether re-entry restores momentum and repeated use becomes more valuable. If value lands and return is earned but the experience remains anonymous, use Soul. Soul may identify expressive treatment that strengthens a Flywheel win, but it waits behind trust, comprehension, accessibility, and path integrity.
 
 Focal has the same boundary rule: a confusing action surface is Focal; a misleading product promise or missing evidence across the relationship is Flywheel; a broken transition is Compass. Do not let a local symptom acquire the wrong owner just because it appears on a screen.
 
@@ -100,13 +100,13 @@ Do not use Compass to rescore every screen. Use Focal for local structure and Co
 
 ### 4. Run Flywheel across the relationship
 
-Load [Flywheel](../flywheel/SKILL.md) and its [review contract](../flywheel/reference/review.md). Name first value before diagnosing. Score all four plays—Trust, Friction, Wins, and Emotion—then identify the earliest leaking stage, not merely the largest downstream symptom. Preserve Flywheel's native `/16` score and diagnosis.
+Load [Flywheel](../flywheel/SKILL.md) and its [review contract](../flywheel/reference/review.md). Name first value before diagnosing. Evaluate all four plays—Trust, Friction, Wins, and Emotion—then identify the earliest evidenced leaking stage, not merely the largest downstream symptom. Preserve Flywheel's native `/16` only when all four plays are supportable; if a relationship stage is entirely unexposed, preserve `N/E—insufficient evidence`, omit the total, and make the ordering provisional.
 
 Use the Compass map as evidence for the route, but keep the question separate: Compass explains whether the user can traverse the path; Flywheel explains whether the path earns the next relationship stage.
 
 ### 5. Run Soul after checking the floor
 
-Load [Soul](../soul/SKILL.md) and its [review contract](../soul/reference/review.md). Sweep the default happy path, assign frequency and state to each beat, and preserve Soul's native `/16` score and authored-state verdict.
+Load [Soul](../soul/SKILL.md) and its [review contract](../soul/reference/review.md). Run its unscored Readiness check, sweep the default happy path, assign frequency and state to each beat, and preserve the authored-state verdict. Preserve Soul's native `/12` only when all three gates are evaluable; otherwise preserve `N/E` and do not invent a total.
 
 If Focal, Compass, or Flywheel finds a broken floor, still record the Soul findings, but sequence expressive treatment after the structural or lifecycle repair. Do not use delight to cover confusion, a maze, a trust break, or invisible value.
 
@@ -120,6 +120,8 @@ Create one issue ledger from the four native reports:
 4. Record dependencies, such as `Soul after Compass` or `Flywheel after Focal`.
 5. Preserve every local score, verdict, and component score rationale; do not average unlike totals into a false Product Judgement score.
 6. Separate observed, inferred, walked, tested, and measured claims.
+
+One condition may legitimately affect several local scores, but it still prints once in the cross-scale ledger. Secondary score rationales cite the shared condition and its primary owner instead of creating duplicate issues or duplicate fixes. For example, state loss can lower Compass Continuity and Flywheel Emotion when it damages return; Compass owns the defect, Flywheel records the relationship consequence, and the priority list contains one state-preservation change.
 
 Set the priority changes by dependency and consequence. Rank concrete implementation changes, not just findings or Skill owners:
 
@@ -152,23 +154,23 @@ Run all four local audits first, then return this wrapper. Keep the local report
 |---|---|---:|---|
 | Focal | <Clear Intent verdict> | _/12 · _._/4 | <one line> |
 | Compass | <Never Lost verdict> | _/12 · _._/4 | <one line> |
-| Flywheel | <earliest leaking stage> | _/16 · _._/4 | <one line> |
-| Soul | <authored-state verdict> | _/16 · _._/4 | <one line> |
+| Flywheel | <earliest evidenced leak | undetermined pending evidence> | <_/16 · _._/4 | N/E> | <one line> |
+| Soul | <Readiness + authored-state verdict> | <_/12 · _._/4 | N/E> | <one line> |
 
 ## Score rationale
 - **Focal <_/12>:** Information Architecture _/4 — <evidence → consequence → rubric anchor → next-point change>; Progressive Disclosure _/4 — <evidence → consequence → rubric anchor → next-point change>; Visual Hierarchy _/4 — <evidence → consequence → rubric anchor → next-point change>.
 - **Compass <_/12>:** Orientation _/4 — <evidence → consequence → rubric anchor → next-point change>; Path Economy _/4 — <evidence → consequence → rubric anchor → next-point change>; Continuity _/4 — <evidence → consequence → rubric anchor → next-point change>.
-- **Flywheel <_/16>:** Trust _/4 — <evidence → consequence → rubric anchor → next-point change>; Friction _/4 — <evidence → consequence → rubric anchor → next-point change>; Wins _/4 — <evidence → consequence → rubric anchor → next-point change>; Emotion _/4 — <evidence → consequence → rubric anchor → next-point change>.
-- **Soul <_/16>:** Baseline _/4 — <evidence → consequence → rubric anchor → next-point change>; Placement _/4 — <evidence → consequence → rubric anchor → next-point change>; Proportion _/4 — <evidence → consequence → rubric anchor → next-point change>; Signature _/4 — <evidence → consequence → rubric anchor → next-point change>.
+- **Flywheel <_/16 or N/E>:** Trust <_/4 or N/E> — <evidence → consequence → rubric anchor → next-point change, or N/E reason>; Friction <_/4 or N/E> — <evidence → consequence → rubric anchor → next-point change, or N/E reason>; Wins <_/4 or N/E> — <evidence → consequence → rubric anchor → next-point change, or N/E reason>; Emotion <_/4 or N/E> — <evidence → consequence → rubric anchor → next-point change, or N/E reason>.
+- **Soul <_/12 or N/E> · Readiness <Ready | Deferred>:** Placement <_/4 or N/E> — <evidence → consequence → rubric anchor → next-point change>; Proportion <_/4 or N/E> — <evidence → consequence → rubric anchor → next-point change>; Signature <_/4 or N/E> — <evidence → consequence → rubric anchor → next-point change>.
 
 ## Cross-scale findings
 - **[P0–P3 · <Focal | Compass | Flywheel | Soul>]** **At:** screen: <exact screen/region/touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. <Name>—<observation and cost>. **Fix:** <specific change>. **Depends on:** <owner or "none">.
 
-## Priority changes
+## Priority changes (up to 4)
 1. **Priority 1 · <P0–P3> · Now — <primary owner and stage>** · **At:** screen: <exact screen/region/touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the concrete implementation change>. **Why now:** <the consequence and upstream reason>. **Depends on:** <owner or "none">.
 2. **Priority 2 · <P0–P3> · Next — <primary owner>** · **At:** screen: <exact screen/region/touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the change unlocked by Now>. **Why now:** <the consequence and dependency>. **Depends on:** <owner or "none">.
 3. **Priority 3 · <P0–P3> · Then — <primary owner>** · **At:** screen: <exact screen/region/touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the change that makes value, return, or comprehension stronger>. **Why now:** <the consequence and dependency>. **Depends on:** <owner or "none">.
-4. **Priority 4 · <P0–P3> · After the floor holds — Soul** · **At:** screen: <exact screen/region/touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <the one or two moments worth authoring, or "None yet."> **Why now:** <why expressive treatment is ready—or not ready>. **Depends on:** <owner or "none">.
+4. **Priority 4 · <P0–P3> · Later — <primary owner>** · **At:** screen: <exact screen/region/touchpoint> · flow: <named flow or transition> · state: <exact app state> · lifecycle: <exact lifecycle moment>. **Change:** <a fourth warranted change>. **Why now:** <why it belongs after the earlier work>. **Depends on:** <owner or "none">.
 
 ## Handoffs and validation
 - **Focal:** **At:** screen: <exact screen/region or `not shown`> · flow: <named flow or `not shown`> · state: <exact state or `not shown`> · lifecycle: <exact moment or `not shown`> · <screen(s) to review or rebuild>.
@@ -179,6 +181,8 @@ Run all four local audits first, then return this wrapper. Keep the local report
 ```
 
 Never emit a vague location such as `the onboarding` or `the dashboard` when **Screen, Flow, State, and Lifecycle** can be named. If the evidence cannot support that precision, say `not shown` for the missing field and name what would expose it.
+
+Emit one to four Priority changes, only when each is a concrete warranted change. Do not reserve a slot for Soul or invent filler to reach four. If Soul Readiness is Deferred, record the dependency in Handoffs rather than manufacturing an expressive priority.
 
 ## Routing
 

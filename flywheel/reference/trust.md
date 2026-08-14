@@ -17,7 +17,7 @@ The user recognizes the problem, the audience, or the outcome.
 ### 2. Comprehension—"what is this and what do I do?"
 The user understands the mechanism and the next step.
 
-- **Test:** one dominant message per viewport or state, and exactly one primary action. Count the competing calls to action; more than one means the screen has not decided.
+- **Test:** one dominant relationship message per viewport or state, and a clear next commitment with its consequence. A genuine binary choice or several ranked hub routes can be correct. If local visual competition obscures the next commitment, hand that screen to Focal; score Trust only when the competition disrupts relevance, comprehension, or safe agency at this stage.
 - Concrete beats abstract. Product visuals that explain beat visuals that decorate. Labels in the user's language beat internal names.
 
 ### 3. Credibility—"is this promise supported?"
@@ -29,7 +29,7 @@ Evidence proportional to the claim. A large promise requires strong proof.
 ### 4. Craft—"is this maintained and intentional?"
 Coherence signals that someone is paying attention, which is the only proxy a new user has for whether the product works.
 
-- Consistent type, deliberate spacing, real alignment, coherent color, components that behave the same way twice.
+- Consistent behavior and a maintained visual baseline can support credibility, but Flywheel does not grade typography, spacing, or component-system quality. Use those as trust evidence and hand visual execution to the relevant craft or design-system review.
 - **Craft is not a substitute for truth.** Its job is to make the product's actual quality legible. Premium styling over an unclear proposition is the most expensive way to fail this play.
 
 ### 5. Safety and control—"what happens if I act?"
@@ -82,6 +82,6 @@ Qualified landing continuation, primary-CTA click-through, signup start, invite 
 - Decorative security badges with nothing behind them
 - Interface imagery that misrepresents the real product
 - A polished landing page in front of a neglected product
-- Multiple primary actions with no priority
+- Competing commitments that make the relationship consequence unclear
 - Hidden pricing, fees, permissions, or consequences
 - Motion that delays comprehension
